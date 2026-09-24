@@ -1,0 +1,7 @@
+{
+  "name": "@aegis/shared",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "types/index.ts",
+  "private": true
+}

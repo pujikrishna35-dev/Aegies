@@ -1,0 +1,2 @@
+// Component group: universities
+export {};

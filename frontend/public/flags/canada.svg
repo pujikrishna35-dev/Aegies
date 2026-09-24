@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="60" height="30">
+  <rect width="15" height="30" fill="#FF0000"/>
+  <rect x="15" width="30" height="30" fill="#FFFFFF"/>
+  <rect x="45" width="15" height="30" fill="#FF0000"/>
+  <!-- Stylized Maple Leaf -->
+  <g fill="#FF0000" transform="translate(30, 15) scale(0.7)">
+    <path d="M0,10 L1,4 L4,7 L5,5 L11,9 L10,3 L15,1 L14,-2 L9,-2 L12,-7 L9,-7 L7,-5 L8,-12 L4,-10 L3,-14 L0,-11 L-3,-14 L-4,-10 L-8,-12 L-7,-5 L-9,-7 L-12,-7 L-9,-2 L-14,-2 L-15,1 L-10,3 L-11,9 L-5,5 L-4,7 L-1,4 Z"/>
+    <rect x="-0.7" y="6" width="1.4" height="7" fill="#FF0000"/>
+  </g>
+</svg>

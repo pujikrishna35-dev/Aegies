@@ -1,0 +1,2 @@
+// Component group: blog
+export {};

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <defs>
+    <linearGradient id="goldGradWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDF0CD" />
+      <stop offset="50%" stop-color="#E5C378" />
+      <stop offset="100%" stop-color="#B88E3E" />
+    </linearGradient>
+  </defs>
+
+  <!-- Crest Emblem -->
+  <g transform="translate(10, 10)">
+    <circle cx="30" cy="30" r="28" fill="#8A1538" stroke="url(#goldGradWhite)" stroke-width="2.5" />
+    <path d="M 30 14 L 44 44 L 30 38 L 16 44 Z" fill="url(#goldGradWhite)" />
+    <circle cx="30" cy="30" r="3" fill="#FFFFFF" />
+  </g>
+
+  <!-- Typography -->
+  <text x="80" y="42" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="800" fill="#FFFFFF" letter-spacing="1">
+    AEGIS <tspan fill="#E5C378">OVERSEAS</tspan>
+  </text>
+  <text x="82" y="60" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#FDF0CD" letter-spacing="3.5">
+    EDUCATION SERVICES
+  </text>
+</svg>

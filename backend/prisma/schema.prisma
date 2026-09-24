@@ -1,0 +1,378 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  COUNSELLOR
+  CONTENT_MANAGER
+  DOCUMENT_MANAGER
+  STUDENT
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  FOLLOW_UP
+  COUNSELLING
+  APPLICATION
+  CONVERTED
+  LOST
+}
+
+enum ApplicationStage {
+  COUNSELLING
+  UNIVERSITY_SELECTED
+  DOCUMENTS_COLLECTED
+  APPLICATION_SUBMITTED
+  OFFER_LETTER
+  VISA
+  PRE_DEPARTURE
+  COMPLETED
+}
+
+enum ConsultationStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+enum DocumentCategory {
+  PASSPORT
+  ACADEMIC
+  FINANCIAL
+  TEST_SCORE
+  VISA
+  OTHER
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(STUDENT)
+  phone     String?
+  avatar    String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  studentProfile        StudentProfile?
+  assignedLeads         Lead[]          @relation("CounselorLeads")
+  assignedConsultations Consultation[]  @relation("CounselorConsultations")
+  uploadedDocuments     Document[]      @relation("UserDocuments")
+  auditLogs             AuditLog[]      @relation("UserAuditLogs")
+  blogPosts             BlogPost[]      @relation("AuthorPosts")
+}
+
+model Lead {
+  id               String     @id @default(uuid())
+  name             String
+  email            String
+  phone            String
+  city             String?
+  preferredCountry String?
+  preferredCourse  String?
+  intakeYear       Int?
+  status           LeadStatus @default(NEW)
+  source           String?    @default("website")
+  notes            String?
+  followUpDate     DateTime?
+  counselorId      String?
+  counselor        User?      @relation("CounselorLeads", fields: [counselorId], references: [id])
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+}
+
+model StudentProfile {
+  id             String        @id @default(uuid())
+  userId         String        @unique
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dateOfBirth    DateTime?
+  highestEdu     String?
+  cgpaPercentage Float?
+  ieltsScore     Float?
+  toeflScore     Int?
+  greScore       Int?
+  passportNumber String?
+  applications   Application[]
+  documents      Document[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model Destination {
+  id             String       @id @default(uuid())
+  name           String
+  code           String       @unique
+  slug           String       @unique
+  currency       String
+  overview       String?
+  heroImage      String?
+  whyStudyHere   String?
+  tuitionInfo    String?
+  intakesInfo    String?
+  visaInfo       String?
+  popularCourses String[]
+  faqs           Json?
+  seoTitle       String?
+  seoDescription String?
+  universities   University[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model University {
+  id             String        @id @default(uuid())
+  name           String
+  slug           String        @unique
+  destinationId  String
+  destination    Destination   @relation(fields: [destinationId], references: [id])
+  city           String
+  ranking        Int?
+  tuitionRange   String?
+  logoUrl        String?
+  bannerUrl      String?
+  description    String?
+  website        String?
+  programs       String[]
+  intakes        String[]
+  requirements   String?
+  status         String        @default("ACTIVE")
+  seoTitle       String?
+  seoDescription String?
+  courses        Course[]
+  applications   Application[]
+  scholarships   Scholarship[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model Course {
+  id           String        @id @default(uuid())
+  name         String
+  universityId String
+  university   University    @relation(fields: [universityId], references: [id])
+  level        String
+  category     String
+  duration     String
+  tuitionFee   String?
+  intakes      String[]
+  description  String?
+  eligibility  String?
+  careers      String?
+  status       String        @default("ACTIVE")
+  applications Application[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Application {
+  id             String           @id @default(uuid())
+  studentId      String
+  student        StudentProfile   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  universityId   String
+  university     University       @relation(fields: [universityId], references: [id])
+  courseId       String
+  course         Course           @relation(fields: [courseId], references: [id])
+  stage          ApplicationStage @default(COUNSELLING)
+  submissionDate DateTime?
+  notes          String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+model Document {
+  id          String           @id @default(uuid())
+  studentId   String
+  student     StudentProfile   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  title       String
+  category    DocumentCategory @default(OTHER)
+  fileUrl     String
+  fileSize    String?
+  status      String           @default("PENDING") // PENDING, VERIFIED, REJECTED
+  notes       String?
+  uploadedById String?
+  uploadedBy  User?            @relation("UserDocuments", fields: [uploadedById], references: [id])
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
+
+model Consultation {
+  id              String             @id @default(uuid())
+  fullName        String
+  email           String
+  phone           String
+  destination     String
+  studyLevel      String
+  fieldOfStudy    String?
+  preferredOffice String?            @default("Nellore")
+  budgetRange     String?
+  message         String?
+  status          ConsultationStatus @default(PENDING)
+  scheduledDate   DateTime?
+  scheduledTime   String?
+  counsellorId    String?
+  counsellor      User?              @relation("CounselorConsultations", fields: [counsellorId], references: [id])
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+}
+
+model Scholarship {
+  id             String      @id @default(uuid())
+  name           String
+  universityId   String?
+  university     University? @relation(fields: [universityId], references: [id])
+  country        String
+  amount         String
+  eligibility    String
+  deadline       DateTime?
+  description    String?
+  applicationUrl String?
+  featured       Boolean     @default(false)
+  status         String      @default("ACTIVE")
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
+model Service {
+  id          String   @id @default(uuid())
+  title       String
+  slug        String   @unique
+  summary     String
+  description String
+  icon        String?
+  featured    Boolean  @default(false)
+  status      String   @default("ACTIVE")
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model TestPreparation {
+  id          String   @id @default(uuid())
+  title       String
+  slug        String   @unique
+  examType    String   // IELTS, TOEFL, GRE, GMAT, PTE, SAT
+  description String
+  duration    String
+  fee         String?
+  syllabus    String[]
+  status      String   @default("ACTIVE")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id          String   @id @default(uuid())
+  studentName String
+  photoUrl    String?
+  course      String
+  university  String
+  country     String
+  testimonial String
+  rating      Int      @default(5)
+  featured    Boolean  @default(false)
+  status      String   @default("PUBLISHED")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model StudentStory {
+  id          String   @id @default(uuid())
+  studentName String
+  photoUrl    String?
+  country     String
+  university  String
+  course      String
+  story       String
+  galleryUrls String[]
+  videoUrl    String?
+  featured    Boolean  @default(false)
+  status      String   @default("PUBLISHED")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model BlogPost {
+  id             String    @id @default(uuid())
+  title          String
+  slug           String    @unique
+  excerpt        String?
+  content        String
+  coverImage     String?
+  authorId       String?
+  author         User?     @relation("AuthorPosts", fields: [authorId], references: [id])
+  category       String
+  tags           String[]
+  isPublished    Boolean   @default(false)
+  publishedAt    DateTime?
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Enquiry {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  phone     String
+  subject   String?
+  message   String
+  status    String   @default("UNREAD") // UNREAD, IN_PROGRESS, RESOLVED
+  source    String?  @default("contact_form")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MediaItem {
+  id           String   @id @default(uuid())
+  filename     String
+  fileUrl      String
+  mimeType     String
+  size         String
+  altText      String?
+  uploadedById String?
+  createdAt    DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String?
+  title     String
+  message   String
+  type      String   @default("INFO") // INFO, WARNING, SUCCESS, ALERT
+  link      String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation("UserAuditLogs", fields: [userId], references: [id])
+  action    String
+  entity    String
+  entityId  String?
+  details   String?
+  ipAddress String?
+  createdAt DateTime @default(now())
+}
+
+model WebsiteSetting {
+  id          String   @id @default(uuid())
+  key         String   @unique
+  value       String
+  category    String   @default("GENERAL") // GENERAL, HERO, STATS, CONTACT, CMS
+  description String?
+  updatedAt   DateTime @updatedAt
+}

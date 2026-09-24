@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:16-alpine
+    container_name: aegis_db
+    environment:
+      POSTGRES_USER: aegis_user
+      POSTGRES_PASSWORD: aegis_secret
+      POSTGRES_DB: aegis_overseas
+    ports:
+      - "5432:5432"
+    volumes:
+      - aegis_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: aegis_backend
+    environment:
+      DATABASE_URL: "postgresql://aegis_user:aegis_secret@database:5432/aegis_overseas?schema=public"
+      PORT: 5000
+    ports:
+      - "5000:5000"
+    depends_on:
+      - database
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: aegis_frontend
+    environment:
+      NEXT_PUBLIC_API_URL: "http://localhost:5000/api"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  admin:
+    build:
+      context: .
+      dockerfile: admin/Dockerfile
+    container_name: aegis_admin
+    environment:
+      NEXT_PUBLIC_API_URL: "http://localhost:5000/api"
+    ports:
+      - "3001:3001"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  aegis_pgdata:

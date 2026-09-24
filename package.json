@@ -1,0 +1,31 @@
+{
+  "name": "aegis-overseas-platform",
+  "version": "1.0.0",
+  "description": "Premium International Education Consultancy Platform for Aegis Overseas",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "admin",
+    "backend",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=frontend",
+    "dev:all": "npm run dev --workspaces",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:admin": "npm run dev --workspace=admin",
+    "dev:backend": "npm run dev --workspace=backend",
+    "build": "npm run build --workspace=frontend",
+    "build:all": "npm run build --workspaces",
+    "start": "npm run start --workspace=frontend"
+  },
+  "keywords": [
+    "study-abroad",
+    "education-consultancy",
+    "aegis-overseas",
+    "nextjs",
+    "react"
+  ],
+  "author": "Aegis Overseas Education Services",
+  "license": "UNLICENSED"
+}
