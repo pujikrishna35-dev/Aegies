@@ -67,7 +67,7 @@ export const CoursesSection: React.FC = () => {
                 {/* Student Photo */}
                 <div className="w-28 sm:w-32 h-48 rounded-xl overflow-hidden shadow-sm flex-shrink-0 bg-slate-200">
                   <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop"
+                    src="/images/home/courses-student.png"
                     alt="International Student"
                     className="w-full h-full object-cover"
                   />
@@ -115,7 +115,7 @@ export const CoursesSection: React.FC = () => {
                 {/* Coins / Cap Image */}
                 <div className="w-28 sm:w-32 h-44 rounded-xl overflow-hidden shadow-sm flex-shrink-0 bg-slate-200">
                   <img
-                    src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?q=80&w=300&auto=format&fit=crop"
+                    src="/images/home/scholarships-counselling.png"
                     alt="Scholarships and Funding"
                     className="w-full h-full object-cover"
                   />

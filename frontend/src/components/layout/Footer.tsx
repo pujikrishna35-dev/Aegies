@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube, Lock } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -86,15 +86,6 @@ export const Footer: React.FC = () => {
               <li><Link to="/privacy" className="hover:text-[#071228]">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-[#071228]">Terms</Link></li>
               <li><Link to="/cookies" className="hover:text-[#071228]">Cookie Policy</Link></li>
-              <li>
-                <Link
-                  to="/admin/login"
-                  className="hover:text-[#071228] inline-flex items-center gap-1.5 text-amber-700 font-semibold pt-1 transition-colors"
-                >
-                  <Lock className="w-3 h-3 text-amber-600" />
-                  <span>Admin Login</span>
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -136,15 +127,6 @@ export const Footer: React.FC = () => {
           <div>© 2026 Aegis Overseas. All Rights Reserved.</div>
           <div className="flex items-center gap-3">
             <span className="font-semibold text-slate-700">Study Abroad. Build Your Future.</span>
-            <span className="text-slate-300">|</span>
-            <Link
-              to="/admin/login"
-              className="inline-flex items-center gap-1 text-[11px] text-slate-400 hover:text-amber-700 font-medium transition-colors"
-              title="Authorized Aegis Staff & Admin Portal"
-            >
-              <Lock className="w-3 h-3 text-amber-600" />
-              <span>Admin Portal</span>
-            </Link>
           </div>
         </div>
       </div>

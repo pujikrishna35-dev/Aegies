@@ -28,7 +28,12 @@ export const StudentStories: React.FC = () => {
     return STUDENT_STORIES.filter((story) => {
       // Country filter
       if (selectedCountry !== 'all') {
-        if (!story.country.toLowerCase().includes(selectedCountry.toLowerCase())) {
+        const c = story.country.toLowerCase();
+        const sel = selectedCountry.toLowerCase();
+        const match = sel === 'uk' ? (c.includes('uk') || c.includes('united kingdom')) :
+                      sel === 'usa' ? (c.includes('usa') || c.includes('united states') || c.includes('america')) :
+                      c.includes(sel);
+        if (!match) {
           return false;
         }
       }

@@ -106,11 +106,10 @@ export const Navbar: React.FC = () => {
       <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 pt-2 sm:pt-2.5 pointer-events-none">
         {/* Floating Frosted Pill Bar */}
         <div
-          className={`w-[94%] max-w-[1240px] mx-auto rounded-xl sm:rounded-2xl pointer-events-auto transition-all duration-300 border ${
-            scrolled
+          className={`w-[94%] max-w-[1240px] mx-auto rounded-xl sm:rounded-2xl pointer-events-auto transition-all duration-300 border ${scrolled
               ? 'bg-white/85 backdrop-blur-xl border-white/80 shadow-[0_8px_24px_rgba(7,18,40,0.1)] py-1.5 px-4 sm:px-6'
               : 'bg-white/70 backdrop-blur-xl border-white/60 shadow-[0_6px_20px_rgba(7,18,40,0.06)] py-1.5 sm:py-2 px-4 sm:px-6'
-          } flex items-center justify-between gap-3`}
+            } flex items-center justify-between gap-3`}
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group shrink-0 py-0.5">
@@ -139,9 +138,8 @@ export const Navbar: React.FC = () => {
                 <div key={item.label} className="relative group py-1">
                   <Link
                     to={item.href}
-                    className={`text-[11px] xl:text-[12px] font-semibold transition-colors flex items-center gap-0.5 hover:text-[#071228] whitespace-nowrap shrink-0 relative ${
-                      active ? 'text-[#071228]' : 'text-neutral-700'
-                    }`}
+                    className={`text-[11px] xl:text-[12px] font-semibold transition-colors flex items-center gap-0.5 hover:text-[#071228] whitespace-nowrap shrink-0 relative ${active ? 'text-[#071228]' : 'text-neutral-700'
+                      }`}
                   >
                     <span>{item.label}</span>
                     {hasDropdown && (
@@ -173,8 +171,16 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Symmetrical Balance Spacer on Desktop */}
-          <div className="hidden lg:block lg:w-[175px] shrink-0 pointer-events-none" aria-hidden="true" />
+          {/* Desktop Book Free Consultation Button at End of Navbar */}
+          <div className="hidden lg:flex items-center shrink-0">
+            <button
+              onClick={() => setConsultationOpen(true)}
+              className="inline-flex items-center gap-1.5 px-3.5 xl:px-4 py-1.5 xl:py-2 rounded-full text-[11px] xl:text-[11.5px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-[#F0CA65] via-[#E5B842] to-[#D4A03A] text-[#071228] shadow-sm hover:shadow-md hover:brightness-105 hover:-translate-y-0.5 active:scale-95 transition-all whitespace-nowrap cursor-pointer"
+            >
+              <span>Book Free Consultation</span>
+              <ArrowRight className="w-3 h-3 xl:w-3.5 xl:h-3.5 stroke-[2.5]" />
+            </button>
+          </div>
 
           {/* Mobile Hamburger */}
           <button
@@ -205,9 +211,8 @@ export const Navbar: React.FC = () => {
                       className="p-1 text-neutral-400 hover:text-neutral-700"
                     >
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform ${
-                          mobileDropdown === item.label ? 'rotate-180' : ''
-                        }`}
+                        className={`w-4 h-4 transition-transform ${mobileDropdown === item.label ? 'rotate-180' : ''
+                          }`}
                       />
                     </button>
                   )}
