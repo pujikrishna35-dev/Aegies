@@ -81,16 +81,16 @@ export const UniversityDetails: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-[#071228] min-h-[320px] sm:min-h-[380px] flex flex-col justify-end p-6 sm:p-10">
           <img
-            src={university.coverImage || 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200&auto=format&fit=crop'}
+            src={university.coverImage || '/images/universities/toronto-campus.jpg'}
             alt={university.name}
-            className="absolute inset-0 w-full h-full object-cover opacity-35"
+            className="absolute inset-0 w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071228] via-[#071228]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071228]/90 via-[#071228]/30 to-transparent" />
 
           {/* Banner Content */}
           <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="flex items-start sm:items-center gap-4">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-slate-200 p-2 overflow-hidden shrink-0 shadow-lg flex items-center justify-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-slate-200 p-1.5 overflow-hidden shrink-0 shadow-lg flex items-center justify-center">
                 {university.logo ? (
                   <img src={university.logo} alt={university.name} className="w-full h-full object-cover rounded-xl" />
                 ) : (

@@ -22,9 +22,21 @@ export const Universities: React.FC = () => {
   }, []);
 
   const filtered = programs.filter((p) => {
-    const matchesCountry =
-      selectedCountry === 'ALL' ||
-      p.university.country.toLowerCase().includes(selectedCountry.toLowerCase());
+    const country = (p.university.country || '').toLowerCase();
+    const destCode = (p.university.destinationCode || '').toLowerCase();
+    const sel = selectedCountry.toLowerCase();
+
+    let matchesCountry = selectedCountry === 'ALL';
+    if (!matchesCountry) {
+      if (sel === 'uk') {
+        matchesCountry = country.includes('uk') || country.includes('united kingdom') || destCode === 'uk';
+      } else if (sel === 'usa') {
+        matchesCountry = country.includes('usa') || country.includes('united states') || country.includes('america') || destCode === 'usa';
+      } else {
+        matchesCountry = country.includes(sel) || destCode === sel;
+      }
+    }
+
     const matchesSearch =
       p.university.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       p.program.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||

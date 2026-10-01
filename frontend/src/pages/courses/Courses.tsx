@@ -73,7 +73,13 @@ export const Courses: React.FC = () => {
 
       // Country
       const matchesCountry = selectedCountry === 'ALL' || 
-        course.destinations.some(d => d.country.toLowerCase().includes(selectedCountry.toLowerCase()));
+        course.destinations.some(d => {
+          const c = d.country.toLowerCase();
+          const sel = selectedCountry.toLowerCase();
+          if (sel === 'uk') return c.includes('uk') || c.includes('united kingdom');
+          if (sel === 'usa') return c.includes('usa') || c.includes('united states') || c.includes('america');
+          return c.includes(sel);
+        });
 
       return matchesSearch && matchesCat && matchesLevel && matchesStem && matchesCountry;
     });

@@ -337,8 +337,8 @@ const FALLBACK_PROGRAMS: UniversityProgramRecord[] = [
     universityId: 'uni-toronto',
     universityName: 'University of Toronto',
     universitySlug: 'university-of-toronto',
-    logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=200&auto=format&fit=crop',
-    coverImage: 'https://images.unsplash.com/photo-1568792923760-d70635a89fa8?q=80&w=800&auto=format&fit=crop',
+    logo: '/images/universities/toronto-logo.png',
+    coverImage: '/images/universities/toronto-campus.jpg',
     country: 'Canada',
     city: 'Toronto, Ontario',
     destinationCode: 'CANADA',
@@ -741,6 +741,7 @@ function calculateClientSideMatches(
         coverImage: program.coverImage,
         country: program.country,
         city: program.city,
+        destinationCode: program.destinationCode,
         ranking: program.ranking,
         website: program.website,
         description: program.description,
@@ -806,67 +807,78 @@ function calculateClientSideMatches(
 
 export const matcherService = {
   getConfig: async (): Promise<MatcherConfigResponse> => {
-    try {
-      const res = await fetch(`${API_BASE_URL}/university-matcher/config`);
-      if (res.ok) {
-        return await res.json();
+    if (API_BASE_URL) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/university-matcher/config`);
+        if (res.ok) {
+          return await res.json();
+        }
+      } catch {
+        // Fallback
       }
-    } catch {
-      // Fallback
     }
     return FALLBACK_CONFIG;
   },
 
   getWeights: async (): Promise<MatchWeights> => {
-    try {
-      const res = await fetch(`${API_BASE_URL}/university-matcher/weights`);
-      if (res.ok) {
-        const json = await res.json();
-        return json.weights;
+    if (API_BASE_URL) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/university-matcher/weights`);
+        if (res.ok) {
+          const json = await res.json();
+          return json.weights;
+        }
+      } catch {
+        // Fallback
       }
-    } catch {
-      // Fallback
     }
     return FALLBACK_CONFIG.defaultWeights;
   },
 
   updateWeights: async (weights: MatchWeights): Promise<{ success: boolean; weights: MatchWeights }> => {
-    const res = await fetch(`${API_BASE_URL}/university-matcher/weights`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(weights),
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.message || 'Failed to update weights');
+    if (API_BASE_URL) {
+      const res = await fetch(`${API_BASE_URL}/university-matcher/weights`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(weights),
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.message || 'Failed to update weights');
+      }
+      return await res.json();
     }
-    return await res.json();
+    return { success: true, weights };
   },
 
   search: async (params: MatcherSearchParams): Promise<MatcherSearchResponse> => {
-    try {
-      const res = await fetch(`${API_BASE_URL}/university-matcher/search`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(params),
-      });
-      if (res.ok) {
-        return await res.json();
+    if (API_BASE_URL) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/university-matcher/search`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(params),
+        });
+        if (res.ok) {
+          return await res.json();
+        }
+      } catch {
+        // Fallback
       }
-    } catch {
-      // Fallback
     }
     return calculateClientSideMatches(params);
   },
 
   getUniversityBySlug: async (slug: string) => {
-    try {
-      const res = await fetch(`${API_BASE_URL}/university-matcher/university/${slug}`);
-      if (res.ok) {
-        return await res.json();
+    if (API_BASE_URL) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/university-matcher/university/${slug}`);
+        if (res.ok) {
+          return await res.json();
+        }
+      } catch {
+        // Fallback
       }
-    } catch {
-      // Fallback
     }
     const clean = slug.toLowerCase().replace(/[^a-z0-9]/g, '-');
     const match = FALLBACK_PROGRAMS.find((p) => p.universitySlug === clean || p.universityId === clean) || FALLBACK_PROGRAMS[0];

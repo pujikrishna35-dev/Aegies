@@ -55,6 +55,7 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -77,8 +78,13 @@ body {
 
 /* Button Shimmer */
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .btn-shimmer {
@@ -103,6 +109,7 @@ body {
   0% {
     transform: translate3d(102vw, 410px, 0);
   }
+
   100% {
     transform: translate3d(calc(20vw - 120px), -150px, 0);
   }
@@ -115,36 +122,48 @@ body {
 
 /* Floating Screen Animations for Arched Destination Badges */
 @keyframes float-badge-1 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
+
   50% {
     transform: translate3d(0, -9px, 0);
   }
 }
 
 @keyframes float-badge-2 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
+
   50% {
     transform: translate3d(0, -7px, 0);
   }
 }
 
 @keyframes float-badge-3 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
+
   50% {
     transform: translate3d(0, -10px, 0);
   }
 }
 
 @keyframes float-badge-4 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
+
   50% {
     transform: translate3d(0, -8px, 0);
   }
@@ -172,10 +191,12 @@ body {
     transform: scale(0.95);
     opacity: 0.8;
   }
+
   50% {
     transform: scale(1.4);
     opacity: 0.35;
   }
+
   100% {
     transform: scale(1.85);
     opacity: 0;
@@ -187,10 +208,12 @@ body {
     transform: scale(0.95);
     opacity: 0.6;
   }
+
   50% {
     transform: scale(1.6);
     opacity: 0.2;
   }
+
   100% {
     transform: scale(2.15);
     opacity: 0;
@@ -198,10 +221,13 @@ body {
 }
 
 @keyframes whatsapp-pulse-cycle {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
   }
+
   50% {
     transform: scale(1.06);
     box-shadow: 0 10px 32px rgba(37, 211, 102, 0.7);
@@ -219,4 +245,3 @@ body {
 .animate-whatsapp-pulse {
   animation: whatsapp-pulse-cycle 2.8s ease-in-out infinite;
 }
-

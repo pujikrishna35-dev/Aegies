@@ -19,38 +19,39 @@ export const WhyAegis: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-white border-b border-slate-100">
+    <section className="py-14 sm:py-16 bg-[#FDFBF7] border-b border-neutral-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
-          <div>
-            <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
-              WHY AEGIS
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-[#071228] tracking-tight">
-              MORE THAN OVERSEAS EDUCATION. <br />
+        <div className="mb-8 sm:mb-10">
+          <span className="text-[11px] sm:text-xs font-extrabold text-[#C5A059] uppercase tracking-[0.25em] block mb-2">
+            WHY AEGIS
+          </span>
+          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-display font-black text-[#071228] tracking-tight leading-[1.15]">
+              MORE THAN OVERSEAS EDUCATION.<br />
               WE BUILD GLOBAL FUTURES.
             </h2>
-          </div>
-          <div className="mt-2 md:mt-0 text-xs sm:text-sm text-slate-500 font-normal">
-            Comprehensive support at every step.
+            <div className="hidden md:block w-[1.5px] h-11 bg-[#C5A059] self-center shrink-0" />
+            <p className="text-xs sm:text-sm text-neutral-500 font-medium leading-snug">
+              Comprehensive support<br className="hidden sm:inline" /> at every step.
+            </p>
           </div>
         </div>
 
-        {/* 9 Square Feature Icons */}
-        <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-3 sm:gap-4">
+        {/* 9 Feature Tiles in a Single Row on Desktop */}
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-2.5 sm:gap-3">
           {services.map((item, idx) => {
             const Icon = item.icon;
             return (
               <Link
                 key={idx}
                 to={item.link}
-                className="group flex flex-col items-center text-center p-3 sm:p-4 rounded-xl border border-slate-200/90 bg-[#FDFBF7] hover:bg-white hover:border-[#C5A059] hover:shadow-md transition-all duration-200"
+                className="group flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-2xl border border-neutral-200/80 bg-white hover:border-[#C5A059] hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 min-h-[114px] sm:min-h-[122px]"
               >
-                <div className="w-12 h-12 rounded-xl bg-white border border-[#C5A059]/40 flex items-center justify-center text-[#C5A059] group-hover:scale-110 group-hover:bg-[#C5A059] group-hover:text-white transition-all shadow-2xs mb-2.5">
-                  <Icon className="w-5 h-5" />
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl border border-amber-300/80 bg-white flex items-center justify-center text-[#C5A059] group-hover:scale-105 group-hover:bg-[#C5A059] group-hover:text-white transition-all shadow-2xs mb-2.5 shrink-0">
+                  <Icon className="w-5 h-5 stroke-[1.75]" />
                 </div>
-                <span className="text-[11px] font-bold text-slate-800 group-hover:text-[#071228] leading-snug">
+                <span className="text-[11px] sm:text-xs font-bold text-[#071228] leading-tight">
                   {item.title}
                 </span>
               </Link>
