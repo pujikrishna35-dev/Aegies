@@ -106,9 +106,9 @@ export const Navbar: React.FC = () => {
       <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 pt-2 sm:pt-2.5 pointer-events-none">
         {/* Floating Frosted Pill Bar */}
         <div
-          className={`w-[94%] max-w-[1240px] mx-auto rounded-xl sm:rounded-2xl pointer-events-auto transition-all duration-300 border ${scrolled
-              ? 'bg-white/85 backdrop-blur-xl border-white/80 shadow-[0_8px_24px_rgba(7,18,40,0.1)] py-1.5 px-4 sm:px-6'
-              : 'bg-white/70 backdrop-blur-xl border-white/60 shadow-[0_6px_20px_rgba(7,18,40,0.06)] py-1.5 sm:py-2 px-4 sm:px-6'
+          className={`w-[94%] max-w-[1240px] mx-auto rounded-full pointer-events-auto transition-all duration-300 border ${scrolled
+              ? 'bg-white/95 backdrop-blur-xl border-slate-200/90 shadow-[0_8px_24px_rgba(7,18,40,0.1)] py-1.5 px-4 sm:px-6'
+              : 'bg-white/90 backdrop-blur-xl border-slate-200/70 shadow-[0_6px_20px_rgba(7,18,40,0.06)] py-1.5 sm:py-2 px-4 sm:px-6'
             } flex items-center justify-between gap-3`}
         >
           {/* Logo */}

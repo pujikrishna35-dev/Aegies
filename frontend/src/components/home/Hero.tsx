@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal } from '@/components/ui/Modal';
 import { ConsultationForm } from '@/components/forms/ConsultationForm';
-import { ArrowRight, ShieldCheck, GraduationCap, Star } from 'lucide-react';
+import { ArrowRight, ShieldCheck, GraduationCap, Star, Award } from 'lucide-react';
 
 interface HeroProps {
   showAirplane?: boolean;
@@ -79,100 +79,104 @@ export const Hero: React.FC<HeroProps> = () => {
   ];
 
   return (
-    <section className="relative bg-[#071228] text-white overflow-hidden pt-24 sm:pt-28 pb-16 sm:pb-24">
+    <section className="relative bg-white text-slate-900 overflow-hidden pt-24 sm:pt-28 pb-16 sm:pb-24">
       {/* Background Graphic & Landmark Montage */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Skyline / Landmark Montage */}
         <img
           src="/images/hero/hero-panorama.png"
           alt="Aegis Overseas World Education"
-          className="w-full h-full object-cover object-center opacity-95"
-          style={{ objectPosition: 'center center' }}
+          className="w-full h-full object-cover object-[38%_top] sm:object-center"
         />
-        {/* Soft, harmonious atmospheric gradient across left to preserve landmark brilliance */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071228]/85 via-[#071228]/40 to-transparent w-full md:w-3/5" />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071228] to-transparent" />
+        {/* Soft daylight ambient wash: directional top-to-bottom on mobile (75-80% text, 35% middle, 0-10% image) and left-to-right on desktop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 from-15% via-white/35 via-50% to-transparent to-90% md:bg-gradient-to-r md:from-white/85 md:from-0% md:via-white/50 md:via-50% md:to-transparent md:to-100% w-full md:w-3/5 pointer-events-none" />
       </div>
 
-      {/* Arched Floating Destination Pills around the Student & Skyline */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none z-20">
+      {/* Arched Floating Destination Pills around the Student & Skyline (Desktop Only: 1024px+) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-20">
         {destinationPills.map((dest) => (
           <div
             key={dest.country}
-            className={`absolute pointer-events-auto -translate-x-1/2 -translate-y-1/2 ${dest.floatClass}`}
+            className={`absolute pointer-events-none -translate-x-1/2 -translate-y-1/2 ${dest.floatClass}`}
             style={{ left: dest.left, top: dest.top }}
           >
-            <Link
-              to={dest.path}
-              className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white/95 hover:bg-white text-slate-800 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 border border-white/90 backdrop-blur-sm group whitespace-nowrap hover:border-[#D4AF37]"
+            <div
+              className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white/95 text-slate-800 shadow-md border border-white/90 backdrop-blur-sm whitespace-nowrap select-none cursor-default"
             >
               <img
                 src={dest.flag}
                 alt={dest.country}
                 className="w-5 h-5 aspect-square rounded-full object-cover shadow-xs ring-1 ring-black/10 shrink-0"
               />
-              <span className="text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase text-slate-900 group-hover:text-amber-700">
+              <span className="text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase text-slate-900">
                 {dest.country}
               </span>
-            </Link>
+            </div>
           </div>
         ))}
       </div>
 
       {/* Main Content Area - Clean Background Presentation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex-1 flex flex-col justify-center">
-        <div className="max-w-xl lg:max-w-2xl py-6 sm:py-8 lg:py-12">
+        <div className="max-w-xl lg:max-w-2xl py-4 sm:py-8 lg:py-12">
           {/* Handwritten Subtitle */}
-          <div className="mb-2 sm:mb-3">
-            <span className="font-script text-2xl sm:text-3xl lg:text-[34px] text-[#F5DE88] font-bold tracking-wide drop-shadow-md inline-block">
+          <div className="mb-1.5 sm:mb-3">
+            <span className="font-script text-xl sm:text-3xl lg:text-[34px] text-[#A16207] font-extrabold tracking-wide inline-block">
               A Brighter Global Tomorrow
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-display font-black tracking-tight leading-[1.08] text-white drop-shadow-md">
+          <h1 className="text-3xl sm:text-5xl lg:text-[56px] font-display font-black tracking-tight leading-[1.1] text-[#030A17]">
             YOUR FUTURE <br />
             HAS{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-[#F5DE88] to-[#D4AF37] drop-shadow-sm font-black">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B45309] via-[#D97706] to-[#92400E] font-black">
               NO BORDERS.
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-[15px] text-slate-200/95 leading-relaxed font-normal max-w-xl drop-shadow-sm">
+          <p className="mt-3 sm:mt-5 text-xs sm:text-base lg:text-[15px] text-[#0F172A] leading-relaxed font-semibold max-w-xl">
             Turn your ambition into an international degree with personalized counselling, 850+ top universities, and full end-to-end guidance from application to visa.
           </p>
 
-          {/* 3 Value Metrics - Unboxed inline with background */}
-          <div className="flex items-center gap-6 sm:gap-8 my-6 sm:my-7">
-            <div className="flex items-center gap-2.5 sm:gap-3">
-              <ShieldCheck className="w-6 h-6 text-emerald-400 shrink-0" />
+          {/* 4 Value Metrics - Unboxed inline with background */}
+          <div className="grid grid-cols-2 sm:flex sm:items-center gap-3 sm:gap-6 lg:gap-8 my-5 sm:my-7">
+            <div className="flex items-center gap-1.5 sm:gap-3">
+              <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 shrink-0" />
               <div>
-                <div className="text-sm sm:text-base font-black text-white leading-none">98%</div>
-                <div className="text-[11px] sm:text-xs text-slate-300 font-medium leading-tight mt-1">Visa Success</div>
+                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">98%</div>
+                <div className="text-[10px] sm:text-xs text-slate-800 font-bold leading-tight mt-1">Visa Success</div>
               </div>
             </div>
-            <div className="flex items-center gap-2.5 sm:gap-3">
-              <GraduationCap className="w-6 h-6 text-amber-400 shrink-0" />
+            <div className="flex items-center gap-1.5 sm:gap-3">
+              <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 shrink-0" />
               <div>
-                <div className="text-sm sm:text-base font-black text-white leading-none">850+</div>
-                <div className="text-[11px] sm:text-xs text-slate-300 font-medium leading-tight mt-1">Universities</div>
+                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">850+</div>
+                <div className="text-[10px] sm:text-xs text-slate-800 font-bold leading-tight mt-1">Universities</div>
               </div>
             </div>
-            <div className="flex items-center gap-2.5 sm:gap-3">
-              <Star className="w-6 h-6 text-purple-400 fill-purple-400 shrink-0" />
+            <div className="flex items-center gap-1.5 sm:gap-3">
+              <Star className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 fill-purple-600 shrink-0" />
               <div>
-                <div className="text-sm sm:text-base font-black text-white leading-none">100%</div>
-                <div className="text-[11px] sm:text-xs text-slate-300 font-medium leading-tight mt-1">Free Support</div>
+                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">100%</div>
+                <div className="text-[10px] sm:text-xs text-slate-800 font-bold leading-tight mt-1">Free Support</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 sm:gap-3">
+              <Award className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 shrink-0" />
+              <div>
+                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">25+</div>
+                <div className="text-[10px] sm:text-xs text-slate-800 font-bold leading-tight mt-1">Years Experience</div>
               </div>
             </div>
           </div>
 
           {/* Dual Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
             <Link
               to="/university-finder"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider bg-gradient-to-r from-[#F5DE88] via-[#E5B842] to-[#C99222] text-[#071228] shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:brightness-105 hover:-translate-y-0.5 active:scale-95 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-3.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider bg-gradient-to-r from-[#F5DE88] via-[#E5B842] to-[#C99222] text-[#071228] shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:brightness-105 hover:-translate-y-0.5 active:scale-95 transition-all text-center"
             >
               <span>START YOUR JOURNEY</span>
               <ArrowRight className="w-4 h-4 stroke-[2.5]" />
@@ -180,43 +184,48 @@ export const Hero: React.FC<HeroProps> = () => {
 
             <button
               onClick={() => setConsultationOpen(true)}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider bg-[#1E2E48]/85 hover:bg-[#273B5B] border border-white/20 text-white shadow-md hover:-translate-y-0.5 active:scale-95 transition-all backdrop-blur-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-3.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider bg-[#2B3B55] hover:bg-[#1E2E48] text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all text-center"
             >
               <span>BOOK FREE CONSULTATION</span>
             </button>
           </div>
 
           {/* Student Trust Proof Strip */}
-          <div className="mt-6 sm:mt-7 flex items-center gap-3">
+          <div className="mt-5 sm:mt-7 flex items-center gap-2.5 sm:gap-3">
             <div className="flex -space-x-1.5 shrink-0">
               <img className="w-7 h-7 rounded-full border border-white/80 object-cover shadow-xs" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces" alt="Student" />
               <img className="w-7 h-7 rounded-full border border-white/80 object-cover shadow-xs" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=faces" alt="Student" />
               <img className="w-7 h-7 rounded-full border border-white/80 object-cover shadow-xs" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces" alt="Student" />
               <div className="w-7 h-7 rounded-full border border-white/80 bg-purple-700 text-[9px] font-extrabold text-white flex items-center justify-center shadow-xs">+12k</div>
             </div>
-            <div className="text-xs sm:text-sm text-slate-300 drop-shadow-sm">
-              <span className="font-extrabold text-white">4.9 / 5 Rating</span> from 12,000+ happy global scholars
+            <div className="text-[11px] sm:text-sm text-slate-900 leading-tight">
+              <span className="font-black text-slate-950">4.9 / 5 Rating</span> <span className="text-slate-800 font-bold">from 12,000+ happy global scholars</span>
             </div>
           </div>
 
-          {/* Mobile Horizontal Destination Pills */}
-          <div className="md:hidden mt-8 pt-4 border-t border-white/10">
-            <div className="text-[10px] font-bold tracking-widest uppercase text-slate-300 mb-2.5">
-              Popular Study Destinations:
+          {/* Mobile & Tablet Responsive Destination Pills Dock */}
+          <div className="lg:hidden mt-6 pt-3.5 border-t border-slate-200/80 bg-white/80 backdrop-blur-md rounded-2xl p-3 sm:p-4 shadow-xs border border-white/90">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-slate-700">
+                Popular Study Destinations:
+              </span>
+              <span className="text-[10px] text-slate-500 font-medium sm:hidden">
+                Swipe →
+              </span>
             </div>
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1 sm:grid sm:grid-cols-4 sm:gap-2.5">
               {destinationPills.map((dest) => (
                 <Link
                   key={dest.country}
                   to={dest.path}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 text-slate-800 shadow-sm border border-white/80 shrink-0 hover:bg-white"
+                  className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-white text-slate-800 shadow-2xs border border-slate-200/80 shrink-0 hover:border-amber-400 hover:shadow-xs active:scale-95 transition-all text-center"
                 >
                   <img
                     src={dest.flag}
                     alt={dest.country}
-                    className="w-4 h-4 rounded-full object-cover shadow-xs"
+                    className="w-4 h-4 rounded-full object-cover shadow-xs shrink-0"
                   />
-                  <span className="text-[10px] font-extrabold uppercase text-slate-900">
+                  <span className="text-[10px] sm:text-[11px] font-extrabold uppercase text-slate-900 truncate">
                     {dest.country}
                   </span>
                 </Link>

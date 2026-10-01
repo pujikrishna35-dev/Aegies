@@ -6,10 +6,10 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#FDFBF7] text-slate-700 pt-16 pb-8 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 pb-12 border-b border-slate-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 pb-12 border-b border-slate-200">
           
           {/* Col 1: Brand (2 cols) */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
             <Link to="/" className="inline-block group">
               <img
                 src="/images/aegis-logo.png"

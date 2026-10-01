@@ -60,12 +60,14 @@ export const Destinations: React.FC = () => {
                   </p>
 
                   <div className="space-y-2 text-xs text-neutral-600 border-t border-neutral-100 pt-3">
-                    <div className="flex items-center justify-between">
-                      <span className="flex items-center gap-1 text-neutral-400">
-                        <GraduationCap className="w-3.5 h-3.5 text-amber-600" />
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="flex items-center gap-1 text-neutral-400 shrink-0">
+                        <GraduationCap className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                         <span>Universities:</span>
                       </span>
-                      <span className="font-bold text-[#071228]">{dest.universitiesCount}</span>
+                      <span className="font-bold text-[#071228] text-right text-[11px] sm:text-xs leading-tight">
+                        {dest.universitiesCount}
+                      </span>
                     </div>
 
                     <div className="flex items-center justify-between">
