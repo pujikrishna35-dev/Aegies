@@ -11,7 +11,7 @@ export const TrustStatsSection: React.FC = () => {
     },
     {
       icon: ShieldCheck,
-      value: '99.2%',
+      value: '100%',
       label: 'Visa Success Record',
       sub: 'Consistent approval track'
     },
