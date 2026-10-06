@@ -55,7 +55,7 @@ export const StudyAbroad: React.FC = () => {
     {
       num: '06',
       title: 'Student Visa Filing & Financial Documentation',
-      desc: '99.2% visa approval rate support: thorough proof-of-funds verification, mock visa interview drills, and biometric scheduling.',
+      desc: '100% visa approval rate support: thorough proof-of-funds verification, mock visa interview drills, and biometric scheduling.',
       icon: Stamp
     },
     {

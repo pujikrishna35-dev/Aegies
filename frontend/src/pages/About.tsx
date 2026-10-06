@@ -26,9 +26,9 @@ export const About: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const stats = [
-    { value: '15+', label: 'Years of Excellence', sub: 'Guiding global aspirants since 2008' },
-    { value: '5,000+', label: 'Students Placed', sub: 'Across top global universities' },
-    { value: '99.2%', label: 'Visa Approval Rate', sub: 'Consistent across Tier-1 nations' },
+    { value: '25+', label: 'Years of Excellence', sub: 'Guiding global aspirants since 2001' },
+    { value: '10,000+', label: 'Students Placed', sub: 'Across top global universities' },
+    { value: '100%', label: 'Visa Approval Rate', sub: 'Consistent across Tier-1 nations' },
     { value: '$14.5M+', label: 'Scholarships Won', sub: 'In merit and government grants' }
   ];
 
@@ -57,7 +57,7 @@ export const About: React.FC = () => {
 
   const milestones = [
     {
-      year: '2008',
+      year: '2001',
       title: 'Founding Aegis Overseas',
       desc: 'Started with a mission to bring transparent, ethical overseas education guidance to students in South India.'
     },
@@ -78,8 +78,8 @@ export const About: React.FC = () => {
     },
     {
       year: '2026',
-      title: '15+ Years & $14.5M+ Scholarships',
-      desc: 'Celebrating 5,000+ triumphant alumni thriving as software engineers, data scientists, healthcare specialists, and entrepreneurs worldwide.'
+      title: '25+ Years & $14.5M+ Scholarships',
+      desc: 'Celebrating 10,000+ triumphant alumni thriving as software engineers, data scientists, healthcare specialists, and entrepreneurs worldwide.'
     }
   ];
 
@@ -244,7 +244,7 @@ export const About: React.FC = () => {
             <ul className="mt-6 pt-6 border-t border-neutral-100 space-y-2 text-xs text-neutral-600">
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>850+ active global university partnerships worldwide</span>
+                <span>1200+ active global university partnerships worldwide</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />

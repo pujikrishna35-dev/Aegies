@@ -12,6 +12,20 @@ interface ConsultationFormProps {
   initialNotes?: string;
 }
 
+const DESTINATION_LABELS: Record<string, string> = {
+  usa: 'USA 🇺🇸',
+  uk: 'United Kingdom 🇬🇧',
+  canada: 'Canada 🇨🇦',
+  australia: 'Australia 🇦🇺',
+  germany: 'Germany 🇩🇪',
+  'new-zealand': 'New Zealand 🇳🇿',
+  ireland: 'Ireland 🇮🇪',
+  europe: 'Other Europe 🇪🇺',
+  'not-sure': 'Not Sure Yet (Need Guidance)'
+};
+
+const WHATSAPP_TARGET_NUMBER = '918500722284';
+
 export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination = 'uk', initialNotes = '' }: ConsultationFormProps) {
   const { submitConsultation, loading, success, resetForm } = useConsultation();
 
@@ -27,9 +41,39 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
     message: initialNotes
   });
 
+  const getWhatsAppMessageUrl = () => {
+    const destLabel = DESTINATION_LABELS[formData.destination.toLowerCase()] || formData.destination;
+
+    const lines = [
+      `🎓 *New Consultation Booking - Aegis Overseas*`,
+      ``,
+      `👤 *Full Name:* ${formData.fullName}`,
+      `📞 *Phone Number:* ${formData.phone}`,
+      `📧 *Email Address:* ${formData.email}`,
+      `🌍 *Target Destination:* ${destLabel}`,
+      `🎓 *Degree Level:* ${formData.studyLevel}`,
+      `🏢 *Preferred Office:* ${formData.preferredOffice}`,
+      formData.message ? `📝 *Questions / Notes:* ${formData.message}` : null,
+      ``,
+      `_Sent from Aegis Overseas Counseling Portal_`
+    ].filter(Boolean);
+
+    return `https://wa.me/${WHATSAPP_TARGET_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Open WhatsApp directly with the filled lead details to 8500722284
+    const whatsappUrl = getWhatsAppMessageUrl();
+    try {
+      window.open(whatsappUrl, '_blank');
+    } catch (err) {
+      console.error('Could not auto-open WhatsApp window:', err);
+    }
+
     await submitConsultation(formData);
+    if (onSuccess) onSuccess();
   };
 
   if (success) {
@@ -55,12 +99,12 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
             Done
           </Button>
           <a
-            href={`https://wa.me/919246220044?text=Hi%20Aegis%20Overseas,%20I%20just%20booked%20a%20consultation%20for%20${encodeURIComponent(formData.fullName)}`}
+            href={getWhatsAppMessageUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-medium text-emerald-800 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors"
           >
-            Chat Now on WhatsApp 💬
+            Send Details to WhatsApp (+91 8500722284) 💬
           </a>
         </div>
       </div>
@@ -136,7 +180,7 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
             Degree Level
@@ -165,23 +209,6 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
             <option value="Nellore">Nellore (Head Office)</option>
             <option value="Tirupati">Tirupati Branch</option>
             <option value="Online / Virtual">Online / Zoom Session</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
-            Estimated Budget
-          </label>
-          <select
-            value={formData.budgetRange}
-            onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-            className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50/50 text-navy-950 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:bg-white transition-all"
-          >
-            <option value="Under ₹15 Lakhs">Under ₹15 Lakhs</option>
-            <option value="₹15L - ₹25L">₹15L - ₹25L</option>
-            <option value="₹25L - ₹40L">₹25L - ₹40L</option>
-            <option value="₹40L+">₹40 Lakhs +</option>
-            <option value="Looking for Loan/Scholarship">Need Loan/Scholarship</option>
           </select>
         </div>
       </div>

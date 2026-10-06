@@ -143,7 +143,7 @@ export const Courses: React.FC = () => {
             <ShieldCheck className="w-4 h-4" /> Certified Global Advisory
           </div>
           <p className="text-slate-700 text-sm sm:text-base leading-relaxed max-w-3xl">
-            Our certified advisors guide you every step of the way with verified course prerequisites, deadlines, scholarship allocations, and visa assistance across 850+ global universities.
+            Our certified advisors guide you every step of the way with verified course prerequisites, deadlines, scholarship allocations, and visa assistance across 1200+ global universities.
           </p>
         </div>
         <button
@@ -556,7 +556,7 @@ export const Courses: React.FC = () => {
             Can't Find Your Exact Course or Specialization?
           </h2>
           <p className="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed">
-            Our counselors represent over 850+ top global universities across 4,000+ niche academic disciplines. Speak with an expert counselor today.
+            Our counselors represent over 1200+ top global universities across 4,000+ niche academic disciplines. Speak with an expert counselor today.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mt-6">

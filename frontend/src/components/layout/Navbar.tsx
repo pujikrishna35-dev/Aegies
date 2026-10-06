@@ -58,15 +58,7 @@ export const Navbar: React.FC = () => {
         { label: 'Europe (Schengen)', href: '/destinations/europe' }
       ]
     },
-    {
-      label: 'Universities',
-      href: '/universities',
-      dropdown: [
-        { label: 'Browse 100+ Universities', href: '/universities' },
-        { label: 'Compare Universities', href: '/universities/compare' },
-        { label: 'University Match Finder', href: '/university-finder' }
-      ]
-    },
+
     {
       label: 'Courses',
       href: '/courses',

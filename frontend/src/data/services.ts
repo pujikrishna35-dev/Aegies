@@ -9,7 +9,7 @@ export interface ServiceData {
   slug: string;
   shortDesc: string;
   iconName: string;
-  category?: 'Admissions Strategy' | 'Financial Solutions' | 'Visa & Relocation';
+  category?: 'Admissions Strategy' | 'Financial Solutions' | 'Visa & Relocation' | 'Arrival & Settlement';
   tagline?: string;
   fullDesc?: string;
   deliverables?: string[];
@@ -58,7 +58,7 @@ export const SERVICES: ServiceData[] = [
     iconName: "School",
     category: "Admissions Strategy",
     tagline: "Data-driven university shortlisting with balanced risk-reward ratios.",
-    fullDesc: "We eliminate guesswork by categorizing academic institutions into Dream, Target, and Safe tiers. Our proprietary university matcher leverages historical acceptance data across 850+ universities in the UK, USA, Canada, Australia, and Europe to maximize your admission offers.",
+    fullDesc: "We eliminate guesswork by categorizing academic institutions into Dream, Target, and Safe tiers. Our proprietary university matcher leverages historical acceptance data across 1200+ universities in the UK, USA, Canada, Australia, and Europe to maximize your admission offers.",
     deliverables: [
       "Bespoke shortlist of 8 to 12 verified global universities",
       "Comparison matrix of tuition fees, cost of living, and scholarship quotas",
@@ -76,9 +76,9 @@ export const SERVICES: ServiceData[] = [
       "Access to exclusive university partner application fee waivers",
       "Accurate assessment of faculty research and job placement rates"
     ],
-    stat: { value: "850+", label: "Partner Universities" },
+    stat: { value: "1200+", label: "Partner Universities" },
     faqs: [
-      { q: "Can I apply to universities not on Aegis's partner list?", a: "Yes! While we offer priority fast-track processing with our 850+ partner institutions, our counselors assist you with any accredited global university worldwide." },
+      { q: "Can I apply to universities not on Aegis's partner list?", a: "Yes! While we offer priority fast-track processing with our 1200+ partner institutions, our counselors assist you with any accredited global university worldwide." },
       { q: "What is the difference between Dream, Reach, and Safe?", a: "Dream institutions have very low acceptance rates (e.g. Ivy League, Russell Group top 10); Reach matches your exact GPA; Safe guarantees admission as a safety net." }
     ]
   },
@@ -178,7 +178,7 @@ export const SERVICES: ServiceData[] = [
   {
     title: "Visa Assistance",
     slug: "visa-assistance",
-    shortDesc: "99.4% visa success record with rigorous mock embassy interview drills.",
+    shortDesc: "100% visa success record with rigorous mock embassy interview drills.",
     iconName: "ShieldCheck",
     category: "Visa & Relocation",
     tagline: "Navigate complex immigration regulations with total confidence.",
@@ -200,18 +200,18 @@ export const SERVICES: ServiceData[] = [
       "Zero-rejection protocol: every financial document verified before submission",
       "Guidance on spouse and dependent student visa applications"
     ],
-    stat: { value: "99.4%", label: "Visa Success Rate" },
+    stat: { value: "100%", label: "Visa Success Rate" },
     faqs: [
       { q: "What happens if a student has a previous visa refusal?", a: "Our senior immigration specialists analyze previous refusal notes (GCMS notes for Canada or refusal reasons) and rebuild your file with rectified documentation." },
       { q: "Do all countries require in-person visa interviews?", a: "The USA conducts mandatory consular interviews. The UK, Australia, and Canada evaluate files primarily through documentation, with interviews conducted on a random or targeted basis." }
     ]
   },
   {
-    title: "Student Accommodation",
+    title: "Accommodation Booking",
     slug: "accommodation",
     shortDesc: "Vetted on-campus halls and student apartments near university campuses.",
     iconName: "Home",
-    category: "Visa & Relocation",
+    category: "Arrival & Settlement",
     tagline: "Safe, verified, and budget-friendly housing before you fly.",
     fullDesc: "Finding secure, affordable housing in an unfamiliar foreign city can be overwhelming. Aegis partners with global student housing platforms (Amber, Casita, University Living) and university residential services to lock in verified rooms with all utility bills included.",
     deliverables: [
@@ -235,6 +235,37 @@ export const SERVICES: ServiceData[] = [
     faqs: [
       { q: "Is on-campus or off-campus housing better?", a: "On-campus is great for 1st-year undergraduates seeking immersion; off-campus PBSAs are often newer, cheaper, and preferred by postgraduate Master's students." },
       { q: "What if my visa gets rejected after booking accommodation?", a: "All our partner accommodations offer a 'No Visa, No Pay' policy with 100% refund of your security deposit upon presenting the visa refusal letter." }
+    ]
+  },
+  {
+    title: "Airport Pickup Services",
+    slug: "airport-pickup",
+    shortDesc: "Pre-arranged, verified airport transfers ensuring a smooth and safe transition to your accommodation.",
+    iconName: "Plane",
+    category: "Arrival & Settlement",
+    tagline: "Safe, reliable, and stress-free airport greeting the moment you touch down.",
+    fullDesc: "Arriving in a new country with heavy luggage after a long international flight can be daunting. Aegis arranges pre-booked, safe airport pickups with vetted drivers and university transfer coordinators who meet you directly at international arrivals and escort you safely to your student accommodation.",
+    deliverables: [
+      "Personalized meet-and-greet in the arrivals hall with official Aegis name card",
+      "Real-time flight delay monitoring with zero cancellation or waiting charges",
+      "Full luggage assistance and direct transit to on-campus halls or private residence",
+      "24/7 dedicated emergency contact helpline for parents and students during transit"
+    ],
+    processSteps: [
+      { step: "01", title: "Flight & Terminal Details", desc: "Submit your itinerary, landing time, luggage count, and destination accommodation." },
+      { step: "02", title: "Driver Assignment", desc: "Receive confirmed driver credentials, vehicle number, and pickup meeting point 24 hours prior." },
+      { step: "03", title: "Arrival Greeting", desc: "Meet your driver at the arrival gate and receive immediate transit assistance." },
+      { step: "04", title: "Safe Check-In Drop", desc: "Arrive smoothly at your room with confirmation notified to your family back home." }
+    ],
+    benefits: [
+      "100% safe, licensed, and background-checked drivers with university area familiarity",
+      "No need to navigate foreign taxi queues, public transit transfers, or currency exchanges with luggage",
+      "Direct coordination with student housing reception for key collection"
+    ],
+    stat: { value: "100%", label: "Safe Arrivals" },
+    faqs: [
+      { q: "What if my flight gets delayed or rescheduled?", a: "Our partner transfer service tracks your flight number in real-time. The driver adjusts the pickup schedule automatically at no extra fee." },
+      { q: "Can family members or fellow students share the same ride?", a: "Yes. We offer both private sedans and larger MPVs/vans for students traveling together with multiple large suitcases." }
     ]
   },
   {

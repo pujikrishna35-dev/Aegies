@@ -1,6 +1,7 @@
 import React from 'react';
 import { Hero } from '@/components/home/Hero';
 import { TrustStatsSection } from '@/components/home/TrustStatsSection';
+import { ArrivalSettlementSection } from '@/components/home/ArrivalSettlementSection';
 import { DestinationsSection } from '@/components/home/DestinationsSection';
 import { UniversityFinder } from '@/components/home/UniversityFinder';
 import { WhyAegis } from '@/components/home/WhyAegis';
@@ -20,6 +21,9 @@ export const Home: React.FC = () => {
 
       {/* 2. Trust Metrics & Accreditations Section (Moved down below Hero) */}
       <TrustStatsSection />
+
+      {/* Arrival & Settlement Services */}
+      <ArrivalSettlementSection />
 
       {/* 3. Explore Your Dream Destination (8 Country Cards) */}
       <DestinationsSection />

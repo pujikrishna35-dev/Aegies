@@ -137,7 +137,7 @@ export const Hero: React.FC<HeroProps> = () => {
 
           {/* Subtitle */}
           <p className="mt-3 sm:mt-5 text-xs sm:text-base lg:text-[15px] text-[#0F172A] leading-relaxed font-semibold max-w-xl">
-            Turn your ambition into an international degree with personalized counselling, 850+ top universities, and full end-to-end guidance from application to visa.
+            Turn your ambition into an international degree with personalized counselling, 1200+ top universities, and full end-to-end guidance from application to visa.
           </p>
 
           {/* 4 Value Metrics - Unboxed inline with background */}
@@ -145,14 +145,14 @@ export const Hero: React.FC<HeroProps> = () => {
             <div className="flex items-center gap-1.5 sm:gap-3">
               <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 shrink-0" />
               <div>
-                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">98%</div>
+                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">100%</div>
                 <div className="text-[10px] sm:text-xs text-slate-800 font-bold leading-tight mt-1">Visa Success</div>
               </div>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-3">
               <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 shrink-0" />
               <div>
-                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">850+</div>
+                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">1200+</div>
                 <div className="text-[10px] sm:text-xs text-slate-800 font-bold leading-tight mt-1">Universities</div>
               </div>
             </div>
