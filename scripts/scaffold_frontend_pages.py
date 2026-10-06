@@ -71,7 +71,7 @@ export const About: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
         {[
           { icon: Users, stat: "3,500+", label: "Successful Global Placements" },
-          { icon: ShieldCheck, stat: "99.4%", label: "Student Visa Approval Rate" },
+          { icon: ShieldCheck, stat: "100%", label: "Student Visa Approval Rate" },
           { icon: Award, stat: "$5M+", label: "Scholarships Secured" },
           { icon: Compass, stat: "100+", label: "Global University Partners" },
         ].map((item, i) => {
@@ -133,7 +133,7 @@ export const {comp_name}: React.FC = () => {{
             </div>
             <div className="p-4 rounded-xl bg-slate-50">
               <span className="text-xs text-slate-400 font-bold block uppercase">Visa Success</span>
-              <span className="font-bold text-emerald-700 text-sm">99.4% Approval Rate</span>
+              <span className="font-bold text-emerald-700 text-sm">100% Approval Rate</span>
             </div>
           </div>
         </div>

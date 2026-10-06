@@ -211,7 +211,7 @@ export const SERVICES: ServiceData[] = [
   { title: "Application Assistance", slug: "application-assistance", shortDesc: "SOP polishing, CV optimization, and fee waiver support.", iconName: "FileCheck" },
   { title: "Scholarships", slug: "scholarships", shortDesc: "Securing merit awards, sports grants, and university-funded tuition discounts.", iconName: "Award" },
   { title: "Education Loans", slug: "education-loans", shortDesc: "Collateral and non-collateral loan sanctioning through premier banking partners.", iconName: "BadgeDollarSign" },
-  { title: "Visa Assistance", slug: "visa-assistance", shortDesc: "99.4% visa success record with rigorous mock embassy interview drills.", iconName: "ShieldCheck" },
+  { title: "Visa Assistance", slug: "visa-assistance", shortDesc: "100% visa success record with rigorous mock embassy interview drills.", iconName: "ShieldCheck" },
   { title: "Accommodation", slug: "accommodation", shortDesc: "Vetted on-campus halls and student apartments near university campuses.", iconName: "Home" },
   { title: "Forex & SIM", slug: "forex", shortDesc: "Zero-markup student currency cards and pre-activated international SIMs.", iconName: "CreditCard" },
   { title: "Pre-Departure", slug: "pre-departure", shortDesc: "Cultural briefing, luggage guidance, and local alumni network connections.", iconName: "PlaneTakeoff" }

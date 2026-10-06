@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DESTINATIONS } from '@/data/destinations';
-import { ArrowRight, GraduationCap, Briefcase, Globe2 } from 'lucide-react';
+import { ArrowRight, GraduationCap, Briefcase, Calendar } from 'lucide-react';
 
 export const Destinations: React.FC = () => {
   return (
@@ -23,78 +23,87 @@ export const Destinations: React.FC = () => {
             Explore Your Dream Country
           </h1>
           <p className="mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed">
-            Compare world-leading education hubs with verified information on tuition fees, post-study work rights, top universities, and high-demand courses.
+            Compare world-leading education hubs with verified information on post-study work rights, top universities, entry requirements, and structured route maps.
           </p>
         </div>
 
         {/* Grid of Destinations */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {DESTINATIONS.map((dest) => (
-            <Link
-              key={dest.slug}
-              to={`/destinations/${dest.slug}`}
-              className="group bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1"
-            >
-              {/* Country Image */}
-              <div className="relative h-44 overflow-hidden bg-neutral-100">
-                <img
-                  src={dest.image}
-                  alt={dest.country}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm">
-                  <span>{dest.flag}</span>
-                  <span className="text-[#071228] uppercase tracking-wider text-[10px]">{dest.country}</span>
-                </div>
-              </div>
+          {DESTINATIONS.map((dest) => {
+            const intakeFact = dest.keyFacts.find(f => f.label.toLowerCase().includes('intake'))?.value || dest.admissionRequirements.intakes;
+            const shortCountryName = dest.slug === 'uk' ? 'UK' : dest.slug === 'usa' ? 'USA' : dest.country;
 
-              {/* Card Body */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <h2 className="text-lg font-bold font-display text-[#071228] group-hover:text-amber-700 transition-colors">
-                    {dest.country}
-                  </h2>
-                  <p className="text-xs text-neutral-500 italic mt-0.5 mb-4">
-                    "{dest.phrase}"
-                  </p>
-
-                  <div className="space-y-2 text-xs text-neutral-600 border-t border-neutral-100 pt-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="flex items-center gap-1 text-neutral-400 shrink-0">
-                        <GraduationCap className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                        <span>Universities:</span>
-                      </span>
-                      <span className="font-bold text-[#071228] text-right text-[11px] sm:text-xs leading-tight">
-                        {dest.universitiesCount}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="flex items-center gap-1 text-neutral-400">
-                        <Briefcase className="w-3.5 h-3.5 text-amber-600" />
-                        <span>Post-Study Work:</span>
-                      </span>
-                      <span className="font-bold text-[#071228] text-right truncate max-w-[140px]">{dest.workRights}</span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="flex items-center gap-1 text-neutral-400">
-                        <Globe2 className="w-3.5 h-3.5 text-amber-600" />
-                        <span>Tuition Range:</span>
-                      </span>
-                      <span className="font-bold text-[#071228] text-right truncate max-w-[140px]">{dest.tuition}</span>
-                    </div>
+            return (
+              <Link
+                key={dest.slug}
+                to={`/destinations/${dest.slug}`}
+                className="group bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1"
+              >
+                {/* Country Image */}
+                <div className="relative h-48 overflow-hidden bg-neutral-100">
+                  <img
+                    src={dest.image}
+                    alt={dest.country}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm border border-white/40">
+                    <span className="text-sm">{dest.flag}</span>
+                    <span className="text-[#071228] uppercase tracking-wider text-[11px] font-extrabold">{dest.country}</span>
                   </div>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-neutral-100 flex items-center justify-between text-xs font-bold text-amber-600 group-hover:text-amber-700">
-                  <span>View Country Guide</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                {/* Card Body */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h2 className="text-xl font-bold font-display text-[#071228] group-hover:text-amber-700 transition-colors">
+                      {dest.country}
+                    </h2>
+                    <p className="text-xs text-neutral-500 italic mt-0.5 mb-4 line-clamp-1">
+                      "{dest.phrase}"
+                    </p>
+
+                    <div className="space-y-3 text-xs text-neutral-600 border-t border-neutral-100 pt-3">
+                      <div>
+                        <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">
+                          Universities
+                        </span>
+                        <div className="flex items-center gap-1.5 font-bold text-[#071228] text-sm mt-0.5">
+                          <GraduationCap className="w-3.5 h-3.5 text-[#C5A059]" />
+                          <span>{dest.universitiesCount}</span>
+                        </div>
+                      </div>
+
+
+                      <div>
+                        <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">
+                          Main Intakes
+                        </span>
+                        <div className="flex items-center gap-1.5 font-semibold text-neutral-700 text-xs mt-0.5">
+                          <Calendar className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
+                          <span className="truncate">{intakeFact}</span>
+                        </div>
+                      </div>
+
+                      <div>
+                        <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">
+                          Post-Study Route
+                        </span>
+                        <div className="flex items-center gap-1.5 font-semibold text-neutral-700 text-xs mt-0.5">
+                          <Briefcase className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
+                          <span className="truncate">{dest.workRights}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 pt-3 border-t border-neutral-100 flex items-center justify-end text-xs font-bold text-[#C5A059] group-hover:text-amber-700">
+                    <span>Explore {shortCountryName} →</span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

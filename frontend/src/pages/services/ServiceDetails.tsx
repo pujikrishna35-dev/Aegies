@@ -10,6 +10,7 @@ import {
   Home as HomeIcon, 
   CreditCard, 
   PlaneTakeoff, 
+  Plane,
   Sparkles, 
   ArrowLeft, 
   ArrowRight, 
@@ -38,14 +39,17 @@ const ICON_MAP: Record<string, React.ElementType> = {
   ShieldCheck,
   Home: HomeIcon,
   CreditCard,
-  PlaneTakeoff
+  PlaneTakeoff,
+  Plane
 };
 
 const SERVICE_ALIASES: Record<string, string> = {
   'applications': 'application-assistance',
   'visa': 'visa-assistance',
   'loans': 'education-loans',
-  'housing': 'accommodation'
+  'housing': 'accommodation',
+  'accommodation-booking': 'accommodation',
+  'student-accommodation': 'accommodation'
 };
 
 export const ServiceDetails: React.FC = () => {

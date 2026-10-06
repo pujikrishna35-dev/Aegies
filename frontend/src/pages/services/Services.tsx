@@ -10,6 +10,7 @@ import {
   Home as HomeIcon, 
   CreditCard, 
   PlaneTakeoff, 
+  Plane,
   Sparkles, 
   ArrowRight, 
   CheckCircle2, 
@@ -34,7 +35,8 @@ const ICON_MAP: Record<string, React.ElementType> = {
   ShieldCheck,
   Home: HomeIcon,
   CreditCard,
-  PlaneTakeoff
+  PlaneTakeoff,
+  Plane
 };
 
 export const Services: React.FC = () => {
@@ -47,7 +49,8 @@ export const Services: React.FC = () => {
     { id: 'ALL', label: 'All 360° Services' },
     { id: 'Admissions Strategy', label: '1. Admissions Strategy' },
     { id: 'Financial Solutions', label: '2. Financial Solutions' },
-    { id: 'Visa & Relocation', label: '3. Visa & Relocation' }
+    { id: 'Visa & Relocation', label: '3. Visa & Relocation' },
+    { id: 'Arrival & Settlement', label: '4. Arrival & Settlement' }
   ];
 
   const filteredServices = useMemo(() => {
@@ -83,7 +86,7 @@ export const Services: React.FC = () => {
     {
       num: '05',
       title: 'Visa Filing & Mock Drills',
-      desc: '99.4% visa success protocol: proof-of-funds verification and rigorous 1-on-1 consular interview training.',
+      desc: '100% visa success protocol: proof-of-funds verification and rigorous 1-on-1 consular interview training.',
       duration: 'Week 8 - 11'
     },
     {
@@ -97,10 +100,10 @@ export const Services: React.FC = () => {
   const faqs = [
     {
       q: "Are Aegis counseling and university application services really 100% free?",
-      a: "Yes. All our core counseling, university shortlisting, and direct application submission services are completely free of charge for students. Aegis is supported through official recruitment partnerships with over 850+ accredited global universities."
+      a: "Yes. All our core counseling, university shortlisting, and direct application submission services are completely free of charge for students. Aegis is supported through official recruitment partnerships with over 1200+ accredited global universities."
     },
     {
-      q: "How does Aegis maintain an industry-leading 99.4% student visa approval rate?",
+      q: "How does Aegis maintain an industry-leading 100% student visa approval rate?",
       a: "Every student visa application undergoes a multi-point verification protocol led by senior immigration specialists. We thoroughly verify financial solvency (such as the UK 28-day rule or German Blocked Account), draft rigorous Statements of Purpose, and conduct extensive mock interview drills before embassy submission."
     },
     {
@@ -171,7 +174,7 @@ export const Services: React.FC = () => {
           <div className="text-xs text-slate-500 font-semibold mt-1">Students Counseled</div>
         </div>
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
-          <div className="text-2xl sm:text-3xl font-extrabold text-amber-600">99.4%</div>
+          <div className="text-2xl sm:text-3xl font-extrabold text-amber-600">100%</div>
           <div className="text-xs text-slate-500 font-semibold mt-1">Visa Success Rate</div>
         </div>
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
@@ -346,7 +349,7 @@ export const Services: React.FC = () => {
             <ShieldCheck className="w-8 h-8 text-amber-600 mb-3" />
             <h4 className="text-sm font-bold text-[#071228] mb-1">Direct University Partnerships</h4>
             <p className="text-slate-500 text-xs leading-relaxed">
-              Direct institutional ties with 850+ top universities across the UK, USA, Canada, Australia, and Europe.
+              Direct institutional ties with 1200+ top universities across the UK, USA, Canada, Australia, and Europe.
             </p>
           </div>
 

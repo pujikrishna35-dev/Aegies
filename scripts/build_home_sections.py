@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ showAirplane = false }) => {
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-amber-400" />
-              <span>99.4% Visa Success</span>
+              <span>100% Visa Success</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-sky-400" />

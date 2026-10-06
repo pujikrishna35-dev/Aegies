@@ -557,7 +557,7 @@ const faqs = [
   { q: "When should I begin my study abroad application?", a: "Ideally 10–12 months prior to your intended intake. This gives ample time for standardized exams (IELTS/GRE), SOP reviews, and visa applications." },
   { q: "Does Aegis Overseas charge for initial counselling?", a: "No, our initial 1-on-1 profile evaluation and university shortlisting consultation is 100% free with no obligation." },
   { q: "Can I get an education loan without collateral?", a: "Yes, through our premier banking partners (HDFC Credila, Avanse, Prodigy), we facilitate non-collateral loans up to ₹60 Lakhs for top global universities." },
-  { q: "What is your student visa success rate?", a: "Aegis Overseas maintains an outstanding 99.4% student visa approval track record backed by rigorous mock embassy interview drills." },
+  { q: "What is your student visa success rate?", a: "Aegis Overseas maintains an outstanding 100% student visa approval track record backed by rigorous mock embassy interview drills." },
 ];
 
 export const FAQPreview: React.FC = () => {

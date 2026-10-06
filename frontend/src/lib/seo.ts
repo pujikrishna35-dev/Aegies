@@ -1,4 +1,12 @@
-import { Metadata } from 'next';
+export interface Metadata {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  openGraph?: Record<string, unknown>;
+  twitter?: Record<string, unknown>;
+  metadataBase?: URL;
+  robots?: Record<string, unknown>;
+}
 
 export function constructMetadata({
   title = 'AEGIS OVERSEAS | Your Future Has No Borders',

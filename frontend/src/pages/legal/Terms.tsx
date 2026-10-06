@@ -62,7 +62,7 @@ export const Terms: React.FC = () => (
             3. Admissions & Visa Decisions
           </h2>
           <p className="text-neutral-600 leading-relaxed">
-            While Aegis Overseas boasts a 99.2% historical visa success rate, <strong>admission decisions are solely at the discretion of university faculty committees, and visa decisions are the exclusive jurisdiction of the respective sovereign immigration department or embassy</strong> (e.g. UK Visas and Immigration, US Department of State, IRCC Canada, Australian Home Affairs). Aegis Overseas does not guarantee or claim influence over sovereign visa decisions.
+            While Aegis Overseas boasts a 100% historical visa success rate, <strong>admission decisions are solely at the discretion of university faculty committees, and visa decisions are the exclusive jurisdiction of the respective sovereign immigration department or embassy</strong> (e.g. UK Visas and Immigration, US Department of State, IRCC Canada, Australian Home Affairs). Aegis Overseas does not guarantee or claim influence over sovereign visa decisions.
           </p>
         </section>
 

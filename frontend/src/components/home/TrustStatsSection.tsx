@@ -5,13 +5,13 @@ export const TrustStatsSection: React.FC = () => {
   const stats = [
     {
       icon: GraduationCap,
-      value: '5,000+',
+      value: '10,000+',
       label: 'Successful Students',
       sub: 'Top global university admits'
     },
     {
       icon: ShieldCheck,
-      value: '99.2%',
+      value: '100%',
       label: 'Visa Success Record',
       sub: 'Consistent approval track'
     },
@@ -23,15 +23,15 @@ export const TrustStatsSection: React.FC = () => {
     },
     {
       icon: Landmark,
-      value: '850+',
+      value: '1200+',
       label: 'Partner Universities',
       sub: 'UK, US, Canada, EU & Aus'
     },
     {
       icon: Calendar,
-      value: '15+ Yrs',
+      value: '25+ Yrs',
       label: 'Ethical Mentoring',
-      sub: 'Trusted advisory since 2008'
+      sub: 'Trusted advisory since 2001'
     },
     {
       icon: HeartHandshake,

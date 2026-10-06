@@ -89,11 +89,11 @@ export const StudentStories: React.FC = () => {
             {/* Quick Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-white/10">
               <div>
-                <p className="text-2xl sm:text-3xl font-bold font-display text-[#E6C687]">5,000+</p>
+                <p className="text-2xl sm:text-3xl font-bold font-display text-[#E6C687]">10,000+</p>
                 <p className="text-xs text-slate-400 mt-1">Students Guided</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-bold font-display text-white">99.2%</p>
+                <p className="text-2xl sm:text-3xl font-bold font-display text-white">100%</p>
                 <p className="text-xs text-slate-400 mt-1">Visa Success Record</p>
               </div>
               <div>
