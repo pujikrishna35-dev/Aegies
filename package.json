@@ -19,6 +19,9 @@
     "build:all": "npm run build --workspaces",
     "start": "npm run start --workspace=frontend"
   },
+  "allowScripts": {
+    "esbuild": true
+  },
   "keywords": [
     "study-abroad",
     "education-consultancy",

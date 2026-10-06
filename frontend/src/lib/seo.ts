@@ -2,10 +2,25 @@ export interface Metadata {
   title?: string;
   description?: string;
   keywords?: string[];
-  openGraph?: Record<string, unknown>;
-  twitter?: Record<string, unknown>;
+  openGraph?: {
+    title?: string;
+    description?: string;
+    images?: Array<{ url: string }>;
+    type?: string;
+  };
+  twitter?: {
+    card?: string;
+    title?: string;
+    description?: string;
+    images?: string[];
+    creator?: string;
+  };
   metadataBase?: URL;
-  robots?: Record<string, unknown>;
+  robots?: {
+    index?: boolean;
+    follow?: boolean;
+  };
+  [key: string]: any;
 }
 
 export function constructMetadata({
