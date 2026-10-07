@@ -36,6 +36,7 @@ import { DESTINATIONS, DestinationData, RoutePhase, RouteStep } from '../../data
 import { Modal } from '../ui/Modal';
 import { ConsultationForm } from '../forms/ConsultationForm';
 import { generateCountryGuidePdf } from '../../utils/pdfGenerator';
+import { UniversityDirectoryModal } from '../universities/UniversityDirectoryModal';
 
 interface Props {
   slug: string;
@@ -51,10 +52,6 @@ export const DestinationDetailView: React.FC<Props> = ({ slug }) => {
   const [selectedStep, setSelectedStep] = useState<RouteStep | null>(null);
   const [showAllUnisModal, setShowAllUnisModal] = useState(false);
   const [isRemainingCountriesOpen, setIsRemainingCountriesOpen] = useState(false);
-  
-  // University Directory state
-  const [uniSearch, setUniSearch] = useState('');
-  const [selectedCity, setSelectedCity] = useState('ALL');
   
   // Carousel scroll index
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -90,40 +87,6 @@ export const DestinationDetailView: React.FC<Props> = ({ slug }) => {
       setCarouselIndex(dest.topUniversities.length - 1);
     }
   };
-
-  // Combined universities for the "View All Universities" search/filter
-  const allUnisList = useMemo(() => {
-    if (dest.allUniversities && dest.allUniversities.length > 0) {
-      return dest.allUniversities;
-    }
-    return dest.topUniversities.map(u => ({
-      name: u.name,
-      city: u.location.split(',')[0].trim(),
-      ranking: u.ranking,
-      tuition: u.tuition || dest.tuition,
-      popularCourses: u.popularPrograms || dest.popularCourses.slice(0, 3),
-      type: 'Leading Institution'
-    }));
-  }, [dest]);
-
-  // Unique cities for filter
-  const uniqueCities = useMemo(() => {
-    const cities = new Set<string>();
-    allUnisList.forEach(u => cities.add(u.city));
-    return Array.from(cities);
-  }, [allUnisList]);
-
-  // Filtered universities
-  const filteredUnis = useMemo(() => {
-    return allUnisList.filter(u => {
-      const matchSearch = uniSearch === '' || 
-        u.name.toLowerCase().includes(uniSearch.toLowerCase()) || 
-        u.city.toLowerCase().includes(uniSearch.toLowerCase()) ||
-        u.popularCourses.some(c => c.toLowerCase().includes(uniSearch.toLowerCase()));
-      const matchCity = selectedCity === 'ALL' || u.city === selectedCity;
-      return matchSearch && matchCity;
-    });
-  }, [allUnisList, uniSearch, selectedCity]);
 
   // Dynamic values
   const degreeLengthFact = dest.keyFacts.find(f => f.label.toLowerCase().includes('degree'))?.value || "1 Year Master's / 3-4 Years UG";
@@ -1143,8 +1106,8 @@ export const DestinationDetailView: React.FC<Props> = ({ slug }) => {
       </Modal>
 
       {/* 2. Download Guide Modal */}
-      <Modal isOpen={isGuideModalOpen} onClose={() => setIsGuideModalOpen(false)}>
-        <div className="p-6 max-h-[85vh] overflow-y-auto space-y-6">
+      <Modal isOpen={isGuideModalOpen} onClose={() => setIsGuideModalOpen(false)} hideHeader maxWidth="xl">
+        <div className="p-6 space-y-6">
           <div className="flex items-center justify-between pb-4 border-b border-neutral-200">
             <div className="flex items-center gap-2.5">
               <span className="text-2xl">{dest.flag}</span>
@@ -1223,8 +1186,8 @@ export const DestinationDetailView: React.FC<Props> = ({ slug }) => {
 
       {/* 3. Detailed Phase Breakdown Modal */}
       {selectedPhase && (
-        <Modal isOpen={!!selectedPhase} onClose={() => setSelectedPhase(null)}>
-          <div className="p-6 max-h-[85vh] overflow-y-auto space-y-6">
+        <Modal isOpen={!!selectedPhase} onClose={() => setSelectedPhase(null)} hideHeader maxWidth="xl">
+          <div className="p-6 space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-neutral-200">
               <div className="flex items-center gap-3">
                 <span className="w-8 h-8 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center">
@@ -1285,7 +1248,7 @@ export const DestinationDetailView: React.FC<Props> = ({ slug }) => {
 
       {/* 4. Single Step Details Modal */}
       {selectedStep && (
-        <Modal isOpen={!!selectedStep} onClose={() => setSelectedStep(null)}>
+        <Modal isOpen={!!selectedStep} onClose={() => setSelectedStep(null)} hideHeader maxWidth="lg">
           <div className="p-6 space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-neutral-200">
               <div className="flex items-center gap-2">
@@ -1327,125 +1290,20 @@ export const DestinationDetailView: React.FC<Props> = ({ slug }) => {
         </Modal>
       )}
 
-      {/* 5. In-Page Destination University Explorer Modal */}
-      {showAllUnisModal && (
-        <Modal isOpen={showAllUnisModal} onClose={() => setShowAllUnisModal(false)}>
-          <div className="p-6 max-h-[85vh] overflow-y-auto space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-neutral-200">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">{dest.flag}</span>
-                  <h3 className="text-lg font-serif font-bold text-[#071228]">
-                    {dest.country} University Directory
-                  </h3>
-                </div>
-                <p className="text-xs text-neutral-500 mt-0.5">
-                  Explore accredited universities across {dest.country}
-                </p>
-              </div>
-              <button
-                onClick={() => setShowAllUnisModal(false)}
-                className="p-1 rounded-lg text-neutral-400 hover:text-neutral-700"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Search and Filters */}
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
-              <div className="sm:col-span-8 relative">
-                <Search className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder={`Search by university name or subject...`}
-                  value={uniSearch}
-                  onChange={(e) => setUniSearch(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-[#C5A059]"
-                />
-              </div>
-
-              <div className="sm:col-span-4">
-                <select
-                  value={selectedCity}
-                  onChange={(e) => setSelectedCity(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 text-xs focus:outline-none focus:border-[#C5A059] bg-white"
-                >
-                  <option value="ALL">All Cities</option>
-                  {uniqueCities.map((city) => (
-                    <option key={city} value={city}>{city}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            {/* Results count */}
-            <div className="text-xs text-neutral-500">
-              Showing <span className="font-bold text-[#071228]">{filteredUnis.length}</span> institutions in {dest.country}
-            </div>
-
-            {/* University Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {filteredUnis.map((u, uIdx) => (
-                <div
-                  key={uIdx}
-                  className="p-4 rounded-2xl bg-[#FDFBF7] border border-neutral-200 hover:border-[#C5A059] transition-all space-y-2.5 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-start justify-between gap-2">
-                      <h4 className="text-sm font-bold text-[#071228]">{u.name}</h4>
-                      <span className="px-2 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-[10px] font-extrabold text-amber-900 shrink-0">
-                        {u.ranking}
-                      </span>
-                    </div>
-                    
-                    <p className="text-xs text-neutral-500 mt-0.5 flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-[#C5A059]" />
-                      <span>{u.city}</span>
-                      <span className="mx-1">•</span>
-                      <span>{u.type}</span>
-                    </p>
-
-
-                    <div className="mt-2">
-                      <span className="text-[10px] text-neutral-400 font-bold block mb-1">Key Disciplines:</span>
-                      <div className="flex flex-wrap gap-1">
-                        {u.popularCourses.map((c, cIdx) => (
-                          <span key={cIdx} className="px-2 py-0.5 rounded-md bg-white border border-neutral-200 text-[10px] text-neutral-700">
-                            {c}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-3 border-t border-neutral-200 flex justify-end">
-                    <button
-                      onClick={() => {
-                        setShowAllUnisModal(false);
-                        setIsConsultModalOpen(true);
-                      }}
-                      className="px-3 py-1.5 rounded-lg bg-[#071228] text-white text-[11px] font-bold hover:bg-[#C5A059] hover:text-[#071228] transition-colors"
-                    >
-                      Shortlist & Apply →
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {filteredUnis.length === 0 && (
-              <div className="p-8 text-center text-neutral-500 text-xs">
-                No institutions found matching your search. Try resetting filters.
-              </div>
-            )}
-          </div>
-        </Modal>
-      )}
+      {/* 5. In-Page Destination University Directory Modal */}
+      <UniversityDirectoryModal
+        isOpen={showAllUnisModal}
+        onClose={() => setShowAllUnisModal(false)}
+        countrySlug={dest.slug}
+        countryName={dest.country}
+        landmarkImage={dest.heroImage || dest.image}
+        flagUrl={dest.flag}
+      />
 
       {/* 6. Remaining Countries Modal */}
       {isRemainingCountriesOpen && (
-        <Modal isOpen={isRemainingCountriesOpen} onClose={() => setIsRemainingCountriesOpen(false)}>
-          <div className="p-6 max-h-[85vh] overflow-y-auto space-y-6">
+        <Modal isOpen={isRemainingCountriesOpen} onClose={() => setIsRemainingCountriesOpen(false)} hideHeader maxWidth="2xl">
+          <div className="p-6 space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-neutral-200">
               <div className="flex items-center gap-2.5">
                 <span className="text-2xl">🌐</span>

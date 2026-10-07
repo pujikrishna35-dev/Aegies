@@ -1,0 +1,50 @@
+{
+  "project": "Aegis Overseas Education Services",
+  "source_date": "6 October 2026",
+  "countries": {
+    "UK": {
+      "entries": 159,
+      "logos_available": 159,
+      "logos_missing": 0
+    },
+    "USA": {
+      "entries": 2825,
+      "logos_available": 2620,
+      "logos_missing": 205
+    },
+    "CANADA": {
+      "entries": 151,
+      "logos_available": 147,
+      "logos_missing": 4
+    },
+    "GERMANY": {
+      "entries": 390,
+      "logos_available": 384,
+      "logos_missing": 6
+    },
+    "IRELAND": {
+      "entries": 23,
+      "logos_available": 23,
+      "logos_missing": 0
+    },
+    "NEW_ZEALAND": {
+      "entries": 8,
+      "logos_available": 8,
+      "logos_missing": 0
+    }
+  },
+  "entry_schema": {
+    "directory_id": "unique stable id",
+    "number": "number as printed in source PDF",
+    "country": "destination",
+    "section": "source directory category",
+    "name": "institution name exactly as source",
+    "location": "location exactly as source",
+    "website_domain": "domain exactly as source",
+    "website_url": "https URL constructed from source domain",
+    "logo_available": "whether source PDF contains an image asset for this entry",
+    "logo_file": "path to extracted source logo when available",
+    "source_pdf": "source file name",
+    "source_page": "PDF page number"
+  }
+}
