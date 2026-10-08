@@ -2,11 +2,11 @@ export const BRAND = {
   name: 'AEGIS OVERSEAS',
   tagline: 'Your Future Has No Borders.',
   eyebrow: 'GLOBAL EDUCATION. BRIGHTER TOMORROWS.',
-  primaryPhone: '+91 9246220044',
-  secondaryPhone: '+91 9246220066',
+  primaryPhone: '+91 8500722284',
+  secondaryPhone: '+91 8500722284',
   email: 'Info@aegisoverseas.com',
-  whatsapp: '919246220044',
-  whatsappUrl: 'https://wa.me/919246220044?text=Hello%20Aegis%20Overseas,%20I%20would%20like%20to%20book%20a%20free%20consultation%20for%20studying%20abroad.',
+  whatsapp: '918500722284',
+  whatsappUrl: 'https://wa.me/918500722284?text=Hello%20Aegis%20Overseas,%20I%20would%20like%20to%20book%20a%20free%20consultation%20for%20studying%20abroad.',
   workingHours: '9:00 AM – 6:30 PM (Mon - Sat)',
   stats: {
     students: '3,500+',
@@ -131,7 +131,7 @@ export const OFFICES = [
     city: 'Nellore (Head Office)',
     title: 'Aegis Overseas — Nellore Head Office',
     address: 'D.No: 24-7-33, Beside Dr. SRK School, Magunta Layout, Dargamitta, Nellore - 524003, Andhra Pradesh',
-    phone: '+91 9246220044 / 66',
+    phone: '+91 8500722284',
     email: 'Info@aegisoverseas.com',
     hours: '9:00 AM – 6:30 PM (Mon - Sat)'
   },
@@ -139,7 +139,7 @@ export const OFFICES = [
     city: 'Tirupati Branch',
     title: 'Aegis Overseas — Tirupati Office',
     address: 'Beside Lenskart, Fashion Zone, MR.Palli Circle, Avilali, Andhra Pradesh 517502',
-    phone: '+91 9246220044',
+    phone: '+91 8500722284',
     email: 'tirupati@aegisoverseas.com',
     hours: '9:30 AM – 6:30 PM'
   },

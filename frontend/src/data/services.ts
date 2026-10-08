@@ -17,6 +17,7 @@ export interface ServiceData {
   benefits?: string[];
   stat?: { value: string; label: string };
   faqs?: Array<{ q: string; a: string }>;
+  gallery?: string[];
 }
 
 export const SERVICES: ServiceData[] = [
@@ -263,6 +264,14 @@ export const SERVICES: ServiceData[] = [
       "Direct coordination with student housing reception for key collection"
     ],
     stat: { value: "100%", label: "Safe Arrivals" },
+    gallery: [
+      "/images/settlement/airport-arrival-1.jpg",
+      "/images/settlement/airport-arrival-2.jpg",
+      "/images/settlement/airport-arrival-3.png",
+      "/images/settlement/airport-arrival-4.jpg",
+      "/images/settlement/airport-arrival-5.jpg",
+      "/images/settlement/airport-arrival-6.jpg"
+    ],
     faqs: [
       { q: "What if my flight gets delayed or rescheduled?", a: "Our partner transfer service tracks your flight number in real-time. The driver adjusts the pickup schedule automatically at no extra fee." },
       { q: "Can family members or fellow students share the same ride?", a: "Yes. We offer both private sedans and larger MPVs/vans for students traveling together with multiple large suitcases." }

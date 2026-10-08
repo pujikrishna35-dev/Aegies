@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
   Compass, 
@@ -18,6 +18,9 @@ import {
   Clock, 
   ChevronDown, 
   ChevronUp, 
+  ChevronLeft,
+  ChevronRight,
+  X,
   Layers, 
   Users, 
   PhoneCall,
@@ -57,6 +60,9 @@ export const ServiceDetails: React.FC = () => {
   const navigate = useNavigate();
   const [consultationOpen, setConsultationOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [isGalleryPaused, setIsGalleryPaused] = useState(false);
+  const galleryScrollRef = useRef<HTMLDivElement>(null);
 
   const resolvedSlug = SERVICE_ALIASES[(slug || '').toLowerCase()] || (slug || '').toLowerCase();
 
@@ -67,6 +73,49 @@ export const ServiceDetails: React.FC = () => {
   const otherServices = SERVICES.filter(
     (s) => s.slug !== service?.slug
   ).slice(0, 4);
+
+  const galleryItems = service?.gallery
+    ? [...service.gallery, ...service.gallery, ...service.gallery]
+    : [];
+
+  const scrollGallery = (direction: 'left' | 'right') => {
+    if (galleryScrollRef.current && service?.gallery?.length) {
+      const el = galleryScrollRef.current;
+      const singleSetWidth = el.scrollWidth / 3;
+      if (direction === 'right') {
+        if (el.scrollLeft >= singleSetWidth * 1.5) {
+          el.scrollLeft -= singleSetWidth;
+        }
+        el.scrollBy({ left: 240, behavior: 'smooth' });
+      } else {
+        if (el.scrollLeft <= 10) {
+          el.scrollLeft += singleSetWidth;
+        }
+        el.scrollBy({ left: -240, behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Auto-scroll images smoothly forward every 3 seconds (infinite seamless forward loop)
+  useEffect(() => {
+    if (!service?.gallery || service.gallery.length <= 1 || isGalleryPaused || previewImage) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      if (galleryScrollRef.current) {
+        const el = galleryScrollRef.current;
+        const singleSetWidth = el.scrollWidth / 3;
+        // If advanced into duplicate set past 1.5x width, silently wrap back by 1 set so forward motion continues endlessly
+        if (el.scrollLeft >= singleSetWidth * 1.5) {
+          el.scrollLeft -= singleSetWidth;
+        }
+        el.scrollBy({ left: 240, behavior: 'smooth' });
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [service?.gallery, isGalleryPaused, previewImage]);
 
   if (!service) {
     return (
@@ -102,36 +151,113 @@ export const ServiceDetails: React.FC = () => {
 
       {/* Hero Header Box */}
       <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm relative overflow-hidden mb-10">
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-3 mb-4 flex-wrap">
-            <span className="px-3 py-1 rounded-full text-xs font-extrabold tracking-wide uppercase bg-slate-100 text-[#071228]">
-              {service.category || 'Comprehensive Service'}
-            </span>
-            {service.stat && (
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
-                ★ {service.stat.value} {service.stat.label}
+        <div className={service.gallery && service.gallery.length > 0 ? "grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" : "max-w-3xl"}>
+          <div className={service.gallery && service.gallery.length > 0 ? "lg:col-span-7" : ""}>
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="px-3 py-1 rounded-full text-xs font-extrabold tracking-wide uppercase bg-slate-100 text-[#071228]">
+                {service.category || 'Comprehensive Service'}
               </span>
-            )}
-          </div>
-
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200/60 flex items-center justify-center shrink-0">
-              <IconComponent className="w-7 h-7" />
+              {service.stat && (
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                  ★ {service.stat.value} {service.stat.label}
+                </span>
+              )}
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-[#071228] tracking-tight leading-tight">
-              {service.title}
-            </h1>
+
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200/60 flex items-center justify-center shrink-0">
+                <IconComponent className="w-7 h-7" />
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-[#071228] tracking-tight leading-tight">
+                {service.title}
+              </h1>
+            </div>
+
+            {service.tagline && (
+              <p className="text-amber-700 text-sm sm:text-base font-bold mb-2">
+                {service.tagline}
+              </p>
+            )}
+
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mt-3">
+              {service.fullDesc || service.shortDesc}
+            </p>
           </div>
 
-          {service.tagline && (
-            <p className="text-amber-700 text-sm sm:text-base font-bold mb-2">
-              {service.tagline}
-            </p>
-          )}
+          {/* Right Side: Scrolling Images Gallery */}
+          {service.gallery && service.gallery.length > 0 && (
+            <div className="lg:col-span-5 w-full">
+              <div 
+                className="bg-[#FAF8F5] rounded-2xl p-4 sm:p-5 border border-amber-100/90 shadow-xs"
+                onMouseEnter={() => setIsGalleryPaused(true)}
+                onMouseLeave={() => setIsGalleryPaused(false)}
+                onTouchStart={() => setIsGalleryPaused(true)}
+                onTouchEnd={() => setIsGalleryPaused(false)}
+              >
+                {/* Header with counter & nav controls */}
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-[#071228] uppercase tracking-wider flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                      Student Arrivals
+                    </span>
+                    <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-amber-100/90 text-amber-900 border border-amber-200">
+                      {service.gallery.length} Photos
+                    </span>
+                  </div>
 
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed mt-3">
-            {service.fullDesc || service.shortDesc}
-          </p>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => scrollGallery('left')}
+                      aria-label="Scroll left"
+                      className="w-7 h-7 rounded-full bg-white border border-slate-200 hover:bg-amber-50 hover:border-amber-300 text-slate-700 flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => scrollGallery('right')}
+                      aria-label="Scroll right"
+                      className="w-7 h-7 rounded-full bg-white border border-slate-200 hover:bg-amber-50 hover:border-amber-300 text-slate-700 flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Horizontal Scrolling Gallery Track */}
+                <div
+                  ref={galleryScrollRef}
+                  className="flex gap-3 overflow-x-auto pb-1 scroll-smooth snap-x snap-mandatory"
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                  {galleryItems.map((imgSrc, idx) => (
+                    <div
+                      key={idx}
+                      onClick={() => setPreviewImage(imgSrc)}
+                      className="shrink-0 w-44 sm:w-48 h-60 sm:h-64 rounded-xl overflow-hidden relative snap-start border border-slate-200/90 shadow-2xs hover:shadow-md transition-all cursor-pointer group/img bg-slate-100"
+                    >
+                      <img
+                        src={imgSrc}
+                        alt={`Airport pickup arrival ${(idx % service.gallery.length) + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-black/50 backdrop-blur-xs text-[9px] font-bold text-white border border-white/20">
+                        {(idx % service.gallery.length) + 1}/{service.gallery.length}
+                      </div>
+                      <div className="absolute bottom-2 left-2">
+                        <span className="px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-xs text-[10px] font-bold text-slate-800 shadow-2xs">
+                          Safe Arrival
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -278,7 +404,7 @@ export const ServiceDetails: React.FC = () => {
 
             <div className="mt-4 pt-4 border-t border-white/10 text-center">
               <a
-                href={`https://wa.me/919111243210?text=Hi%20Aegis%20Team,%20I%20need%20assistance%20with%20${encodeURIComponent(service.title)}.`}
+                href={`https://wa.me/918500722284?text=Hi%20Aegis%20Team,%20I%20need%20assistance%20with%20${encodeURIComponent(service.title)}.`}
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs text-amber-300 font-bold hover:underline inline-flex items-center gap-1.5"
@@ -338,6 +464,30 @@ export const ServiceDetails: React.FC = () => {
       >
         <ConsultationForm onSuccess={() => setConsultationOpen(false)} />
       </Modal>
+
+      {/* Lightbox Preview Modal for Gallery Images */}
+      {previewImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 cursor-pointer"
+          onClick={() => setPreviewImage(null)}
+        >
+          <div className="relative max-w-3xl max-h-[90vh] cursor-default" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={previewImage}
+              alt="Enlarged student arrival photo"
+              className="max-h-[85vh] w-auto rounded-2xl object-contain shadow-2xl border border-white/20"
+            />
+            <button
+              type="button"
+              onClick={() => setPreviewImage(null)}
+              aria-label="Close preview"
+              className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition-colors shadow-lg border border-white/20 cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

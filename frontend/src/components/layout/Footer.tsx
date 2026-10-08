@@ -95,9 +95,9 @@ export const Footer: React.FC = () => {
               Contact
             </h4>
             <div className="space-y-2 text-xs text-slate-600">
-              <a href="tel:+919111243210" className="flex items-center gap-2 hover:text-[#071228]">
+              <a href="tel:+918500722284" className="flex items-center gap-2 hover:text-[#071228]">
                 <Phone className="w-3.5 h-3.5 text-[#C5A059]" />
-                <span>+91 91112 43210</span>
+                <span>+91 8500722284</span>
               </a>
               <a href="mailto:info@aegisoverseas.com" className="flex items-center gap-2 hover:text-[#071228]">
                 <Mail className="w-3.5 h-3.5 text-[#C5A059]" />
@@ -109,7 +109,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="pt-2">
                 <a
-                  href="https://wa.me/919111243210"
+                  href="https://wa.me/918500722284"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-bold hover:bg-emerald-100 transition-colors"

@@ -20,7 +20,7 @@ export const ContactForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <FormInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
-      <FormInput label="Phone Number" placeholder="+91 9876543210" required />
+      <FormInput label="Phone Number" placeholder="+91 8500722284" required />
       <FormInput label="Email Address" type="email" placeholder="rahul@example.com" required />
       <div>
         <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Message / Inquiry</label>

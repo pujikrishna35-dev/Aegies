@@ -399,7 +399,8 @@ export const DESTINATIONS: DestinationData[] = [
       "Intensive 1-Year Master's degrees save significant tuition and living costs.",
       'Internationally recognized degrees backed by rigorous Quality Assurance Agency (QAA).',
       'Vibrant multicultural student cities with global networking opportunities.',
-      'Generous 2-year post-study work visa (Graduate Route).'
+      'Generous 18 months - 2 years PSW available.',
+      'PHW 18 months masters, MRES 3 years.'
     ],
     faqs: [
       {

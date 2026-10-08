@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Building2, 
-  ShieldCheck, 
-  Award, 
-  Users, 
-  GraduationCap, 
-  CheckCircle2, 
-  Globe2, 
-  Sparkles, 
-  ArrowRight, 
-  HeartHandshake, 
-  Compass, 
-  Scale, 
+import {
+  Building2,
+  ShieldCheck,
+  Award,
+  Users,
+  GraduationCap,
+  CheckCircle2,
+  Globe2,
+  Sparkles,
+  ArrowRight,
+  HeartHandshake,
+  Compass,
+  Scale,
   Calendar,
   MapPin,
   Phone,
@@ -108,25 +108,25 @@ export const About: React.FC = () => {
     {
       city: 'Hyderabad (Headquarters)',
       address: 'Level 4, Aegis Heights, Raj Bhavan Road, Somajiguda, Hyderabad, Telangana 500082',
-      phone: '+91 91112 43210',
+      phone: '+91 8500722284',
       email: 'hyderabad@aegisoverseas.com'
     },
     {
       city: 'Hyderabad (HITEC City)',
       address: 'Plot 18, Mindspace IT Corridor, Madhapur, Hyderabad, Telangana 500081',
-      phone: '+91 91112 43211',
+      phone: '+91 8500722284',
       email: 'hitec@aegisoverseas.com'
     },
     {
       city: 'Bangalore Hub',
       address: '80 Feet Road, 4th Block, Koramangala, Bengaluru, Karnataka 560034',
-      phone: '+91 91112 43212',
+      phone: '+91 8500722284',
       email: 'bangalore@aegisoverseas.com'
     },
     {
       city: 'Vijayawada Branch',
       address: 'Door No. 40-1-52, MG Road, Near Benz Circle, Vijayawada, Andhra Pradesh 520010',
-      phone: '+91 91112 43213',
+      phone: '+91 8500722284',
       email: 'vijayawada@aegisoverseas.com'
     }
   ];
@@ -134,7 +134,7 @@ export const About: React.FC = () => {
   return (
     <div className="pt-28 pb-24 bg-[#FDFBF7] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Breadcrumb */}
         <div className="mb-6 flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-neutral-500">
           <Link to="/" className="hover:text-amber-700 transition-colors">Home</Link>
@@ -154,13 +154,13 @@ export const About: React.FC = () => {
               <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
               Trust • Transparency • Student Success
             </div>
-            
+
             <h1 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
               About Aegis Overseas
             </h1>
 
             <p className="mt-3 text-lg sm:text-xl text-[#E6C687] font-medium">
-              15+ years of ethical, student-first overseas admission mentoring.
+              25+ years of ethical, student-first overseas admission mentoring.
             </p>
 
             <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -190,7 +190,7 @@ export const About: React.FC = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, idx) => (
-            <div 
+            <div
               key={idx}
               className="bg-white rounded-2xl border border-neutral-200/80 p-6 shadow-xs hover:shadow-md transition-shadow text-center"
             >
@@ -290,22 +290,20 @@ export const About: React.FC = () => {
               Our Journey
             </span>
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#071228]">
-              Over 15 Years of Milestones
+              Over 25 Years of Milestones
             </h2>
           </div>
 
           <div className="space-y-6 relative before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:-translate-x-px before:w-0.5 before:bg-neutral-200 max-w-4xl mx-auto">
             {milestones.map((m, idx) => (
-              <div 
+              <div
                 key={idx}
-                className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 ${
-                  idx % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
+                className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  }`}
               >
                 <div className="md:w-1/2 pl-12 md:pl-0 md:text-right">
-                  <div className={`bg-[#FAF7F0] p-6 rounded-2xl border border-[#E6C687]/40 shadow-xs ${
-                    idx % 2 === 0 ? 'md:text-left' : 'md:text-right'
-                  }`}>
+                  <div className={`bg-[#FAF7F0] p-6 rounded-2xl border border-[#E6C687]/40 shadow-xs ${idx % 2 === 0 ? 'md:text-left' : 'md:text-right'
+                    }`}>
                     <span className="px-2.5 py-1 rounded-md bg-[#071228] text-[#E6C687] text-xs font-bold inline-block mb-2">
                       {m.year}
                     </span>
@@ -331,7 +329,7 @@ export const About: React.FC = () => {
               Our Mentors
             </span>
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#071228]">
-              Meet Our Leadership
+              Meet Our Leadership Team
             </h2>
             <p className="text-neutral-600 text-xs sm:text-sm mt-2">
               Decades of combined academic counseling, high-commission liaison experience, and student advocacy.
@@ -340,15 +338,15 @@ export const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {leadership.map((leader, idx) => (
-              <div 
+              <div
                 key={idx}
                 className="bg-neutral-50 rounded-2xl border border-neutral-200 overflow-hidden text-center group hover:shadow-lg transition-all"
               >
                 <div className="h-56 overflow-hidden">
-                  <img 
-                    src={leader.image} 
+                  <img
+                    src={leader.image}
                     alt={leader.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
@@ -419,7 +417,7 @@ export const About: React.FC = () => {
 
       {/* Modal */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <ConsultationForm 
+        <ConsultationForm
           initialNotes="About Us page - requesting counseling session"
           onSuccess={() => setIsModalOpen(false)}
         />

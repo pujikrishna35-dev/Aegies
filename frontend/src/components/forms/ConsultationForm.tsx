@@ -153,7 +153,7 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            placeholder="+91 98765 43210"
+            placeholder="+91 8500722284"
             className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50/50 text-navy-950 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:bg-white transition-all"
           />
         </div>
