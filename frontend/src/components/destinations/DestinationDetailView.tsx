@@ -37,6 +37,7 @@ import { Modal } from '../ui/Modal';
 import { ConsultationForm } from '../forms/ConsultationForm';
 import { generateCountryGuidePdf } from '../../utils/pdfGenerator';
 import { UniversityDirectoryModal } from '../universities/UniversityDirectoryModal';
+import { getUniversityWebsite } from '../../data/universityWebsites';
 
 interface Props {
   slug: string;
@@ -426,7 +427,13 @@ export const DestinationDetailView: React.FC<Props> = ({ slug }) => {
             {dest.topUniversities.slice(0, 5).map((uni, idx) => (
               <div
                 key={idx}
-                className="group bg-[#FDFBF7] rounded-2xl border border-neutral-200/90 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col hover:-translate-y-1"
+                onClick={() => {
+                  const url = getUniversityWebsite(uni.name, uni.slug);
+                  if (url && url !== '#') {
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                  }
+                }}
+                className="group bg-[#FDFBF7] rounded-2xl border border-neutral-200/90 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col hover:-translate-y-1 cursor-pointer"
               >
                 {/* Photo */}
                 <div className="relative h-36 overflow-hidden bg-neutral-100">
@@ -475,13 +482,22 @@ export const DestinationDetailView: React.FC<Props> = ({ slug }) => {
                   </div>
 
                   <div className="pt-2 border-t border-neutral-200/60 flex items-center justify-end text-xs">
-                    <button
-                      onClick={() => setIsConsultModalOpen(true)}
-                      className="text-[11px] font-bold text-[#C5A059] hover:text-amber-800 inline-flex items-center gap-1"
+                    <a
+                      href={getUniversityWebsite(uni.name, uni.slug)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const url = getUniversityWebsite(uni.name, uni.slug);
+                        if (url && url !== '#') {
+                          window.open(url, '_blank', 'noopener,noreferrer');
+                        }
+                      }}
+                      className="text-[11px] font-bold text-[#C5A059] hover:text-amber-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
                     >
                       <span>Explore University</span>
                       <ArrowRight className="w-3 h-3" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

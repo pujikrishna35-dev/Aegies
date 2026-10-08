@@ -287,7 +287,7 @@ export const CourseDetails: React.FC = () => {
 
             <div className="mt-4 pt-4 border-t border-white/10 text-center">
               <a
-                href="https://wa.me/919111243210?text=Hi%20Aegis%20Team,%20I%20am%20interested%20in%20applying%20for%20the%20degree:%20"
+                href="https://wa.me/918500722284?text=Hi%20Aegis%20Team,%20I%20am%20interested%20in%20applying%20for%20the%20degree:%20"
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs text-amber-300 font-bold hover:underline inline-flex items-center gap-1.5"

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  MessageSquare, 
-  Send, 
-  CheckCircle2, 
-  Sparkles, 
-  Building2, 
-  Globe2, 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  MessageSquare,
+  Send,
+  CheckCircle2,
+  Sparkles,
+  Building2,
+  Globe2,
   HelpCircle,
   ChevronDown,
   ChevronUp
@@ -33,8 +33,43 @@ export const Contact: React.FC = () => {
     message: ''
   });
 
+  const DESTINATION_NAMES: Record<string, string> = {
+    uk: 'United Kingdom 🇬🇧',
+    usa: 'United States 🇺🇸',
+    canada: 'Canada 🇨🇦',
+    australia: 'Australia 🇦🇺',
+    germany: 'Germany 🇩🇪',
+    ireland: 'Ireland 🇮🇪',
+    'new-zealand': 'New Zealand 🇳🇿',
+    europe: 'Europe (Schengen) 🇪🇺'
+  };
+
+  const WHATSAPP_TARGET_NUMBER = '918500722284';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const destLabel = DESTINATION_NAMES[formData.destination.toLowerCase()] || formData.destination;
+    const lines = [
+      `📩 *New Website Enquiry - Aegis Overseas*`,
+      ``,
+      `👤 *Full Name:* ${formData.fullName}`,
+      `📞 *Phone Number:* ${formData.phone}`,
+      `📧 *Email Address:* ${formData.email}`,
+      `🌍 *Preferred Destination:* ${destLabel}`,
+      `🏢 *Nearest Office:* ${formData.preferredOffice}`,
+      formData.message ? `📝 *Message / Query:* ${formData.message}` : null,
+      ``,
+      `_Sent from Contact Form on Aegis Overseas Portal_`
+    ].filter(Boolean);
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_TARGET_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+    try {
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    } catch (err) {
+      console.error('Could not open WhatsApp window:', err);
+    }
+
     await submitConsultation(formData);
   };
 
@@ -42,7 +77,7 @@ export const Contact: React.FC = () => {
     {
       city: 'Hyderabad — Somajiguda (HQ)',
       address: 'Level 4, Aegis Heights, Raj Bhavan Road, Somajiguda, Hyderabad, Telangana 500082',
-      phone: '+91 91112 43210',
+      phone: '+91 8500722284',
       email: 'hyderabad@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
       landmark: 'Opposite Villa Marie College'
@@ -50,7 +85,7 @@ export const Contact: React.FC = () => {
     {
       city: 'Hyderabad — Madhapur (HITEC City)',
       address: 'Plot 18, 3rd Floor, Mindspace IT Corridor, Madhapur, Hyderabad, Telangana 500081',
-      phone: '+91 91112 43211',
+      phone: '+91 8500722284',
       email: 'hitec@aegisoverseas.com',
       hours: 'Mon - Sat: 10:00 AM - 7:00 PM',
       landmark: 'Near Inorbit Mall & Durgam Cheruvu Metro'
@@ -58,7 +93,7 @@ export const Contact: React.FC = () => {
     {
       city: 'Bangalore — Koramangala Hub',
       address: '80 Feet Road, 4th Block, Koramangala, Bengaluru, Karnataka 560034',
-      phone: '+91 91112 43212',
+      phone: '+91 8500722284',
       email: 'bangalore@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
       landmark: 'Near Sony World Signal'
@@ -66,7 +101,7 @@ export const Contact: React.FC = () => {
     {
       city: 'Vijayawada — MG Road',
       address: 'Door No. 40-1-52, 2nd Floor, MG Road, Near Benz Circle, Vijayawada, Andhra Pradesh 520010',
-      phone: '+91 91112 43213',
+      phone: '+91 8500722284',
       email: 'vijayawada@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
       landmark: 'Above State Bank of India'
@@ -91,7 +126,7 @@ export const Contact: React.FC = () => {
   return (
     <div className="pt-28 pb-24 bg-[#FDFBF7] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Breadcrumb */}
         <div className="mb-6 flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-neutral-500">
           <Link to="/" className="hover:text-amber-700 transition-colors">Home</Link>
@@ -108,7 +143,7 @@ export const Contact: React.FC = () => {
               <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
               Prompt Support • Dedicated Country Desks
             </div>
-            
+
             <h1 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
               Contact Us
             </h1>
@@ -136,7 +171,7 @@ export const Contact: React.FC = () => {
 
         {/* Two-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
-          
+
           {/* Left Column: Office Locations & Direct Contacts */}
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-2xl font-display font-bold text-[#071228] flex items-center gap-2">
@@ -178,7 +213,7 @@ export const Contact: React.FC = () => {
                 <p className="text-xs text-neutral-600 mt-1">Chat directly with an education counselor right now.</p>
               </div>
               <a
-                href="https://wa.me/919111243210"
+                href="https://wa.me/918500722284"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shrink-0 flex items-center gap-2"
@@ -245,7 +280,7 @@ export const Contact: React.FC = () => {
                       <input
                         type="tel"
                         required
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 8500722284"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs focus:outline-hidden focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059]"
