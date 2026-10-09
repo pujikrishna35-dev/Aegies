@@ -27,7 +27,7 @@ export const About: React.FC = () => {
 
   const stats = [
     { value: '25+', label: 'Years of Excellence', sub: 'Guiding global aspirants since 2001' },
-    { value: '10,000+', label: 'Students Placed', sub: 'Across top global universities' },
+    { value: '15,000+', label: 'Students Placed', sub: 'Across top global universities' },
     { value: '100%', label: 'Visa Approval Rate', sub: 'Consistent across Tier-1 nations' },
     { value: '$14.5M+', label: 'Scholarships Won', sub: 'In merit and government grants' }
   ];
@@ -106,28 +106,28 @@ export const About: React.FC = () => {
 
   const offices = [
     {
-      city: 'Hyderabad (Headquarters)',
-      address: 'Level 4, Aegis Heights, Raj Bhavan Road, Somajiguda, Hyderabad, Telangana 500082',
+      city: 'Hyderabad ',
+      address: 'Hitec City, Madhapur, Hyderabad, Telangana',
       phone: '+91 8500722284',
-      email: 'hyderabad@aegisoverseas.com'
+      email: 'info@aegisoverseas.com'
     },
     {
-      city: 'Hyderabad (HITEC City)',
-      address: 'Plot 18, Mindspace IT Corridor, Madhapur, Hyderabad, Telangana 500081',
+      city: 'Nellore-1 (Ramalinga Puram)',
+      address: 'Srivari Plaza, Circle, Ramalinga Puram, Nellore, Andhra Pradesh 524003, India',
       phone: '+91 8500722284',
-      email: 'hitec@aegisoverseas.com'
+      email: 'info@aegisoverseas.com'
     },
     {
-      city: 'Bangalore Hub',
-      address: '80 Feet Road, 4th Block, Koramangala, Bengaluru, Karnataka 560034',
+      city: 'Nellore-2 (Magunta Layout)',
+      address: 'Near viswasai school, Central Avenue, Dargamitta, Magunta Layout, Nellore, Andhra Pradesh 524003, India',
       phone: '+91 8500722284',
-      email: 'bangalore@aegisoverseas.com'
+      email: 'info@aegisoverseas.com'
     },
     {
-      city: 'Vijayawada Branch',
-      address: 'Door No. 40-1-52, MG Road, Near Benz Circle, Vijayawada, Andhra Pradesh 520010',
+      city: 'Tirupati',
+      address: 'GSF, Mr.palli circle, road, near lenskart, fashion zone, Avilali, Andhra Pradesh 517502, India',
       phone: '+91 8500722284',
-      email: 'vijayawada@aegisoverseas.com'
+      email: 'info@aegisoverseas.com'
     }
   ];
 
@@ -194,7 +194,7 @@ export const About: React.FC = () => {
               key={idx}
               className="bg-white rounded-2xl border border-neutral-200/80 p-6 shadow-xs hover:shadow-md transition-shadow text-center"
             >
-              <p className="text-3xl sm:text-4xl font-display font-extrabold text-[#071228] text-amber-700">
+              <p className="text-3xl sm:text-4xl font-sans font-extrabold text-[#071228] text-amber-700 tracking-tight">
                 {stat.value}
               </p>
               <h3 className="text-sm font-bold text-[#071228] mt-2">

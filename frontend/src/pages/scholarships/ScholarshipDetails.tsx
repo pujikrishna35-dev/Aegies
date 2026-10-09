@@ -82,7 +82,7 @@ export const ScholarshipDetails: React.FC = () => {
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#E6C687] block">
                   Total Financial Coverage & Grant
                 </span>
-                <p className="text-xl sm:text-2xl font-bold font-display text-white mt-1">
+                <p className="text-xl sm:text-2xl font-extrabold font-sans text-white mt-1 tracking-tight">
                   {scholarship.awardAmount}
                 </p>
               </div>

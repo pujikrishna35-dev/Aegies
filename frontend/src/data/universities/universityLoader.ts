@@ -127,7 +127,26 @@ export async function loadCountryUniversityDirectory(countrySlug: string): Promi
         rawData = (mod.default || mod) as RawDirectoryItem[];
         break;
       }
+      case 'europe':
+      case 'europe-schengen':
+      case 'schengen': {
+        const mod = await import('./europe_universities.json');
+        rawData = (mod.default || mod) as RawDirectoryItem[];
+        break;
+      }
       default: {
+        // Fallback: check if the slug matches a European country location (e.g. 'france', 'italy', 'spain')
+        try {
+          const mod = await import('./europe_universities.json');
+          const europeData = (mod.default || mod) as RawDirectoryItem[];
+          const filtered = europeData.filter(
+            (item) => item.location && item.location.toLowerCase().replace(/[^a-z0-9]+/g, '-') === normalizedSlug
+          );
+          if (filtered.length > 0) {
+            rawData = filtered;
+            break;
+          }
+        } catch (_) {}
         return [];
       }
     }

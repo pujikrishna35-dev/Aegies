@@ -20,7 +20,7 @@ export const TrustStats: React.FC = () => {
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white border border-slate-200 text-[#8A1538] mb-3 shadow-xs group-hover:scale-110 transition duration-300">
                   <Icon className="w-6 h-6" />
                 </div>
-                <div className="text-3xl sm:text-4xl font-display font-extrabold text-[#071228] tracking-tight">
+                <div className="text-3xl sm:text-4xl font-sans font-extrabold text-[#071228] tracking-tight">
                   {s.value}
                 </div>
                 <div className="text-sm font-bold text-slate-800 mt-1">{s.label}</div>

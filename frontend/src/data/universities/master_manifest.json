@@ -31,6 +31,11 @@
       "entries": 8,
       "logos_available": 8,
       "logos_missing": 0
+    },
+    "EUROPE": {
+      "entries": 2690,
+      "logos_available": 1854,
+      "logos_missing": 836
     }
   },
   "entry_schema": {

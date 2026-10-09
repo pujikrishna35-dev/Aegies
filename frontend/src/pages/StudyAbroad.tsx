@@ -79,7 +79,7 @@ export const StudyAbroad: React.FC = () => {
       name: 'Spring Intake',
       period: 'January – February',
       status: 'Secondary Intake',
-      highlight: false,
+      highlight: true,
       desc: 'Ideal for students needing extra time for exams, test retakes, or completing undergraduate degree results.',
       deadline: 'August – November prior'
     },
@@ -87,7 +87,7 @@ export const StudyAbroad: React.FC = () => {
       name: 'Summer / Winter Intake',
       period: 'May – July',
       status: 'Specialized Intake',
-      highlight: false,
+      highlight: true,
       desc: 'Select programs, vocational diplomas, language pre-requisite courses, and specialized business executive cohorts.',
       deadline: 'January – March prior'
     }
@@ -208,32 +208,22 @@ export const StudyAbroad: React.FC = () => {
             {intakes.map((intake) => (
               <div
                 key={intake.name}
-                className={`rounded-2xl p-7 border transition-all ${
-                  intake.highlight
-                    ? 'bg-gradient-to-b from-[#071228] to-[#0A1A38] text-white border-amber-400/40 shadow-xl'
-                    : 'bg-white text-[#071228] border-neutral-200 shadow-xs'
-                }`}
+                className="rounded-2xl p-7 border transition-all bg-gradient-to-b from-[#071228] to-[#0A1A38] text-white border-amber-400/40 shadow-xl hover:border-amber-400/60"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span
-                    className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full ${
-                      intake.highlight
-                        ? 'bg-amber-400/20 text-[#E2C474] border border-amber-400/30'
-                        : 'bg-neutral-100 text-neutral-600'
-                    }`}
-                  >
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-400/20 text-[#E2C474] border border-amber-400/30">
                     {intake.status}
                   </span>
-                  <Calendar className={`w-4 h-4 ${intake.highlight ? 'text-amber-400' : 'text-neutral-400'}`} />
+                  <Calendar className="w-4 h-4 text-amber-400" />
                 </div>
-                <h3 className="text-xl font-bold font-display mb-1">{intake.name}</h3>
-                <div className={`text-sm font-semibold mb-4 ${intake.highlight ? 'text-amber-300' : 'text-amber-700'}`}>
+                <h3 className="text-xl font-bold font-display mb-1 text-white">{intake.name}</h3>
+                <div className="text-sm font-semibold mb-4 text-amber-300">
                   {intake.period}
                 </div>
-                <p className={`text-xs sm:text-sm mb-6 leading-relaxed ${intake.highlight ? 'text-slate-300' : 'text-neutral-600'}`}>
+                <p className="text-xs sm:text-sm mb-6 leading-relaxed text-slate-300">
                   {intake.desc}
                 </p>
-                <div className={`pt-4 border-t text-xs ${intake.highlight ? 'border-white/15 text-slate-400' : 'border-neutral-100 text-neutral-500'}`}>
+                <div className="pt-4 border-t text-xs border-white/15 text-slate-400">
                   <span className="font-bold text-neutral-400">Typical Deadline:</span> {intake.deadline}
                 </div>
               </div>

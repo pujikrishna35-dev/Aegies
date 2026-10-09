@@ -52,19 +52,19 @@ export const TrustStatsSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="flex items-center gap-3 p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-[#C5A059]/60 hover:shadow-md transition-all duration-300 group shadow-xs"
+                className="flex items-start gap-3 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-[#C5A059]/60 hover:shadow-md transition-all duration-300 group shadow-xs h-full"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#C5A059]/15 border border-[#C5A059]/30 flex items-center justify-center text-[#B8860B] flex-shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-[#C5A059]/15 border border-[#C5A059]/30 flex items-center justify-center text-[#B8860B] shrink-0 group-hover:scale-110 transition-transform mt-0.5">
                   <Icon className="w-5 h-5" />
                 </div>
-                <div className="min-w-0">
-                  <div className="font-display text-lg sm:text-xl font-extrabold text-[#071228] leading-tight">
+                <div className="min-w-0 flex-1 flex flex-col justify-start">
+                  <div className="font-sans text-lg sm:text-xl font-extrabold text-[#071228] leading-tight tracking-tight">
                     {s.value}
                   </div>
-                  <div className="text-[11px] font-bold text-slate-800 leading-snug mt-0.5">
+                  <div className="text-[11px] font-bold text-slate-800 leading-snug mt-1 min-h-[30px] flex items-start">
                     {s.label}
                   </div>
-                  <div className="text-[10px] text-slate-500 leading-snug mt-0.5">
+                  <div className="text-[10px] text-slate-500 leading-snug mt-0.5 min-h-[26px]">
                     {s.sub}
                   </div>
                 </div>
@@ -74,25 +74,25 @@ export const TrustStatsSection: React.FC = () => {
         </div>
 
         {/* Official Representation & Accreditations Strip */}
-        <div className="mt-6 pt-5 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600">
-          <div className="flex items-center gap-2">
+        <div className="mt-6 pt-5 border-t border-slate-200/80 flex flex-wrap items-center gap-x-5 sm:gap-x-6 gap-y-2.5 text-xs text-slate-600">
+          <div className="flex items-center gap-2 shrink-0">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="font-semibold text-slate-800">Certified International Representation:</span>
           </div>
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 font-medium text-slate-600">
-            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors">
+          <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-2 font-medium text-slate-600">
+            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
               <span className="text-[#C5A059] font-bold">✓</span> British Council Certified
             </span>
-            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors">
+            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
               <span className="text-[#C5A059] font-bold">✓</span> IDP Education Partner
             </span>
-            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors">
+            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
               <span className="text-[#C5A059] font-bold">✓</span> ICEF Verified Agency
             </span>
-            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors">
+            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
               <span className="text-[#C5A059] font-bold">✓</span> ETS Official Associate
             </span>
-            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors">
+            <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
               <span className="text-[#C5A059] font-bold">✓</span> NAFSA Member
             </span>
           </div>
