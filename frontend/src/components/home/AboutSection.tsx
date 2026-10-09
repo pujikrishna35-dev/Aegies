@@ -15,7 +15,7 @@ export const AboutSection: React.FC = () => {
             FOR GLOBAL EDUCATION
           </h2>
           <p className="mt-6 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Headquartered in Hyderabad with operations across Bangalore and Vijayawada, Aegis Overseas Education Services has spent over 15 years empowering Indian students to excel in the world's most prestigious universities.
+            Headquartered in Hyderabad with operations across Bangalore and Vijayawada, Aegis Overseas Education Services has spent over 25 years empowering Indian students to excel in the world's most prestigious universities.
           </p>
           <div className="mt-8 space-y-3">
             {[

@@ -28,7 +28,7 @@ export const Contact: React.FC = () => {
     destination: 'uk',
     studyLevel: 'Postgraduate',
     fieldOfStudy: 'General Enquiry',
-    preferredOffice: 'Hyderabad (Somajiguda)',
+    preferredOffice: 'Hyderabad',
     budgetRange: '₹15L - ₹25L',
     message: ''
   });
@@ -75,34 +75,34 @@ export const Contact: React.FC = () => {
 
   const offices = [
     {
-      city: 'Hyderabad — Somajiguda (HQ)',
+      city: 'Hyderabad',
       address: 'Level 4, Aegis Heights, Raj Bhavan Road, Somajiguda, Hyderabad, Telangana 500082',
       phone: '+91 8500722284',
-      email: 'hyderabad@aegisoverseas.com',
+      email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
       landmark: 'Opposite Villa Marie College'
     },
     {
-      city: 'Hyderabad — Madhapur (HITEC City)',
-      address: 'Plot 18, 3rd Floor, Mindspace IT Corridor, Madhapur, Hyderabad, Telangana 500081',
+      city: 'Tirupati',
+      address: 'GSF, Mr.palli circle, road, near lenskart, fashion zone, Avilali, Andhra Pradesh 517502, India',
       phone: '+91 8500722284',
-      email: 'hitec@aegisoverseas.com',
+      email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 10:00 AM - 7:00 PM',
       landmark: 'Near Inorbit Mall & Durgam Cheruvu Metro'
     },
     {
-      city: 'Bangalore — Koramangala Hub',
-      address: '80 Feet Road, 4th Block, Koramangala, Bengaluru, Karnataka 560034',
+      city: 'Nellore-1 (Ramalinga Puram)',
+      address: 'Srivari Plaza, Circle, Ramalinga Puram, Nellore, Andhra Pradesh 524003, India',
       phone: '+91 8500722284',
-      email: 'bangalore@aegisoverseas.com',
+      email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
       landmark: 'Near Sony World Signal'
     },
     {
-      city: 'Vijayawada — MG Road',
-      address: 'Door No. 40-1-52, 2nd Floor, MG Road, Near Benz Circle, Vijayawada, Andhra Pradesh 520010',
+      city: 'Nellore-2 (Magunta Layout)',
+      address: 'Near viswasai school, Central Avenue, Dargamitta, Magunta Layout, Nellore, Andhra Pradesh 524003, India',
       phone: '+91 8500722284',
-      email: 'vijayawada@aegisoverseas.com',
+      email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
       landmark: 'Above State Bank of India'
     }
@@ -313,10 +313,10 @@ export const Contact: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, preferredOffice: e.target.value })}
                         className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 text-xs bg-white text-neutral-700"
                       >
-                        <option value="Hyderabad (Somajiguda)">Hyderabad (Somajiguda)</option>
-                        <option value="Hyderabad (Madhapur)">Hyderabad (Madhapur)</option>
-                        <option value="Bangalore (Koramangala)">Bangalore (Koramangala)</option>
-                        <option value="Vijayawada (MG Road)">Vijayawada (MG Road)</option>
+                        <option value="Hyderabad">Hyderabad </option>
+                        <option value="Nellore-1 (Ramalinga Puram)">Nellore-1 (Ramalinga Puram)</option>
+                        <option value="Nellore-2 (Magunta Layout)">Nellore-2 (Magunta Layout)</option>
+                        <option value="Tirupati">Tirupati</option>
                         <option value="Online Video Call">Online Video Call</option>
                       </select>
                     </div>

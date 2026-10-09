@@ -95,19 +95,19 @@ export const TestPreparation: React.FC = () => {
             {/* Quick Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-white/10">
               <div>
-                <p className="text-2xl sm:text-3xl font-bold font-display text-[#E6C687]">98.4%</p>
+                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-[#E6C687] tracking-tight">98.4%</p>
                 <p className="text-xs text-slate-400 mt-1">First Attempt Pass Rate</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-bold font-display text-white">8.0+</p>
+                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-white tracking-tight">8.0+</p>
                 <p className="text-xs text-slate-400 mt-1">Average IELTS Band</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-bold font-display text-[#E6C687]">322+</p>
+                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-[#E6C687] tracking-tight">322+</p>
                 <p className="text-xs text-slate-400 mt-1">Average GRE Score</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-bold font-display text-white">25,000+</p>
+                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-white tracking-tight">25,000+</p>
                 <p className="text-xs text-slate-400 mt-1">Mock Exams Administered</p>
               </div>
             </div>
