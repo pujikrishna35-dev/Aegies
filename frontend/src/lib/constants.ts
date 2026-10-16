@@ -11,7 +11,7 @@ export const BRAND = {
   stats: {
     students: '3,500+',
     countries: '11+',
-    universities: '100+',
+    universities: '5000+',
     support: '360°',
     rating: '4.9/5'
   }
@@ -19,7 +19,6 @@ export const BRAND = {
 
 export const NAV_LINKS = [
   { label: 'Destinations', href: '/destinations' },
-  { label: 'Universities', href: '/universities' },
   { label: 'Courses', href: '/courses' },
   { label: 'Services', href: '/services' },
   { label: 'Scholarships', href: '/scholarships' },

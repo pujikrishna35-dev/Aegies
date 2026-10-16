@@ -3,7 +3,6 @@ import { Hero } from '@/components/home/Hero';
 import { TrustStatsSection } from '@/components/home/TrustStatsSection';
 import { ArrivalSettlementSection } from '@/components/home/ArrivalSettlementSection';
 import { DestinationsSection } from '@/components/home/DestinationsSection';
-import { UniversityFinder } from '@/components/home/UniversityFinder';
 import { WhyAegis } from '@/components/home/WhyAegis';
 import { SupportSection } from '@/components/home/SupportSection';
 import { JourneySection } from '@/components/home/JourneySection';
@@ -27,9 +26,6 @@ export const Home: React.FC = () => {
 
       {/* 3. Explore Your Dream Destination (8 Country Cards) */}
       <DestinationsSection />
-
-      {/* 3. Find Your Perfect University (6 Dropdown Filters + Campus Card) */}
-      <UniversityFinder />
 
       {/* 4. Why Aegis (9 Feature Icon Tiles) */}
       <WhyAegis />

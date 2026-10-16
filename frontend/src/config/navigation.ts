@@ -22,7 +22,6 @@ export const navigationConfig: NavItem[] = [
       { title: "Europe", href: "/destinations/europe", description: "Schengen mobility & historic universities" }
     ]
   },
-  { title: "Universities", href: "/universities" },
   { title: "Courses", href: "/courses" },
   {
     title: "Services",

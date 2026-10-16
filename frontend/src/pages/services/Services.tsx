@@ -20,7 +20,8 @@ import {
   Layers, 
   Users, 
   PhoneCall,
-  Check
+  Check,
+  Briefcase
 } from 'lucide-react';
 import { SERVICES, ServiceData } from '../../data/services';
 import { Modal } from '../../components/ui/Modal';
@@ -36,7 +37,8 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Home: HomeIcon,
   CreditCard,
   PlaneTakeoff,
-  Plane
+  Plane,
+  Briefcase
 };
 
 export const Services: React.FC = () => {
@@ -50,7 +52,8 @@ export const Services: React.FC = () => {
     { id: 'Admissions Strategy', label: '1. Admissions Strategy' },
     { id: 'Financial Solutions', label: '2. Financial Solutions' },
     { id: 'Visa & Relocation', label: '3. Visa & Relocation' },
-    { id: 'Arrival & Settlement', label: '4. Arrival & Settlement' }
+    { id: 'Arrival & Settlement', label: '4. Arrival & Settlement' },
+    { id: 'Internships & Part-time Work', label: '5. Internships & Part-time Work' }
   ];
 
   const filteredServices = useMemo(() => {
@@ -100,7 +103,7 @@ export const Services: React.FC = () => {
   const faqs = [
     {
       q: "Are Aegis counseling and university application services really 100% free?",
-      a: "Yes. All our core counseling, university shortlisting, and direct application submission services are completely free of charge for students. Aegis is supported through official recruitment partnerships with over 1200+ accredited global universities."
+      a: "Yes. All our core counseling, university shortlisting, and direct application submission services are completely free of charge for students. Aegis is supported through official recruitment partnerships with over 5000+ accredited global universities."
     },
     {
       q: "How does Aegis maintain an industry-leading 100% student visa approval rate?",
@@ -349,7 +352,7 @@ export const Services: React.FC = () => {
             <ShieldCheck className="w-8 h-8 text-amber-600 mb-3" />
             <h4 className="text-sm font-bold text-[#071228] mb-1">Direct University Partnerships</h4>
             <p className="text-slate-500 text-xs leading-relaxed">
-              Direct institutional ties with 1200+ top universities across the UK, USA, Canada, Australia, and Europe.
+              Direct institutional ties with 5000+ top universities across the UK, USA, Canada, Australia, and Europe.
             </p>
           </div>
 

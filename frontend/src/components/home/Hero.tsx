@@ -88,8 +88,7 @@ export const Hero: React.FC<HeroProps> = () => {
           alt="Aegis Overseas World Education"
           className="w-full h-full object-cover object-[38%_top] sm:object-center"
         />
-        {/* Soft daylight ambient wash: directional top-to-bottom on mobile (75-80% text, 35% middle, 0-10% image) and left-to-right on desktop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 from-15% via-white/35 via-50% to-transparent to-90% md:bg-gradient-to-r md:from-white/85 md:from-0% md:via-white/50 md:via-50% md:to-transparent md:to-100% w-full md:w-3/5 pointer-events-none" />
+
       </div>
 
       {/* Arched Floating Destination Pills around the Student & Skyline (Desktop Only: 1024px+) */}
@@ -137,7 +136,7 @@ export const Hero: React.FC<HeroProps> = () => {
 
           {/* Subtitle */}
           <p className="mt-3 sm:mt-5 text-xs sm:text-base lg:text-[15px] text-[#0F172A] leading-relaxed font-semibold max-w-xl">
-            Turn your ambition into an international degree with personalized counselling, 1200+ top universities, and full end-to-end guidance from application to visa.
+            Turn your ambition into an international degree with personalized counselling, 5000+ top universities, and full end-to-end guidance from application to visa.
           </p>
 
           {/* 4 Value Metrics - Unboxed inline with background */}
@@ -152,7 +151,7 @@ export const Hero: React.FC<HeroProps> = () => {
             <div className="flex items-center gap-1.5 sm:gap-3">
               <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 shrink-0" />
               <div>
-                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">1200+</div>
+                <div className="text-sm sm:text-base lg:text-lg font-black text-slate-950 leading-none">5000+</div>
                 <div className="text-[10px] sm:text-xs text-slate-800 font-bold leading-tight mt-1">Universities</div>
               </div>
             </div>
@@ -175,7 +174,7 @@ export const Hero: React.FC<HeroProps> = () => {
           {/* Dual Action Buttons */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
             <Link
-              to="/university-finder"
+              to="/destinations"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-3.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider bg-gradient-to-r from-[#F5DE88] via-[#E5B842] to-[#C99222] text-[#071228] shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:brightness-105 hover:-translate-y-0.5 active:scale-95 transition-all text-center"
             >
               <span>START YOUR JOURNEY</span>

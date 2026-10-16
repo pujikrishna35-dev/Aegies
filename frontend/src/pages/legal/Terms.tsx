@@ -32,55 +32,140 @@ export const Terms: React.FC = () => (
         
         <section>
           <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
-            1. Scope of Advisory Services
+            1. Our Services
           </h2>
-          <p className="mb-2">
-            Aegis Overseas Education Services acts as an authorized overseas education advisory and recruitment representative for international universities and colleges. Our advisory scope includes:
+          <p className="text-neutral-600 leading-relaxed mb-2">
+            Aegis provides overseas education counselling, course and institution selection, application assistance, documentation guidance and pre-departure support. Service scope, fees and responsibilities will be confirmed in a written agreement before payment.
           </p>
-          <ul className="list-disc pl-5 space-y-1 text-neutral-600">
-            <li>Guidance on university and degree selection based on candidate's expressed preferences and academic track record.</li>
-            <li>Admissions document vetting, statement of purpose guidance, and formal university application submission.</li>
-            <li>Visa file compilation, document checklists, and mock consular interview coaching.</li>
-            <li>Standardized test coaching for IELTS, PTE, TOEFL, GRE, GMAT, and SAT.</li>
+          <p className="text-neutral-600 leading-relaxed">
+            Visa assistance follows destination-country rules. Regulated immigration advice will be provided only by an appropriately authorised professional.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            2. Admissions and Visa Decisions
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Universities, authorities, lenders and employers make their own decisions regarding admissions, scholarships, visas, loans, employment and immigration. Aegis does not guarantee approvals, processing times, employment, earnings or permanent residence.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            3. Student Responsibilities
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Students must provide accurate, complete and genuine documents, review applications, meet deadlines and follow institutional and immigration requirements. Aegis will not knowingly submit false documents. Students under 18 must involve a parent or legal guardian in service agreements.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            4. Fees and Payments
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Our written agreement will specify service fees, taxes, payment stages and third-party charges. University, visa, examination, insurance, travel and accommodation costs are separate unless expressly included. Payments must use approved channels, and students should obtain receipts.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            5. Cancellation and Refunds
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Before payment, Aegis will provide a written cancellation and refund policy covering eligibility, service deductions, third-party payments and refund timelines. Third-party refunds follow the provider’s terms and applicable law, without removing statutory consumer rights.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            6. Third-Party Providers and Relationships
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Universities, lenders and other providers operate under their own terms. Aegis will clarify whether it acts as an adviser, referral partner or authorised representative. Relevant commissions and referral relationships will be disclosed; website listings do not automatically indicate representation.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            7. Information on This Website
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Course availability, fees, scholarships, admission requirements and visa rules may change. Students should verify current details with official sources before making commitments.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            8. Privacy
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Personal information is handled according to our Privacy Policy. Application consent does not automatically authorise unrelated marketing.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            9. Compliance with Applicable Laws
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Aegis aims to conduct its business honestly and responsibly, following applicable laws, regulations and professional standards within the agreed scope of services.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            10. Limitation of Responsibility
+          </h2>
+          <p className="text-neutral-600 leading-relaxed mb-2">
+            Aegis is responsible for its agreed services as required by law but cannot control matters beyond its reasonable control, including:
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-neutral-600 mb-2">
+            <li>Decisions by universities, immigration authorities, government departments, banks and other independent parties.</li>
+            <li>Admission or visa refusals, scholarship decisions, policy changes and processing delays.</li>
+            <li>Incorrect, incomplete or fraudulent information supplied by students or third parties.</li>
+            <li>Losses or delays caused by third-party actions, technical failures or government decisions.</li>
+            <li>Independent decisions by students, employers, accommodation providers and other service providers.</li>
           </ul>
-        </section>
-
-        <section className="pt-6 border-t border-neutral-100">
-          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
-            2. Student Responsibilities & Authenticity of Documents
-          </h2>
-          <p className="mb-2">
-            Candidates agree to provide complete, authentic, and accurate academic, biographical, and financial documentation. <strong>Aegis Overseas enforces a strict zero-tolerance policy against forged documents or falsified employment/academic credentials.</strong>
-          </p>
-          <p className="text-neutral-600">
-            Any applicant who submits counterfeit mark sheets, fraudulent bank certificates, or plagiarized statements will have their advisory contract immediately terminated and may be reported to relevant education authorities.
+          <p className="text-neutral-600 leading-relaxed">
+            Aegis does not guarantee admissions, visas, scholarships, loans, employment or other outcomes controlled by independent parties.
           </p>
         </section>
 
         <section className="pt-6 border-t border-neutral-100">
           <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
-            3. Admissions & Visa Decisions
+            11. Scope of Services and Legal Compliance
           </h2>
           <p className="text-neutral-600 leading-relaxed">
-            While Aegis Overseas boasts a 100% historical visa success rate, <strong>admission decisions are solely at the discretion of university faculty committees, and visa decisions are the exclusive jurisdiction of the respective sovereign immigration department or embassy</strong> (e.g. UK Visas and Immigration, US Department of State, IRCC Canada, Australian Home Affairs). Aegis Overseas does not guarantee or claim influence over sovereign visa decisions.
+            Aegis will make reasonable efforts to comply with applicable laws and provide only the services agreed upon. Legal or regulated immigration advice will be provided only by an appropriately authorised professional. Students must provide genuine information, review applications and follow relevant requirements.
           </p>
         </section>
 
         <section className="pt-6 border-t border-neutral-100">
           <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
-            4. Fee Policies & Transparent Advisory
+            12. Responsibility and Consumer Rights
           </h2>
           <p className="text-neutral-600 leading-relaxed">
-            Initial educational counseling and profile evaluation are provided free of charge. Where specialized fees apply (e.g. specialized test prep batches, external credential evaluation fees, or embassy visa filing fees), these will be transparently itemized upfront before any engagement. Direct university tuition fees must always be remitted by the student directly to the university's official bank account or verified portal (Flywire, Convera).
+            Aegis remains responsible for its services, acts, omissions and contractual obligations as required by law. Nothing in these Terms limits liability or consumer rights that cannot legally be excluded, including applicable remedies for fraud.
           </p>
         </section>
 
         <section className="pt-6 border-t border-neutral-100">
           <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
-            5. Governing Law & Jurisdiction
+            13. Complaints and Disputes
           </h2>
-          <p className="text-neutral-600">
-            These terms and conditions shall be governed by and construed in accordance with the laws of the Republic of India. Any disputes arising out of or in connection with our services shall be subject to the exclusive jurisdiction of the courts located in Hyderabad, Telangana.
+          <p className="text-neutral-600 leading-relaxed">
+            Contact Aegis at <a href="mailto:info@aegisoverseas.com" className="text-amber-700 underline hover:text-amber-800">info@aegisoverseas.com</a>, providing your name, service reference and concern. We will acknowledge complaints within the applicable time period and aim to resolve them. Indian law governs these Terms, without restricting access to consumer commissions or other competent authorities.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            14. Updates
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Updated Terms will reflect any revisions. Changes will not retrospectively alter an existing paid service agreement without an appropriate legal basis or agreement.
           </p>
         </section>
 

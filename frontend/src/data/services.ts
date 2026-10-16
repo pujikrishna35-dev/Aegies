@@ -9,7 +9,7 @@ export interface ServiceData {
   slug: string;
   shortDesc: string;
   iconName: string;
-  category?: 'Admissions Strategy' | 'Financial Solutions' | 'Visa & Relocation' | 'Arrival & Settlement';
+  category?: 'Admissions Strategy' | 'Financial Solutions' | 'Visa & Relocation' | 'Arrival & Settlement' | 'Internships & Part-time Work';
   tagline?: string;
   fullDesc?: string;
   deliverables?: string[];
@@ -59,7 +59,7 @@ export const SERVICES: ServiceData[] = [
     iconName: "School",
     category: "Admissions Strategy",
     tagline: "Data-driven university shortlisting with balanced risk-reward ratios.",
-    fullDesc: "We eliminate guesswork by categorizing academic institutions into Dream, Target, and Safe tiers. Our proprietary university matcher leverages historical acceptance data across 1200+ universities in the UK, USA, Canada, Australia, and Europe to maximize your admission offers.",
+    fullDesc: "We eliminate guesswork by categorizing academic institutions into Dream, Target, and Safe tiers. Our proprietary university matcher leverages historical acceptance data across 5000+ universities in the UK, USA, Canada, Australia, and Europe to maximize your admission offers.",
     deliverables: [
       "Bespoke shortlist of 8 to 12 verified global universities",
       "Comparison matrix of tuition fees, cost of living, and scholarship quotas",
@@ -77,9 +77,9 @@ export const SERVICES: ServiceData[] = [
       "Access to exclusive university partner application fee waivers",
       "Accurate assessment of faculty research and job placement rates"
     ],
-    stat: { value: "1200+", label: "Partner Universities" },
+    stat: { value: "5000+", label: "Partner Universities" },
     faqs: [
-      { q: "Can I apply to universities not on Aegis's partner list?", a: "Yes! While we offer priority fast-track processing with our 1200+ partner institutions, our counselors assist you with any accredited global university worldwide." },
+      { q: "Can I apply to universities not on Aegis's partner list?", a: "Yes! While we offer priority fast-track processing with our 5000+ partner institutions, our counselors assist you with any accredited global university worldwide." },
       { q: "What is the difference between Dream, Reach, and Safe?", a: "Dream institutions have very low acceptance rates (e.g. Ivy League, Russell Group top 10); Reach matches your exact GPA; Safe guarantees admission as a safety net." }
     ]
   },
@@ -337,6 +337,36 @@ export const SERVICES: ServiceData[] = [
     faqs: [
       { q: "Can Aegis help arrange student flight tickets with extra baggage?", a: "Yes! Through our airline tie-ups with Emirates, Qatar Airways, British Airways, and Air India, students receive special student fares and an additional piece of checked luggage." },
       { q: "Will I be connected with students attending the same university?", a: "Yes. Every intake, Aegis creates exclusive city and university WhatsApp groups connecting incoming freshmen with current seniors." }
+    ]
+  },
+  {
+    title: "Internships & Part-time Work",
+    slug: "internships-part-time-work",
+    shortDesc: "Comprehensive guidance on work permissions, on-campus jobs, CV tailoring for global employers, and internship placements.",
+    iconName: "Briefcase",
+    category: "Internships & Part-time Work",
+    tagline: "Maximize your employability and navigate destination student labor laws with confidence.",
+    fullDesc: "Gain destination-specific insights into student employment rights, term-time hourly caps, and national tax IDs (such as SSN, NI Number, or TFN). We assist students with formatting country-standard resumes, locating vetted university work opportunities, and connecting with local internship portals.",
+    deliverables: [
+      "Country-specific part-time work authorization and legal hours compliance guide",
+      "International resume & CV reformatting aligned with target country standards",
+      "Guidance on Tax ID, National Insurance, and local bank account setup",
+      "Access to student job boards, on-campus vacancy portals, and co-op placement networks"
+    ],
+    processSteps: [
+      { step: "01", title: "Visa Work Rights Audit", desc: "Understanding 20 hrs/week term-time work limits and vacation full-time guidelines." },
+      { step: "02", title: "CV & Cover Letter Adaptation", desc: "Crafting ATS-friendly local resumes tailored to on-campus and retail/tech roles." },
+      { step: "03", title: "We Search Part-Time Work & Internships for You", desc: "Applying through verified student employer networks and preparing for local job interviews." }
+    ],
+    benefits: [
+      "Offset living expenses safely within 100% legal visa boundaries",
+      "Build valuable international workplace skills and local employer references",
+      "Smooth transition into post-study work and graduate career opportunities"
+    ],
+    stat: { value: "20 Hrs/Wk", label: "Legal Work Permission" },
+    faqs: [
+      { q: "How many hours can international students legally work?", a: "In most major study destinations (UK, USA, Canada, Australia, Ireland), international students on valid visas are permitted to work up to 20 hours per week during term time and full-time during holidays." },
+      { q: "Can Aegis help me format my CV for foreign employers?", a: "Yes. Our student services team helps optimize your resume to meet local ATS formatting standards and country-specific workplace expectations." }
     ]
   }
 ];

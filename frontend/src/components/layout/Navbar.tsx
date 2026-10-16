@@ -40,7 +40,6 @@ export const Navbar: React.FC = () => {
       href: '/study-abroad',
       dropdown: [
         { label: 'Step-by-Step Guide', href: '/study-abroad' },
-        { label: 'University Finder', href: '/university-finder' },
         { label: 'Free Counseling', href: '/consultation' }
       ]
     },
@@ -63,11 +62,11 @@ export const Navbar: React.FC = () => {
       label: 'Courses',
       href: '/courses',
       dropdown: [
-        { label: 'All Courses & Degrees', href: '/courses' },
-        { label: 'Computer Science & AI', href: '/courses' },
-        { label: 'Business & Management', href: '/courses' },
-        { label: 'Engineering & Tech', href: '/courses' },
-        { label: 'Health & Life Sciences', href: '/courses' }
+        { label: 'All Courses Abroad', href: '/courses' },
+        { label: 'Computing & Technology', href: '/courses/computing-technology' },
+        { label: 'Business & Management', href: '/courses/business-management' },
+        { label: 'Engineering', href: '/courses/engineering' },
+        { label: 'Healthcare & Life Sciences', href: '/courses/healthcare-life-sciences' }
       ]
     },
     {
@@ -80,15 +79,7 @@ export const Navbar: React.FC = () => {
         { label: 'Visa & Immigration Guidance', href: '/services' }
       ]
     },
-    {
-      label: 'Scholarships',
-      href: '/scholarships',
-      dropdown: [
-        { label: 'Global Scholarships Directory', href: '/scholarships' },
-        { label: 'Merit & Need-based Grants', href: '/scholarships' },
-        { label: 'Country Specific Bursaries', href: '/scholarships' }
-      ]
-    },
+    { label: 'Scholarships', href: '/scholarships' },
     { label: 'Student Stories', href: '/student-stories' },
     { label: 'About Us', href: '/about' }
   ];

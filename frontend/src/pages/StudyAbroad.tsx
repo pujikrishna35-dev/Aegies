@@ -271,10 +271,10 @@ export const StudyAbroad: React.FC = () => {
               Book Free Consultation
             </button>
             <Link
-              to="/university-finder"
+              to="/destinations"
               className="px-7 py-3 rounded-xl bg-white hover:bg-neutral-50 text-[#071228] border border-neutral-300 font-bold text-xs sm:text-sm uppercase tracking-wider transition-all"
             >
-              Try University Finder
+              Explore Destinations
             </Link>
           </div>
         </div>

@@ -8,7 +8,7 @@ const faqs = [
   { q: "Which universities accept my IELTS/PTE score?", a: "Most UK, Australian, Canadian, and Irish institutions accept overall IELTS 6.5 (no band below 6.0) or PTE 58+. Many also accept Duolingo or provide waiver letters for English-medium graduates." },
   { q: "How do I apply for a student visa?", a: "Our dedicated visa cell prepares your financial portfolio, verifies CAS/I-20 documentation, schedules biometrics, and conducts thorough mock interview rehearsals to ensure 99.4% approval." },
   { q: "Can Aegis help with accommodation?", a: "Yes. We partner with leading international PBSAs (Purpose-Built Student Accommodations) like AmberStudent and Casita to secure verified halls within walking distance of your campus." },
-  { q: "Can I study abroad with my academic score?", a: "Absolutely. With 100+ partner universities across 11+ countries, we find strong programs tailored to every profile, whether you have a 90%+ or 55% aggregate." },
+  { q: "Can I study abroad with my academic score?", a: "Absolutely. With 5000+ partner universities across 11+ countries, we find strong programs tailored to every profile, whether you have a 90%+ or 55% aggregate." },
 ];
 
 export const FAQSection: React.FC = () => {

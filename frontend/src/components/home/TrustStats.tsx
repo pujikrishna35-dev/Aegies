@@ -4,7 +4,7 @@ import { Users, Globe2, School, ShieldCheck } from 'lucide-react';
 const stats = [
   { icon: Users, value: "3,500+", label: "Successful Students", subtext: "Admitted worldwide" },
   { icon: Globe2, value: "11+", label: "Countries", subtext: "Global study destinations" },
-  { icon: School, value: "100+", label: "Partner Universities", subtext: "Direct institutional ties" },
+  { icon: School, value: "5000+", label: "Partner Universities", subtext: "Direct institutional ties" },
   { icon: ShieldCheck, value: "360°", label: "End-to-End Support", subtext: "Counselling to campus" }
 ];
 

@@ -381,39 +381,6 @@ export const ServiceDetails: React.FC = () => {
 
         {/* Right 1 Column: Sticky Application & Consultation Sidebar */}
         <div className="space-y-6">
-          
-          {/* Quick Booking Box */}
-          <div className="bg-gradient-to-br from-[#071228] to-[#0A1E3F] text-white p-6 sm:p-8 rounded-3xl shadow-md">
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-amber-400 block mb-2">
-              Certified Expert Advisory
-            </span>
-            <h3 className="text-xl font-extrabold leading-tight">
-              Get Started with {service.title}
-            </h3>
-            <p className="text-slate-300 text-xs mt-2 leading-relaxed">
-              Book a 1-on-1 counseling session with our senior specialist desk. Zero service charges, 100% transparent guidance.
-            </p>
-
-            <button
-              onClick={() => setConsultationOpen(true)}
-              className="w-full mt-6 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C5A059] text-[#071228] font-extrabold text-xs uppercase tracking-wider shadow hover:brightness-105 transition-all text-center flex items-center justify-center gap-2"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Book Free Consultation</span>
-            </button>
-
-            <div className="mt-4 pt-4 border-t border-white/10 text-center">
-              <a
-                href={`https://wa.me/918500722284?text=Hi%20Aegis%20Team,%20I%20need%20assistance%20with%20${encodeURIComponent(service.title)}.`}
-                target="_blank"
-                rel="noreferrer"
-                className="text-xs text-amber-300 font-bold hover:underline inline-flex items-center gap-1.5"
-              >
-                <span>Chat with Specialist on WhatsApp</span>
-                <ArrowRight className="w-3 h-3" />
-              </a>
-            </div>
-          </div>
 
           {/* Consultation Form Box */}
           <div className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, ArrowLeft, Lock, Eye, FileText, Globe } from 'lucide-react';
+import { ShieldCheck, Scale } from 'lucide-react';
 
 export const PrivacyPolicy: React.FC = () => (
   <div className="pt-28 pb-24 bg-[#FDFBF7] min-h-screen">
@@ -15,15 +15,15 @@ export const PrivacyPolicy: React.FC = () => (
 
       {/* Header */}
       <div className="bg-[#071228] text-white rounded-3xl p-8 sm:p-12 mb-10 shadow-xl border border-[#C5A059]/20">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold mb-4 border border-emerald-500/30">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#E6C687] text-xs font-bold mb-4 border border-[#C5A059]/30">
           <ShieldCheck className="w-3.5 h-3.5" />
-          <span>Last Updated: January 2026 • GDPR & DPDP Compliant</span>
+          <span>Privacy Policy • Effective 2026</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
           Privacy Policy
         </h1>
         <p className="mt-2 text-slate-300 text-sm sm:text-base leading-relaxed">
-          At Aegis Overseas Education Services, we are committed to safeguarding the confidentiality, integrity, and privacy of prospective students, parents, and website visitors.
+          Aegis Overseas Education Services Pvt Ltd (“Aegis”, “we”, “our”, “us”) respects the privacy of students, parents, applicants and website visitors. This policy explains how we collect, use, store, share and protect personal information through <a href="https://aegisoverseas.com/" target="_blank" rel="noopener noreferrer" className="text-[#E6C687] underline hover:text-[#F5DE88]">aegisoverseas.com</a> and our services, in accordance with applicable laws.
         </p>
       </div>
 
@@ -31,73 +31,187 @@ export const PrivacyPolicy: React.FC = () => (
       <div className="bg-white rounded-3xl border border-neutral-200/80 p-8 sm:p-12 shadow-xs space-y-8 text-neutral-700 text-sm leading-relaxed">
         
         <section>
-          <h2 className="text-lg font-bold font-display text-[#071228] mb-3 flex items-center gap-2">
-            <Lock className="w-4 h-4 text-[#C5A059]" />
-            1. Information We Collect
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            1. Introduction
           </h2>
-          <p className="mb-2">
-            To provide comprehensive overseas educational counseling, university admissions processing, and visa assistance, we collect personal information you voluntarily provide through our online forms, consultation booking requests, and document submissions:
-          </p>
-          <ul className="list-disc pl-5 space-y-1 text-neutral-600">
-            <li><strong>Contact Details:</strong> Full Name, Email Address, Phone / WhatsApp Number, City of Residence.</li>
-            <li><strong>Academic History:</strong> High School and Undergraduate Mark Sheets, Transcripts, Graduation Certificates, Current CGPA/Percentage, Backlog History.</li>
-            <li><strong>Test Scores:</strong> IELTS, PTE, TOEFL, GRE, GMAT, SAT, or Duolingo scorecards and registration numbers.</li>
-            <li><strong>Immigration Information:</strong> Passport copies, nationality status, previous visa applications or refusal records (where relevant to avoid repeat refusals).</li>
-            <li><strong>Financial Overview:</strong> Self-declared annual education budgets or loan requirements to assess university affordability and embassy financial criteria.</li>
-          </ul>
-        </section>
-
-        <section className="pt-6 border-t border-neutral-100">
-          <h2 className="text-lg font-bold font-display text-[#071228] mb-3 flex items-center gap-2">
-            <Eye className="w-4 h-4 text-[#C5A059]" />
-            2. How We Use Your Information
-          </h2>
-          <p className="mb-2">We utilize your personal information exclusively for educational counseling purposes:</p>
-          <ul className="list-disc pl-5 space-y-1 text-neutral-600">
-            <li>Evaluating admission eligibility against specific university criteria in the UK, USA, Canada, Australia, Germany, Ireland, and New Zealand.</li>
-            <li>Submitting authorized university applications and scholarship dossiers on your behalf.</li>
-            <li>Scheduling 1-on-1 counseling sessions, mock interviews, and test preparation classes.</li>
-            <li>Sending critical updates regarding application deadlines, university offers, CAS/I-20 issuances, and visa requirements.</li>
-          </ul>
-        </section>
-
-        <section className="pt-6 border-t border-neutral-100">
-          <h2 className="text-lg font-bold font-display text-[#071228] mb-3 flex items-center gap-2">
-            <Globe className="w-4 h-4 text-[#C5A059]" />
-            3. Information Sharing & Third-Party Disclosures
-          </h2>
-          <p className="mb-2">
-            Aegis Overseas maintains a strict zero-spam policy. <strong>We NEVER sell, trade, or rent your personal contact information</strong> to third-party marketing companies or lead aggregators. Information is shared strictly with:
-          </p>
-          <ul className="list-disc pl-5 space-y-1 text-neutral-600">
-            <li>Partner universities and colleges to which you explicitly authorize us to submit your admissions application.</li>
-            <li>Accredited financial institutions and NBFC education loan partners only if you explicitly request education loan sanction assistance.</li>
-            <li>Authorized regulatory and visa processing bodies (e.g. VFS Global, high commissions) in accordance with applicable immigration laws.</li>
-          </ul>
-        </section>
-
-        <section className="pt-6 border-t border-neutral-100">
-          <h2 className="text-lg font-bold font-display text-[#071228] mb-3 flex items-center gap-2">
-            <FileText className="w-4 h-4 text-[#C5A059]" />
-            4. Data Security & Retention
-          </h2>
-          <p>
-            All electronic files and confidential academic records transmitted to Aegis Overseas are encrypted in transit via SSL/TLS encryption and stored on secure cloud servers with restricted role-based access. Documents are retained only for the duration necessary to support your university placement and visa processing, after which they can be permanently deleted upon written request.
+          <p className="text-neutral-600 leading-relaxed">
+            We handle personal information responsibly under applicable Indian laws. Where consent is legally required, we will obtain it separately. Visiting our website does not automatically constitute consent to every type of data processing.
           </p>
         </section>
 
         <section className="pt-6 border-t border-neutral-100">
           <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
-            5. Contact Our Data Protection Officer
+            2. Personal Information We Collect
           </h2>
-          <p>
-            If you have questions regarding this Privacy Policy, wish to access or update your information, or request the deletion of your records, please reach out to our privacy compliance team at:
+          <p className="text-neutral-600 leading-relaxed mb-2">
+            We may collect:
           </p>
-          <div className="mt-3 p-4 bg-[#FAF7F0] rounded-xl border border-[#E6C687]/40 text-xs">
-            <p><strong>Aegis Overseas Education Services</strong></p>
-            <p>Email: <a href="mailto:privacy@aegisoverseas.com" className="text-amber-700 hover:underline">privacy@aegisoverseas.com</a></p>
-            <p>Address: Somajiguda, Hyderabad, Telangana, India</p>
+          <ul className="list-disc pl-5 space-y-1.5 text-neutral-600 mb-3">
+            <li><strong>Contact details:</strong> Name, phone number, email, address and guardian details.</li>
+            <li><strong>Academic and professional details:</strong> Qualifications, marksheets, test scores, course preferences, CV and employment history.</li>
+            <li><strong>Application and identity details:</strong> Passport information, application forms and visa documents.</li>
+            <li><strong>Financial details:</strong> Sponsorship documents, service payments, invoices and refunds.</li>
+            <li><strong>Technical information:</strong> IP address, browser, device, approximate location, cookies and website usage data, depending on our website configuration.</li>
+          </ul>
+          <p className="text-neutral-600 leading-relaxed">
+            Sensitive information may be collected when necessary and protected as required by law. Please do not submit passwords, OTPs or unnecessary sensitive information through ordinary forms or email.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            3. How We Collect Information
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            We collect information through enquiry forms, emails, calls, consultations and applications; from parents or authorised partners where permitted; and through website logs, cookies or lawful public sources where relevant.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            4. How We Use Information
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            We use personal information to respond to enquiries, provide counselling, support applications and visa documentation, communicate deadlines, manage payments and complaints, maintain records, protect security, improve services and send permitted promotional communications.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            5. Consent and Your Choices
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Where required, we obtain consent and explain its purpose. You may withdraw consent or request correction or deletion where applicable, subject to legal obligations and lawful exceptions. Essential service communications may continue even if you opt out of marketing.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            6. Sharing Personal Information
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            We may share relevant information with universities, application partners, examination providers, government authorities, banks, insurers, accommodation providers, technology vendors, professional advisers and law-enforcement authorities where authorised or legally required. Aegis does not sell personal information or disclose it for unrelated marketing without an appropriate legal basis.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            7. International Transfers
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Overseas applications may require information to be transferred outside India. We will follow applicable transfer requirements and use appropriate safeguards where required. Students should also review the privacy policies of overseas institutions and providers.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            8. Data Security
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Aegis aims to protect information through access controls, secure storage and transfers, confidentiality measures and appropriate technical and organisational safeguards. No electronic system is completely secure. We will address security incidents and provide notifications where legally required.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            9. Data Retention and Deletion
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            We retain information only as long as reasonably necessary for services, legal obligations, recordkeeping and dispute resolution. Information will be securely deleted or anonymised when no longer required, unless retention is legally permitted or required. Retention periods depend on the information type and applicable requirements.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            10. Cookies and Similar Technologies
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Our website may use cookies for functionality, security and analytics, depending on the tools enabled. Where required, non-essential cookies will be used only with appropriate consent. You may manage cookies through browser settings or an available website preference tool.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            11. Marketing Communications
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            We may send service updates about enquiries, applications and appointments. Promotional messages by email, phone, SMS or WhatsApp will follow applicable consent and legal requirements. You may opt out of marketing, but essential service communications may continue.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            12. Children and Students Under 18
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            We handle children's personal information according to applicable law and obtain parental or guardian consent where required. Parents or legal guardians may contact us about a child's information, subject to identity and authority verification.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            13. Recruitment and Student Testimonials
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Recruitment information, including CVs and qualifications, may be used to assess applications and manage recruitment. Student photographs, testimonials and success stories will be published only with appropriate permission or another lawful basis. Publicity consent is separate from consultancy consent.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            14. Third-Party Websites and Services
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Our website may link to universities, government portals, payment providers and other external websites. Aegis does not control their privacy practices or security. Please review their privacy policies before sharing information directly.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            15. Your Rights and Requests
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            Subject to applicable law, you may request access to information, correction, completion or deletion, withdraw consent, raise grievances and exercise other available data-protection rights. We may verify your identity and retain information where legally required.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            16. Privacy Grievances and Contact Details
+          </h2>
+          <p className="text-neutral-600 leading-relaxed mb-3">
+            For privacy questions, requests or complaints, contact:
+          </p>
+          <div className="p-4 bg-[#FAF7F0] rounded-2xl border border-[#E6C687]/40 text-neutral-700 space-y-1">
+            <p className="font-bold text-[#071228]">Aegis Overseas Education Services Pvt Ltd</p>
+            <p>
+              Email: <a href="mailto:info@aegisoverseas.com" className="text-amber-700 underline hover:text-amber-800">info@aegisoverseas.com</a>
+            </p>
+            <p>
+              Website: <a href="https://aegisoverseas.com" target="_blank" rel="noopener noreferrer" className="text-amber-700 underline hover:text-amber-800">aegisoverseas.com</a>
+            </p>
           </div>
+          <p className="text-neutral-600 leading-relaxed mt-3">
+            Include your name, contact details, request and relevant reference number. Avoid sending passwords or unnecessary sensitive documents. Grievances will be handled within applicable legal timeframes.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            17. Legal Compliance and Interpretation
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            This policy describes Aegis's privacy practices under applicable law. It does not limit any statutory rights or obligations that cannot legally be excluded. Where this policy conflicts with mandatory law, the applicable legal requirement prevails.
+          </p>
+        </section>
+
+        <section className="pt-6 border-t border-neutral-100">
+          <h2 className="text-lg font-bold font-display text-[#071228] mb-3">
+            18. Changes to This Privacy Policy
+          </h2>
+          <p className="text-neutral-600 leading-relaxed">
+            We may update this policy when our services, technology, data practices or applicable laws change. Updated terms will be published on our website, and any required notice or fresh consent will be provided where applicable.
+          </p>
         </section>
 
       </div>
