@@ -10,7 +10,7 @@ export const HOMEPAGE_DATA = {
   stats: [
     { value: "3,500+", label: "Successful Students", verified: true },
     { value: "11+", label: "Countries", verified: true },
-    { value: "100+", label: "Partner Universities", verified: true },
+    { value: "5000+", label: "Partner Universities", verified: true },
     { value: "360°", label: "End-to-End Support", verified: true }
   ],
   journeySteps: [

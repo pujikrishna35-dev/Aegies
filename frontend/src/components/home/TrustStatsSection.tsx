@@ -23,7 +23,7 @@ export const TrustStatsSection: React.FC = () => {
     },
     {
       icon: Landmark,
-      value: '1200+',
+      value: '5000+',
       label: 'Partner Universities',
       sub: 'UK, US, Canada, EU & Aus'
     },

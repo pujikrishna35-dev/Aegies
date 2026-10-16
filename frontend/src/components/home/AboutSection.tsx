@@ -20,7 +20,7 @@ export const AboutSection: React.FC = () => {
           <div className="mt-8 space-y-3">
             {[
               "3,500+ successful admissions with verified alumni in 11+ countries",
-              "Direct tie-ups with 100+ accredited universities and government colleges",
+              "Direct tie-ups with 5000+ accredited universities and government colleges",
               "Transparent fee structures, zero hidden costs, and honest course guidance",
               "Complimentary 1-on-1 profile evaluation and university shortlisting session"
             ].map((pt, i) => (

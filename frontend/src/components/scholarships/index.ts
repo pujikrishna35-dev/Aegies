@@ -1,2 +1,3 @@
-// Component group: scholarships
-export {};
+export * from './ScholarshipCard';
+export * from './EligibilityGuideDrawer';
+export * from './ScholarshipConsultationModal';

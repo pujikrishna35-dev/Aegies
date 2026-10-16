@@ -55,8 +55,8 @@ export const UniversityDetails: React.FC = () => {
       <div className="pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-2xl font-bold text-slate-900">University not found</h2>
         <p className="text-slate-500 mt-2">The requested university profile could not be retrieved.</p>
-        <Link to="/universities" className="mt-4 inline-block text-amber-600 font-bold text-sm">
-          ← Back to Universities
+        <Link to="/destinations" className="mt-4 inline-block text-amber-600 font-bold text-sm">
+          ← Back to Destinations
         </Link>
       </div>
     );
@@ -71,7 +71,7 @@ export const UniversityDetails: React.FC = () => {
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
           <Link to="/" className="hover:text-[#071228]">Home</Link>
           <span>/</span>
-          <Link to="/universities" className="hover:text-[#071228]">Universities</Link>
+          <Link to="/destinations" className="hover:text-[#071228]">Destinations</Link>
           <span>/</span>
           <span className="text-[#071228] font-bold">{university.name}</span>
         </div>

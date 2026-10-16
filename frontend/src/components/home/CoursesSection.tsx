@@ -4,16 +4,16 @@ import { ArrowRight, GraduationCap, Award, Landmark, DollarSign } from 'lucide-r
 
 export const CoursesSection: React.FC = () => {
   const coursesList = [
-    'Computer Science & IT',
-    'Engineering',
     'Business & Management',
-    'Data Science & AI',
-    'Healthcare',
+    'Computing & Technology',
+    'Engineering',
     'Finance & Accounting',
+    'Healthcare & Life Sciences',
+    'Medicine & Dentistry',
     'Hospitality & Tourism',
-    'Architecture & Design',
-    'Law',
-    'Life Sciences'
+    'Arts, Design & Media',
+    'Law & Social Sciences',
+    'Science & Environment'
   ];
 
   const scholarshipsList = [

@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Consultation from './pages/Consultation';
+import Careers from './pages/Careers';
 import StudyAbroad from './pages/StudyAbroad';
 import NotFound from './pages/NotFound';
 
@@ -103,6 +104,7 @@ const AppContent: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/book-consultation" element={<Consultation />} />
           <Route path="/consultation" element={<Consultation />} />
+          <Route path="/careers" element={<Careers />} />
           <Route path="/study-abroad" element={<StudyAbroad />} />
 
           {/* Destinations */}
@@ -116,10 +118,10 @@ const AppContent: React.FC = () => {
           <Route path="/destinations/new-zealand" element={<NewZealand />} />
           <Route path="/destinations/europe" element={<Europe />} />
 
-          {/* Universities */}
-          <Route path="/universities" element={<Universities />} />
-          <Route path="/universities/compare" element={<Compare />} />
-          <Route path="/universities/:slug" element={<UniversityDetails />} />
+          {/* Universities (Redirects to country-wise destinations) */}
+          <Route path="/universities" element={<Navigate to="/destinations" replace />} />
+          <Route path="/universities/compare" element={<Navigate to="/destinations" replace />} />
+          <Route path="/universities/:slug" element={<Navigate to="/destinations" replace />} />
 
           {/* Courses */}
           <Route path="/courses" element={<Courses />} />
@@ -145,11 +147,12 @@ const AppContent: React.FC = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogArticle />} />
 
-          {/* University Finder */}
-          <Route path="/university-finder" element={<UniversityFinder />} />
+          {/* University Finder (Redirects to destinations) */}
+          <Route path="/university-finder" element={<Navigate to="/destinations" replace />} />
 
           {/* Legal */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
 

@@ -76,7 +76,7 @@ export const Contact: React.FC = () => {
   const offices = [
     {
       city: 'Hyderabad',
-      address: 'Level 4, Aegis Heights, Raj Bhavan Road, Somajiguda, Hyderabad, Telangana 500082',
+      address: 'Hitec City, Madhapur, Hyderabad, Telangana',
       phone: '+91 8500722284',
       email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
@@ -280,7 +280,7 @@ export const Contact: React.FC = () => {
                       <input
                         type="tel"
                         required
-                        placeholder="+91 8500722284"
+                        placeholder="Enter your phone number"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 text-xs focus:outline-hidden focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059]"

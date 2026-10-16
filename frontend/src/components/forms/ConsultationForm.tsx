@@ -153,7 +153,7 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            placeholder="+91 8500722284"
+            placeholder="Enter your phone number"
             className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50/50 text-navy-950 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:bg-white transition-all"
           />
         </div>
@@ -242,7 +242,7 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
           ) : (
             <span className="inline-flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-navy-950" />
-              Confirm Free Consultation Booking
+              Book Consultation
               <Send className="w-4 h-4 ml-1" />
             </span>
           )}

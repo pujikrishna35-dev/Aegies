@@ -85,7 +85,6 @@ export const Footer: React.FC = () => {
               <li><Link to="/careers" className="hover:text-[#071228]">Careers</Link></li>
               <li><Link to="/privacy" className="hover:text-[#071228]">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-[#071228]">Terms</Link></li>
-              <li><Link to="/cookies" className="hover:text-[#071228]">Cookie Policy</Link></li>
             </ul>
           </div>
 
@@ -105,7 +104,7 @@ export const Footer: React.FC = () => {
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#C5A059] shrink-0 mt-0.5" />
-                <span>123 Education Street, Somajiguda, Hyderabad</span>
+                <span>Hitec City, Madhapur, Hyderabad, Telangana</span>
               </div>
               <div className="pt-2">
                 <a

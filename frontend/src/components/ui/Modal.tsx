@@ -35,7 +35,7 @@ export function Modal({ isOpen, onClose, title, children, maxWidth = 'lg', hideH
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex flex-col justify-end sm:justify-center items-center sm:p-4 overflow-hidden">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-navy-950/75 backdrop-blur-sm transition-opacity"
@@ -44,19 +44,19 @@ export function Modal({ isOpen, onClose, title, children, maxWidth = 'lg', hideH
 
       {/* Dialog container */}
       <div
-        className={`relative z-10 w-full ${widthClasses[maxWidth]} overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 animate-in fade-in zoom-in-95 duration-200`}
+        className={`relative z-10 w-full ${widthClasses[maxWidth]} max-h-[92dvh] sm:max-h-[90vh] flex flex-col overflow-hidden rounded-t-[28px] sm:rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 animate-in fade-in zoom-in-95 duration-200`}
       >
         {/* Header */}
         {!hideHeader && (
-          <div className="flex items-center justify-between border-b border-neutral-100 px-6 py-4 bg-ivory-50">
+          <div className="flex items-center justify-between border-b border-neutral-100 px-5 sm:px-6 py-3 sm:py-4 bg-ivory-50 shrink-0">
             {title ? (
-              <h3 className="font-display text-xl font-bold text-navy-950">{title}</h3>
+              <h3 className="font-display text-base sm:text-xl font-bold text-navy-950 pr-3">{title}</h3>
             ) : (
               <div />
             )}
             <button
               onClick={onClose}
-              className="rounded-full p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-navy-900 transition-colors"
+              className="rounded-full p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-navy-900 transition-colors shrink-0 cursor-pointer"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />
@@ -65,7 +65,7 @@ export function Modal({ isOpen, onClose, title, children, maxWidth = 'lg', hideH
         )}
 
         {/* Content */}
-        <div className={`${hideHeader ? 'p-0' : 'p-6'} max-h-[85vh] overflow-y-auto`}>
+        <div className={`${hideHeader ? 'p-0' : 'p-4 sm:p-6'} overflow-y-auto flex-1 overscroll-contain`}>
           {children}
         </div>
       </div>

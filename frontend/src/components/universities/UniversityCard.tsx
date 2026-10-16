@@ -8,7 +8,7 @@ export const UniversityCard: React.FC<{ name: string; country: string; city: str
     <p className="text-xs text-slate-500 mt-0.5">{props.city}, {props.country}</p>
     <div className="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs text-slate-600">
       <span>{props.tuition}</span>
-      <Link to="/universities" className="text-[#8A1538] font-bold hover:underline">View Programs →</Link>
+      <Link to="/destinations" className="text-[#8A1538] font-bold hover:underline">View Programs →</Link>
     </div>
   </div>
 );

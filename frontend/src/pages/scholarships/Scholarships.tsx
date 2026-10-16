@@ -1,516 +1,345 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { 
-  Award, 
   Search, 
   Globe2, 
   GraduationCap, 
-  Calendar, 
-  CheckCircle2, 
-  Sparkles, 
+  Info, 
   ArrowRight, 
-  Filter, 
-  DollarSign, 
-  FileText, 
-  BookOpen, 
-  HelpCircle, 
-  ChevronDown, 
-  ChevronUp, 
-  ShieldCheck,
-  Building2,
-  Send
+  ChevronDown,
+  Sparkles
 } from 'lucide-react';
-import { SCHOLARSHIPS, SCHOLARSHIP_CATEGORIES, ScholarshipData } from '../../data/scholarships';
-import { Modal } from '../../components/ui/Modal';
-import { ConsultationForm } from '../../components/forms/ConsultationForm';
+import { SCHOLARSHIPS, Scholarship, ScholarshipCountry } from '../../data/scholarships';
+import { ScholarshipCard } from '../../components/scholarships/ScholarshipCard';
+import { EligibilityGuideDrawer } from '../../components/scholarships/EligibilityGuideDrawer';
+import { ScholarshipConsultationModal } from '../../components/scholarships/ScholarshipConsultationModal';
+
+const DESTINATIONS: { id: string; label: string; countryName?: ScholarshipCountry }[] = [
+  { id: 'all', label: 'All Scholarships' },
+  { id: 'uk', label: 'United Kingdom', countryName: 'United Kingdom' },
+  { id: 'usa', label: 'United States', countryName: 'United States' },
+  { id: 'canada', label: 'Canada', countryName: 'Canada' },
+  { id: 'australia', label: 'Australia', countryName: 'Australia' },
+  { id: 'germany', label: 'Germany', countryName: 'Germany' },
+  { id: 'ireland', label: 'Ireland', countryName: 'Ireland' },
+  { id: 'europe', label: 'Europe', countryName: 'Europe' }
+];
 
 export const Scholarships: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedLevel, setSelectedLevel] = useState<string>('all');
+  const [selectedDestination, setSelectedDestination] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedStudyLevel, setSelectedStudyLevel] = useState<string>('all');
   const [selectedCoverage, setSelectedCoverage] = useState<string>('all');
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedScholarshipTitle, setSelectedScholarshipTitle] = useState('');
+  const [sortBy, setSortBy] = useState<string>('deadline-earliest');
+
+  // Modal & Drawer State
+  const [guideScholarship, setGuideScholarship] = useState<Scholarship | null>(null);
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [consultationScholarship, setConsultationScholarship] = useState<string>('Chevening Scholarships (UK)');
+  const [consultationDestination, setConsultationDestination] = useState<string>('United Kingdom');
 
   // Filter scholarships
   const filteredScholarships = useMemo(() => {
     return SCHOLARSHIPS.filter((sch) => {
-      // Category / Country filter
-      if (selectedCategory !== 'all') {
-        const countryMatch = sch.country.toLowerCase().includes(selectedCategory.toLowerCase()) ||
-          (selectedCategory === 'europe' && sch.countryCode === 'EU') ||
-          (selectedCategory === 'uk' && sch.countryCode === 'GB');
-        if (!countryMatch) return false;
-      }
-
-      // Degree Level filter
-      if (selectedLevel !== 'all') {
-        if (!sch.degreeLevel.includes(selectedLevel as any) && !sch.degreeLevel.includes('All Levels')) {
+      // Destination filter
+      if (selectedDestination !== 'all') {
+        const dest = DESTINATIONS.find(d => d.id === selectedDestination);
+        if (dest?.countryName && sch.country !== dest.countryName && sch.country !== 'Multiple Countries') {
           return false;
         }
       }
 
-      // Coverage filter
-      if (selectedCoverage !== 'all') {
-        if (sch.coverageType !== selectedCoverage) return false;
+      // Study Level filter
+      if (selectedStudyLevel !== 'all') {
+        if (selectedStudyLevel === 'bachelor' && !sch.studyLevel.includes('Bachelor')) return false;
+        if (selectedStudyLevel === 'master' && !sch.studyLevel.includes('Master')) return false;
+        if (selectedStudyLevel === 'phd' && !sch.studyLevel.includes('PhD') && !sch.studyLevel.includes('Doctoral')) return false;
       }
 
-      // Text search
+      // Coverage filter
+      if (selectedCoverage !== 'all') {
+        if (selectedCoverage === 'full' && sch.coverageType !== 'Full') return false;
+        if (selectedCoverage === 'partial' && sch.coverageType !== 'Partial') return false;
+      }
+
+      // Search query
       if (searchQuery.trim() !== '') {
-        const query = searchQuery.toLowerCase();
-        const matchesTitle = sch.title.toLowerCase().includes(query);
-        const matchesProvider = sch.provider.toLowerCase().includes(query);
-        const matchesCountry = sch.country.toLowerCase().includes(query);
-        const matchesFields = sch.fieldOfStudy.some(f => f.toLowerCase().includes(query));
-        if (!matchesTitle && !matchesProvider && !matchesCountry && !matchesFields) {
+        const q = searchQuery.toLowerCase();
+        const matchesName = sch.name.toLowerCase().includes(q);
+        const matchesCountry = sch.country.toLowerCase().includes(q);
+        const matchesBody = sch.administeringBody.toLowerCase().includes(q);
+        const matchesFields = sch.fields.some(f => f.toLowerCase().includes(q));
+        if (!matchesName && !matchesCountry && !matchesBody && !matchesFields) {
           return false;
         }
       }
 
       return true;
+    }).sort((a, b) => {
+      if (sortBy === 'deadline-earliest') {
+        // Discontinued at end
+        if (a.status === 'Discontinued') return 1;
+        if (b.status === 'Discontinued') return -1;
+        return 0; // preserve curated chronological intake order
+      }
+      if (sortBy === 'name-asc') {
+        return a.name.localeCompare(b.name);
+      }
+      return 0;
     });
-  }, [searchQuery, selectedCategory, selectedLevel, selectedCoverage]);
+  }, [selectedDestination, selectedStudyLevel, selectedCoverage, searchQuery, sortBy]);
 
-  const handleOpenConsultation = (scholarshipTitle?: string) => {
-    setSelectedScholarshipTitle(scholarshipTitle || 'General Scholarship Assessment');
-    setIsModalOpen(true);
+  const handleOpenGuide = (scholarship: Scholarship) => {
+    setGuideScholarship(scholarship);
+    setIsGuideOpen(true);
   };
 
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
+  const handleOpenConsultation = (scholarshipName?: string, destination?: string) => {
+    setConsultationScholarship(scholarshipName || 'General Scholarship Assessment');
+    setConsultationDestination(destination || 'United Kingdom');
+    setIsConsultationOpen(true);
   };
-
-  const scholarshipFaqs = [
-    {
-      q: 'Can I apply for multiple scholarships at the same time?',
-      a: 'Yes! We strongly recommend applying for both government-funded awards (such as Chevening, DAAD, or Fulbright) and institutional merit waivers from universities simultaneously. Aegis advisors curate a personalized scholarship portfolio so you maximize your funding opportunities without conflicting commitments.'
-    },
-    {
-      q: 'Do I need a confirmed admission offer before applying for scholarships?',
-      a: 'This depends on the scholarship type. Government scholarships like Chevening and Fulbright allow you to apply concurrently with your university applications, though you must secure an offer prior to final award confirmation. In contrast, many university merit waivers and GREAT Scholarships require you to have submitted an admission application or obtained an offer letter first.'
-    },
-    {
-      q: 'How does Aegis assist in winning competitive government scholarships?',
-      a: 'We provide end-to-end guidance including leadership essay brainstorming, review by past scholars, structuring compelling Statements of Purpose, CV optimization adhering to international formats, and rigorous mock interview panels simulating actual high-commission interview conditions.'
-    },
-    {
-      q: 'Are scholarships only awarded for top GPA/academic scores?',
-      a: 'While strong academics are important, many major scholarships place equal or greater weight on leadership potential, community impact, research innovation, and your clear vision of how your degree will address real-world socio-economic problems in your home country.'
-    },
-    {
-      q: 'What is the average timeline for scholarship decisions?',
-      a: 'University entrance waivers are typically announced alongside or within 2-4 weeks of receiving your conditional admission offer. Major national government scholarships (Chevening, Fulbright, Australia Awards) operate on 6 to 9-month evaluation cycles with multi-stage committees and interviews.'
-    }
-  ];
 
   return (
-    <div className="pt-28 pb-24 bg-[#FDFBF7] min-h-screen">
+    <div className="pt-24 pb-20 bg-[#FDFBF7] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Breadcrumbs */}
-        <div className="mb-6 flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-neutral-500">
-          <Link to="/" className="hover:text-amber-700 transition-colors">Home</Link>
-          <span>/</span>
-          <span className="text-[#C5A059]">Scholarships & Financial Aid</span>
-        </div>
-
-        {/* Hero Section */}
-        <div className="relative bg-[#071228] text-white rounded-3xl p-8 sm:p-12 overflow-hidden shadow-2xl mb-12 border border-[#C5A059]/20">
-          <div className="absolute -right-20 -top-20 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute right-10 bottom-0 opacity-10 hidden lg:block pointer-events-none">
-            <Award className="w-80 h-80 text-[#C5A059]" />
-          </div>
-
-          <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C5A059]/20 border border-[#C5A059]/30 text-[#E6C687] text-xs font-semibold uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
-              Verified Global Scholarships & Grants 2026-2027
-            </div>
+        {/* Top Hero Banner */}
+        <div className="relative bg-[#F9F6EE] border border-[#E9E2D5] rounded-3xl p-6 sm:p-10 lg:p-12 mb-10 overflow-hidden shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <h1 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
-              Fund Your Global Degree With <span className="text-[#C5A059]">Prestigious Scholarships</span>
-            </h1>
+            {/* Left Content */}
+            <div className="lg:col-span-7 z-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/80 border border-amber-200/80 text-amber-900 text-xs font-bold uppercase tracking-wider mb-4">
+                <Globe2 className="w-3.5 h-3.5 text-amber-700" />
+                <span>Global Scholarship Opportunities</span>
+              </div>
 
-            <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-              Explore government-sponsored fellowships, full tuition waivers, and university merit grants across the UK, USA, Canada, Australia, Germany, Ireland, and Europe. Our certified advisors have secured over $14.5M in non-repayable student aid.
-            </p>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 tracking-tight leading-tight">
+                Fund Your Global Education <br className="hidden sm:inline" />
+                <span className="font-serif italic font-normal text-[#C5A059]">With Real Opportunities</span>
+              </h1>
 
-            {/* Quick Metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-white/10">
-              <div>
-                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-[#E6C687] tracking-tight">$14.5M+</p>
-                <p className="text-xs text-slate-400 mt-1">Scholarships Secured</p>
-              </div>
-              <div>
-                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-white tracking-tight">100%</p>
-                <p className="text-xs text-slate-400 mt-1">Full-Ride Awards Available</p>
-              </div>
-              <div>
-                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-[#E6C687] tracking-tight">1200+</p>
-                <p className="text-xs text-slate-400 mt-1">Partner Universities</p>
-              </div>
-              <div>
-                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-white tracking-tight">1-on-1</p>
-                <p className="text-xs text-slate-400 mt-1">Essay Mentorship</p>
+              <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+                Explore government, university and external scholarships across the UK, USA, Canada, Australia, Germany, Ireland and Europe. Details are based on official sources and updated for the 2026–2027 intake where available.
+              </p>
+            </div>
+
+            {/* Right Graduate Student Photo */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <div className="relative max-w-sm w-full rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] bg-slate-100">
+                <img
+                  src="/images/scholarships/hero-student.jpg"
+                  alt="Aegis scholarship student graduate"
+                  className="w-full h-full object-cover object-top"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
+
           </div>
         </div>
 
-        {/* Search & Filter Toolbar */}
-        <div className="bg-white rounded-2xl shadow-sm border border-neutral-200/80 p-6 mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        {/* Destination Filter Pills */}
+        <div className="mb-6">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-2 flex items-center gap-1.5">
+              <Globe2 className="w-3.5 h-3.5" />
+              Destination:
+            </span>
+            {DESTINATIONS.map((dest) => {
+              const isActive = selectedDestination === dest.id;
+              return (
+                <button
+                  key={dest.id}
+                  onClick={() => setSelectedDestination(dest.id)}
+                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+                    isActive
+                      ? 'bg-[#071228] text-white shadow-sm'
+                      : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
+                  }`}
+                >
+                  {dest.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Search & Select Filter Row */}
+        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-sm mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
             
             {/* Search Input */}
-            <div className="relative md:col-span-2">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
-              <input
-                type="text"
-                placeholder="Search scholarship name, country, or study discipline..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-hidden focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] transition-all"
-              />
-              {searchQuery && (
-                <button 
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-neutral-400 hover:text-neutral-600"
-                >
-                  Clear
-                </button>
-              )}
+            <div className="md:col-span-5">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+                Search
+              </label>
+              <div className="relative">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search scholarships by name, country or discipline..."
+                  className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#C5A059]"
+                />
+              </div>
             </div>
 
-            {/* Level Filter */}
-            <div>
+            {/* Study Level Dropdown */}
+            <div className="md:col-span-3">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+                Study Level
+              </label>
               <select
-                value={selectedLevel}
-                onChange={(e) => setSelectedLevel(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-hidden focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] bg-white text-neutral-700"
+                value={selectedStudyLevel}
+                onChange={(e) => setSelectedStudyLevel(e.target.value)}
+                className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-[#C5A059]"
               >
-                <option value="all">All Study Levels</option>
-                <option value="Master's">Master's Degree</option>
-                <option value="Bachelor's">Bachelor's Degree</option>
-                <option value="PhD">PhD / Doctoral</option>
+                <option value="all">All Levels</option>
+                <option value="bachelor">Bachelor's</option>
+                <option value="master">Master's</option>
+                <option value="phd">Doctoral / PhD</option>
               </select>
             </div>
 
-            {/* Coverage Filter */}
-            <div>
+            {/* Coverage Type Dropdown */}
+            <div className="md:col-span-3">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+                Coverage Type
+              </label>
               <select
                 value={selectedCoverage}
                 onChange={(e) => setSelectedCoverage(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-hidden focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] bg-white text-neutral-700"
+                className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-[#C5A059]"
               >
                 <option value="all">All Coverage Types</option>
-                <option value="Full Tuition + Living">Full Tuition + Living Allowance</option>
-                <option value="Partial Tuition Waiver">Partial Tuition Waiver</option>
-                <option value="Fixed Grant">Fixed Annual Grant</option>
+                <option value="full">Full (Tuition + Living)</option>
+                <option value="partial">Partial / Fee Waiver</option>
               </select>
             </div>
 
-          </div>
-
-          {/* Quick Category Chips */}
-          <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-neutral-100">
-            <span className="text-xs font-semibold text-neutral-500 flex items-center gap-1 mr-1">
-              <Filter className="w-3.5 h-3.5" /> Destination:
-            </span>
-            {SCHOLARSHIP_CATEGORIES.map((cat) => (
+            {/* Search Action Button */}
+            <div className="md:col-span-1">
               <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  selectedCategory === cat.id
-                    ? 'bg-[#071228] text-[#E6C687] shadow-xs'
-                    : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
-                }`}
+                type="button"
+                className="w-full py-2.5 rounded-xl bg-[#071228] hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center transition-all shadow-sm"
+                title="Filter scholarships"
               >
-                {cat.label}
+                <Search className="w-4 h-4 text-[#C5A059]" />
               </button>
-            ))}
+            </div>
+
           </div>
         </div>
 
-        {/* Results Count */}
-        <div className="flex items-center justify-between mb-6">
-          <p className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
-            Showing <span className="text-[#071228]">{filteredScholarships.length}</span> Verified Scholarship Programs
+        {/* Informational Advisory Notice */}
+        <div className="mb-8 p-4 rounded-xl bg-sky-50/70 border border-sky-200/80 flex items-start gap-3">
+          <Info className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
+          <p className="text-xs text-sky-900 leading-relaxed">
+            <strong>Application dates are shown for the 2026–2027 intake (or latest available).</strong> Dates may change. Please check the official website or consult with an Aegis advisor for the most up-to-date information.
           </p>
-          {(searchQuery || selectedCategory !== 'all' || selectedLevel !== 'all' || selectedCoverage !== 'all') && (
-            <button
-              onClick={() => {
-                setSearchQuery('');
-                setSelectedCategory('all');
-                setSelectedLevel('all');
-                setSelectedCoverage('all');
-              }}
-              className="text-xs text-[#C5A059] font-bold hover:underline"
-            >
-              Reset All Filters
-            </button>
-          )}
         </div>
 
-        {/* Scholarships Grid */}
+        {/* Results Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+          <div>
+            <h2 className="text-xl font-display font-bold text-slate-900">
+              Scholarship Opportunities ({filteredScholarships.length})
+            </h2>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-slate-500 font-medium">Sort by:</span>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="px-3 py-1.5 rounded-lg border border-slate-200 text-xs bg-white text-slate-800 font-medium focus:outline-none focus:ring-1 focus:ring-[#C5A059]"
+            >
+              <option value="deadline-earliest">Deadline (Earliest)</option>
+              <option value="name-asc">Scholarship Name (A–Z)</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Scholarship Cards Grid */}
         {filteredScholarships.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filteredScholarships.map((scholarship) => (
-              <div
+              <ScholarshipCard
                 key={scholarship.id}
-                className="bg-white rounded-2xl border border-neutral-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1"
-              >
-                <div>
-                  {/* Card Header */}
-                  <div className="p-6 border-b border-neutral-100">
-                    <div className="flex items-start justify-between gap-3 mb-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl">{scholarship.flag}</span>
-                        <div>
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-500 block">
-                            {scholarship.country}
-                          </span>
-                          <span className="text-[10px] font-semibold text-neutral-400">
-                            {scholarship.providerType} Award
-                          </span>
-                        </div>
-                      </div>
-
-                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
-                        scholarship.coverageType === 'Full Tuition + Living'
-                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                          : scholarship.coverageType === 'Fixed Grant'
-                          ? 'bg-purple-50 text-purple-700 border border-purple-200'
-                          : 'bg-amber-50 text-amber-700 border border-amber-200'
-                      }`}>
-                        {scholarship.coverageType}
-                      </span>
-                    </div>
-
-                    <h2 className="text-lg font-bold font-display text-[#071228] group-hover:text-amber-700 transition-colors leading-snug">
-                      <Link to={`/scholarships/${scholarship.slug}`}>
-                        {scholarship.title}
-                      </Link>
-                    </h2>
-                    
-                    <p className="text-xs text-neutral-500 mt-1 line-clamp-1">
-                      By {scholarship.provider}
-                    </p>
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="p-6 space-y-4">
-                    {/* Award Value Callout */}
-                    <div className="bg-[#FAF7F0] border border-[#E6C687]/40 rounded-xl p-3.5">
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#A07A2B] block">
-                        Estimated Award Value
-                      </span>
-                      <p className="text-sm font-bold text-[#071228] mt-0.5">
-                        {scholarship.awardAmount}
-                      </p>
-                    </div>
-
-                    {/* Degree Levels & Cycle */}
-                    <div className="space-y-2 text-xs text-neutral-600">
-                      <div className="flex items-center gap-2">
-                        <GraduationCap className="w-4 h-4 text-[#C5A059] shrink-0" />
-                        <span><strong className="text-neutral-700">Level:</strong> {scholarship.degreeLevel.join(', ')}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-[#C5A059] shrink-0" />
-                        <span><strong className="text-neutral-700">Deadline:</strong> {scholarship.deadline}</span>
-                      </div>
-                    </div>
-
-                    {/* Study Areas Tags */}
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1.5">
-                        Eligible Disciplines
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {scholarship.fieldOfStudy.slice(0, 3).map((field, idx) => (
-                          <span 
-                            key={idx} 
-                            className="bg-neutral-100 text-neutral-600 px-2 py-0.5 rounded-md text-[11px]"
-                          >
-                            {field}
-                          </span>
-                        ))}
-                        {scholarship.fieldOfStudy.length > 3 && (
-                          <span className="bg-neutral-100 text-neutral-400 px-1.5 py-0.5 rounded-md text-[10px]">
-                            +{scholarship.fieldOfStudy.length - 3} more
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Footer Actions */}
-                <div className="p-6 pt-0 flex items-center gap-3">
-                  <Link
-                    to={`/scholarships/${scholarship.slug}`}
-                    className="flex-1 text-center py-2.5 px-3 rounded-xl border border-neutral-200 text-xs font-bold text-[#071228] hover:bg-neutral-50 transition-colors flex items-center justify-center gap-1"
-                  >
-                    Eligibility & Guide
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-
-                  <button
-                    onClick={() => handleOpenConsultation(scholarship.title)}
-                    className="py-2.5 px-4 rounded-xl bg-[#071228] hover:bg-[#C5A059] text-white hover:text-[#071228] text-xs font-bold transition-all shadow-xs"
-                    title="Check your eligibility with an advisor"
-                  >
-                    Check Eligibility
-                  </button>
-                </div>
-              </div>
+                scholarship={scholarship}
+                onOpenGuide={handleOpenGuide}
+                onOpenConsultation={handleOpenConsultation}
+              />
             ))}
           </div>
         ) : (
-          <div className="bg-white rounded-2xl border border-neutral-200 p-12 text-center my-8">
-            <Award className="w-12 h-12 text-neutral-300 mx-auto mb-3" />
-            <h3 className="text-base font-bold text-neutral-700">No scholarships found matching your criteria</h3>
-            <p className="text-xs text-neutral-500 mt-1 mb-4">Try clearing some filters or searching for another keyword.</p>
+          <div className="bg-white rounded-2xl border border-slate-200 p-12 text-center">
+            <GraduationCap className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <h3 className="text-base font-bold text-slate-800">No scholarships found</h3>
+            <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+              No scholarships matched your current filter criteria. Try clearing some filters or searching for another term.
+            </p>
             <button
               onClick={() => {
-                setSearchQuery('');
-                setSelectedCategory('all');
-                setSelectedLevel('all');
+                setSelectedDestination('all');
+                setSelectedStudyLevel('all');
                 setSelectedCoverage('all');
+                setSearchQuery('');
               }}
-              className="px-4 py-2 bg-[#071228] text-white rounded-xl text-xs font-bold hover:bg-[#C5A059] hover:text-[#071228] transition-colors"
+              className="mt-4 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold"
             >
               Reset Filters
             </button>
           </div>
         )}
 
-        {/* 4-Step Strategic Scholarship Roadmap */}
-        <div className="bg-white rounded-3xl border border-neutral-200/80 p-8 sm:p-12 mb-16 shadow-xs">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#C5A059] block mb-2">
-              Our Methodology
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#071228]">
-              How Aegis Secures Maximum Scholarship Aid
-            </h2>
-            <p className="text-neutral-600 text-xs sm:text-sm mt-2">
-              Winning competitive international scholarships requires early positioning, standout leadership narratives, and university alignment.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-            <div className="bg-[#FAF7F0] p-6 rounded-2xl border border-[#E6C687]/30 relative">
-              <span className="w-8 h-8 rounded-full bg-[#071228] text-[#E6C687] font-bold text-sm flex items-center justify-center mb-4">
-                01
-              </span>
-              <h3 className="text-sm font-bold text-[#071228] mb-2">Profile & Eligibility Audit</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                We evaluate your GPA, extracurriculars, research papers, and work experience to match you with realistic high-value awards.
-              </p>
+        {/* Bottom Consultation Banner */}
+        <div className="mt-12 bg-amber-50/70 border border-amber-200/80 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-amber-200/70 text-amber-900 flex items-center justify-center shrink-0">
+              <GraduationCap className="w-6 h-6" />
             </div>
-
-            <div className="bg-[#FAF7F0] p-6 rounded-2xl border border-[#E6C687]/30 relative">
-              <span className="w-8 h-8 rounded-full bg-[#071228] text-[#E6C687] font-bold text-sm flex items-center justify-center mb-4">
-                02
-              </span>
-              <h3 className="text-sm font-bold text-[#071228] mb-2">Essay & SOP Mentorship</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Our editorial team helps you structure compelling leadership, networking, and development impact essays that stand out.
-              </p>
-            </div>
-
-            <div className="bg-[#FAF7F0] p-6 rounded-2xl border border-[#E6C687]/30 relative">
-              <span className="w-8 h-8 rounded-full bg-[#071228] text-[#E6C687] font-bold text-sm flex items-center justify-center mb-4">
-                03
-              </span>
-              <h3 className="text-sm font-bold text-[#071228] mb-2">Priority Application Filing</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                We submit university admission dossiers early to secure priority consideration for institutional merit pools before funds deplete.
-              </p>
-            </div>
-
-            <div className="bg-[#FAF7F0] p-6 rounded-2xl border border-[#E6C687]/30 relative">
-              <span className="w-8 h-8 rounded-full bg-[#071228] text-[#E6C687] font-bold text-sm flex items-center justify-center mb-4">
-                04
-              </span>
-              <h3 className="text-sm font-bold text-[#071228] mb-2">Panel Mock Interviews</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                For prestigious national grants (Chevening, Fulbright), our alumni conduct rigorous mock interviews to hone your poise and responses.
+            <div>
+              <h3 className="font-display font-bold text-base sm:text-lg text-slate-900">
+                Need help finding the right scholarship?
+              </h3>
+              <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                Our expert counsellors will help you shortlist scholarships based on your profile, destination and goals.
               </p>
             </div>
           </div>
-        </div>
 
-        {/* FAQs Accordion */}
-        <div className="bg-white rounded-3xl border border-neutral-200/80 p-8 sm:p-12 mb-16 shadow-xs">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#C5A059] block mb-2">
-              Got Questions?
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#071228]">
-              Frequently Asked Questions on Scholarships
-            </h2>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-4">
-            {scholarshipFaqs.map((faq, idx) => (
-              <div 
-                key={idx} 
-                className="border border-neutral-200 rounded-2xl overflow-hidden transition-colors"
-              >
-                <button
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 font-semibold text-sm text-[#071228] hover:bg-neutral-50 transition-colors"
-                >
-                  <span>{faq.q}</span>
-                  {openFaq === idx ? (
-                    <ChevronUp className="w-4 h-4 text-[#C5A059] shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-neutral-400 shrink-0" />
-                  )}
-                </button>
-                {openFaq === idx && (
-                  <div className="px-6 pb-5 pt-1 text-xs text-neutral-600 leading-relaxed border-t border-neutral-100 bg-[#FAF7F0]/40">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Banner */}
-        <div className="bg-gradient-to-r from-[#071228] via-[#0E1E38] to-[#071228] text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl border border-[#C5A059]/30">
-          <div className="max-w-2xl mx-auto relative z-10">
-            <Award className="w-12 h-12 text-[#E6C687] mx-auto mb-4" />
-            <h2 className="text-2xl sm:text-3xl font-display font-bold">
-              Find Out Which Scholarships You Are Eligible For
-            </h2>
-            <p className="text-slate-300 text-xs sm:text-sm mt-3 mb-6 leading-relaxed">
-              Book a free 1-on-1 profile evaluation with our international education experts. We'll map your profile to current university waivers and government grant cycles.
-            </p>
-            <button
-              onClick={() => handleOpenConsultation('Comprehensive Profile Evaluation')}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#C5A059] text-[#071228] font-bold text-sm hover:bg-[#E6C687] transition-all shadow-lg hover:scale-105"
-            >
-              Book Free Scholarship Assessment
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
+          <button
+            onClick={() => handleOpenConsultation('General Scholarship Assessment', 'United Kingdom')}
+            className="w-full md:w-auto px-6 py-3.5 rounded-xl bg-[#C5A059] hover:bg-[#b59049] text-[#071228] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shrink-0"
+          >
+            <span>Book a Free Scholarship Consultation</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
 
       </div>
 
-      {/* Consultation Modal */}
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <ConsultationForm 
-          initialNotes={`Interested in scholarship: ${selectedScholarshipTitle}`}
-          onSuccess={() => setIsModalOpen(false)}
-        />
-      </Modal>
+      {/* Slide-over Drawer for Eligibility & Guide */}
+      <EligibilityGuideDrawer
+        scholarship={guideScholarship}
+        isOpen={isGuideOpen}
+        onClose={() => setIsGuideOpen(false)}
+        onOpenConsultation={(name) => handleOpenConsultation(name, guideScholarship?.country)}
+      />
+
+      {/* Consultation Modal with WhatsApp Handoff */}
+      <ScholarshipConsultationModal
+        isOpen={isConsultationOpen}
+        onClose={() => setIsConsultationOpen(false)}
+        defaultScholarshipName={consultationScholarship}
+        defaultDestination={consultationDestination}
+      />
+
     </div>
   );
 };
