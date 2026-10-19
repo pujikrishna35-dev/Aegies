@@ -22,7 +22,7 @@ export const AdminStudents: React.FC = () => {
       id: 'std-101',
       name: 'Priya Sharma',
       email: 'priya.s@student.com',
-      phone: '+91 9848022338',
+      phone: '9848022338',
       targetCountry: 'United Kingdom',
       intendedDegree: 'MSc Data Science',
       university: 'University of Birmingham',
@@ -35,7 +35,7 @@ export const AdminStudents: React.FC = () => {
       id: 'std-102',
       name: 'Karthik Reddy',
       email: 'karthik.r@student.com',
-      phone: '+91 9988776655',
+      phone: '9988776655',
       targetCountry: 'United States',
       intendedDegree: 'MS Computer Science',
       university: 'Arizona State University',
@@ -48,7 +48,7 @@ export const AdminStudents: React.FC = () => {
       id: 'std-103',
       name: 'Rohan Verma',
       email: 'rohan.v@example.com',
-      phone: '+91 9876543210',
+      phone: '9876543210',
       targetCountry: 'United Kingdom',
       intendedDegree: 'MSc Advanced Computer Science',
       university: 'University of Birmingham',
@@ -85,7 +85,7 @@ export const AdminStudents: React.FC = () => {
     try {
       const data = await adminFetch('/students');
       if (Array.isArray(data) && data.length > 0) setStudents(data);
-    } catch {}
+    } catch { }
     setLoading(false);
   };
 
@@ -117,13 +117,13 @@ export const AdminStudents: React.FC = () => {
       setStudents(students.map((s) => (s.id === editingStudent.id ? { ...s, ...formData } : s)));
       try {
         await adminFetch(`/students/${editingStudent.id}`, { method: 'PUT', body: JSON.stringify(formData) });
-      } catch {}
+      } catch { }
     } else {
       const newStd = { id: 'std-' + Date.now(), ...formData };
       setStudents([newStd, ...students]);
       try {
         await adminFetch('/students', { method: 'POST', body: JSON.stringify(newStd) });
-      } catch {}
+      } catch { }
     }
     setIsModalOpen(false);
   };
@@ -133,7 +133,7 @@ export const AdminStudents: React.FC = () => {
       setStudents(students.filter((s) => s.id !== id));
       try {
         await adminFetch(`/students/${id}`, { method: 'DELETE' });
-      } catch {}
+      } catch { }
     }
   };
 

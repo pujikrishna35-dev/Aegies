@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
     <footer className="bg-[#FDFBF7] text-slate-700 pt-16 pb-8 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 pb-12 border-b border-slate-200">
-          
+
           {/* Col 1: Brand (2 cols) */}
           <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
             <Link to="/" className="inline-block group">
@@ -94,9 +94,9 @@ export const Footer: React.FC = () => {
               Contact
             </h4>
             <div className="space-y-2 text-xs text-slate-600">
-              <a href="tel:+918500722284" className="flex items-center gap-2 hover:text-[#071228]">
+              <a href="tel:+447892934567" className="flex items-center gap-2 hover:text-[#071228]">
                 <Phone className="w-3.5 h-3.5 text-[#C5A059]" />
-                <span>+91 8500722284</span>
+                <span>+44 78929 34567</span>
               </a>
               <a href="mailto:info@aegisoverseas.com" className="flex items-center gap-2 hover:text-[#071228]">
                 <Mail className="w-3.5 h-3.5 text-[#C5A059]" />
@@ -104,11 +104,11 @@ export const Footer: React.FC = () => {
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#C5A059] shrink-0 mt-0.5" />
-                <span>Hitec City, Madhapur, Hyderabad, Telangana</span>
+                <span>#2nd floor, Lenin complex, Bhagyanagar Colony, KPHB, Kukatpally, Hyderabad</span>
               </div>
               <div className="pt-2">
                 <a
-                  href="https://wa.me/918500722284"
+                  href="https://wa.me/447892934567"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-bold hover:bg-emerald-100 transition-colors"

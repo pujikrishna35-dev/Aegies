@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { 
-  X, 
-  Lock, 
-  CheckCircle2, 
-  AlertCircle, 
-  User, 
-  Mail, 
-  Phone, 
-  GraduationCap, 
-  MapPin, 
-  FileText, 
+import {
+  X,
+  Lock,
+  CheckCircle2,
+  AlertCircle,
+  User,
+  Mail,
+  Phone,
+  GraduationCap,
+  MapPin,
+  FileText,
   MessageSquare,
-  ChevronDown 
+  ChevronDown
 } from 'lucide-react';
 import { SCHOLARSHIPS } from '../../data/scholarships';
 
@@ -122,7 +122,7 @@ export const ScholarshipConsultationModal: React.FC<ScholarshipConsultationModal
     ].filter(Boolean);
 
     const message = lines.join('\n');
-    const waUrl = `https://wa.me/918500722284?text=${encodeURIComponent(message)}`;
+    const waUrl = `https://wa.me/447892934567?text=${encodeURIComponent(message)}`;
 
     // Open WhatsApp
     window.open(waUrl, '_blank', 'noopener,noreferrer');
@@ -136,13 +136,13 @@ export const ScholarshipConsultationModal: React.FC<ScholarshipConsultationModal
   };
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex flex-col justify-end sm:justify-center items-center sm:p-4 overflow-hidden"
       onClick={(e) => {
         if (e.target === e.currentTarget) handleResetAndClose();
       }}
     >
-      <div 
+      <div
         className="relative bg-white w-full sm:max-w-xl max-h-[92dvh] sm:max-h-[90vh] flex flex-col rounded-t-[28px] sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200"
         role="dialog"
         aria-modal="true"
@@ -183,7 +183,7 @@ export const ScholarshipConsultationModal: React.FC<ScholarshipConsultationModal
         </div>
 
         {/* Scrollable Modal Body */}
-        <div 
+        <div
           ref={scrollContainerRef}
           className="px-5 py-4 sm:px-8 sm:py-6 overflow-y-auto overscroll-contain flex-1"
         >
@@ -398,7 +398,7 @@ export const ScholarshipConsultationModal: React.FC<ScholarshipConsultationModal
               </p>
               <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-left text-xs space-y-1.5 max-w-sm mx-auto">
                 <p className="font-bold text-slate-800">Scholarship: <span className="font-normal text-slate-600">{scholarshipName}</span></p>
-                <p className="font-bold text-slate-800">Official Advisor WhatsApp: <span className="font-normal text-emerald-700">+91 85007 22284</span></p>
+                <p className="font-bold text-slate-800">Official Advisor WhatsApp: <span className="font-normal text-emerald-700">85007 22284</span></p>
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">
                 <button

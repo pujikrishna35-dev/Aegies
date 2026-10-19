@@ -24,7 +24,8 @@ export const StudentStoryDetails: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Find student story
-  const story = STUDENT_STORIES.find((s) => s.slug === slug || s.id === slug) || STUDENT_STORIES[0];
+  const cleanSlug = slug?.replace(/^review-/, '') || '';
+  const story = STUDENT_STORIES.find((s) => s.slug === slug || s.id === slug || s.slug === cleanSlug || s.id === cleanSlug) || STUDENT_STORIES[0];
 
   return (
     <div className="pt-28 pb-24 bg-[#FDFBF7] min-h-screen">
@@ -53,11 +54,17 @@ export const StudentStoryDetails: React.FC = () => {
           <div className="absolute right-0 top-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8">
-            <img
-              src={story.avatar}
-              alt={story.name}
-              className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border-4 border-[#C5A059] shadow-xl shrink-0"
-            />
+            {story.avatar ? (
+              <img
+                src={story.avatar}
+                alt={story.name}
+                className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border-4 border-[#C5A059] shadow-xl shrink-0"
+              />
+            ) : (
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-gradient-to-br from-[#0F244A] to-[#1E3A6E] text-[#C5A059] flex items-center justify-center font-extrabold text-3xl sm:text-4xl border-4 border-[#C5A059] shadow-xl shrink-0 font-display">
+                {story.name.split(' ').map((n) => n[0]).slice(0, 2).join('')}
+              </div>
+            )}
 
             <div className="flex-1">
               <div className="flex flex-wrap items-center gap-2.5 mb-3">
@@ -280,11 +287,17 @@ export const StudentStoryDetails: React.FC = () => {
                       to={`/student-stories/${item.slug}`}
                       className="flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-50 transition-colors"
                     >
-                      <img 
-                        src={item.avatar} 
-                        alt={item.name} 
-                        className="w-10 h-10 rounded-full object-cover shrink-0 border border-neutral-200"
-                      />
+                      {item.avatar ? (
+                        <img 
+                          src={item.avatar} 
+                          alt={item.name} 
+                          className="w-10 h-10 rounded-full object-cover shrink-0 border border-neutral-200"
+                        />
+                      ) : (
+                        <div className="w-10 h-10 rounded-full bg-[#071228] text-[#C5A059] flex items-center justify-center font-bold text-xs shrink-0 border border-[#C5A059]/40">
+                          {item.name.split(' ').map((n) => n[0]).slice(0, 2).join('')}
+                        </div>
+                      )}
                       <div className="min-w-0">
                         <p className="text-xs font-bold text-[#071228] truncate">{item.name}</p>
                         <p className="text-[11px] text-neutral-500 truncate">{item.university}</p>

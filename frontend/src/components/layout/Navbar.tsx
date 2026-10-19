@@ -33,6 +33,16 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Display the consultation form 5 seconds after opening the website
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setConsultationOpen(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
   const navItems: NavItem[] = [
     { label: 'Home', href: '/' },
     {
@@ -66,17 +76,27 @@ export const Navbar: React.FC = () => {
         { label: 'Computing & Technology', href: '/courses/computing-technology' },
         { label: 'Business & Management', href: '/courses/business-management' },
         { label: 'Engineering', href: '/courses/engineering' },
-        { label: 'Healthcare & Life Sciences', href: '/courses/healthcare-life-sciences' }
+        { label: 'Finance & Accounting', href: '/courses/finance-accounting' },
+        { label: 'Healthcare & Life Sciences', href: '/courses/healthcare-life-sciences' },
+        { label: 'Medicine & Dentistry', href: '/courses/medicine-dentistry' },
+        { label: 'Hospitality & Tourism', href: '/courses/hospitality-tourism' },
+        { label: 'Arts, Design & Media', href: '/courses/arts-design-media' },
+        { label: 'Law & Social Sciences', href: '/courses/law-social-sciences' },
+        { label: 'Education', href: '/courses/education' },
+        { label: 'Science & Environment', href: '/courses/science-environment' },
+        { label: 'Logistics & Sport', href: '/courses/logistics-sport' }
       ]
     },
     {
       label: 'Services',
       href: '/services',
       dropdown: [
-        { label: 'All Services Overview', href: '/services' },
-        { label: 'Test Preparation (IELTS/GRE)', href: '/test-preparation' },
-        { label: 'Admission Counseling', href: '/services' },
-        { label: 'Visa & Immigration Guidance', href: '/services' }
+        { label: 'All 360° Services', href: '/services' },
+        { label: 'Admissions Strategy', href: '/services?category=Admissions+Strategy' },
+        { label: 'Financial Solutions', href: '/services?category=Financial+Solutions' },
+        { label: 'Visa & Relocation', href: '/services?category=Visa+%26+Relocation' },
+        { label: 'Arrival & Settlement', href: '/services?category=Arrival+%26+Settlement' },
+        { label: 'Internships & Part-time Jobs', href: '/services?category=Internships+%26+Part-time+Jobs' }
       ]
     },
     { label: 'Scholarships', href: '/scholarships' },
@@ -136,12 +156,12 @@ export const Navbar: React.FC = () => {
                   {/* Dropdown Menu */}
                   {hasDropdown && item.dropdown && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      <div className="bg-white/95 backdrop-blur-2xl rounded-xl shadow-lg border border-neutral-100/90 py-2 px-1 min-w-[200px]">
+                      <div className="bg-white/95 backdrop-blur-2xl rounded-xl shadow-lg border border-neutral-100/90 py-2 px-1 min-w-[210px] max-h-[75vh] overflow-y-auto">
                         {item.dropdown.map((sub) => (
                           <Link
                             key={sub.label}
                             to={sub.href}
-                            className="block px-3 py-1.5 rounded-lg text-[11px] font-medium text-neutral-700 hover:text-[#071228] hover:bg-neutral-100/70 transition-colors"
+                            className="block px-3 py-1.5 rounded-lg text-[11px] font-medium text-neutral-700 hover:text-[#071228] hover:bg-neutral-100/70 transition-colors whitespace-nowrap"
                           >
                             {sub.label}
                           </Link>

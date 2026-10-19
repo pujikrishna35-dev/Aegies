@@ -27,7 +27,9 @@ import {
   Check,
   CheckSquare2,
   Calendar,
-  Zap
+  Zap,
+  Briefcase,
+  GraduationCap
 } from 'lucide-react';
 import { SERVICES, ServiceData } from '../../data/services';
 import { Modal } from '../../components/ui/Modal';
@@ -43,7 +45,9 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Home: HomeIcon,
   CreditCard,
   PlaneTakeoff,
-  Plane
+  Plane,
+  Briefcase,
+  GraduationCap
 };
 
 const SERVICE_ALIASES: Record<string, string> = {
@@ -52,7 +56,8 @@ const SERVICE_ALIASES: Record<string, string> = {
   'loans': 'education-loans',
   'housing': 'accommodation',
   'accommodation-booking': 'accommodation',
-  'student-accommodation': 'accommodation'
+  'student-accommodation': 'accommodation',
+  'internships-part-time-work': 'part-time-jobs'
 };
 
 export const ServiceDetails: React.FC = () => {
@@ -199,7 +204,13 @@ export const ServiceDetails: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-[#071228] uppercase tracking-wider flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                      Student Arrivals
+                      {service.slug === 'accommodation' 
+                        ? 'Verified Housing' 
+                        : service.slug === 'internships' 
+                        ? 'Internship Opportunities' 
+                        : service.slug === 'part-time-jobs'
+                        ? 'Job Opportunities'
+                        : 'Student Arrivals'}
                     </span>
                     <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-amber-100/90 text-amber-900 border border-amber-200">
                       {service.gallery.length} Photos
@@ -240,7 +251,7 @@ export const ServiceDetails: React.FC = () => {
                     >
                       <img
                         src={imgSrc}
-                        alt={`Airport pickup arrival ${(idx % service.gallery.length) + 1}`}
+                        alt={`${service.title} ${(idx % service.gallery.length) + 1}`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
                         loading="lazy"
                       />
@@ -249,7 +260,7 @@ export const ServiceDetails: React.FC = () => {
                       </div>
                       <div className="absolute bottom-2 left-2">
                         <span className="px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-xs text-[10px] font-bold text-slate-800 shadow-2xs">
-                          Safe Arrival
+                          {service.slug === 'accommodation' ? 'Verified Room' : 'Safe Arrival'}
                         </span>
                       </div>
                     </div>
@@ -441,7 +452,7 @@ export const ServiceDetails: React.FC = () => {
           <div className="relative max-w-3xl max-h-[90vh] cursor-default" onClick={(e) => e.stopPropagation()}>
             <img
               src={previewImage}
-              alt="Enlarged student arrival photo"
+              alt={`Enlarged ${service.title} photo`}
               className="max-h-[85vh] w-auto rounded-2xl object-contain shadow-2xl border border-white/20"
             />
             <button

@@ -44,7 +44,7 @@ export const Contact: React.FC = () => {
     europe: 'Europe (Schengen) 🇪🇺'
   };
 
-  const WHATSAPP_TARGET_NUMBER = '918500722284';
+  const WHATSAPP_TARGET_NUMBER = '447892934567';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,35 +76,51 @@ export const Contact: React.FC = () => {
   const offices = [
     {
       city: 'Hyderabad',
-      address: 'Hitec City, Madhapur, Hyderabad, Telangana',
-      phone: '+91 8500722284',
+      address: '#2nd floor, Lenin complex, Bhagyanagar Colony, KPHB, Near Saibaba Temple, Kukatpally, Hyderabad',
+      phone: '+44 78929 34567 ',
       email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
-      landmark: 'Opposite Villa Marie College'
+      landmark: 'Near Saibaba Temple, KPHB'
     },
     {
       city: 'Tirupati',
       address: 'GSF, Mr.palli circle, road, near lenskart, fashion zone, Avilali, Andhra Pradesh 517502, India',
-      phone: '+91 8500722284',
+      phone: '+44 78929 34567 ',
       email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 10:00 AM - 7:00 PM',
       landmark: 'Near Inorbit Mall & Durgam Cheruvu Metro'
     },
     {
-      city: 'Nellore-1 (Ramalinga Puram)',
-      address: 'Srivari Plaza, Circle, Ramalinga Puram, Nellore, Andhra Pradesh 524003, India',
-      phone: '+91 8500722284',
+      city: 'Nellore-1 (RamalingaPuram) (central office)',
+      address: 'Srivari Plaza, Circle, RamalingaPuram, Nellore, Andhra Pradesh 524003, India',
+      phone: '+44 78929 34567 ',
       email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
       landmark: 'Near Sony World Signal'
     },
     {
-      city: 'Nellore-2 (Magunta Layout)',
+      city: 'Nellore-2 (Magunta Layout) (corporate office)',
       address: 'Near viswasai school, Central Avenue, Dargamitta, Magunta Layout, Nellore, Andhra Pradesh 524003, India',
-      phone: '+91 8500722284',
+      phone: '+44 78929 34567 ',
       email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
       landmark: 'Above State Bank of India'
+    },
+    {
+      city: 'Vizag',
+      address: 'Near HDFC Bank, MVP Sector 12, Lawsons Bay Colony, MVP Colony, Visakhapatnam, Andhra Pradesh 530017',
+      phone: '+44 78929 34567 ',
+      email: 'info@aegisoverseas.com',
+      hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
+      landmark: 'Near HDFC Bank, MVP Colony'
+    },
+    {
+      city: 'Vijayawada',
+      address: "Near MC Donald's, Guru Nanak Colony Road, Teacher's Colony, Vijayawada, Andhra Pradesh 520007, India",
+      phone: '+44 78929 34567 ',
+      email: 'info@aegisoverseas.com',
+      hours: 'Mon - Sat: 9:30 AM - 6:30 PM',
+      landmark: "Near MC Donald's, Guru Nanak Colony"
     }
   ];
 
@@ -213,7 +229,7 @@ export const Contact: React.FC = () => {
                 <p className="text-xs text-neutral-600 mt-1">Chat directly with an education counselor right now.</p>
               </div>
               <a
-                href="https://wa.me/918500722284"
+                href="https://wa.me/447892934567"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shrink-0 flex items-center gap-2"
@@ -313,10 +329,12 @@ export const Contact: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, preferredOffice: e.target.value })}
                         className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 text-xs bg-white text-neutral-700"
                       >
-                        <option value="Hyderabad">Hyderabad </option>
-                        <option value="Nellore-1 (Ramalinga Puram)">Nellore-1 (Ramalinga Puram)</option>
-                        <option value="Nellore-2 (Magunta Layout)">Nellore-2 (Magunta Layout)</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Nellore-1 (RamalingaPuram)">Nellore-1 (RamalingaPuram) (central office)</option>
+                        <option value="Nellore-2 (Magunta Layout)">Nellore-2 (Magunta Layout) (corporate office)</option>
                         <option value="Tirupati">Tirupati</option>
+                        <option value="Vizag">Vizag</option>
+                        <option value="Vijayawada">Vijayawada</option>
                         <option value="Online Video Call">Online Video Call</option>
                       </select>
                     </div>

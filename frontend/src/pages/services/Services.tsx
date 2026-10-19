@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { 
   Compass, 
   School, 
@@ -21,7 +21,8 @@ import {
   Users, 
   PhoneCall,
   Check,
-  Briefcase
+  Briefcase,
+  GraduationCap
 } from 'lucide-react';
 import { SERVICES, ServiceData } from '../../data/services';
 import { Modal } from '../../components/ui/Modal';
@@ -38,14 +39,31 @@ const ICON_MAP: Record<string, React.ElementType> = {
   CreditCard,
   PlaneTakeoff,
   Plane,
-  Briefcase
+  Briefcase,
+  GraduationCap
 };
 
 export const Services: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryParam = searchParams.get('category');
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    categoryParam === 'Internships & Part-time Work' ? 'Internships & Part-time Jobs' : (categoryParam || 'ALL')
+  );
   const [consultationOpen, setConsultationOpen] = useState(false);
   const [selectedServiceTitle, setSelectedServiceTitle] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (categoryParam) {
+      if (categoryParam === 'Internships & Part-time Work' || categoryParam === 'Internships & Part-time Jobs') {
+        setSelectedCategory('Internships & Part-time Jobs');
+      } else {
+        setSelectedCategory(categoryParam);
+      }
+    } else {
+      setSelectedCategory('ALL');
+    }
+  }, [categoryParam]);
 
   const categories = [
     { id: 'ALL', label: 'All 360° Services' },
@@ -53,7 +71,7 @@ export const Services: React.FC = () => {
     { id: 'Financial Solutions', label: '2. Financial Solutions' },
     { id: 'Visa & Relocation', label: '3. Visa & Relocation' },
     { id: 'Arrival & Settlement', label: '4. Arrival & Settlement' },
-    { id: 'Internships & Part-time Work', label: '5. Internships & Part-time Work' }
+    { id: 'Internships & Part-time Jobs', label: '5. Internships & Part-time Jobs' }
   ];
 
   const filteredServices = useMemo(() => {
@@ -195,7 +213,14 @@ export const Services: React.FC = () => {
         {categories.map((cat) => (
           <button
             key={cat.id}
-            onClick={() => setSelectedCategory(cat.id)}
+            onClick={() => {
+              setSelectedCategory(cat.id);
+              if (cat.id === 'ALL') {
+                setSearchParams({});
+              } else {
+                setSearchParams({ category: cat.id });
+              }
+            }}
             className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
               selectedCategory === cat.id
                 ? 'bg-[#071228] text-white shadow-sm'

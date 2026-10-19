@@ -10,7 +10,7 @@ interface CourseEnquiryModalProps {
   initialDestination?: string;
 }
 
-const WHATSAPP_TARGET_NUMBER = '918500722284';
+const WHATSAPP_TARGET_NUMBER = '447892934567';
 
 export const CourseEnquiryModal: React.FC<CourseEnquiryModalProps> = ({
   isOpen,
@@ -27,7 +27,7 @@ export const CourseEnquiryModal: React.FC<CourseEnquiryModalProps> = ({
   const [studyLevel, setStudyLevel] = useState('');
   const [destination, setDestination] = useState(initialDestination || '');
   const [message, setMessage] = useState('');
-  
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [whatsappUrl, setWhatsappUrl] = useState('');
@@ -38,7 +38,7 @@ export const CourseEnquiryModal: React.FC<CourseEnquiryModalProps> = ({
       document.body.style.overflow = 'hidden';
       if (initialSubject) setSubjectArea(initialSubject);
       else if (!subjectArea && SUBJECT_CATEGORIES.length > 0) setSubjectArea(SUBJECT_CATEGORIES[0].title);
-      
+
       if (initialCourseType) setCourseType(initialCourseType);
       if (initialDestination) setDestination(initialDestination);
       setIsSubmitted(false);
@@ -112,13 +112,13 @@ export const CourseEnquiryModal: React.FC<CourseEnquiryModalProps> = ({
   };
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex flex-col justify-end sm:justify-center items-center sm:p-4 overflow-hidden animate-fade-in"
       onClick={(e) => {
         if (e.target === e.currentTarget) handleResetAndClose();
       }}
     >
-      <div 
+      <div
         className="relative bg-white w-full sm:max-w-xl max-h-[92dvh] sm:max-h-[90vh] flex flex-col rounded-t-[28px] sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200"
         role="dialog"
         aria-modal="true"
@@ -163,9 +163,8 @@ export const CourseEnquiryModal: React.FC<CourseEnquiryModalProps> = ({
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Enter your full name"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-[#C5A059] ${
-                    errors.fullName ? 'border-red-400 bg-red-50/20' : 'border-slate-200 bg-slate-50/40'
-                  }`}
+                  className={`w-full px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-[#C5A059] ${errors.fullName ? 'border-red-400 bg-red-50/20' : 'border-slate-200 bg-slate-50/40'
+                    }`}
                 />
                 {errors.fullName && <p className="text-red-500 text-[11px] mt-1">{errors.fullName}</p>}
               </div>
@@ -180,9 +179,8 @@ export const CourseEnquiryModal: React.FC<CourseEnquiryModalProps> = ({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-[#C5A059] ${
-                    errors.email ? 'border-red-400 bg-red-50/20' : 'border-slate-200 bg-slate-50/40'
-                  }`}
+                  className={`w-full px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-[#C5A059] ${errors.email ? 'border-red-400 bg-red-50/20' : 'border-slate-200 bg-slate-50/40'
+                    }`}
                 />
                 {errors.email && <p className="text-red-500 text-[11px] mt-1">{errors.email}</p>}
               </div>
@@ -197,9 +195,8 @@ export const CourseEnquiryModal: React.FC<CourseEnquiryModalProps> = ({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Enter your phone number"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-[#C5A059] ${
-                    errors.phone ? 'border-red-400 bg-red-50/20' : 'border-slate-200 bg-slate-50/40'
-                  }`}
+                  className={`w-full px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-[#C5A059] ${errors.phone ? 'border-red-400 bg-red-50/20' : 'border-slate-200 bg-slate-50/40'
+                    }`}
                 />
                 {errors.phone && <p className="text-red-500 text-[11px] mt-1">{errors.phone}</p>}
               </div>
@@ -322,11 +319,11 @@ export const CourseEnquiryModal: React.FC<CourseEnquiryModalProps> = ({
               <div className="w-20 h-20 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5 ring-8 ring-emerald-50">
                 <span className="text-3xl">💬</span>
               </div>
-              
+
               <h3 className="text-2xl font-display font-black text-[#071228] tracking-tight mb-2">
                 Enquiry Submitted!
               </h3>
-              
+
               <p className="text-sm text-slate-600 max-w-sm mx-auto leading-relaxed mb-6">
                 Thank you for your interest. Our counselling team will connect with you shortly on WhatsApp to discuss suitable universities and programmes.
               </p>

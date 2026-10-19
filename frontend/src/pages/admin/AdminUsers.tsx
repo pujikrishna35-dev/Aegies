@@ -184,11 +184,10 @@ export const AdminUsers: React.FC = () => {
           <div
             key={stat.role}
             onClick={() => setRoleFilter(roleFilter === stat.role ? 'ALL' : stat.role)}
-            className={`p-4 rounded-xl border cursor-pointer transition-all ${
-              roleFilter === stat.role
+            className={`p-4 rounded-xl border cursor-pointer transition-all ${roleFilter === stat.role
                 ? 'bg-navy-900 text-white border-navy-900 shadow-md'
                 : 'bg-white text-slate-800 border-slate-200 hover:border-slate-300'
-            }`}
+              }`}
           >
             <p className={`text-xs font-medium ${roleFilter === stat.role ? 'text-gold-400' : 'text-slate-500'}`}>
               {stat.label}
@@ -217,11 +216,10 @@ export const AdminUsers: React.FC = () => {
             <button
               key={r}
               onClick={() => setRoleFilter(r)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors whitespace-nowrap ${
-                roleFilter === r
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors whitespace-nowrap ${roleFilter === r
                   ? 'bg-navy-900 text-white border-navy-900'
                   : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-              }`}
+                }`}
             >
               {r.replace('_', ' ')}
             </button>
@@ -372,7 +370,7 @@ export const AdminUsers: React.FC = () => {
                 type="tel"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                placeholder="+91 98765 43210"
+                placeholder="98765 43210"
                 className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-navy-600 focus:outline-none"
               />
             </div>

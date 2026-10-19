@@ -10,8 +10,8 @@ with open(os.path.join(src, "config", "site.ts"), "w", encoding="utf-8") as f:
   tagline: "Premier Global Education Consultants",
   description: "Guiding students to world-class universities in UK, USA, Canada, Australia, Germany, Ireland, and New Zealand.",
   url: "https://aegisoverseas.com",
-  phonePrimary: "+91 9246220044",
-  phoneSecondary: "+91 9246220066",
+  phonePrimary: "9246220044",
+  phoneSecondary: "9246220066",
   whatsapp: "919246220044",
   email: "Info@aegisoverseas.com",
   offices: [

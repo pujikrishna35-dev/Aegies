@@ -2,11 +2,11 @@ export const BRAND = {
   name: 'AEGIS OVERSEAS',
   tagline: 'Your Future Has No Borders.',
   eyebrow: 'GLOBAL EDUCATION. BRIGHTER TOMORROWS.',
-  primaryPhone: '+91 8500722284',
-  secondaryPhone: '+91 8500722284',
+  primaryPhone: '+44 78929 34567',
+  secondaryPhone: '+44 78929 34567',
   email: 'Info@aegisoverseas.com',
-  whatsapp: '918500722284',
-  whatsappUrl: 'https://wa.me/918500722284?text=Hello%20Aegis%20Overseas,%20I%20would%20like%20to%20book%20a%20free%20consultation%20for%20studying%20abroad.',
+  whatsapp: '+44 78929 34567',
+  whatsappUrl: 'https://wa.me/447892934567?text=Hello%20Aegis%20Overseas,%20I%20would%20like%20to%20book%20a%20free%20consultation%20for%20studying%20abroad.',
   workingHours: '9:00 AM – 6:30 PM (Mon - Sat)',
   stats: {
     students: '3,500+',
@@ -130,7 +130,7 @@ export const OFFICES = [
     city: 'Nellore (Head Office)',
     title: 'Aegis Overseas — Nellore Head Office',
     address: 'D.No: 24-7-33, Beside Dr. SRK School, Magunta Layout, Dargamitta, Nellore - 524003, Andhra Pradesh',
-    phone: '+91 8500722284',
+    phone: '+44 78929 34567 ',
     email: 'Info@aegisoverseas.com',
     hours: '9:00 AM – 6:30 PM (Mon - Sat)'
   },
@@ -138,7 +138,7 @@ export const OFFICES = [
     city: 'Tirupati Branch',
     title: 'Aegis Overseas — Tirupati Office',
     address: 'Beside Lenskart, Fashion Zone, MR.Palli Circle, Avilali, Andhra Pradesh 517502',
-    phone: '+91 8500722284',
+    phone: '+44 78929 34567 ',
     email: 'tirupati@aegisoverseas.com',
     hours: '9:30 AM – 6:30 PM'
   },
@@ -149,63 +149,5 @@ export const OFFICES = [
     phone: '+44 20 8144 2044',
     email: 'uk@aegisoverseas.com',
     hours: '9:00 AM – 5:30 PM GMT'
-  }
-];
-
-export const TESTIMONIALS = [
-  {
-    name: 'Pavani Medarametla',
-    location: 'Nellore, Andhra Pradesh',
-    country: 'United Kingdom',
-    flag: '🇬🇧',
-    university: 'University of Hertfordshire',
-    course: 'MSc Data Science',
-    rating: 5,
-    quote: 'This is the best consultancy in Nellore for students who are planning to go abroad for higher education as they show the right path to get a visa. They are very responsible and perfect. I am really happy to be associated with Aegis Overseas!',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop'
-  },
-  {
-    name: 'Pulimi Amulya',
-    location: 'Nellore, Andhra Pradesh',
-    country: 'USA',
-    flag: '🇺🇸',
-    university: 'University of North Texas',
-    course: 'MS in Computer Science',
-    rating: 5,
-    quote: 'From the very first counseling session, they provide genuine and clear guidance based on the student’s profile and goals. The staff is very friendly, patient, and knowledgeable, and they explain every step of the process in detail.',
-    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop'
-  },
-  {
-    name: 'Uma Maheshwari Sarvepalli',
-    location: 'Andhra Pradesh',
-    country: 'Canada',
-    flag: '🇨🇦',
-    university: 'Conestoga College',
-    course: 'Applied Network Security',
-    rating: 5,
-    quote: 'My process was not simple due to financial difficulties and health issues. But the consultancy team never gave up on me. They restarted everything for the January intake and guided me through every document. Aegis truly cares about students!',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop'
-  },
-  {
-    name: 'Krishna Vedagiri',
-    location: 'Nellore',
-    country: 'USA',
-    flag: '🇺🇸',
-    university: 'California State University',
-    course: 'MS in Information Systems',
-    rating: 5,
-    quote: 'Special thanks to Mr. Siva and Mr. Surendra for their constant guidance. My heartfelt gratitude to the owner, Mr. Gopal Reddy, who treated my case like a personal project rather than just another application. That dedication made all the difference.',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop'
-  },
-  {
-    name: 'Jaswanth Kumar Nallu',
-    location: 'Andhra Pradesh',
-    country: 'United Kingdom',
-    flag: '🇬🇧',
-    university: 'Coventry University',
-    course: 'MSc International Business',
-    rating: 5,
-    quote: 'Extremely happy and grateful to Aegis Overseas Education services for their constant support and guidance throughout my visa process. My sincere thanks to Gopal sir and Shiva for being approachable and supportive!',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop'
   }
 ];

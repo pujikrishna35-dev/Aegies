@@ -23,7 +23,7 @@ export const AdminConsultations: React.FC = () => {
       id: 'c-101',
       fullName: 'Rahul Varma',
       email: 'rahul.varma@example.com',
-      phone: '+91 9848022334',
+      phone: '9848022334',
       destination: 'United Kingdom',
       studyLevel: 'Postgraduate (Masters)',
       fieldOfStudy: 'Data Science',
@@ -38,7 +38,7 @@ export const AdminConsultations: React.FC = () => {
       id: 'c-102',
       fullName: 'Sneha Reddy',
       email: 'sneha.reddy@example.com',
-      phone: '+91 9440112233',
+      phone: '9440112233',
       destination: 'United States',
       studyLevel: 'Postgraduate',
       fieldOfStudy: 'Computer Science',
@@ -53,7 +53,7 @@ export const AdminConsultations: React.FC = () => {
       id: 'c-103',
       fullName: 'Vikramaditya Rao',
       email: 'vikram.rao@example.com',
-      phone: '+91 9988776655',
+      phone: '9988776655',
       destination: 'Germany',
       studyLevel: 'Masters',
       fieldOfStudy: 'Automotive Engineering',
@@ -96,7 +96,7 @@ export const AdminConsultations: React.FC = () => {
     try {
       const data = await adminFetch('/consultations');
       if (Array.isArray(data) && data.length > 0) setConsultations(data);
-    } catch {}
+    } catch { }
     setLoading(false);
   };
 
@@ -134,13 +134,13 @@ export const AdminConsultations: React.FC = () => {
           method: 'PATCH',
           body: JSON.stringify({ status: formData.status, counsellor: formData.counsellor }),
         });
-      } catch {}
+      } catch { }
     } else {
       const newC = { id: 'c-' + Date.now().toString().slice(-4), ...formData };
       setConsultations([newC, ...consultations]);
       try {
         await adminFetch('/consultations', { method: 'POST', body: JSON.stringify(newC) });
-      } catch {}
+      } catch { }
     }
     setIsModalOpen(false);
   };
@@ -149,7 +149,7 @@ export const AdminConsultations: React.FC = () => {
     setConsultations(consultations.map((c) => (c.id === id ? { ...c, status } : c)));
     try {
       await adminFetch(`/consultations/${id}/status`, { method: 'PATCH', body: JSON.stringify({ status }) });
-    } catch {}
+    } catch { }
   };
 
   const handleDelete = async (id: string) => {
@@ -157,7 +157,7 @@ export const AdminConsultations: React.FC = () => {
       setConsultations(consultations.filter((c) => c.id !== id));
       try {
         await adminFetch(`/consultations/${id}`, { method: 'DELETE' });
-      } catch {}
+      } catch { }
     }
   };
 
