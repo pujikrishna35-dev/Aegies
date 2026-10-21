@@ -20,6 +20,7 @@ import {
 import { TEST_PREP, TestPrepData } from '../../data/tests';
 import { Modal } from '../../components/ui/Modal';
 import { ConsultationForm } from '../../components/forms/ConsultationForm';
+import { useSEO } from '../../hooks/useSEO';
 
 export const TestDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -28,6 +29,12 @@ export const TestDetails: React.FC = () => {
 
   // Find test
   const test = TEST_PREP.find((t) => t.slug === slug) || TEST_PREP[0];
+
+  useSEO({
+    title: test ? `${test.name} Coaching & Test Preparation` : 'Test Preparation',
+    description: test?.overview || test?.shortDesc,
+    canonicalPath: test ? `/test-preparation/${test.slug}` : '/test-preparation'
+  });
 
   const toggleFaq = (idx: number) => {
     setOpenFaq(openFaq === idx ? null : idx);

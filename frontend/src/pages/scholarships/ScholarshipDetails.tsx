@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { SCHOLARSHIPS, Scholarship } from '../../data/scholarships';
 import { ScholarshipConsultationModal } from '../../components/scholarships/ScholarshipConsultationModal';
+import { useSEO } from '../../hooks/useSEO';
 
 type DetailTab = 'overview' | 'eligibility' | 'benefits' | 'process' | 'dates' | 'faq';
 
@@ -33,6 +34,12 @@ export const ScholarshipDetails: React.FC = () => {
   // Find scholarship by slug or id, fallback to first scholarship
   const scholarship: Scholarship = 
     SCHOLARSHIPS.find((s) => s.slug === slug || s.id === slug || (slug === 'vanier-canada-graduate' && s.country === 'Canada')) || SCHOLARSHIPS[0];
+
+  useSEO({
+    title: scholarship ? `${scholarship.name} - Eligibility & Application` : 'Scholarship Details',
+    description: scholarship?.overview || scholarship?.coverageSummary,
+    canonicalPath: scholarship ? `/scholarships/${scholarship.slug}` : '/scholarships'
+  });
 
   const getStatusBadge = () => (
     <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
