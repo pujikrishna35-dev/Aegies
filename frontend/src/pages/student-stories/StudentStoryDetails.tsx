@@ -18,6 +18,7 @@ import {
 import { STUDENT_STORIES, StudentStory } from '../../data/studentStories';
 import { Modal } from '../../components/ui/Modal';
 import { ConsultationForm } from '../../components/forms/ConsultationForm';
+import { useSEO } from '../../hooks/useSEO';
 
 export const StudentStoryDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -26,6 +27,12 @@ export const StudentStoryDetails: React.FC = () => {
   // Find student story
   const cleanSlug = slug?.replace(/^review-/, '') || '';
   const story = STUDENT_STORIES.find((s) => s.slug === slug || s.id === slug || s.slug === cleanSlug || s.id === cleanSlug) || STUDENT_STORIES[0];
+
+  useSEO({
+    title: story ? `${story.name}'s Admission Journey to ${story.university}` : 'Student Success Story',
+    description: story?.quote || `Read how ${story?.name} achieved admission to ${story?.university} in ${story?.country} through Aegis Overseas.`,
+    canonicalPath: story ? `/student-stories/${story.slug}` : '/student-stories'
+  });
 
   return (
     <div className="pt-28 pb-24 bg-[#FDFBF7] min-h-screen">

@@ -64,10 +64,10 @@ export const Footer: React.FC = () => {
             <ul className="space-y-1.5 text-xs text-slate-600">
               <li><Link to="/services/counselling" className="hover:text-[#071228]">Counselling</Link></li>
               <li><Link to="/services/university-selection" className="hover:text-[#071228]">University Selection</Link></li>
-              <li><Link to="/services/applications" className="hover:text-[#071228]">Applications</Link></li>
+              <li><Link to="/services/application-assistance" className="hover:text-[#071228]">Applications</Link></li>
               <li><Link to="/services/scholarships" className="hover:text-[#071228]">Scholarships</Link></li>
               <li><Link to="/services/education-loans" className="hover:text-[#071228]">Education Loans</Link></li>
-              <li><Link to="/services/visa" className="hover:text-[#071228]">Visa Assistance</Link></li>
+              <li><Link to="/services/visa-assistance" className="hover:text-[#071228]">Visa Assistance</Link></li>
               <li><Link to="/services/accommodation" className="hover:text-[#071228]">Accommodation</Link></li>
               <li><Link to="/services/forex" className="hover:text-[#071228]">Forex</Link></li>
               <li><Link to="/services/pre-departure" className="hover:text-[#071228]">Pre-Departure</Link></li>
@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/about" className="hover:text-[#071228]">About Us</Link></li>
               <li><Link to="/contact" className="hover:text-[#071228]">Contact</Link></li>
               <li><Link to="/careers" className="hover:text-[#071228]">Careers</Link></li>
-              <li><Link to="/privacy" className="hover:text-[#071228]">Privacy Policy</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-[#071228]">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-[#071228]">Terms</Link></li>
             </ul>
           </div>
@@ -125,7 +125,17 @@ export const Footer: React.FC = () => {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
           <div>© 2026 Aegis Overseas. All Rights Reserved.</div>
           <div className="flex items-center gap-3">
-            <span className="font-semibold text-slate-700">Study Abroad. Build Your Future.</span>
+            <span className="text-slate-500">
+              Designed & Developed by{' '}
+              <a
+                href="https://anaravtech.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-slate-700 hover:text-[#C5A059] transition-colors"
+              >
+                Anarav Technologies
+              </a>
+            </span>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Modal } from '@/components/ui/Modal';
 import { ConsultationForm } from '@/components/forms/ConsultationForm';
 
@@ -19,16 +20,17 @@ export const FinalCTA: React.FC = () => {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button
-                onClick={() => setConsultationOpen(true)}
-                className="px-6 sm:px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#D4AF37] to-[#C5A059] text-[#071228] hover:brightness-105 transition-all shadow-md active:scale-95"
+              <Link
+                to="/destinations"
+                className="px-6 sm:px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#D4AF37] to-[#C5A059] text-[#071228] hover:brightness-105 transition-all shadow-md active:scale-95 inline-flex items-center justify-center cursor-pointer"
               >
-                BOOK A FREE CONSULTATION
-              </button>
+                EXPLORE DESTINATIONS
+              </Link>
 
               <button
+                type="button"
                 onClick={() => setConsultationOpen(true)}
-                className="px-6 sm:px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider border border-white/40 text-white hover:bg-white/10 transition-all active:scale-95"
+                className="px-6 sm:px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#16274E] hover:bg-[#1E3466] border border-[#C5A059]/60 text-white hover:text-[#F3E5C8] transition-all shadow-md active:scale-95 cursor-pointer"
               >
                 TALK TO AN AEGIS COUNSELLOR
               </button>

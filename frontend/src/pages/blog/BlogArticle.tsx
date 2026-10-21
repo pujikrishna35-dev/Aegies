@@ -14,6 +14,7 @@ import {
 import { BLOG_POSTS, BlogPostItem } from '../../data/blog';
 import { Modal } from '../../components/ui/Modal';
 import { ConsultationForm } from '../../components/forms/ConsultationForm';
+import { useSEO } from '../../hooks/useSEO';
 
 export const BlogArticle: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -21,6 +22,13 @@ export const BlogArticle: React.FC = () => {
 
   // Match article
   const post = BLOG_POSTS.find((p) => p.slug === slug || p.id === slug) || BLOG_POSTS[0];
+
+  useSEO({
+    title: post ? `${post.title}` : 'Study Abroad Article',
+    description: post?.excerpt,
+    canonicalPath: post ? `/blog/${post.slug}` : '/blog',
+    ogImage: post?.coverImage
+  });
 
   return (
     <div className="pt-28 pb-24 bg-[#FDFBF7] min-h-screen">

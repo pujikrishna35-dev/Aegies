@@ -34,6 +34,7 @@ import {
 import { SERVICES, ServiceData } from '../../data/services';
 import { Modal } from '../../components/ui/Modal';
 import { ConsultationForm } from '../../components/forms/ConsultationForm';
+import { useSEO } from '../../hooks/useSEO';
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Compass,
@@ -74,6 +75,12 @@ export const ServiceDetails: React.FC = () => {
   const service: ServiceData | undefined = SERVICES.find(
     (s) => s.slug.toLowerCase() === resolvedSlug
   );
+
+  useSEO({
+    title: service ? `${service.title} - Study Abroad Service` : 'Service Not Found',
+    description: service?.fullDesc || service?.shortDesc || service?.tagline,
+    canonicalPath: service ? `/services/${service.slug}` : '/services'
+  });
 
   const otherServices = SERVICES.filter(
     (s) => s.slug !== service?.slug

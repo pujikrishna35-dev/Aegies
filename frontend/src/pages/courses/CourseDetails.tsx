@@ -23,6 +23,7 @@ import {
   CourseTypeOption 
 } from '../../data/courseCatalogue';
 import { CourseEnquiryModal } from '../../components/courses/CourseEnquiryModal';
+import { useSEO } from '../../hooks/useSEO';
 
 export const CourseDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -34,6 +35,12 @@ export const CourseDetails: React.FC = () => {
   const [selectedCourseType, setSelectedCourseType] = useState<string>('');
 
   const subject: SubjectCategory | undefined = getSubjectBySlug(slug || '');
+
+  useSEO({
+    title: subject ? `${subject.title} Courses & Degrees Abroad` : 'Subject Area Not Found',
+    description: subject?.description,
+    canonicalPath: subject ? `/courses/${subject.slug}` : '/courses'
+  });
 
   const handleOpenEnquiry = (courseTypeTitle?: string) => {
     setSelectedCourseType(courseTypeTitle || '');

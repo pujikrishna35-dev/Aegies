@@ -4,6 +4,7 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { WhatsAppButton } from './components/layout/WhatsAppButton';
 import { ScrollToTop } from './components/layout/ScrollToTop';
+import { RouteSEOTracker } from './components/common/RouteSEOTracker';
 
 // Top level pages
 import Home from './pages/Home';
@@ -96,6 +97,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <RouteSEOTracker />
       {!isAdmin && <Header />}
       <div className="flex-1">
         <Routes>
