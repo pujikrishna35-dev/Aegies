@@ -47,14 +47,14 @@ export const generateCountryGuidePdf = (dest: DestinationData) => {
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
     doc.setTextColor(120, 120, 120);
-    doc.text('Aegis Overseas Education Services | Phone: +91 85007 22284 | info@aegisoverseas.com', margin, pageHeight - 7);
+    doc.text('Aegis Overseas Education Services | Phone: 85007 22284 | info@aegisoverseas.com', margin, pageHeight - 7);
     doc.text(`Page ${pageNum}`, pageWidth - margin, pageHeight - 7, { align: 'right' });
   };
 
   // ==========================================
   // PAGE 1: COVER & OVERVIEW
   // ==========================================
-  
+
   // Cover Header Box
   doc.setFillColor(7, 18, 40); // Navy
   doc.roundedRect(margin, y, contentWidth, 42, 3, 3, 'F');
@@ -309,7 +309,7 @@ export const generateCountryGuidePdf = (dest: DestinationData) => {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
   doc.setTextColor(90, 90, 90);
-  doc.text('Call or WhatsApp our Senior Counsellor directly: +91 85007 22284 | Visit: www.aegisoverseas.com', margin + 5, y + 10);
+  doc.text('Call or WhatsApp our Senior Counsellor directly: 85007 22284 | Visit: www.aegisoverseas.com', margin + 5, y + 10);
 
   // Add headers/footers to all pages
   const totalPages = doc.getNumberOfPages();

@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Consultation from './pages/Consultation';
 import Careers from './pages/Careers';
 import StudyAbroad from './pages/StudyAbroad';
+import FAQ from './pages/FAQ';
 import NotFound from './pages/NotFound';
 
 // Destinations
@@ -106,6 +107,8 @@ const AppContent: React.FC = () => {
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/study-abroad" element={<StudyAbroad />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/faqs" element={<FAQ />} />
 
           {/* Destinations */}
           <Route path="/destinations" element={<Destinations />} />

@@ -4,10 +4,7 @@
   "description": "Premium International Education Consultancy Platform for Aegis Overseas",
   "private": true,
   "workspaces": [
-    "frontend",
-    "admin",
-    "backend",
-    "shared"
+    "frontend"
   ],
   "scripts": {
     "dev": "npm run dev --workspace=frontend",

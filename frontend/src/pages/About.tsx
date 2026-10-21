@@ -34,7 +34,7 @@ export const About: React.FC = () => {
     { value: '25+', label: 'Years of Excellence', sub: 'Guiding global aspirants since 2001' },
     { value: '15,000+', label: 'Students Placed', sub: 'Across top global universities' },
     { value: '100%', label: 'Visa Approval Rate', sub: 'Consistent across Tier-1 nations' },
-    { value: '$14.5M+', label: 'Scholarships Won', sub: 'In merit and government grants' }
+    { value: '$250M+', label: 'Scholarships Won', sub: 'In merit and government grants' }
   ];
 
   const pillars = [
@@ -83,7 +83,7 @@ export const About: React.FC = () => {
     },
     {
       year: '2026',
-      title: '25+ Years & $14.5M+ Scholarships',
+      title: '25+ Years & $250M+ Scholarships',
       desc: 'Celebrating 10,000+ triumphant alumni thriving as software engineers, data scientists, healthcare specialists, and entrepreneurs worldwide.'
     }
   ];
@@ -285,27 +285,39 @@ export const About: React.FC = () => {
 
   const offices = [
     {
-      city: 'Hyderabad ',
-      address: 'Hitec City, Madhapur, Hyderabad, Telangana',
-      phone: '+91 8500722284',
+      city: 'Hyderabad',
+      address: '#2nd floor, Lenin complex, Bhagyanagar Colony, KPHB, Near Saibaba Temple, Kukatpally, Hyderabad',
+      phone: '+44 78929 34567 ',
       email: 'info@aegisoverseas.com'
     },
     {
-      city: 'Nellore-1 (Ramalinga Puram)',
-      address: 'Srivari Plaza, Circle, Ramalinga Puram, Nellore, Andhra Pradesh 524003, India',
-      phone: '+91 8500722284',
+      city: 'Nellore-1 (RamalingaPuram) (central office)',
+      address: 'Srivari Plaza, Circle, RamalingaPuram, Nellore, Andhra Pradesh 524003, India',
+      phone: '+44 78929 34567 ',
       email: 'info@aegisoverseas.com'
     },
     {
-      city: 'Nellore-2 (Magunta Layout)',
+      city: 'Nellore-2 (Magunta Layout) (corporate office)',
       address: 'Near viswasai school, Central Avenue, Dargamitta, Magunta Layout, Nellore, Andhra Pradesh 524003, India',
-      phone: '+91 8500722284',
+      phone: '+44 78929 34567 ',
       email: 'info@aegisoverseas.com'
     },
     {
       city: 'Tirupati',
       address: 'GSF, Mr.palli circle, road, near lenskart, fashion zone, Avilali, Andhra Pradesh 517502, India',
-      phone: '+91 8500722284',
+      phone: '+44 78929 34567 ',
+      email: 'info@aegisoverseas.com'
+    },
+    {
+      city: 'Vizag',
+      address: 'Near HDFC Bank, MVP Sector 12, Lawsons Bay Colony, MVP Colony, Visakhapatnam, Andhra Pradesh 530017',
+      phone: '+44 78929 34567 ',
+      email: 'info@aegisoverseas.com'
+    },
+    {
+      city: 'Vijayawada',
+      address: "Near MC Donald's, Guru Nanak Colony Road, Teacher's Colony, Vijayawada, Andhra Pradesh 520007, India",
+      phone: '+44 78929 34567 ',
       email: 'info@aegisoverseas.com'
     }
   ];

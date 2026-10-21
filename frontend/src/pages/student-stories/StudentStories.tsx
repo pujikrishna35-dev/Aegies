@@ -1,8 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Users, 
-  Search, 
   Sparkles, 
   GraduationCap, 
   Award, 
@@ -12,47 +11,14 @@ import {
   Quote, 
   Briefcase, 
   ShieldCheck, 
-  FileCheck2,
-  Filter
+  FileCheck2
 } from 'lucide-react';
 import { STUDENT_STORIES, StudentStory } from '../../data/studentStories';
 import { Modal } from '../../components/ui/Modal';
 import { ConsultationForm } from '../../components/forms/ConsultationForm';
 
 export const StudentStories: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCountry, setSelectedCountry] = useState('all');
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const filteredStories = useMemo(() => {
-    return STUDENT_STORIES.filter((story) => {
-      // Country filter
-      if (selectedCountry !== 'all') {
-        const c = story.country.toLowerCase();
-        const sel = selectedCountry.toLowerCase();
-        const match = sel === 'uk' ? (c.includes('uk') || c.includes('united kingdom')) :
-                      sel === 'usa' ? (c.includes('usa') || c.includes('united states') || c.includes('america')) :
-                      c.includes(sel);
-        if (!match) {
-          return false;
-        }
-      }
-
-      // Search query
-      if (searchQuery.trim() !== '') {
-        const q = searchQuery.toLowerCase();
-        const matchName = story.name.toLowerCase().includes(q);
-        const matchUni = story.university.toLowerCase().includes(q);
-        const matchProg = story.program.toLowerCase().includes(q);
-        const matchCountry = story.country.toLowerCase().includes(q);
-        if (!matchName && !matchUni && !matchProg && !matchCountry) {
-          return false;
-        }
-      }
-
-      return true;
-    });
-  }, [searchQuery, selectedCountry]);
 
   return (
     <div className="pt-28 pb-24 bg-[#FDFBF7] min-h-screen">
@@ -97,7 +63,7 @@ export const StudentStories: React.FC = () => {
                 <p className="text-xs text-slate-400 mt-1">Visa Success Record</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-[#E6C687] tracking-tight">$14.5M+</p>
+                <p className="text-2xl sm:text-3xl font-extrabold font-sans text-[#E6C687] tracking-tight">$250M+</p>
                 <p className="text-xs text-slate-400 mt-1">Scholarships Awarded</p>
               </div>
               <div>
@@ -108,45 +74,9 @@ export const StudentStories: React.FC = () => {
           </div>
         </div>
 
-        {/* Filter Toolbar */}
-        <div className="bg-white rounded-2xl shadow-sm border border-neutral-200/80 p-6 mb-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            
-            {/* Search Input */}
-            <div className="relative sm:col-span-2">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
-              <input
-                type="text"
-                placeholder="Search student name, university, or course..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-hidden focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] transition-all"
-              />
-            </div>
-
-            {/* Country Selector */}
-            <div>
-              <select
-                value={selectedCountry}
-                onChange={(e) => setSelectedCountry(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-hidden focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] bg-white text-neutral-700"
-              >
-                <option value="all">All Study Destinations</option>
-                <option value="United Kingdom">United Kingdom 🇬🇧</option>
-                <option value="United States">United States 🇺🇸</option>
-                <option value="Canada">Canada 🇨🇦</option>
-                <option value="Australia">Australia 🇦🇺</option>
-                <option value="Germany">Germany 🇩🇪</option>
-                <option value="Ireland">Ireland 🇮🇪</option>
-              </select>
-            </div>
-
-          </div>
-        </div>
-
         {/* Stories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {filteredStories.map((story) => (
+          {STUDENT_STORIES.map((story) => (
             <div
               key={story.id}
               className="bg-white rounded-2xl border border-neutral-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1"
@@ -154,11 +84,17 @@ export const StudentStories: React.FC = () => {
               <div>
                 {/* Card Header with Avatar */}
                 <div className="p-6 border-b border-neutral-100 flex items-center gap-4">
-                  <img
-                    src={story.avatar}
-                    alt={story.name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-[#C5A059] shadow-xs"
-                  />
+                  {story.avatar ? (
+                    <img
+                      src={story.avatar}
+                      alt={story.name}
+                      className="w-16 h-16 rounded-full object-cover border-2 border-[#C5A059] shadow-xs shrink-0"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#071228] to-[#132A55] text-[#C5A059] flex items-center justify-center font-bold text-lg border-2 border-[#C5A059] shadow-xs shrink-0 font-display">
+                      {story.name.split(' ').map((n) => n[0]).slice(0, 2).join('')}
+                    </div>
+                  )}
                   <div>
                     <div className="flex items-center gap-1.5 mb-1">
                       <span className="text-lg">{story.flag}</span>

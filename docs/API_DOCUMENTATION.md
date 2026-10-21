@@ -11,7 +11,7 @@ Base URL: `http://localhost:5000/api`
     {
       "fullName": "Student Name",
       "email": "student@example.com",
-      "phone": "+91 9876543210",
+      "phone": "9876543210",
       "destination": "uk",
       "studyLevel": "Postgraduate",
       "fieldOfStudy": "Computer Science",

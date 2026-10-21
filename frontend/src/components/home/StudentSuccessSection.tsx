@@ -1,31 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { GENUINE_REVIEWS } from '../../data/testimonials';
 
 export const StudentSuccessSection: React.FC = () => {
-  const students = [
-    {
-      name: 'Riya Sharma',
-      uni: 'University of Melbourne',
-      course: "Master's in Data Science",
-      quote: "Aegis guided me at every step. Today, I'm living my dream in Australia!",
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop'
-    },
-    {
-      name: 'Arjun Nair',
-      uni: 'University of Toronto',
-      course: 'MSc in Computer Science',
-      quote: 'From counselling to visa, the Aegis team was always there. Highly recommended!',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop'
-    },
-    {
-      name: 'Sneha Patel',
-      uni: 'University of Birmingham',
-      course: 'MBA',
-      quote: 'Their scholarship guidance and genuinely caring staff made it possible!',
-      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop'
-    }
-  ];
+  const [currentPage, setCurrentPage] = useState(0);
+  const pageSize = 3;
+  const totalPages = Math.ceil(GENUINE_REVIEWS.length / pageSize);
+  const currentReviews = GENUINE_REVIEWS.slice(currentPage * pageSize, (currentPage + 1) * pageSize);
 
   const benefits = [
     'Student-Centric Approach',
@@ -42,56 +24,96 @@ export const StudentSuccessSection: React.FC = () => {
           {/* Left Column: STUDENT SUCCESS STORIES (6 cols / 50%) */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
-              <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
-                STUDENT SUCCESS STORIES
-              </span>
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em]">
+                  STUDENT SUCCESS STORIES
+                </span>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  <CheckCircle2 className="w-3 h-3" />
+                  Verified Reviews
+                </span>
+              </div>
               <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#071228] tracking-tight">
                 REAL STUDENTS. REAL JOURNEYS. REAL IMPACT.
               </h2>
               <p className="text-xs text-slate-500 mt-1">
-                Their dreams took flight. Yours can too.
+                Genuine feedback from students guided to global universities.
               </p>
 
               {/* 3 Student Cards Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-6">
-                {students.map((s, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
+                {currentReviews.map((s) => (
+                  <Link
+                    key={s.id}
+                    to={`/student-stories/${s.storySlug || s.id.replace('review-', '')}`}
+                    className="bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs hover:shadow-md hover:border-[#C5A059]/60 transition-all flex flex-col justify-between group cursor-pointer h-[350px]"
                   >
                     <div>
-                      {/* Avatar */}
-                      <div className="w-12 h-12 rounded-full overflow-hidden mb-3 border border-slate-100 shadow-2xs">
-                        <img src={s.avatar} alt={s.name} className="w-full h-full object-cover" />
+                      {/* Avatar image or initial badge */}
+                      {s.avatarUrl ? (
+                        <img
+                          src={s.avatarUrl}
+                          alt={s.reviewerName}
+                          className="w-11 h-11 rounded-full object-cover border border-[#C5A059]/40 shadow-2xs mb-3 group-hover:scale-105 transition-transform"
+                        />
+                      ) : (
+                        <div className="w-11 h-11 rounded-full bg-[#071228] text-[#C5A059] flex items-center justify-center font-bold text-xs border border-[#C5A059]/40 shadow-2xs mb-3 group-hover:scale-105 transition-transform">
+                          {s.avatarText}
+                        </div>
+                      )}
+                      <h4 className="font-bold text-xs text-[#071228] group-hover:text-amber-700 transition-colors leading-snug line-clamp-2 h-8 flex items-center">{s.reviewerName}</h4>
+                      <p className="text-[10px] text-amber-700 font-medium">{s.location}</p>
+                      <p className="text-[10px] text-slate-400 font-medium line-clamp-1 h-3.5">{s.tagline}</p>
+                      
+                      <div className="flex items-center gap-0.5 text-amber-500 mt-2">
+                        {[...Array(s.rating)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-current" />
+                        ))}
                       </div>
-                      <h4 className="font-bold text-xs text-[#071228] leading-snug">{s.name}</h4>
-                      <p className="text-[10px] text-slate-400 font-medium">{s.uni}</p>
-                      <p className="text-[10px] text-slate-400 font-medium">{s.course}</p>
-                      <p className="text-[11px] text-slate-600 mt-3 leading-relaxed italic line-clamp-3">
-                        "{s.quote}"
+
+                      <p className="text-[11px] text-slate-600 mt-2 leading-relaxed italic line-clamp-4 min-h-[4.5rem]">
+                        "{s.shortQuote}"
                       </p>
                     </div>
 
-                    <div className="mt-4 pt-2 flex justify-end">
-                      <div className="w-6 h-6 rounded-full bg-[#FDF2D9] text-[#071228] flex items-center justify-center border border-[#C5A059]/40 text-xs font-bold">
-                        →
+                    <div className="mt-auto pt-2 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-[9px] text-slate-400 group-hover:text-amber-700 transition-colors font-medium">Google Verified</span>
+                      <div className="w-5 h-5 rounded-full bg-[#FDF2D9] text-[#071228] flex items-center justify-center border border-[#C5A059]/40 text-[10px] font-bold group-hover:bg-[#C5A059] group-hover:text-white transition-colors">
+                        ★
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
 
             {/* Pagination / Arrows */}
             <div className="flex items-center gap-2 mt-6">
-              <button className="w-7 h-7 rounded-full border border-slate-300 bg-white text-slate-600 flex items-center justify-center hover:bg-slate-50 text-xs">
+              <button
+                type="button"
+                onClick={() => setCurrentPage((p) => (p === 0 ? totalPages - 1 : p - 1))}
+                aria-label="Previous page"
+                className="w-7 h-7 rounded-full border border-slate-300 bg-white text-slate-600 flex items-center justify-center hover:bg-slate-50 text-xs cursor-pointer transition-colors"
+              >
                 <ChevronLeft className="w-3.5 h-3.5" />
               </button>
               <div className="flex items-center gap-1.5 px-2">
-                <span className="w-2 h-2 rounded-full bg-[#071228]" />
-                <span className="w-2 h-2 rounded-full bg-slate-300" />
+                {[...Array(totalPages)].map((_, i) => (
+                  <span
+                    key={i}
+                    onClick={() => setCurrentPage(i)}
+                    className={`w-2 h-2 rounded-full cursor-pointer transition-all ${
+                      currentPage === i ? 'bg-[#071228] w-4' : 'bg-slate-300'
+                    }`}
+                  />
+                ))}
               </div>
-              <button className="w-7 h-7 rounded-full border border-slate-300 bg-white text-slate-600 flex items-center justify-center hover:bg-slate-50 text-xs">
+              <button
+                type="button"
+                onClick={() => setCurrentPage((p) => (p === totalPages - 1 ? 0 : p + 1))}
+                aria-label="Next page"
+                className="w-7 h-7 rounded-full border border-slate-300 bg-white text-slate-600 flex items-center justify-center hover:bg-slate-50 text-xs cursor-pointer transition-colors"
+              >
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>

@@ -21,7 +21,7 @@ export const AdminEnquiries: React.FC = () => {
       id: 'enq-1',
       name: 'Venkatesh Babu',
       email: 'venkatesh.b@example.com',
-      phone: '+91 9949011223',
+      phone: '9949011223',
       subject: 'Masters in AI after 3 Years B.Sc Computer Science',
       message: 'Hello team, do universities in the UK or Ireland accept 3-year bachelor degrees for MSc Artificial Intelligence without pre-masters? Please advise on options.',
       status: 'UNREAD',
@@ -32,7 +32,7 @@ export const AdminEnquiries: React.FC = () => {
       id: 'enq-2',
       name: 'Dr. Srinivas Rao (Parent)',
       email: 'dr.srinivas@example.com',
-      phone: '+91 9849200334',
+      phone: '9849200334',
       subject: 'Inquiry regarding medical PG options in the UK & Australia',
       message: 'Looking for clinical postgraduate diploma/masters pathway for my daughter who recently completed MBBS. Please share counselor contact.',
       status: 'IN_PROGRESS',
@@ -43,7 +43,7 @@ export const AdminEnquiries: React.FC = () => {
       id: 'enq-3',
       name: 'Mounika Reddy',
       email: 'mounika.r@example.com',
-      phone: '+91 9490123456',
+      phone: '9490123456',
       subject: 'Education loan without collateral for Canada MS',
       message: 'Can I get a 30 lakh loan sanction without property collateral for Fanshawe or Conestoga college PG courses? Need assistance.',
       status: 'RESOLVED',
@@ -66,7 +66,7 @@ export const AdminEnquiries: React.FC = () => {
     try {
       const data = await adminFetch('/enquiries');
       if (Array.isArray(data) && data.length > 0) setEnquiries(data);
-    } catch {}
+    } catch { }
     setLoading(false);
   };
 
@@ -74,7 +74,7 @@ export const AdminEnquiries: React.FC = () => {
     setEnquiries(enquiries.map((e) => (e.id === id ? { ...e, status } : e)));
     try {
       await adminFetch(`/enquiries/${id}/status`, { method: 'PATCH', body: JSON.stringify({ status }) });
-    } catch {}
+    } catch { }
     if (selectedEnquiry?.id === id) {
       setSelectedEnquiry({ ...selectedEnquiry, status });
     }
@@ -85,7 +85,7 @@ export const AdminEnquiries: React.FC = () => {
       setEnquiries(enquiries.filter((e) => e.id !== id));
       try {
         await adminFetch(`/enquiries/${id}`, { method: 'DELETE' });
-      } catch {}
+      } catch { }
       if (selectedEnquiry?.id === id) setSelectedEnquiry(null);
     }
   };

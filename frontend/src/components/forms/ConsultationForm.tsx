@@ -24,7 +24,7 @@ const DESTINATION_LABELS: Record<string, string> = {
   'not-sure': 'Not Sure Yet (Need Guidance)'
 };
 
-const WHATSAPP_TARGET_NUMBER = '918500722284';
+const WHATSAPP_TARGET_NUMBER = '447892934567';
 
 export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination = 'uk', initialNotes = '' }: ConsultationFormProps) {
   const { submitConsultation, loading, success, resetForm } = useConsultation();
@@ -36,7 +36,7 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
     destination: defaultDestination,
     studyLevel: 'Postgraduate',
     fieldOfStudy: 'Computer Science & IT',
-    preferredOffice: 'Nellore',
+    preferredOffice: 'Nellore-1 (central office)',
     budgetRange: '₹15L - ₹25L',
     message: initialNotes
   });
@@ -64,7 +64,7 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Open WhatsApp directly with the filled lead details to 8500722284
+    // Open WhatsApp directly with the filled lead details to +44 78929 34567 
     const whatsappUrl = getWhatsAppMessageUrl();
     try {
       window.open(whatsappUrl, '_blank');
@@ -104,7 +104,7 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-medium text-emerald-800 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors"
           >
-            Send Details to WhatsApp (+91 8500722284) 💬
+            Send Details to WhatsApp (+44 78929 34567) 💬
           </a>
         </div>
       </div>
@@ -206,8 +206,12 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
             onChange={(e) => setFormData({ ...formData, preferredOffice: e.target.value })}
             className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50/50 text-navy-950 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:bg-white transition-all"
           >
-            <option value="Nellore">Nellore (Head Office)</option>
+            <option value="Nellore-1 (central office)">Nellore-1 (central office)</option>
+            <option value="Nellore-2 (corporate office)">Nellore-2 (corporate office)</option>
             <option value="Tirupati">Tirupati Branch</option>
+            <option value="Hyderabad">Hyderabad Branch</option>
+            <option value="Vizag">Vizag Branch</option>
+            <option value="Vijayawada">Vijayawada Branch</option>
             <option value="Online / Virtual">Online / Zoom Session</option>
           </select>
         </div>

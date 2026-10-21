@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, ArrowRight, ShieldCheck, AlertCircle } from 'lucide-react';
+import { Calendar, ArrowRight } from 'lucide-react';
 import { Scholarship } from '../../data/scholarships';
 
 interface ScholarshipCardProps {
@@ -14,44 +14,13 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
   onOpenGuide,
   onOpenConsultation
 }) => {
-  const getStatusBadge = () => {
-    switch (scholarship.status) {
-      case 'Open':
-        return (
-          <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-            {scholarship.statusBadgeText || 'Open'}
-          </span>
-        );
-      case 'Upcoming':
-        return (
-          <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
-            {scholarship.statusBadgeText || 'Upcoming'}
-          </span>
-        );
-      case 'Closed':
-        return (
-          <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-red-50 text-red-600 border border-red-200">
-            {scholarship.statusBadgeText || 'Closed'}
-          </span>
-        );
-      case 'Check Eligibility':
-        return (
-          <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-300">
-            {scholarship.statusBadgeText || 'Check Eligibility'}
-          </span>
-        );
-      case 'Discontinued':
-        return (
-          <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
-            {scholarship.statusBadgeText || 'Discontinued'}
-          </span>
-        );
-      default:
-        return null;
-    }
-  };
+  const getStatusBadge = () => (
+    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+      Open
+    </span>
+  );
 
-  const isDiscontinued = scholarship.status === 'Discontinued';
+  const isDiscontinued = false;
 
   return (
     <div className="bg-white rounded-2xl border border-slate-200/80 p-5 sm:p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
@@ -92,18 +61,12 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
           </p>
         </div>
 
-        {/* Dates */}
+        {/* Availability */}
         <div className="mt-4 space-y-2 text-xs text-slate-600">
           <div className="flex items-center gap-2">
-            <Calendar className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+            <Calendar className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
             <span>
-              <strong>Opens:</strong> {scholarship.opens}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-            <span className={scholarship.status === 'Closed' ? 'text-red-600 font-medium' : ''}>
-              <strong>Deadline:</strong> {scholarship.deadline}
+              <strong>Applications:</strong> <span className="text-emerald-700 font-semibold">Open for Every Intake</span>
             </span>
           </div>
         </div>

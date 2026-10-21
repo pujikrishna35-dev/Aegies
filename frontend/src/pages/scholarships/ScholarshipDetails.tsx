@@ -34,42 +34,12 @@ export const ScholarshipDetails: React.FC = () => {
   const scholarship: Scholarship = 
     SCHOLARSHIPS.find((s) => s.slug === slug || s.id === slug || (slug === 'vanier-canada-graduate' && s.country === 'Canada')) || SCHOLARSHIPS[0];
 
-  const getStatusBadge = () => {
-    switch (scholarship.status) {
-      case 'Open':
-        return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-            {scholarship.statusBadgeText || 'Open'}
-          </span>
-        );
-      case 'Upcoming':
-        return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200">
-            Upcoming
-          </span>
-        );
-      case 'Closed':
-        return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-600 border border-red-200">
-            Closed
-          </span>
-        );
-      case 'Check Eligibility':
-        return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300">
-            Check Eligibility
-          </span>
-        );
-      case 'Discontinued':
-        return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 border border-slate-200">
-            Discontinued
-          </span>
-        );
-      default:
-        return null;
-    }
-  };
+  const getStatusBadge = () => (
+    <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+      Open
+    </span>
+  );
+
 
   const handleDownloadGuide = () => {
     if (scholarship.officialSourceUrl) {
@@ -149,27 +119,25 @@ export const ScholarshipDetails: React.FC = () => {
               </p>
             </div>
 
-            {/* Tile 2: Application Opens */}
+            {/* Tile 2: Application Status */}
             <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-100">
               <div className="flex items-center gap-2 text-slate-500 mb-1">
-                <Calendar className="w-4 h-4 text-amber-600" />
-                <span className="text-[11px] font-bold uppercase tracking-wider">Application Opens</span>
+                <Calendar className="w-4 h-4 text-emerald-600" />
+                <span className="text-[11px] font-bold uppercase tracking-wider">Application Status</span>
               </div>
-              <p className="text-xs sm:text-sm font-bold text-slate-900 mt-1">
-                {scholarship.opens}
+              <p className="text-xs sm:text-sm font-bold text-emerald-700 mt-1">
+                Open for Every Intake
               </p>
             </div>
 
-            {/* Tile 3: Application Deadline */}
+            {/* Tile 3: Intake Schedule */}
             <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-100">
               <div className="flex items-center gap-2 text-slate-500 mb-1">
-                <Clock className="w-4 h-4 text-amber-600" />
-                <span className="text-[11px] font-bold uppercase tracking-wider">Application Deadline</span>
+                <Clock className="w-4 h-4 text-emerald-600" />
+                <span className="text-[11px] font-bold uppercase tracking-wider">Intake Schedule</span>
               </div>
-              <p className={`text-xs sm:text-sm font-bold mt-1 ${
-                scholarship.status === 'Closed' ? 'text-red-600' : 'text-slate-900'
-              }`}>
-                {scholarship.deadline}
+              <p className="text-xs sm:text-sm font-bold text-slate-900 mt-1">
+                Always Open (Rolling)
               </p>
             </div>
 

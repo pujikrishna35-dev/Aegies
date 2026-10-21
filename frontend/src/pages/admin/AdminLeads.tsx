@@ -46,7 +46,7 @@ export const AdminLeads: React.FC = () => {
       id: 'lead-1',
       name: 'Rohan Verma',
       email: 'rohan.v@example.com',
-      phone: '+91 9876543210',
+      phone: '9876543210',
       city: 'Hyderabad',
       preferredCountry: 'UK',
       preferredCourse: 'MSc Computer Science',
@@ -62,7 +62,7 @@ export const AdminLeads: React.FC = () => {
       id: 'lead-2',
       name: 'Ananya Deshmukh',
       email: 'ananya.d@example.com',
-      phone: '+91 9123456780',
+      phone: '9123456780',
       city: 'Bangalore',
       preferredCountry: 'USA',
       preferredCourse: 'MS Data Science',
@@ -78,7 +78,7 @@ export const AdminLeads: React.FC = () => {
       id: 'lead-3',
       name: 'Sneha Reddy',
       email: 'sneha.reddy@example.com',
-      phone: '+91 9440112233',
+      phone: '9440112233',
       city: 'Nellore',
       preferredCountry: 'Canada',
       preferredCourse: 'MBA International Business',
@@ -94,7 +94,7 @@ export const AdminLeads: React.FC = () => {
       id: 'lead-4',
       name: 'Karthik Naidu',
       email: 'karthik.n@example.com',
-      phone: '+91 9703322114',
+      phone: '9703322114',
       city: 'Tirupati',
       preferredCountry: 'Germany',
       preferredCourse: 'MSc Mechanical Engineering',
@@ -110,7 +110,7 @@ export const AdminLeads: React.FC = () => {
       id: 'lead-5',
       name: 'Vikas Chowdary',
       email: 'vikas.c@example.com',
-      phone: '+91 9988112233',
+      phone: '9988112233',
       city: 'Vijayawada',
       preferredCountry: 'Australia',
       preferredCourse: 'Master of Information Technology',
@@ -201,7 +201,7 @@ export const AdminLeads: React.FC = () => {
           method: 'PUT',
           body: JSON.stringify(formData),
         });
-      } catch {}
+      } catch { }
     } else {
       // Add
       const newLead: Lead = {
@@ -226,7 +226,7 @@ export const AdminLeads: React.FC = () => {
           method: 'POST',
           body: JSON.stringify(newLead),
         });
-      } catch {}
+      } catch { }
     }
     setIsAddModalOpen(false);
   };
@@ -236,7 +236,7 @@ export const AdminLeads: React.FC = () => {
       setLeads(leads.filter((l) => l.id !== id));
       try {
         await adminFetch(`/leads/${id}`, { method: 'DELETE' });
-      } catch {}
+      } catch { }
       if (selectedLead?.id === id) setSelectedLead(null);
     }
   };
@@ -248,7 +248,7 @@ export const AdminLeads: React.FC = () => {
         method: 'PATCH',
         body: JSON.stringify({ status }),
       });
-    } catch {}
+    } catch { }
   };
 
   const handleCounselorChange = async (id: string, counselor: string) => {
@@ -258,7 +258,7 @@ export const AdminLeads: React.FC = () => {
         method: 'PATCH',
         body: JSON.stringify({ counselor }),
       });
-    } catch {}
+    } catch { }
   };
 
   // Filtered
@@ -501,7 +501,7 @@ export const AdminLeads: React.FC = () => {
                 required
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="+91 98480 12345"
+                placeholder="98480 12345"
                 className="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
             </div>

@@ -17,7 +17,7 @@ export const TrustStatsSection: React.FC = () => {
     },
     {
       icon: Award,
-      value: '$14.5M+',
+      value: '$250M+',
       label: 'Scholarships Won',
       sub: 'Merit & government grants'
     },

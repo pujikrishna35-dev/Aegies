@@ -9,7 +9,7 @@ export interface ServiceData {
   slug: string;
   shortDesc: string;
   iconName: string;
-  category?: 'Admissions Strategy' | 'Financial Solutions' | 'Visa & Relocation' | 'Arrival & Settlement' | 'Internships & Part-time Work';
+  category?: 'Admissions Strategy' | 'Financial Solutions' | 'Visa & Relocation' | 'Arrival & Settlement' | 'Internships & Part-time Jobs';
   tagline?: string;
   fullDesc?: string;
   deliverables?: string[];
@@ -233,6 +233,15 @@ export const SERVICES: ServiceData[] = [
       "Peace of mind knowing your key is ready the moment your flight lands"
     ],
     stat: { value: "5,000+", label: "Beds Reserved" },
+    gallery: [
+      "/images/settlement/accommodation-1.png",
+      "/images/settlement/accommodation-2.png",
+      "/images/settlement/accommodation-3.png",
+      "/images/settlement/accommodation-4.png",
+      "/images/settlement/accommodation-5.jpg",
+      "/images/settlement/accommodation-6.png",
+      "/images/settlement/accommodation-7.png"
+    ],
     faqs: [
       { q: "Is on-campus or off-campus housing better?", a: "On-campus is great for 1st-year undergraduates seeking immersion; off-campus PBSAs are often newer, cheaper, and preferred by postgraduate Master's students." },
       { q: "What if my visa gets rejected after booking accommodation?", a: "All our partner accommodations offer a 'No Visa, No Pay' policy with 100% refund of your security deposit upon presenting the visa refusal letter." }
@@ -340,23 +349,64 @@ export const SERVICES: ServiceData[] = [
     ]
   },
   {
-    title: "Internships & Part-time Work",
-    slug: "internships-part-time-work",
-    shortDesc: "Comprehensive guidance on work permissions, on-campus jobs, CV tailoring for global employers, and internship placements.",
+    title: "Internships",
+    slug: "internships",
+    shortDesc: "Expert guidance on curriculum-integrated internships, CPT/co-op programs, industry networking, and resume optimization for top global employers.",
+    iconName: "GraduationCap",
+    category: "Internships & Part-time Jobs",
+    tagline: "Secure career-defining global internships and industry co-op placements.",
+    fullDesc: "Gain destination-specific insights into curricular internships, co-op semesters, and professional practical training (such as CPT/OPT in the USA or Sandwich Placements in the UK). We guide students through corporate resume formatting, employer networking, and applying to vetted international internship portals.",
+    deliverables: [
+      "Guidance on CPT, Co-op programs, and curricular internship legal authorizations",
+      "Corporate resume & cover letter tailored to multinational employer standards",
+      "Access to vetted internship portals and international student alumni networks",
+      "Mock technical and behavioral interview preparation for internship hiring"
+    ],
+    processSteps: [
+      { step: "01", title: "Eligibility & Timeline Mapping", desc: "Understanding university internship semester rules, credit requirements, and visa eligibility." },
+      { step: "02", title: "ATS Resume & Portfolio Build", desc: "Crafting high-impact, country-standard resumes showcasing technical and academic projects." },
+      { step: "03", title: "Employer Outreach & Interview Prep", desc: "Applying through verified company career portals and practicing with realistic mock interviews." }
+    ],
+    benefits: [
+      "Gain hands-on global industry experience on your CV before graduating",
+      "Build direct professional connections with multinational employers",
+      "Significant competitive advantage for securing post-study graduate employment"
+    ],
+    stat: { value: "100%", label: "Placement Guidance" },
+    gallery: [
+      "/images/internships/internship-1.jpg",
+      "/images/internships/internship-2.jpg",
+      "/images/internships/internship-3.jpg",
+      "/images/internships/internship-4.jpg",
+      "/images/internships/internship-5.jpg",
+      "/images/internships/internship-6.jpg",
+      "/images/internships/internship-7.jpg",
+      "/images/internships/internship-8.jpg",
+      "/images/internships/internship-9.jpg"
+    ],
+    faqs: [
+      { q: "Can international students do off-campus internships?", a: "Yes. In the US, Curricular Practical Training (CPT) permits off-campus internships; in Canada, co-op work permits allow full-time industry semesters; and in the UK, sandwich placements are integrated directly into degrees." },
+      { q: "Does Aegis assist with technical and corporate internship applications?", a: "Yes. Our team assists with profile building, tailoring ATS-compliant resumes, and preparing for competitive employer interviews." }
+    ]
+  },
+  {
+    title: "Part-time Jobs",
+    slug: "part-time-jobs",
+    shortDesc: "Comprehensive guidance on work permissions, on-campus jobs, CV tailoring for local employers, and legal hourly compliance.",
     iconName: "Briefcase",
-    category: "Internships & Part-time Work",
+    category: "Internships & Part-time Jobs",
     tagline: "Maximize your employability and navigate destination student labor laws with confidence.",
-    fullDesc: "Gain destination-specific insights into student employment rights, term-time hourly caps, and national tax IDs (such as SSN, NI Number, or TFN). We assist students with formatting country-standard resumes, locating vetted university work opportunities, and connecting with local internship portals.",
+    fullDesc: "Gain destination-specific insights into student employment rights, term-time hourly caps, and national tax IDs (such as SSN, NI Number, or TFN). We assist students with formatting country-standard resumes, locating vetted university work opportunities, and connecting with local student job portals.",
     deliverables: [
       "Country-specific part-time work authorization and legal hours compliance guide",
       "International resume & CV reformatting aligned with target country standards",
-      "Guidance on Tax ID, National Insurance, and local bank account setup",
-      "Access to student job boards, on-campus vacancy portals, and co-op placement networks"
+      "Guidance on Tax ID, National Insurance (NI/SSN/TFN), and local bank account setup",
+      "Access to student job boards, on-campus vacancy portals, and retail/hospitality job leads"
     ],
     processSteps: [
       { step: "01", title: "Visa Work Rights Audit", desc: "Understanding 20 hrs/week term-time work limits and vacation full-time guidelines." },
       { step: "02", title: "CV & Cover Letter Adaptation", desc: "Crafting ATS-friendly local resumes tailored to on-campus and retail/tech roles." },
-      { step: "03", title: "We Search Part-Time Work & Internships for You", desc: "Applying through verified student employer networks and preparing for local job interviews." }
+      { step: "03", title: "We Search Part-Time Jobs for You", desc: "Applying through verified student employer networks and preparing for local job interviews." }
     ],
     benefits: [
       "Offset living expenses safely within 100% legal visa boundaries",
@@ -364,9 +414,21 @@ export const SERVICES: ServiceData[] = [
       "Smooth transition into post-study work and graduate career opportunities"
     ],
     stat: { value: "20 Hrs/Wk", label: "Legal Work Permission" },
+    gallery: [
+      "/images/part-time-jobs/job-1.jpg",
+      "/images/part-time-jobs/job-2.jpg",
+      "/images/part-time-jobs/job-3.jpg",
+      "/images/part-time-jobs/job-4.jpg",
+      "/images/part-time-jobs/job-5.jpg",
+      "/images/part-time-jobs/job-6.jpg",
+      "/images/part-time-jobs/job-7.jpg",
+      "/images/part-time-jobs/job-8.jpg",
+      "/images/part-time-jobs/job-9.jpg",
+      "/images/part-time-jobs/job-10.jpg"
+    ],
     faqs: [
       { q: "How many hours can international students legally work?", a: "In most major study destinations (UK, USA, Canada, Australia, Ireland), international students on valid visas are permitted to work up to 20 hours per week during term time and full-time during holidays." },
-      { q: "Can Aegis help me format my CV for foreign employers?", a: "Yes. Our student services team helps optimize your resume to meet local ATS formatting standards and country-specific workplace expectations." }
+      { q: "Can Aegis help me format my CV for local student jobs?", a: "Yes. Our student services team helps optimize your resume to meet local ATS formatting standards and country-specific workplace expectations." }
     ]
   }
 ];

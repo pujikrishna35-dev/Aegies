@@ -29,7 +29,7 @@ export const Scholarships: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedStudyLevel, setSelectedStudyLevel] = useState<string>('all');
   const [selectedCoverage, setSelectedCoverage] = useState<string>('all');
-  const [sortBy, setSortBy] = useState<string>('deadline-earliest');
+  const [sortBy, setSortBy] = useState<string>('featured');
 
   // Modal & Drawer State
   const [guideScholarship, setGuideScholarship] = useState<Scholarship | null>(null);
@@ -76,12 +76,6 @@ export const Scholarships: React.FC = () => {
 
       return true;
     }).sort((a, b) => {
-      if (sortBy === 'deadline-earliest') {
-        // Discontinued at end
-        if (a.status === 'Discontinued') return 1;
-        if (b.status === 'Discontinued') return -1;
-        return 0; // preserve curated chronological intake order
-      }
       if (sortBy === 'name-asc') {
         return a.name.localeCompare(b.name);
       }
@@ -236,10 +230,10 @@ export const Scholarships: React.FC = () => {
         </div>
 
         {/* Informational Advisory Notice */}
-        <div className="mb-8 p-4 rounded-xl bg-sky-50/70 border border-sky-200/80 flex items-start gap-3">
-          <Info className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
-          <p className="text-xs text-sky-900 leading-relaxed">
-            <strong>Application dates are shown for the 2026–2027 intake (or latest available).</strong> Dates may change. Please check the official website or consult with an Aegis advisor for the most up-to-date information.
+        <div className="mb-8 p-4 rounded-xl bg-emerald-50/80 border border-emerald-200/80 flex items-start gap-3">
+          <Sparkles className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+          <p className="text-xs text-emerald-900 leading-relaxed">
+            <strong>Scholarships are open for every intake.</strong> Aegis advisors provide continuous profile evaluation and scholarship application guidance across all upcoming intake cycles.
           </p>
         </div>
 
@@ -258,7 +252,7 @@ export const Scholarships: React.FC = () => {
               onChange={(e) => setSortBy(e.target.value)}
               className="px-3 py-1.5 rounded-lg border border-slate-200 text-xs bg-white text-slate-800 font-medium focus:outline-none focus:ring-1 focus:ring-[#C5A059]"
             >
-              <option value="deadline-earliest">Deadline (Earliest)</option>
+              <option value="featured">All Open Scholarships</option>
               <option value="name-asc">Scholarship Name (A–Z)</option>
             </select>
           </div>

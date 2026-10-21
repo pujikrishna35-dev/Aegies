@@ -25,208 +25,399 @@ export interface StudentStory {
 
 export const STUDENT_STORIES: StudentStory[] = [
   {
-    id: 'rohan-mehta-imperial',
-    slug: 'rohan-mehta-imperial-college-london',
-    name: 'Rohan Mehta',
-    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop',
-    program: 'MSc Advanced Computing (Artificial Intelligence)',
+    id: 'thota-sai-kumar-reddy',
+    slug: 'thota-sai-kumar-reddy',
+    name: 'THOTA SAI KUMAR REDDY',
+    avatar: '/images/reviews/thota-sai-kumar-reddy.jpg',
+    program: 'Higher Education Abroad & Visa Process',
     degreeLevel: 'Master\'s',
-    university: 'Imperial College London',
+    university: 'Global University Admissions',
+    country: 'International',
+    countryCode: 'GLOBAL',
+    flag: '🌍',
+    intake: 'Verified Study Abroad Journey',
+    scholarshipReceived: 'Personalized Case Guidance • Zero Hidden Charges',
+    testScores: [
+      { test: 'Counseling', score: '1-on-1 Dedicated Support' },
+      { test: 'Visa Preparation', score: '100% Documentation Audited' }
+    ],
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Handling the entire admissions and visa process smoothly without confusion or stress.',
+    strategy: 'Outstanding support and dedication from Siva sir and Gopal sir who were extremely knowledgeable, patient, and always available to answer every question.',
+    admissionAdmits: [
+      'International University Admissions (Accepted)',
+      'Visa Approval Cleared'
+    ],
+    quote: 'The entire process was handled professionally and smoothly from start to finish. The team was always supportive, responsive, and guided me clearly at every step. A special thanks to Siva sir and Gopal sir for their outstanding support and dedication. Their guidance made the whole process much easier and stress-free.',
+    currentRole: 'Mentored by Siva Sir & Gopal Sir',
+    visaApprovalDays: 'Full Visa Assistance with Complete Transparency',
+    adviceForAspirants: [
+      'Choose mentors who remain dedicated and patient throughout your entire process.',
+      'Maintain clear communication with your advisors for a stress-free outcome.'
+    ]
+  },
+  {
+    id: 'deverapalli-kushi',
+    slug: 'deverapalli-kushi',
+    name: 'Deverapalli Kushi',
+    avatar: '/images/reviews/deverapalli-kushi.jpg',
+    program: 'Master’s Program in the UK',
+    degreeLevel: 'Master\'s',
+    university: 'UK University Admissions',
     country: 'United Kingdom',
-    countryCode: 'GB',
+    countryCode: 'UK',
     flag: '🇬🇧',
-    intake: 'Fall 2025',
-    scholarshipReceived: '£10,000 Faculty of Engineering Excellence Scholarship',
+    intake: 'UK Intake Success',
+    scholarshipReceived: 'Comprehensive University & Visa Support',
     testScores: [
-      { test: 'IELTS Academic', score: '8.0 Overall' },
-      { test: 'GRE', score: '328 (Q168, V160)' }
+      { test: 'SOP & Interview', score: 'Comprehensive Prep' },
+      { test: 'Visa Filing', score: '100% Documentation Audited' }
     ],
-    previousEducation: 'B.Tech in Computer Science, Hyderabad',
-    previousCGPA: '8.2 / 10.0',
-    challenge: 'Rohan had an average undergrad CGPA and two early semester backlogs. He had previously received standard template rejections from tier-1 institutions and felt disheartened about applying to world top-10 universities.',
-    strategy: 'Aegis technical advisors audited his GitHub repositories and published IEEE research paper. We restructured his Statement of Purpose to highlight his specialized algorithm work, secured academic endorsements from research mentors, and applied within the first 48 hours of Imperial\'s intake window.',
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Shortlisting the right universities in the UK matching academic goals, drafting SOP, and understanding visa regulations.',
+    strategy: 'Thorough step-by-step guidance from the Aegis team with UK expertise, covering university matching, SOP drafting, interview preparation, visa filing, and even post-admission accommodation.',
     admissionAdmits: [
-      'Imperial College London (Accepted)',
-      'University of Manchester',
-      'University of Warwick',
-      'University of Edinburgh'
+      'Dream UK University (Accepted)',
+      'UK Student Visa Granted'
     ],
-    quote: 'Aegis didn\'t treat me like another file. They identified the core strength in my technical projects that previous consultancies completely overlooked. Walking into Imperial was a dream made reality.',
-    currentRole: 'Graduate AI Research Engineer at Deliveroo, London HQ',
-    visaApprovalDays: 'Standard UK Student Visa approved in 9 working days with zero interview calls',
+    quote: 'Thanks to their efforts, I was able to secure admission to one of my dream universities, and they even guided me with post-admission formalities, including accommodation and travel arrangements. My heartfelt thanks to Gopal Reddy sir for the support provided during the whole process of my abroad studies.',
+    currentRole: 'UK Master\'s Scholar',
+    visaApprovalDays: 'Full End-to-End UK Admission & Visa Clearance',
     adviceForAspirants: [
-      'Focus intensely on explaining WHY your specific research interests align with faculty lab projects.',
-      'Do not hide academic gaps; frame them transparently as learning milestones overcome through practical projects.',
-      'Submit applications early in September/October when departmental scholarship endowments are untouched.'
+      'Work with counselors who understand UK admissions deeply and guide you beyond just the offer letter.',
+      'Focus on a well-crafted Statement of Purpose and thorough interview preparation.'
     ]
   },
   {
-    id: 'ananya-sharma-toronto',
-    slug: 'ananya-sharma-university-of-toronto',
-    name: 'Ananya Sharma',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop',
-    program: 'Master of Management Analytics (MMA)',
+    id: 'jaswanth-kumar-nallu',
+    slug: 'jaswanth-kumar-nallu',
+    name: 'Jaswanth kumar Nallu',
+    avatar: '/images/reviews/jaswanth-kumar-nallu.jpg',
+    program: 'Course Selection & Visa Approval',
     degreeLevel: 'Master\'s',
-    university: 'University of Toronto (Rotman School of Management)',
-    country: 'Canada',
-    countryCode: 'CA',
-    flag: '🇨🇦',
-    intake: 'Fall 2025',
-    scholarshipReceived: 'CAD $15,000 Rotman Entrance Fellowship',
+    university: 'International Degree Program',
+    country: 'International',
+    countryCode: 'GLOBAL',
+    flag: '✈️',
+    intake: 'Visa Granted',
+    scholarshipReceived: 'Comprehensive Application & Interview Prep Support',
     testScores: [
-      { test: 'IELTS Academic', score: '8.0 Overall' },
-      { test: 'GMAT Focus', score: '675 (96th Percentile)' }
+      { test: 'Visa Prep', score: 'Mock Interviews Cleared' },
+      { test: 'Documentation', score: 'Zero Error File Clearance' }
     ],
-    previousEducation: 'B.Com (Honours) + 2 Years Financial Analyst Experience',
-    previousCGPA: '8.6 / 10.0',
-    challenge: 'Transitioning from a traditional commerce background into heavy statistical predictive analytics without a formal mathematics/engineering degree.',
-    strategy: 'We guided Ananya through credential-building micro-certifications in Python and linear algebra, framed a narrative around FinTech disruption in emerging markets, and conducted 4 rounds of mock behavioral Kira Talent video interviews.',
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Preparing compliant documentation and mastering the visa interview for international student visa clearance.',
+    strategy: 'End-to-end guidance from Gopal Sir, Shiva, and Surendra covering university application, rigorous documentation auditing, and personalized interview practice until VISA approval.',
     admissionAdmits: [
-      'University of Toronto (Rotman) - Accepted',
-      'McGill University (Desautels)',
-      'University of British Columbia (Sauder)'
+      'Selected University (Accepted)',
+      'Student Visa Granted'
     ],
-    quote: 'The video interview prep with Aegis was intense and exactly mirrored Rotman\'s real Kira assessment. That gave me immense confidence on test day.',
-    currentRole: 'Senior Data Analyst at Scotiabank, Toronto Financial District',
-    visaApprovalDays: 'Canadian Study Permit approved in 21 days under SDS track',
+    quote: 'My sincere thanks to Gopal sir for his constant support and guidance until I received my VISA. A special thanks to Shiva and Surendra for being so approachable and supportive. Their expertise and dedication truly made the difference.',
+    currentRole: 'Student Visa Granted',
+    visaApprovalDays: 'Visa Approved on First Attempt',
     adviceForAspirants: [
-      'Non-STEM students can break into analytics by demonstrating concrete quantitative self-study.',
-      'Start your Canadian SDS visa preparation alongside university applications to ensure GIC and medicals are in place.'
+      'Meticulous documentation and realistic mock interviews make all the difference in embassy interviews.',
+      'Follow the advice of experienced advisors who support you until you receive your visa.'
     ]
   },
   {
-    id: 'vikram-patel-tum',
-    slug: 'vikram-patel-technical-university-of-munich',
-    name: 'Vikram Patel',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop',
-    program: 'MSc Robotics, Cognition, Intelligence',
+    id: 'reema-panthalukaran',
+    slug: 'reema-panthalukaran',
+    name: 'Reema Panthalukaran',
+    avatar: '/images/reviews/reema-panthalukaran.jpg',
+    program: 'Higher Studies in the USA',
     degreeLevel: 'Master\'s',
-    university: 'Technical University of Munich (TUM)',
-    country: 'Germany',
-    countryCode: 'DE',
-    flag: '🇩🇪',
-    intake: 'Winter Intake (October)',
-    scholarshipReceived: '100% Tuition Waiver (Public University Zero Tuition Model)',
-    testScores: [
-      { test: 'TOEFL iBT', score: '108 / 120' },
-      { test: 'GRE Quantitative', score: '169 / 170' }
-    ],
-    previousEducation: 'B.E. Mechanical & Automation Engineering',
-    previousCGPA: '8.9 / 10.0',
-    challenge: 'Complex German credit matching requirements (Curricular Analysis) and navigating the lengthy German student visa waitlists and APS certification process.',
-    strategy: 'Aegis German desk conducted a course-by-course European Credit Transfer System (ECTS) module mapping. We handled his APS verification filing within week one, curated his motivation letter in Europass format, and guided him on setting up the Blocked Account with Coracle.',
-    admissionAdmits: [
-      'TUM (Technical University of Munich) - Accepted',
-      'RWTH Aachen University',
-      'University of Stuttgart'
-    ],
-    quote: 'Germany\'s admissions criteria are strictly mathematical with zero room for formatting mistakes. Aegis ensured my module catalog ECTS conversion was flawless.',
-    currentRole: 'Robotics Software Specialist at BMW Group, Munich',
-    visaApprovalDays: 'German National Student Visa issued in 3 weeks via VFS New Delhi',
-    adviceForAspirants: [
-      'Apply for your APS certificate at least 6 months ahead; it is mandatory for German universities.',
-      'Take basic A1/A2 German language classes even for English-taught programs—it multiplies your part-time and internship prospects.'
-    ]
-  },
-  {
-    id: 'priya-nair-melbourne',
-    slug: 'priya-nair-university-of-melbourne',
-    name: 'Priya Nair',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop',
-    program: 'Master of Data Science',
-    degreeLevel: 'Master\'s',
-    university: 'University of Melbourne',
-    country: 'Australia',
-    countryCode: 'AU',
-    flag: '🇦🇺',
-    intake: 'Semester 1 (February)',
-    scholarshipReceived: 'AUD $20,000 Global Graduate Leaders Scholarship',
-    testScores: [
-      { test: 'PTE Academic', score: '86 Overall (Superior English)' }
-    ],
-    previousEducation: 'B.Sc Statistics & Mathematics',
-    previousCGPA: '8.7 / 10.0',
-    challenge: 'Navigating Australia\'s heightened Genuine Student (GS) assessment criteria and explaining study relevance to avoid visa scrutiny.',
-    strategy: 'We drafted a rock-solid 4-page GS declaration detailing career pathways back home, industry demand for predictive statistical modeling, and complete financial provenance verification.',
-    admissionAdmits: [
-      'University of Melbourne - Accepted',
-      'University of Sydney',
-      'UNSW Sydney',
-      'Monash University'
-    ],
-    quote: 'Australia\'s new visa rules worried my parents. Aegis prepared our financial tree and Genuine Student letter with such thoroughness that our visa was granted in just 8 days!',
-    currentRole: 'Risk Data Scientist at Commonwealth Bank of Australia, Melbourne',
-    visaApprovalDays: 'Australian Subclass 500 Visa granted in 8 days with zero RFI (Request for Information)',
-    adviceForAspirants: [
-      'The Genuine Student (GS) criterion is crucial—clearly articulate why this specific course cannot be replicated at home and what your post-study career trajectory looks like.'
-    ]
-  },
-  {
-    id: 'aditya-rao-northeastern',
-    slug: 'aditya-rao-northeastern-university-boston',
-    name: 'Aditya Rao',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop',
-    program: 'MS in Computer Science (Khoury College of Computer Sciences)',
-    degreeLevel: 'Master\'s',
-    university: 'Northeastern University, Boston',
+    university: 'US University Admissions',
     country: 'United States',
-    countryCode: 'US',
+    countryCode: 'USA',
     flag: '🇺🇸',
-    intake: 'Fall 2025',
-    scholarshipReceived: '$12,000 Dean\'s Merit Award',
+    intake: 'US Visa Granted',
+    scholarshipReceived: 'Mock Interview & Documentation Audit Package',
     testScores: [
-      { test: 'GRE', score: '324 (Q167, V157)' },
-      { test: 'TOEFL iBT', score: '105' }
+      { test: 'Mock Visa Interview', score: 'Top Confidence Rating' },
+      { test: 'Documentation', score: 'Fully Solvency Verified' }
     ],
-    previousEducation: 'B.Tech Information Technology, Pune',
-    previousCGPA: '7.9 / 10.0',
-    challenge: 'Severe anxiety surrounding the high-stakes US F-1 Visa consular interview at the Hyderabad consulate.',
-    strategy: 'Aegis US Visa Specialists conducted three rigorous 1-on-1 mock interviews simulating consular officer inquiries on funding ties, why Northeastern vs others, and post-OPT intent.',
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Overcoming the anxiety of the US consular interview and presenting verified financial documentation accurately.',
+    strategy: 'Attentive documentation review by Aegis consultants, strategic suggestions, and realistic mock interviews that ensured total confidence.',
     admissionAdmits: [
-      'Northeastern University (Boston Main Campus) - Accepted',
-      'University of Southern California (USC)',
-      'Arizona State University (ASU)',
-      'University of Texas at Dallas (UTD)'
+      'US University Admitted',
+      'US Student Visa Approved'
     ],
-    quote: 'During my F-1 interview, the officer asked the exact questions we had practiced the previous evening. I answered calmly in under 90 seconds and heard: "Your visa is approved!"',
-    currentRole: 'Cloud Software Engineer Intern at Wayfair HQ, Boston',
-    visaApprovalDays: 'US F-1 Visa approved at Hyderabad Consulate in 2-minute interview',
+    quote: 'The mock interviews they conducted were especially helpful and made me feel confident for the real interview. Thanks to Aegis Consultancy, I received my US visa without any complications. They made the entire procedure simple and stress-free.',
+    currentRole: 'US Visa Holder',
+    visaApprovalDays: 'US F-1 Visa Cleared Without Complications',
     adviceForAspirants: [
-      'Keep your F-1 visa answers concise: never speak for more than 40 seconds per question unless prompted.',
-      'Show clear, undeniable evidence of liquid funds covering your entire I-20 first-year requirement.'
+      'Take mock interviews seriously—they give you the exact confidence needed in front of the visa officer.',
+      'Ensure every detail of your documentation is vetted by experts before filing.'
     ]
   },
   {
-    id: 'sneha-reddy-trinity',
-    slug: 'sneha-reddy-trinity-college-dublin',
-    name: 'Sneha Reddy',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop',
-    program: 'MSc Computer Science (Future Networked Systems)',
+    id: 'rohith-reddy',
+    slug: 'rohith-reddy',
+    name: 'Rohith Reddy',
+    avatar: '/images/reviews/rohith-reddy.jpg',
+    program: 'Australian Higher Studies',
     degreeLevel: 'Master\'s',
-    university: 'Trinity College Dublin',
-    country: 'Ireland',
-    countryCode: 'IE',
-    flag: '🇮🇪',
-    intake: 'Autumn Intake',
-    scholarshipReceived: '€5,000 Global Excellence Postgraduate Scholarship',
+    university: 'Australian University Admissions',
+    country: 'Australia',
+    countryCode: 'AUSTRALIA',
+    flag: '🇦🇺',
+    intake: 'Fast-Track Intake Success',
+    scholarshipReceived: 'Express Visa Application Support',
     testScores: [
-      { test: 'IELTS Academic', score: '7.5 Overall' }
+      { test: 'GS Compliance', score: '100% Cleared' },
+      { test: 'Turnaround Time', score: '3 Days Approval' }
     ],
-    previousEducation: 'B.Tech Electronics & Communication Engineering',
-    previousCGPA: '8.4 / 10.0',
-    challenge: 'Transitioning from ECE hardware to high-performance networked systems and cloud architecture at Ireland\'s top university.',
-    strategy: 'We bridged the hardware-software connection in her personal statement, highlighting telecommunication protocols, IoT edge computing projects, and Ireland\'s Silicon Docks ecosystem.',
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Navigating Australian student visa requirements smoothly without delays or complications.',
+    strategy: 'Flawless file preparation and prompt filing by Aegis, resulting in a rapid approval from the Australian High Commission in just 3 days.',
     admissionAdmits: [
-      'Trinity College Dublin - Accepted',
-      'University College Dublin (UCD)',
-      'University of Galway'
+      'Australian University Offer Confirmed',
+      'Australian Student Visa Issued'
     ],
-    quote: 'Ireland is the tech capital of Europe. Aegis connected me directly with alumni studying in Dublin who guided me on student accommodation and part-time work before I landed.',
-    currentRole: 'Network Systems Engineer at Ericsson, Athlone / Dublin',
-    visaApprovalDays: 'Irish Student Visa (Stamp 2) cleared in 14 days',
+    quote: 'Aegis consultancy made my Australian student visa process simple and hassle-free. Their guidance and constant support were amazing. And I received my visa within three days of applying.',
+    currentRole: 'Australian Visa Approved',
+    visaApprovalDays: '3 Days Rapid Visa Approval',
     adviceForAspirants: [
-      'Ireland has a 2-Year Third Level Graduate scheme that makes post-study work very straightforward.',
-      'Book your student housing early in Dublin as demand is high.'
+      'Submit complete, accurate financial and academic records for rapid turnaround.',
+      'Rely on experienced consultants who understand country-specific visa protocols.'
+    ]
+  },
+  {
+    id: 'manu-madhala',
+    slug: 'manu-madhala',
+    name: 'Manu Madhala',
+    avatar: '/images/reviews/manu-madhala.png',
+    program: 'Higher Education & UK Visa',
+    degreeLevel: 'Master\'s',
+    university: 'UK University Admissions',
+    country: 'United Kingdom',
+    countryCode: 'UK',
+    flag: '🇬🇧',
+    intake: 'UK Visa Success',
+    scholarshipReceived: 'End-to-End Application & Interview Package',
+    testScores: [
+      { test: 'University Selection', score: 'Target Match' },
+      { test: 'Visa Approval', score: '100% Cleared' }
+    ],
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Managing university selection, interview preparation, and visa applications simultaneously.',
+    strategy: 'Dedicated guidance from Siva sir and the Aegis team whose friendly coordination and deep expertise ensured a seamless UK visa journey.',
+    admissionAdmits: [
+      'UK University (Admitted)',
+      'UK Student Visa Granted'
+    ],
+    quote: 'From day one, their team expertly handled my entire process, from university selection and interview preparation to visa application. I had very good experience with Siva sir, very supportive and friendly, and their coordination and expertise ensured a seamless experience. I\'m thrilled to have secured my UK visa!',
+    currentRole: 'UK Visa Granted',
+    visaApprovalDays: 'Seamless UK Student Visa Processing',
+    adviceForAspirants: [
+      'Trust your counselors and leverage their interview preparation sessions.',
+      'Stay consistent and responsive with required paperwork from day one.'
+    ]
+  },
+  {
+    id: 'mohammed-husamuddin-ahmed',
+    slug: 'mohammed-husamuddin-ahmed',
+    name: 'MOHAMMED HUSAMUDDIN AHMED',
+    avatar: '/images/reviews/mohammed-husamuddin-ahmed.jpg',
+    program: 'Higher Education & Expert Faculty Guidance',
+    degreeLevel: 'Master\'s',
+    university: 'Global Partner Universities',
+    country: 'International',
+    countryCode: 'GLOBAL',
+    flag: '✨',
+    intake: 'Verified Admission Pathway',
+    scholarshipReceived: 'Faculty-Led Comprehensive Guidance',
+    testScores: [
+      { test: 'Admissions Prep', score: 'Expert Mentorship' },
+      { test: 'Query Resolution', score: 'Fast-Track Response' }
+    ],
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Understanding complex international education requirements and booking timelines.',
+    strategy: 'Invaluable guidance from expert faculty who made complex steps clear and easy, backed by quick response times for every question.',
+    admissionAdmits: [
+      'Selected University (Accepted)',
+      'Visa Process Confirmed'
+    ],
+    quote: 'My experience at Aegis Overseas Education Services was outstanding! The expert faculty provided invaluable guidance, making complex processes easy to understand. Their quick service ensured all my queries were addressed promptly, and the booking process was seamless.',
+    currentRole: 'Aegis Overseas Scholar',
+    visaApprovalDays: 'Fast-Track Document & Query Processing',
+    adviceForAspirants: [
+      'Leverage faculty mentorship to clarify complicated application criteria.',
+      'Choose an agency known for rapid query resolution and transparent counseling.'
+    ]
+  },
+  {
+    id: 'varshitha-rao',
+    slug: 'varshitha-rao',
+    name: 'Varshitha Rao',
+    avatar: '/images/reviews/varshitha-rao.png',
+    program: 'Global Study Abroad Journey',
+    degreeLevel: 'Master\'s',
+    university: 'International Degree Admissions',
+    country: 'International',
+    countryCode: 'GLOBAL',
+    flag: '🌟',
+    intake: 'Smooth Study Abroad Intake',
+    scholarshipReceived: 'Personalized Profile Mapping & Visa Mentorship',
+    testScores: [
+      { test: 'Counseling', score: 'Personalized Guidance' },
+      { test: 'Documentation', score: 'Zero Refusal Audit' }
+    ],
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Finding trustworthy personalized counseling to navigate university shortlisting and visa documentation without stress.',
+    strategy: 'Knowledgeable advisors who customized every step of the journey, making application filing and visa preparation smooth and stress-free.',
+    admissionAdmits: [
+      'Target International University (Admitted)',
+      'Student Visa Cleared'
+    ],
+    quote: 'Choosing Aegis Overseas for my study abroad journey was one of the best decisions I\'ve ever made. The counsellors were incredibly knowledgeable and provided personalized guidance that made the entire process smooth and stress-free. They helped me with university selection, application processes, and even visa preparation and documentation.',
+    currentRole: 'Aegis Overseas Scholar',
+    visaApprovalDays: 'Smooth, stress-free admissions and visa clearance',
+    adviceForAspirants: [
+      'Investing in professional, personalized counseling removes uncertainty and guarantees peace of mind.',
+      'Follow your counselor\'s structured checklist closely for guaranteed results.'
+    ]
+  },
+  {
+    id: 'krishna-vijay',
+    slug: 'krishna-vijay',
+    name: 'Krishna Vijay',
+    avatar: '/images/reviews/krishna-vijay.jpg',
+    program: 'UK Higher Education & Visa Service',
+    degreeLevel: 'Master\'s',
+    university: 'UK University Admissions',
+    country: 'United Kingdom',
+    countryCode: 'UK',
+    flag: '🇬🇧',
+    intake: 'UK Visa Success',
+    scholarshipReceived: 'Enduring Guidance Across Complete Process',
+    testScores: [
+      { test: 'Process Clarity', score: 'Pre & Post Offer Support' },
+      { test: 'Visa Perseverance', score: 'Granted Despite Challenges' }
+    ],
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Overcoming application setbacks and previous mistakes that prolonged the visa process.',
+    strategy: 'Unwavering patience and constant encouragement from Gopal Reddy sir, Krishna sir, and Siva sir, who provided clear step-by-step guidance across documents, pre-offer, post-offer, and visa filing.',
+    admissionAdmits: [
+      'UK University (Admitted)',
+      'UK Visa Granted'
+    ],
+    quote: 'Even though it took me one year to get my UK visa because of the mistakes I have done, they have been with very much patience till the end. They have always encouraged me irrespective of my mistakes. All the staff are very friendly. Especially Gopal reddy sir, Krishna sir and Siva sir have been with me throughout my journey.',
+    currentRole: 'UK Visa Recipient',
+    visaApprovalDays: 'Full End-to-End Patient Resolution & Visa Grant',
+    adviceForAspirants: [
+      'Never give up even if your journey faces delays—with the right mentors, success is always achievable.',
+      'Be fully honest with your counselors so they can resolve any past mistakes effectively.'
+    ]
+  },
+  {
+    id: 'pawan-royalz',
+    slug: 'pawan-royalz',
+    name: 'Pawan Royalz',
+    avatar: '/images/reviews/pawan-royalz.png',
+    program: 'Master\'s in the UK',
+    degreeLevel: 'Master\'s',
+    university: 'UK Master\'s Program',
+    country: 'United Kingdom',
+    countryCode: 'UK',
+    flag: '🇬🇧',
+    intake: 'UK Intake Success',
+    scholarshipReceived: 'MD-Led Admissions & Visa Mentorship',
+    testScores: [
+      { test: 'Interview Guidance', score: 'High Distinction' },
+      { test: 'Visa Coordination', score: 'Flawless Execution' }
+    ],
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Managing university selection, interview coaching, and UK visa filing in a structured, timely manner.',
+    strategy: 'Complete process takeover by the Aegis team with prompt coordination, guided personally throughout by Managing Director Gopal Reddy sir.',
+    admissionAdmits: [
+      'UK Master\'s Degree (Admitted)',
+      'UK Student Visa Stamped'
+    ],
+    quote: 'Right from the day one I approached them, my process was completely taken over by the team with timely coordination starting from University selection, interview guidance and visa process. And now I came out with flying colours with UK visa in my hand. Moving to UK to pursue my masters. My sincere thanks to Gopal Reddy sir(MD) who has been with me throughout.',
+    currentRole: 'UK Master\'s Student',
+    visaApprovalDays: 'Smooth Timely UK Visa Approval',
+    adviceForAspirants: [
+      'Hand over your process to experienced leaders who offer direct personal oversight.',
+      'Begin university selection early to give yourself maximum options and prep time.'
+    ]
+  },
+  {
+    id: 'rishita-reddy',
+    slug: 'rishita-reddy',
+    name: 'Rishita Reddy',
+    avatar: '/images/reviews/rishita-reddy.jpg',
+    program: 'Student VISA & Abroad Studies',
+    degreeLevel: 'Master\'s',
+    university: 'Global University Admissions',
+    country: 'International',
+    countryCode: 'GLOBAL',
+    flag: '✈️',
+    intake: 'Verified Visa Clearance',
+    scholarshipReceived: 'Expert-Led Student Visa Guidance',
+    testScores: [
+      { test: 'VISA Filing', score: '100% Compliant' },
+      { test: 'Mentorship', score: 'Personalized 1-on-1' }
+    ],
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Securing student visa clearance without facing unnecessary delays or confusion.',
+    strategy: 'Patient, friendly step-by-step guidance led by Mr. Gopal Reddy sir (MS-UK), ensuring every requirement was meticulously met.',
+    admissionAdmits: [
+      'International University Offer',
+      'Student VISA Approved'
+    ],
+    quote: 'I am very much satisfied with the service I\'ve received at Aegis Overseas Education services starting from the day I\'ve approached them for my student VISA process. Most importantly, I would like to thank Mr. Gopal reddy sir (MS-UK), for being very patient and guiding me through each and every step. They are helpful and friendly.',
+    currentRole: 'Student VISA Holder',
+    visaApprovalDays: 'Smooth, Error-Free Student VISA Approval',
+    adviceForAspirants: [
+      'Seek guidance from mentors who have international qualifications themselves (like MS-UK).',
+      'Patience and expert direction will ensure a smooth visa process without stress.'
+    ]
+  },
+  {
+    id: 'harsha-vaka',
+    slug: 'harsha-vaka',
+    name: 'Harsha Vaka',
+    avatar: '/images/reviews/harsha-vaka.jpg',
+    program: 'Graduation in the UK',
+    degreeLevel: 'Bachelor\'s',
+    university: 'UK University Admissions',
+    country: 'United Kingdom',
+    countryCode: 'UK',
+    flag: '🇬🇧',
+    intake: 'UK Graduation Success',
+    scholarshipReceived: 'Proactive Advisory & UK Education Mentorship',
+    testScores: [
+      { test: 'UK System Advisory', score: 'Comprehensive' },
+      { test: 'Application Success', score: 'Confirmed Admit' }
+    ],
+    previousEducation: 'Nellore, Andhra Pradesh',
+    previousCGPA: 'Verified Student Profile',
+    challenge: 'Understanding the nuances of the UK higher education system for a successful undergraduate graduation journey.',
+    strategy: 'Extensive knowledge of UK education, proactive communication, and personalized advice from Aegis overseas that ensured complete preparation and confidence.',
+    admissionAdmits: [
+      'UK University Graduation Program (Admitted)',
+      'UK Student Visa Granted'
+    ],
+    quote: 'I had the privilege of working with aegis overseas for my graduation process in the UK, and I cannot express enough gratitude for their exceptional guidance and support. From their extensive knowledge of the UK education system to their proactive approach and personalized advice, aegis overseas ensured that I was well-informed, prepared, and confident throughout the entire journey.',
+    currentRole: 'UK Graduate Scholar',
+    visaApprovalDays: 'Seamless UK Education & Visa Processing',
+    adviceForAspirants: [
+      'Choose an overseas consultancy with in-depth knowledge of your specific destination country\'s education system.',
+      'Proactive planning and personalized advice make your study abroad journey memorable and successful.'
     ]
   }
 ];
