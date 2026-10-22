@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = () => {
       </div>
 
       {/* Arched Floating Destination Pills around the Student & Skyline (Desktop Only: 1024px+) */}
-      <div className="hidden lg:block absolute inset-0 pointer-events-none z-20">
+      <div aria-hidden="true" className="hidden lg:block absolute inset-0 pointer-events-none z-20">
         {destinationPills.map((dest) => (
           <div
             key={dest.country}
@@ -200,10 +200,10 @@ export const Hero: React.FC<HeroProps> = () => {
 
           {/* Student Trust Proof Strip */}
           <div className="mt-5 sm:mt-7 flex items-center gap-2.5 sm:gap-3">
-            <div className="flex -space-x-1.5 shrink-0">
-              <img className="w-7 h-7 rounded-full border border-white/80 object-cover shadow-xs" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces" alt="Student" />
-              <img className="w-7 h-7 rounded-full border border-white/80 object-cover shadow-xs" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=faces" alt="Student" />
-              <img className="w-7 h-7 rounded-full border border-white/80 object-cover shadow-xs" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces" alt="Student" />
+            <div aria-hidden="true" className="flex -space-x-1.5 shrink-0">
+              <img className="w-7 h-7 rounded-full border border-white/80 object-cover shadow-xs" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces" alt="" />
+              <img className="w-7 h-7 rounded-full border border-white/80 object-cover shadow-xs" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=faces" alt="" />
+              <img className="w-7 h-7 rounded-full border border-white/80 object-cover shadow-xs" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces" alt="" />
               <div className="w-7 h-7 rounded-full border border-white/80 bg-purple-700 text-[9px] font-extrabold text-white flex items-center justify-center shadow-xs">+12k</div>
             </div>
             <div className="text-[11px] sm:text-sm text-slate-900 leading-tight">

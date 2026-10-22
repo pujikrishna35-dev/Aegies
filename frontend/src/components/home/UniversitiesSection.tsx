@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -29,47 +29,47 @@ export const UniversitiesSection: React.FC = () => {
     ...universities
   ];
 
-  const getCardMetrics = (container: HTMLDivElement) => {
+  const getCardMetrics = useCallback((container: HTMLDivElement) => {
     const card = container.querySelector('[data-university-card]') as HTMLElement;
     if (!card) return { step: 164, oneSetWidth: 164 * universities.length };
     const style = window.getComputedStyle(container.firstElementChild as HTMLElement);
     const gap = parseFloat(style.columnGap || style.gap || '20') || 20;
     const step = card.offsetWidth + gap;
     return { step, oneSetWidth: step * universities.length };
-  };
+  }, [universities.length]);
 
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
-    // Start in the second set so scrolling backwards (left) works seamlessly right away
-    const initMetrics = getCardMetrics(container);
+    let cachedMetrics = getCardMetrics(container);
     if (container.scrollLeft === 0) {
-      container.scrollLeft = initMetrics.oneSetWidth;
+      container.scrollLeft = cachedMetrics.oneSetWidth;
     }
 
-    let animationFrameId: number;
+    const resizeObserver = new ResizeObserver(() => {
+      cachedMetrics = getCardMetrics(container);
+    });
+    resizeObserver.observe(container);
+
+    let animationFrameId: number | null = null;
     let lastTime: number | null = null;
     let isVisible = false;
-    const speed = 40; // continuous pixels per second without pausing or stopping
-
-    const observer = new IntersectionObserver((entries) => {
-      isVisible = entries[0]?.isIntersecting ?? false;
-      if (isVisible) {
-        lastTime = null;
-      }
-    }, { threshold: 0.05 });
-
-    observer.observe(container);
+    const speed = 40; // continuous pixels per second
 
     const scroll = (currentTime: number) => {
-      if (isVisible && !isHoveredRef.current && container) {
+      if (!isVisible) {
+        animationFrameId = null;
+        lastTime = null;
+        return;
+      }
+
+      if (!isHoveredRef.current && container) {
         if (lastTime === null) lastTime = currentTime;
         const deltaTime = Math.min((currentTime - lastTime) / 1000, 0.1);
         lastTime = currentTime;
 
-        const { oneSetWidth } = getCardMetrics(container);
-
+        const oneSetWidth = cachedMetrics.oneSetWidth;
         container.scrollLeft += speed * deltaTime;
 
         // When passing the 2nd set, seamlessly normalize back by oneSetWidth
@@ -83,13 +83,27 @@ export const UniversitiesSection: React.FC = () => {
       animationFrameId = requestAnimationFrame(scroll);
     };
 
-    animationFrameId = requestAnimationFrame(scroll);
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      const currentlyVisible = entries[0]?.isIntersecting ?? false;
+      isVisible = currentlyVisible;
+      if (isVisible) {
+        lastTime = null;
+        if (!animationFrameId) {
+          animationFrameId = requestAnimationFrame(scroll);
+        }
+      }
+    }, { threshold: 0.05 });
+
+    intersectionObserver.observe(container);
 
     return () => {
-      observer.disconnect();
-      cancelAnimationFrame(animationFrameId);
+      intersectionObserver.disconnect();
+      resizeObserver.disconnect();
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
-  }, [universities.length]);
+  }, [getCardMetrics]);
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (!scrollRef.current) return;
