@@ -163,7 +163,7 @@ export const About: React.FC = () => {
     {
       id: 'gopal',
       name: 'Gopal Reddy Somala',
-      role: 'Co-Founder & Head of Aegis',
+      role: 'Founder & Head of Aegis',
       bio: '25 Years of Experience | Global University Partnerships | Leadership & Mentorship. MS-qualified in the United Kingdom; guides university collaborations, mentors the team and supports student counselling.',
       image: '/images/team/gopal-reddy.png',
       highlights: [
@@ -184,7 +184,7 @@ export const About: React.FC = () => {
           icon: User,
           title: 'About',
           content: [
-            'Gopal Reddy Somala is the co-founder and Head of Aegis Overseas Edu Services. With an MS qualification from the United Kingdom and 25 years of experience, he brings extensive professional knowledge, international perspective and strategic direction to the organisation.'
+            'Gopal Reddy Somala is the founder and Head of Aegis Overseas Edu Services. With an MS qualification from the United Kingdom and 25 years of experience, he brings extensive professional knowledge, international perspective and strategic direction to the organisation.'
           ]
         },
         {

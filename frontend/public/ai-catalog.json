@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Aegis Overseas Education Services",
+  "description": "Premier overseas education consultancy providing personalized university shortlisting, scholarship assistance, and visa filing for Indian students.",
+  "url": "https://aegisoverseas.com",
+  "category": "Education & Study Abroad Consulting",
+  "contact": {
+    "email": "info@aegisoverseas.com",
+    "phone": "+44 78929 34567",
+    "website": "https://aegisoverseas.com"
+  },
+  "destinations": [
+    { "name": "United Kingdom", "url": "https://aegisoverseas.com/destinations/uk" },
+    { "name": "United States", "url": "https://aegisoverseas.com/destinations/usa" },
+    { "name": "Canada", "url": "https://aegisoverseas.com/destinations/canada" },
+    { "name": "Australia", "url": "https://aegisoverseas.com/destinations/australia" },
+    { "name": "Germany", "url": "https://aegisoverseas.com/destinations/germany" },
+    { "name": "Ireland", "url": "https://aegisoverseas.com/destinations/ireland" },
+    { "name": "New Zealand", "url": "https://aegisoverseas.com/destinations/new-zealand" },
+    { "name": "Europe", "url": "https://aegisoverseas.com/destinations/europe" }
+  ],
+  "services": [
+    { "title": "Free Profile Evaluation & Counselling", "url": "https://aegisoverseas.com/services/counselling" },
+    { "title": "University Selection & Shortlisting", "url": "https://aegisoverseas.com/services/university-selection" },
+    { "title": "SOP & Application Assistance", "url": "https://aegisoverseas.com/services/application-assistance" },
+    { "title": "International Scholarships", "url": "https://aegisoverseas.com/scholarships" },
+    { "title": "Education Loan Sanction Support", "url": "https://aegisoverseas.com/services/education-loans" },
+    { "title": "Student Visa Guidance & Interview Prep", "url": "https://aegisoverseas.com/services/visa-assistance" },
+    { "title": "Post-Admission & Accommodation", "url": "https://aegisoverseas.com/services/accommodation" }
+  ]
+}
