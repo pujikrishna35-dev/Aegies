@@ -140,6 +140,7 @@ export const Hero: React.FC<HeroProps> = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B45309] via-[#D97706] to-[#92400E] font-black">
               NO BORDERS.
             </span>
+            <span className="sr-only"> — Study Abroad Consultants in India</span>
           </h1>
 
           {/* Subtitle */}
