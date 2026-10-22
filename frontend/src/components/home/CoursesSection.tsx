@@ -25,14 +25,14 @@ export const CoursesSection: React.FC = () => {
   ];
 
   const testBadges = [
-    { name: 'IELTS', color: 'bg-red-50 text-red-600 border-red-200' },
-    { name: 'PTE', color: 'bg-sky-50 text-sky-600 border-sky-200' },
-    { name: 'TOEFL', color: 'bg-teal-50 text-teal-600 border-teal-200' },
-    { name: 'GRE', color: 'bg-indigo-50 text-indigo-600 border-indigo-200' },
+    { name: 'IELTS', color: 'bg-red-50 text-red-700 border-red-200' },
+    { name: 'PTE', color: 'bg-sky-50 text-sky-700 border-sky-200' },
+    { name: 'TOEFL', color: 'bg-teal-50 text-teal-700 border-teal-200' },
+    { name: 'GRE', color: 'bg-indigo-50 text-indigo-700 border-indigo-200' },
     { name: 'GMAT', color: 'bg-slate-100 text-slate-800 border-slate-300' },
     { name: 'SAT', color: 'bg-blue-50 text-blue-700 border-blue-200' },
     { name: 'OET', color: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-    { name: 'Duolingo', color: 'bg-lime-50 text-lime-700 border-lime-300' }
+    { name: 'Duolingo', color: 'bg-lime-50 text-lime-800 border-lime-300' }
   ];
 
   return (
@@ -44,7 +44,7 @@ export const CoursesSection: React.FC = () => {
           {/* Column 1: COURSES */}
           <div className="bg-[#FDFBF7] rounded-2xl p-6 sm:p-7 border border-slate-200 flex flex-col justify-between shadow-2xs">
             <div>
-              <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+              <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
                 COURSES
               </span>
               <h3 className="text-xl sm:text-2xl font-display font-extrabold text-[#071228] tracking-tight mb-5">
@@ -66,11 +66,18 @@ export const CoursesSection: React.FC = () => {
 
                 {/* Student Photo */}
                 <div className="w-28 sm:w-32 h-48 rounded-xl overflow-hidden shadow-sm flex-shrink-0 bg-slate-200">
-                  <img
-                    src="/images/home/courses-student.png"
-                    alt="International Student"
-                    className="w-full h-full object-cover"
-                  />
+                  <picture>
+                    <source srcSet="/images/home/courses-student.webp" type="image/webp" />
+                    <img
+                      src="/images/home/courses-student.png"
+                      alt="International Student"
+                      width={128}
+                      height={192}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
@@ -89,7 +96,7 @@ export const CoursesSection: React.FC = () => {
           {/* Column 2: SCHOLARSHIPS */}
           <div className="bg-[#FDFBF7] rounded-2xl p-6 sm:p-7 border border-slate-200 flex flex-col justify-between shadow-2xs">
             <div>
-              <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+              <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
                 SCHOLARSHIPS
               </span>
               <h3 className="text-xl sm:text-2xl font-display font-extrabold text-[#071228] tracking-tight mb-5">
@@ -114,11 +121,18 @@ export const CoursesSection: React.FC = () => {
 
                 {/* Coins / Cap Image */}
                 <div className="w-28 sm:w-32 h-44 rounded-xl overflow-hidden shadow-sm flex-shrink-0 bg-slate-200">
-                  <img
-                    src="/images/home/scholarships-counselling.png"
-                    alt="Scholarships and Funding"
-                    className="w-full h-full object-cover"
-                  />
+                  <picture>
+                    <source srcSet="/images/home/scholarships-counselling.webp" type="image/webp" />
+                    <img
+                      src="/images/home/scholarships-counselling.png"
+                      alt="Scholarships and Funding"
+                      width={128}
+                      height={176}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
@@ -137,7 +151,7 @@ export const CoursesSection: React.FC = () => {
           {/* Column 3: TEST PREPARATION */}
           <div className="bg-[#FDFBF7] rounded-2xl p-6 sm:p-7 border border-slate-200 flex flex-col justify-between shadow-2xs">
             <div>
-              <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+              <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
                 TEST PREPARATION
               </span>
               <h3 className="text-xl sm:text-2xl font-display font-extrabold text-[#071228] tracking-tight mb-5">

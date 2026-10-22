@@ -150,7 +150,7 @@ export const UniversityFinder: React.FC = () => {
           {/* Left Form (7 cols / ~60%) */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
-              <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+              <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
                 UNIVERSITY FINDER
               </span>
               <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-[#071228] tracking-tight">
@@ -171,10 +171,12 @@ export const UniversityFinder: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
                 {/* 1. Study Level */}
                 <div className="relative z-10">
-                  <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="finder-level" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Study Level
                   </label>
                   <select
+                    id="finder-level"
+                    aria-label="Study Level"
                     value={level}
                     onChange={(e) => setLevel(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-xs font-medium text-slate-700 focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] shadow-2xs transition-colors"
@@ -192,10 +194,12 @@ export const UniversityFinder: React.FC = () => {
 
                 {/* 2. Country (Aegis Destinations) */}
                 <div className="relative z-10">
-                  <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="finder-country" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Country
                   </label>
                   <select
+                    id="finder-country"
+                    aria-label="Country"
                     value={country}
                     onChange={(e) => setCountry(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-xs font-medium text-slate-700 focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] shadow-2xs transition-colors"
@@ -214,10 +218,12 @@ export const UniversityFinder: React.FC = () => {
 
                 {/* 3. Course / Field */}
                 <div className="relative z-10">
-                  <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="finder-course" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Course / Field
                   </label>
                   <select
+                    id="finder-course"
+                    aria-label="Course / Field"
                     value={course}
                     onChange={(e) => setCourse(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-xs font-medium text-slate-700 focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] shadow-2xs transition-colors"
@@ -242,10 +248,12 @@ export const UniversityFinder: React.FC = () => {
 
                 {/* 4. English Test */}
                 <div className="relative z-10">
-                  <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="finder-test" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     English Test
                   </label>
                   <select
+                    id="finder-test"
+                    aria-label="English Test"
                     value={test}
                     onChange={(e) => setTest(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-xs font-medium text-slate-700 focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] shadow-2xs transition-colors"
@@ -261,10 +269,12 @@ export const UniversityFinder: React.FC = () => {
 
                 {/* 5. English Score (Dynamic based on selected test) */}
                 <div className="relative z-10">
-                  <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="finder-score" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     {test === 'NONE' ? 'English Status' : `${test} Score`}
                   </label>
                   <select
+                    id="finder-score"
+                    aria-label={test === 'NONE' ? 'English Status' : `${test} Score`}
                     value={score}
                     onChange={(e) => setScore(e.target.value)}
                     disabled={test === 'NONE'}
@@ -280,10 +290,12 @@ export const UniversityFinder: React.FC = () => {
 
                 {/* 6. Budget */}
                 <div className="relative z-10">
-                  <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="finder-budget" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Budget (Tuition / Year)
                   </label>
                   <select
+                    id="finder-budget"
+                    aria-label="Budget (Tuition / Year)"
                     value={budget}
                     onChange={(e) => setBudget(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-xs font-medium text-slate-700 focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] shadow-2xs transition-colors"

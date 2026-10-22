@@ -6,90 +6,92 @@ import { WhatsAppButton } from './components/layout/WhatsAppButton';
 import { ScrollToTop } from './components/layout/ScrollToTop';
 import { RouteSEOTracker } from './components/common/RouteSEOTracker';
 
-// Top level pages
+// Direct import for critical home page
 import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Consultation from './pages/Consultation';
-import Careers from './pages/Careers';
-import StudyAbroad from './pages/StudyAbroad';
-import FAQ from './pages/FAQ';
-import NotFound from './pages/NotFound';
+
+// Lazy-loaded secondary public pages
+const About = React.lazy(() => import('./pages/About'));
+const Contact = React.lazy(() => import('./pages/Contact'));
+const Consultation = React.lazy(() => import('./pages/Consultation'));
+const Careers = React.lazy(() => import('./pages/Careers'));
+const StudyAbroad = React.lazy(() => import('./pages/StudyAbroad'));
+const FAQ = React.lazy(() => import('./pages/FAQ'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 // Destinations
-import Destinations from './pages/destinations/Destinations';
-import UK from './pages/destinations/UK';
-import USA from './pages/destinations/USA';
-import Canada from './pages/destinations/Canada';
-import Australia from './pages/destinations/Australia';
-import Germany from './pages/destinations/Germany';
-import Ireland from './pages/destinations/Ireland';
-import NewZealand from './pages/destinations/NewZealand';
-import Europe from './pages/destinations/Europe';
+const Destinations = React.lazy(() => import('./pages/destinations/Destinations'));
+const UK = React.lazy(() => import('./pages/destinations/UK'));
+const USA = React.lazy(() => import('./pages/destinations/USA'));
+const Canada = React.lazy(() => import('./pages/destinations/Canada'));
+const Australia = React.lazy(() => import('./pages/destinations/Australia'));
+const Germany = React.lazy(() => import('./pages/destinations/Germany'));
+const Ireland = React.lazy(() => import('./pages/destinations/Ireland'));
+const NewZealand = React.lazy(() => import('./pages/destinations/NewZealand'));
+const Europe = React.lazy(() => import('./pages/destinations/Europe'));
 
 // Universities
-import Universities from './pages/universities/Universities';
-import UniversityDetails from './pages/universities/UniversityDetails';
-import Compare from './pages/universities/Compare';
+const Universities = React.lazy(() => import('./pages/universities/Universities'));
+const UniversityDetails = React.lazy(() => import('./pages/universities/UniversityDetails'));
+const Compare = React.lazy(() => import('./pages/universities/Compare'));
 
 // Courses
-import Courses from './pages/courses/Courses';
-import CourseDetails from './pages/courses/CourseDetails';
+const Courses = React.lazy(() => import('./pages/courses/Courses'));
+const CourseDetails = React.lazy(() => import('./pages/courses/CourseDetails').then(m => ({ default: m.CourseDetails })));
 
 // Services
-import Services from './pages/services/Services';
-import ServiceDetails from './pages/services/ServiceDetails';
+const Services = React.lazy(() => import('./pages/services/Services'));
+const ServiceDetails = React.lazy(() => import('./pages/services/ServiceDetails').then(m => ({ default: m.ServiceDetails })));
 
 // Scholarships
-import Scholarships from './pages/scholarships/Scholarships';
-import ScholarshipDetails from './pages/scholarships/ScholarshipDetails';
+const Scholarships = React.lazy(() => import('./pages/scholarships/Scholarships'));
+const ScholarshipDetails = React.lazy(() => import('./pages/scholarships/ScholarshipDetails').then(m => ({ default: m.ScholarshipDetails })));
 
 // Test Preparation
-import TestPreparation from './pages/test-preparation/TestPreparation';
-import TestDetails from './pages/test-preparation/TestDetails';
+const TestPreparation = React.lazy(() => import('./pages/test-preparation/TestPreparation'));
+const TestDetails = React.lazy(() => import('./pages/test-preparation/TestDetails').then(m => ({ default: m.TestDetails })));
 
 // Student Stories
-import StudentStories from './pages/student-stories/StudentStories';
-import StudentStoryDetails from './pages/student-stories/StudentStoryDetails';
+const StudentStories = React.lazy(() => import('./pages/student-stories/StudentStories'));
+const StudentStoryDetails = React.lazy(() => import('./pages/student-stories/StudentStoryDetails').then(m => ({ default: m.StudentStoryDetails })));
 
 // Blog
-import Blog from './pages/blog/Blog';
-import BlogArticle from './pages/blog/BlogArticle';
+const Blog = React.lazy(() => import('./pages/blog/Blog'));
+const BlogArticle = React.lazy(() => import('./pages/blog/BlogArticle').then(m => ({ default: m.BlogArticle })));
 
 // University Finder
-import UniversityFinder from './pages/university-finder/UniversityFinder';
+const UniversityFinder = React.lazy(() => import('./pages/university-finder/UniversityFinder'));
 
 // Legal
-import PrivacyPolicy from './pages/legal/PrivacyPolicy';
-import Terms from './pages/legal/Terms';
-import CookiePolicy from './pages/legal/CookiePolicy';
+const PrivacyPolicy = React.lazy(() => import('./pages/legal/PrivacyPolicy'));
+const Terms = React.lazy(() => import('./pages/legal/Terms'));
+const CookiePolicy = React.lazy(() => import('./pages/legal/CookiePolicy'));
 
 // Admin Components & Pages
 import { AdminAuthGuard } from './components/admin/AdminAuthGuard';
 import { AdminLayout } from './components/admin/AdminLayout';
-import AdminLogin from './pages/admin/AdminLogin';
-import AdminDashboard from './pages/admin/AdminDashboard';
-import AdminLeads from './pages/admin/AdminLeads';
-import AdminStudents from './pages/admin/AdminStudents';
-import AdminEnquiries from './pages/admin/AdminEnquiries';
-import AdminConsultations from './pages/admin/AdminConsultations';
-import AdminUniversities from './pages/admin/AdminUniversities';
-import AdminCourses from './pages/admin/AdminCourses';
-import AdminDestinations from './pages/admin/AdminDestinations';
-import AdminScholarships from './pages/admin/AdminScholarships';
-import AdminServices from './pages/admin/AdminServices';
-import AdminTestPreparation from './pages/admin/AdminTestPreparation';
-import AdminApplications from './pages/admin/AdminApplications';
-import AdminDocuments from './pages/admin/AdminDocuments';
-import AdminStudentStories from './pages/admin/AdminStudentStories';
-import AdminTestimonials from './pages/admin/AdminTestimonials';
-import AdminBlog from './pages/admin/AdminBlog';
-import AdminMedia from './pages/admin/AdminMedia';
-import AdminAnalytics from './pages/admin/AdminAnalytics';
-import AdminNotifications from './pages/admin/AdminNotifications';
-import AdminUsers from './pages/admin/AdminUsers';
-import AdminSettings from './pages/admin/AdminSettings';
-import AdminUniversityMatcher from './pages/admin/AdminUniversityMatcher';
+const AdminLogin = React.lazy(() => import('./pages/admin/AdminLogin'));
+const AdminDashboard = React.lazy(() => import('./pages/admin/AdminDashboard'));
+const AdminLeads = React.lazy(() => import('./pages/admin/AdminLeads'));
+const AdminStudents = React.lazy(() => import('./pages/admin/AdminStudents'));
+const AdminEnquiries = React.lazy(() => import('./pages/admin/AdminEnquiries'));
+const AdminConsultations = React.lazy(() => import('./pages/admin/AdminConsultations'));
+const AdminUniversities = React.lazy(() => import('./pages/admin/AdminUniversities'));
+const AdminCourses = React.lazy(() => import('./pages/admin/AdminCourses'));
+const AdminDestinations = React.lazy(() => import('./pages/admin/AdminDestinations'));
+const AdminScholarships = React.lazy(() => import('./pages/admin/AdminScholarships'));
+const AdminServices = React.lazy(() => import('./pages/admin/AdminServices'));
+const AdminTestPreparation = React.lazy(() => import('./pages/admin/AdminTestPreparation'));
+const AdminApplications = React.lazy(() => import('./pages/admin/AdminApplications'));
+const AdminDocuments = React.lazy(() => import('./pages/admin/AdminDocuments'));
+const AdminStudentStories = React.lazy(() => import('./pages/admin/AdminStudentStories'));
+const AdminTestimonials = React.lazy(() => import('./pages/admin/AdminTestimonials'));
+const AdminBlog = React.lazy(() => import('./pages/admin/AdminBlog'));
+const AdminMedia = React.lazy(() => import('./pages/admin/AdminMedia'));
+const AdminAnalytics = React.lazy(() => import('./pages/admin/AdminAnalytics'));
+const AdminNotifications = React.lazy(() => import('./pages/admin/AdminNotifications'));
+const AdminUsers = React.lazy(() => import('./pages/admin/AdminUsers'));
+const AdminSettings = React.lazy(() => import('./pages/admin/AdminSettings'));
+const AdminUniversityMatcher = React.lazy(() => import('./pages/admin/AdminUniversityMatcher'));
 
 const AppContent: React.FC = () => {
   const location = useLocation();
@@ -100,9 +102,10 @@ const AppContent: React.FC = () => {
       <RouteSEOTracker />
       {!isAdmin && <Header />}
       <div className="flex-1">
-        <Routes>
-          {/* Public Top Level */}
-          <Route path="/" element={<Home />} />
+        <React.Suspense fallback={<div className="min-h-[50vh]" />}>
+          <Routes>
+            {/* Public Top Level */}
+            <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/book-consultation" element={<Consultation />} />
@@ -201,6 +204,7 @@ const AppContent: React.FC = () => {
           {/* 404 Fallback */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </React.Suspense>
       </div>
       {!isAdmin && <Footer />}
       {!isAdmin && <WhatsAppButton />}

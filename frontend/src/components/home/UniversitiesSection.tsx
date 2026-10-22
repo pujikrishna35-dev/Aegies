@@ -12,8 +12,8 @@ export const UniversitiesSection: React.FC = () => {
     { name: 'University of Toronto', country: 'Canada', color: 'text-[#002A5C]' },
     { name: 'University of Melbourne', country: 'Australia', color: 'text-[#094183]' },
     { name: 'Technical University of Munich', country: 'Germany', color: 'text-[#0066B2]' },
-    { name: 'McGill University', country: 'Canada', color: 'text-[#ED1B2F]' },
-    { name: 'UNSW Sydney', country: 'Australia', color: 'text-[#F5B800]' },
+    { name: 'McGill University', country: 'Canada', color: 'text-[#C91024]' },
+    { name: 'UNSW Sydney', country: 'Australia', color: 'text-[#B45309]' },
     { name: 'University of Birmingham', country: 'UK', color: 'text-[#A00000]' },
     { name: 'ETH Zurich', country: 'Europe', color: 'text-[#1F407A]' },
     { name: 'University of Auckland', country: 'New Zealand', color: 'text-[#00467F]' },
@@ -50,15 +50,24 @@ export const UniversitiesSection: React.FC = () => {
 
     let animationFrameId: number;
     let lastTime: number | null = null;
+    let isVisible = false;
     const speed = 40; // continuous pixels per second without pausing or stopping
 
-    const scroll = (currentTime: number) => {
-      if (lastTime === null) lastTime = currentTime;
-      // Cap delta time to prevent jumps when returning from background tabs
-      const deltaTime = Math.min((currentTime - lastTime) / 1000, 0.1);
-      lastTime = currentTime;
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0]?.isIntersecting ?? false;
+      if (isVisible) {
+        lastTime = null;
+      }
+    }, { threshold: 0.05 });
 
-      if (!isHoveredRef.current && container) {
+    observer.observe(container);
+
+    const scroll = (currentTime: number) => {
+      if (isVisible && !isHoveredRef.current && container) {
+        if (lastTime === null) lastTime = currentTime;
+        const deltaTime = Math.min((currentTime - lastTime) / 1000, 0.1);
+        lastTime = currentTime;
+
         const { oneSetWidth } = getCardMetrics(container);
 
         container.scrollLeft += speed * deltaTime;
@@ -67,6 +76,8 @@ export const UniversitiesSection: React.FC = () => {
         if (container.scrollLeft >= oneSetWidth * 2) {
           container.scrollLeft -= oneSetWidth;
         }
+      } else {
+        lastTime = null;
       }
 
       animationFrameId = requestAnimationFrame(scroll);
@@ -75,6 +86,7 @@ export const UniversitiesSection: React.FC = () => {
     animationFrameId = requestAnimationFrame(scroll);
 
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
   }, [universities.length]);
@@ -104,7 +116,7 @@ export const UniversitiesSection: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
           <div>
-            <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+            <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
               PARTNER UNIVERSITIES
             </span>
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#071228] tracking-tight">
@@ -116,7 +128,7 @@ export const UniversitiesSection: React.FC = () => {
           </div>
           <Link
             to="/destinations"
-            className="mt-3 sm:mt-0 inline-flex items-center gap-1.5 text-xs font-bold text-[#C5A059] hover:text-[#071228] transition-colors"
+            className="mt-3 sm:mt-0 inline-flex items-center gap-1.5 text-xs font-bold text-[#92600E] hover:text-[#071228] transition-colors"
           >
             <span>View All Universities</span>
             <ArrowRight className="w-3.5 h-3.5" />

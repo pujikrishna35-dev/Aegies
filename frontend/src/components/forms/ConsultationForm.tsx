@@ -115,10 +115,11 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
+          <label htmlFor="consultation-fullName" className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
             Full Name *
           </label>
           <input
+            id="consultation-fullName"
             type="text"
             required
             value={formData.fullName}
@@ -129,10 +130,11 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
         </div>
 
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
+          <label htmlFor="consultation-email" className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
             Email Address *
           </label>
           <input
+            id="consultation-email"
             type="email"
             required
             value={formData.email}
@@ -145,10 +147,11 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
+          <label htmlFor="consultation-phone" className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
             Phone Number *
           </label>
           <input
+            id="consultation-phone"
             type="tel"
             required
             value={formData.phone}
@@ -159,10 +162,12 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
         </div>
 
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
+          <label htmlFor="consultation-destination" className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
             Target Destination *
           </label>
           <select
+            id="consultation-destination"
+            aria-label="Target Destination"
             value={formData.destination}
             onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
             className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50/50 text-navy-950 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:bg-white transition-all"
@@ -182,10 +187,12 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
+          <label htmlFor="consultation-studyLevel" className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
             Degree Level
           </label>
           <select
+            id="consultation-studyLevel"
+            aria-label="Degree Level"
             value={formData.studyLevel}
             onChange={(e) => setFormData({ ...formData, studyLevel: e.target.value })}
             className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50/50 text-navy-950 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:bg-white transition-all"
@@ -198,10 +205,12 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
         </div>
 
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
+          <label htmlFor="consultation-preferredOffice" className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
             Preferred Office
           </label>
           <select
+            id="consultation-preferredOffice"
+            aria-label="Preferred Office"
             value={formData.preferredOffice}
             onChange={(e) => setFormData({ ...formData, preferredOffice: e.target.value })}
             className="w-full px-3 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50/50 text-navy-950 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:bg-white transition-all"
@@ -218,10 +227,11 @@ export function ConsultationForm({ onSuccessClose, onSuccess, defaultDestination
       </div>
 
       <div>
-        <label className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
+        <label htmlFor="consultation-message" className="block text-xs font-semibold uppercase tracking-wider text-navy-800 mb-1.5">
           Any specific universities, courses, or questions? (Optional)
         </label>
         <textarea
+          id="consultation-message"
           rows={2}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}

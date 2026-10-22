@@ -68,7 +68,7 @@ export const DestinationsSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
           <div>
-            <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+            <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
               DESTINATIONS
             </span>
             <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-[#071228] tracking-tight">
@@ -80,7 +80,7 @@ export const DestinationsSection: React.FC = () => {
           </div>
           <Link
             to="/destinations"
-            className="mt-3 sm:mt-0 inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#C5A059] hover:text-[#071228] transition-colors"
+            className="mt-3 sm:mt-0 inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#92600E] hover:text-[#071228] transition-colors"
           >
             <span>View All Destinations</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -100,11 +100,15 @@ export const DestinationsSection: React.FC = () => {
                 <img
                   src={dest.image}
                   alt={dest.country}
+                  width={400}
+                  height={267}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Circular Flag overlapping bottom-left */}
                 <div className="absolute -bottom-2.5 left-2.5 w-6 h-6 rounded-full border-2 border-white overflow-hidden shadow-sm bg-white">
-                  <img src={dest.flag} alt="" className="w-full h-full object-cover" />
+                  <img src={dest.flag} alt="" width={24} height={24} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </div>
               </div>
 
@@ -118,7 +122,7 @@ export const DestinationsSection: React.FC = () => {
                     {dest.desc}
                   </p>
                 </div>
-                <div className="mt-3 pt-2 border-t border-slate-100 flex items-center gap-1 text-[10px] font-bold text-[#C5A059] group-hover:translate-x-0.5 transition-transform">
+                <div className="mt-3 pt-2 border-t border-slate-100 flex items-center gap-1 text-[10px] font-bold text-[#92600E] group-hover:translate-x-0.5 transition-transform">
                   <span>Explore</span>
                   <span>→</span>
                 </div>

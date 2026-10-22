@@ -23,7 +23,7 @@ export const WhyAegis: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8 sm:mb-10">
-          <span className="text-[11px] sm:text-xs font-extrabold text-[#C5A059] uppercase tracking-[0.25em] block mb-2">
+          <span className="text-[11px] sm:text-xs font-extrabold text-[#92600E] uppercase tracking-[0.25em] block mb-2">
             WHY AEGIS
           </span>
           <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
