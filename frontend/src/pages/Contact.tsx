@@ -88,7 +88,7 @@ export const Contact: React.FC = () => {
       phone: '+44 78929 34567 ',
       email: 'info@aegisoverseas.com',
       hours: 'Mon - Sat: 10:00 AM - 7:00 PM',
-      landmark: 'Near Inorbit Mall & Durgam Cheruvu Metro'
+      landmark: 'Near Lenskart'
     },
     {
       city: 'Nellore-1 (RamalingaPuram) (central office)',
@@ -165,7 +165,7 @@ export const Contact: React.FC = () => {
             </h1>
 
             <p className="mt-3 text-lg sm:text-xl text-[#E6C687] font-medium">
-              Reach out to our offices in Hyderabad, Bangalore, or Vijayawada.
+              Reach out to our offices in Hyderabad, Vizag, Nellore, Tirupati or Vijayawada.
             </p>
 
             <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">

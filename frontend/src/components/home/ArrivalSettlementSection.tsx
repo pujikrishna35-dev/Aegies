@@ -61,7 +61,7 @@ export const ArrivalSettlementSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header outside the card */}
         <div className="mb-6 sm:mb-8">
-          <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+          <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
             SERVICES
           </span>
           <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-[#071228] tracking-tight uppercase">
@@ -123,11 +123,18 @@ export const ArrivalSettlementSection: React.FC = () => {
             {/* Left Column: Airport Traveler Image with Handwritten Script */}
             <div className="lg:w-[32%] xl:w-[30%] shrink-0 flex flex-col justify-between p-5 sm:p-7 pb-4">
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4] max-h-[380px] shadow-sm border border-amber-100/80 bg-slate-100 group">
-                <img
-                  src="/images/settlement/student-airport.jpg"
-                  alt="Student at airport terminal"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+                <picture>
+                  <source srcSet="/images/settlement/student-airport.webp" type="image/webp" />
+                  <img
+                    src="/images/settlement/student-airport.jpg"
+                    alt="Student at airport terminal"
+                    width={400}
+                    height={533}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               </div>
 
@@ -144,7 +151,7 @@ export const ArrivalSettlementSection: React.FC = () => {
             <div className="flex-1 p-5 sm:p-7 sm:pl-2 flex flex-col justify-between">
               {/* Header Content */}
               <div>
-                <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+                <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
                   ARRIVAL & SETTLEMENT SERVICES
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-display font-extrabold text-[#071228] tracking-tight leading-[1.15]">
@@ -190,11 +197,18 @@ export const ArrivalSettlementSection: React.FC = () => {
                         housing, shared apartments, or private stays.
                       </p>
                       <div className="w-24 sm:w-28 h-18 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-slate-100 shadow-2xs">
-                        <img
-                          src="/images/settlement/accommodation.jpg"
-                          alt="Student Accommodation"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+                        <picture>
+                          <source srcSet="/images/settlement/accommodation.webp" type="image/webp" />
+                          <img
+                            src="/images/settlement/accommodation.jpg"
+                            alt="Student Accommodation"
+                            width={112}
+                            height={80}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </picture>
                       </div>
                     </div>
                   </div>
@@ -266,11 +280,18 @@ export const ArrivalSettlementSection: React.FC = () => {
                         for a smooth arrival experience.
                       </p>
                       <div className="w-24 sm:w-28 h-18 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-slate-100 shadow-2xs">
-                        <img
-                          src="/images/settlement/airport-pickup.jpg"
-                          alt="Airport Pickup"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+                        <picture>
+                          <source srcSet="/images/settlement/airport-pickup.webp" type="image/webp" />
+                          <img
+                            src="/images/settlement/airport-pickup.jpg"
+                            alt="Airport Pickup"
+                            width={112}
+                            height={80}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </picture>
                       </div>
                     </div>
                   </div>
@@ -319,13 +340,13 @@ export const ArrivalSettlementSection: React.FC = () => {
         <div className="mt-12 sm:mt-14">
           {/* Header Row */}
           <div className="mb-8 pb-3">
-            <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+            <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
               HOW IT WORKS
             </span>
             <h3 className="text-xl sm:text-2xl font-display font-black text-[#071228] tracking-tight uppercase">
               A SMOOTH ARRIVAL EXPERIENCE
             </h3>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 font-normal">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 font-normal">
               We take care of the details, so you can focus on your new beginning.
             </p>
           </div>
@@ -349,10 +370,10 @@ export const ArrivalSettlementSection: React.FC = () => {
                       <h4 className="font-bold text-xs sm:text-sm text-[#071228] leading-tight">
                         {step.title}
                       </h4>
-                      <p className="text-[11px] sm:text-xs text-slate-500 mt-1 leading-relaxed">
+                      <p className="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
                         {step.desc}
                       </p>
-                      <span className="inline-block text-xs font-bold text-slate-400 mt-2">
+                      <span className="inline-block text-xs font-bold text-slate-600 mt-2">
                         {step.num}
                       </span>
                     </div>

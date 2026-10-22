@@ -24,10 +24,17 @@
     <meta name="twitter:description" content="Aegis Overseas is a premier global education consultancy guiding students to top universities in the UK, USA, Canada, Australia, Germany, Ireland, and New Zealand." />
     <meta name="twitter:image" content="https://aegisoverseas.com/logos/aegis-logo.svg" />
 
-    <!-- Google Fonts: Inter & Caveat for authentic signature accents -->
+    <!-- Preload LCP hero image for immediate discovery and instant render -->
+    <link rel="preload" as="image" href="/images/hero/hero-panorama.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- Google Fonts: Inter, Playfair Display & Caveat for signature accents (asynchronous load) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
+    </noscript>
   </head>
   <body class="bg-[#FAF9F6] text-slate-900 antialiased selection:bg-amber-100 selection:text-amber-900">
     <div id="root"></div>

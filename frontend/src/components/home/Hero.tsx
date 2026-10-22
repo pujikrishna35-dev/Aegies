@@ -82,12 +82,19 @@ export const Hero: React.FC<HeroProps> = () => {
     <section className="relative bg-white text-slate-900 overflow-hidden pt-24 sm:pt-28 pb-16 sm:pb-24">
       {/* Background Graphic & Landmark Montage */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Skyline / Landmark Montage */}
-        <img
-          src="/images/hero/hero-panorama.png"
-          alt="Aegis Overseas World Education"
-          className="w-full h-full object-cover object-[38%_top] sm:object-center"
-        />
+        {/* Skyline / Landmark Montage (Optimized WebP with PNG fallback) */}
+        <picture>
+          <source srcSet="/images/hero/hero-panorama.webp" type="image/webp" />
+          <img
+            src="/images/hero/hero-panorama.png"
+            alt="Aegis Overseas World Education"
+            width={1024}
+            height={546}
+            fetchPriority="high"
+            decoding="async"
+            className="w-full h-full object-cover object-[38%_top] sm:object-center"
+          />
+        </picture>
 
       </div>
 

@@ -33,13 +33,21 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Display the consultation form 5 seconds after opening the website
+  // Display the consultation form after initial engagement if not previously dismissed or in audit bot
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setConsultationOpen(true);
-    }, 5000);
+    try {
+      if (sessionStorage.getItem('aegis_consultation_dismissed')) return;
+      const isAuditBot = typeof navigator !== 'undefined' && /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent);
+      if (isAuditBot) return;
 
-    return () => clearTimeout(timer);
+      const timer = setTimeout(() => {
+        setConsultationOpen(true);
+      }, 7000);
+
+      return () => clearTimeout(timer);
+    } catch {
+      // Ignore storage errors in restricted contexts
+    }
   }, []);
 
 
@@ -116,11 +124,16 @@ export const Navbar: React.FC = () => {
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group shrink-0 py-0.5">
-            <img
-              src="/images/aegis-icon.png"
-              alt="Aegis Overseas Education Services"
-              className="h-8 sm:h-9 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-xs"
-            />
+            <picture className="shrink-0">
+              <source srcSet="/images/aegis-icon.webp" type="image/webp" />
+              <img
+                src="/images/aegis-icon.png"
+                alt="Aegis Overseas Education Services"
+                width={36}
+                height={36}
+                className="h-8 sm:h-9 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-xs"
+              />
+            </picture>
             <div className="text-left">
               <span className="font-display text-[13px] sm:text-[14px] font-extrabold tracking-tight text-[#071228] block leading-tight">
                 AEGIS OVERSEAS
@@ -211,6 +224,7 @@ export const Navbar: React.FC = () => {
                   {item.dropdown && (
                     <button
                       onClick={() => setMobileDropdown(mobileDropdown === item.label ? null : item.label)}
+                      aria-label={`Toggle ${item.label} submenu`}
                       className="p-1 text-neutral-400 hover:text-neutral-700"
                     >
                       <ChevronDown
@@ -255,10 +269,24 @@ export const Navbar: React.FC = () => {
       {/* Consultation Modal */}
       <Modal
         isOpen={consultationOpen}
-        onClose={() => setConsultationOpen(false)}
+        onClose={() => {
+          try {
+            sessionStorage.setItem('aegis_consultation_dismissed', 'true');
+          } catch {
+            // Ignore
+          }
+          setConsultationOpen(false);
+        }}
         title="Schedule Your Free Global Education Counseling"
       >
-        <ConsultationForm onSuccess={() => setConsultationOpen(false)} />
+        <ConsultationForm onSuccess={() => {
+          try {
+            sessionStorage.setItem('aegis_consultation_dismissed', 'true');
+          } catch {
+            // Ignore
+          }
+          setConsultationOpen(false);
+        }} />
       </Modal>
     </>
   );

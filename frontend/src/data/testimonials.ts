@@ -28,7 +28,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'TS',
-    avatarUrl: '/images/reviews/thota-sai-kumar-reddy.jpg',
+    avatarUrl: '/images/reviews/thota-sai-kumar-reddy.webp',
     tagline: 'Admissions & Visa Support • Guided by Siva Sir & Gopal Sir',
     location: 'Nellore',
     storySlug: 'thota-sai-kumar-reddy'
@@ -44,7 +44,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'DK',
-    avatarUrl: '/images/reviews/deverapalli-kushi.jpg',
+    avatarUrl: '/images/reviews/deverapalli-kushi.webp',
     tagline: 'UK Master\'s Program • University Shortlisting & Visa Success',
     location: 'Nellore',
     storySlug: 'deverapalli-kushi'
@@ -60,7 +60,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'JN',
-    avatarUrl: '/images/reviews/jaswanth-kumar-nallu.jpg',
+    avatarUrl: '/images/reviews/jaswanth-kumar-nallu.webp',
     tagline: 'Visa Approval & Interview Prep Success',
     location: 'Nellore',
     storySlug: 'jaswanth-kumar-nallu'
@@ -76,7 +76,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'RP',
-    avatarUrl: '/images/reviews/reema-panthalukaran.jpg',
+    avatarUrl: '/images/reviews/reema-panthalukaran.webp',
     tagline: 'US Visa Success • Mock Interviews & Documentation',
     location: 'Nellore',
     storySlug: 'reema-panthalukaran'
@@ -92,7 +92,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'RR',
-    avatarUrl: '/images/reviews/rohith-reddy.jpg',
+    avatarUrl: '/images/reviews/rohith-reddy.webp',
     tagline: 'Australian Student Visa in 3 Days',
     location: 'Nellore',
     storySlug: 'rohith-reddy'
@@ -108,7 +108,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'MM',
-    avatarUrl: '/images/reviews/manu-madhala.png',
+    avatarUrl: '/images/reviews/manu-madhala.webp',
     tagline: 'UK Visa Secured • University Selection & Interview Prep',
     location: 'Nellore',
     storySlug: 'manu-madhala'
@@ -124,7 +124,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'MH',
-    avatarUrl: '/images/reviews/mohammed-husamuddin-ahmed.jpg',
+    avatarUrl: '/images/reviews/mohammed-husamuddin-ahmed.webp',
     tagline: 'Expert Faculty Guidance & Query Resolution',
     location: 'Nellore',
     storySlug: 'mohammed-husamuddin-ahmed'
@@ -140,7 +140,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'VR',
-    avatarUrl: '/images/reviews/varshitha-rao.png',
+    avatarUrl: '/images/reviews/varshitha-rao.webp',
     tagline: 'Personalized Counseling & Study Abroad Success',
     location: 'Nellore',
     storySlug: 'varshitha-rao'
@@ -156,7 +156,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'KV',
-    avatarUrl: '/images/reviews/krishna-vijay.jpg',
+    avatarUrl: '/images/reviews/krishna-vijay.webp',
     tagline: 'UK Visa Approved • Patient End-to-End Guidance',
     location: 'Nellore',
     storySlug: 'krishna-vijay'
@@ -172,7 +172,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'PR',
-    avatarUrl: '/images/reviews/pawan-royalz.png',
+    avatarUrl: '/images/reviews/pawan-royalz.webp',
     tagline: 'UK Masters Admit • Full Visa & University Assistance',
     location: 'Nellore',
     storySlug: 'pawan-royalz'
@@ -188,7 +188,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'RR',
-    avatarUrl: '/images/reviews/rishita-reddy.jpg',
+    avatarUrl: '/images/reviews/rishita-reddy.webp',
     tagline: 'Smooth Student VISA Process • Guided by Gopal Reddy Sir',
     location: 'Nellore',
     storySlug: 'rishita-reddy'
@@ -204,7 +204,7 @@ export const GENUINE_REVIEWS: GenuineReview[] = [
     sourceReviewUrl: 'https://aegisoverseas.com',
     verifiedForPublication: true,
     avatarText: 'HV',
-    avatarUrl: '/images/reviews/harsha-vaka.jpg',
+    avatarUrl: '/images/reviews/harsha-vaka.webp',
     tagline: 'UK Graduation Process • Proactive & Personalized Advice',
     location: 'Nellore',
     storySlug: 'harsha-vaka'

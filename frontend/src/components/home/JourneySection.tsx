@@ -41,7 +41,7 @@ export const JourneySection: React.FC = () => {
         {/* Header */}
         <div className="flex items-end justify-between mb-12">
           <div>
-            <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+            <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
               YOUR JOURNEY WITH AEGIS
             </span>
             <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-[#071228] tracking-tight">
@@ -76,7 +76,7 @@ export const JourneySection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+              <div className="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[9px] font-bold text-slate-600 uppercase tracking-wider">
                 <span>Phase 0{idx + 1}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
               </div>

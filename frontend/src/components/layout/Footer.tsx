@@ -10,12 +10,19 @@ export const Footer: React.FC = () => {
 
           {/* Col 1: Brand (2 cols) */}
           <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
-            <Link to="/" className="inline-block group">
-              <img
-                src="/images/aegis-logo.png"
-                alt="Aegis Overseas Education Services"
-                className="h-16 sm:h-20 w-auto object-contain group-hover:opacity-90 transition-opacity"
-              />
+            <Link to="/" className="inline-block group" aria-label="Aegis Overseas Home">
+              <picture>
+                <source srcSet="/images/aegis-logo.webp" type="image/webp" />
+                <img
+                  src="/images/aegis-logo.png"
+                  alt="Aegis Overseas Education Services"
+                  width={200}
+                  height={70}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-16 sm:h-20 w-auto object-contain group-hover:opacity-90 transition-opacity"
+                />
+              </picture>
             </Link>
 
             <p className="text-xs text-slate-600 leading-relaxed max-w-sm">
@@ -24,16 +31,16 @@ export const Footer: React.FC = () => {
 
             {/* Social Icons */}
             <div className="flex items-center gap-2.5 pt-2">
-              <a href="#" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
+              <a href="#" aria-label="Aegis Overseas on Instagram" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
                 <Instagram className="w-3.5 h-3.5" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
+              <a href="#" aria-label="Aegis Overseas on Facebook" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
                 <Facebook className="w-3.5 h-3.5" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
+              <a href="#" aria-label="Aegis Overseas on LinkedIn" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
                 <Linkedin className="w-3.5 h-3.5" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
+              <a href="#" aria-label="Aegis Overseas on YouTube" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
                 <Youtube className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -41,58 +48,58 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: STUDY DESTINATIONS */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#071228] mb-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#071228] mb-3">
               Study Destinations
-            </h4>
-            <ul className="space-y-1.5 text-xs text-slate-600">
-              <li><Link to="/destinations/uk" className="hover:text-[#071228]">UK</Link></li>
-              <li><Link to="/destinations/usa" className="hover:text-[#071228]">USA</Link></li>
-              <li><Link to="/destinations/canada" className="hover:text-[#071228]">Canada</Link></li>
-              <li><Link to="/destinations/australia" className="hover:text-[#071228]">Australia</Link></li>
-              <li><Link to="/destinations/germany" className="hover:text-[#071228]">Germany</Link></li>
-              <li><Link to="/destinations/ireland" className="hover:text-[#071228]">Ireland</Link></li>
-              <li><Link to="/destinations/new-zealand" className="hover:text-[#071228]">New Zealand</Link></li>
-              <li><Link to="/destinations/europe" className="hover:text-[#071228]">Europe</Link></li>
+            </h3>
+            <ul className="space-y-1 text-xs text-slate-600">
+              <li><Link to="/destinations/uk" className="hover:text-[#071228] block py-1">UK</Link></li>
+              <li><Link to="/destinations/usa" className="hover:text-[#071228] block py-1">USA</Link></li>
+              <li><Link to="/destinations/canada" className="hover:text-[#071228] block py-1">Canada</Link></li>
+              <li><Link to="/destinations/australia" className="hover:text-[#071228] block py-1">Australia</Link></li>
+              <li><Link to="/destinations/germany" className="hover:text-[#071228] block py-1">Germany</Link></li>
+              <li><Link to="/destinations/ireland" className="hover:text-[#071228] block py-1">Ireland</Link></li>
+              <li><Link to="/destinations/new-zealand" className="hover:text-[#071228] block py-1">New Zealand</Link></li>
+              <li><Link to="/destinations/europe" className="hover:text-[#071228] block py-1">Europe</Link></li>
             </ul>
           </div>
 
           {/* Col 3: SERVICES */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#071228] mb-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#071228] mb-3">
               Services
-            </h4>
-            <ul className="space-y-1.5 text-xs text-slate-600">
-              <li><Link to="/services/counselling" className="hover:text-[#071228]">Counselling</Link></li>
-              <li><Link to="/services/university-selection" className="hover:text-[#071228]">University Selection</Link></li>
-              <li><Link to="/services/application-assistance" className="hover:text-[#071228]">Applications</Link></li>
-              <li><Link to="/services/scholarships" className="hover:text-[#071228]">Scholarships</Link></li>
-              <li><Link to="/services/education-loans" className="hover:text-[#071228]">Education Loans</Link></li>
-              <li><Link to="/services/visa-assistance" className="hover:text-[#071228]">Visa Assistance</Link></li>
-              <li><Link to="/services/accommodation" className="hover:text-[#071228]">Accommodation</Link></li>
-              <li><Link to="/services/forex" className="hover:text-[#071228]">Forex</Link></li>
-              <li><Link to="/services/pre-departure" className="hover:text-[#071228]">Pre-Departure</Link></li>
+            </h3>
+            <ul className="space-y-1 text-xs text-slate-600">
+              <li><Link to="/services/counselling" className="hover:text-[#071228] block py-1">Counselling</Link></li>
+              <li><Link to="/services/university-selection" className="hover:text-[#071228] block py-1">University Selection</Link></li>
+              <li><Link to="/services/application-assistance" className="hover:text-[#071228] block py-1">Applications</Link></li>
+              <li><Link to="/services/scholarships" className="hover:text-[#071228] block py-1">Scholarships</Link></li>
+              <li><Link to="/services/education-loans" className="hover:text-[#071228] block py-1">Education Loans</Link></li>
+              <li><Link to="/services/visa-assistance" className="hover:text-[#071228] block py-1">Visa Assistance</Link></li>
+              <li><Link to="/services/accommodation" className="hover:text-[#071228] block py-1">Accommodation</Link></li>
+              <li><Link to="/services/forex" className="hover:text-[#071228] block py-1">Forex</Link></li>
+              <li><Link to="/services/pre-departure" className="hover:text-[#071228] block py-1">Pre-Departure</Link></li>
             </ul>
           </div>
 
           {/* Col 4: QUICK LINKS & COMPANY */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#071228] mb-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#071228] mb-3">
               Company
-            </h4>
-            <ul className="space-y-1.5 text-xs text-slate-600">
-              <li><Link to="/about" className="hover:text-[#071228]">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-[#071228]">Contact</Link></li>
-              <li><Link to="/careers" className="hover:text-[#071228]">Careers</Link></li>
-              <li><Link to="/privacy-policy" className="hover:text-[#071228]">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-[#071228]">Terms</Link></li>
+            </h3>
+            <ul className="space-y-1 text-xs text-slate-600">
+              <li><Link to="/about" className="hover:text-[#071228] block py-1">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-[#071228] block py-1">Contact</Link></li>
+              <li><Link to="/careers" className="hover:text-[#071228] block py-1">Careers</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-[#071228] block py-1">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-[#071228] block py-1">Terms</Link></li>
             </ul>
           </div>
 
           {/* Col 5: CONTACT */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#071228] mb-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#071228] mb-3">
               Contact
-            </h4>
+            </h3>
             <div className="space-y-2 text-xs text-slate-600">
               <a href="tel:+447892934567" className="flex items-center gap-2 hover:text-[#071228]">
                 <Phone className="w-3.5 h-3.5 text-[#C5A059]" />

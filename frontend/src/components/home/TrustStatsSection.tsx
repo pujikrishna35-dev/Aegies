@@ -81,19 +81,19 @@ export const TrustStatsSection: React.FC = () => {
           </div>
           <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-2 font-medium text-slate-600">
             <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
-              <span className="text-[#C5A059] font-bold">✓</span> British Council Certified
+              <span className="text-[#92600E] font-bold">✓</span> British Council Certified
             </span>
             <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
-              <span className="text-[#C5A059] font-bold">✓</span> IDP Education Partner
+              <span className="text-[#92600E] font-bold">✓</span> IDP Education Partner
             </span>
             <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
-              <span className="text-[#C5A059] font-bold">✓</span> ICEF Verified Agency
+              <span className="text-[#92600E] font-bold">✓</span> ICEF Verified Agency
             </span>
             <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
-              <span className="text-[#C5A059] font-bold">✓</span> ETS Official Associate
+              <span className="text-[#92600E] font-bold">✓</span> ETS Official Associate
             </span>
             <span className="flex items-center gap-1.5 hover:text-[#071228] transition-colors whitespace-nowrap">
-              <span className="text-[#C5A059] font-bold">✓</span> NAFSA Member
+              <span className="text-[#92600E] font-bold">✓</span> NAFSA Member
             </span>
           </div>
         </div>

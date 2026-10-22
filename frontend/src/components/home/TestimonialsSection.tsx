@@ -36,7 +36,7 @@ export const TestimonialsSection: React.FC = () => {
           <div className="bg-[#FDFBF7] rounded-2xl p-6 sm:p-7 border border-slate-200 flex flex-col justify-between shadow-2xs h-full min-h-[380px]">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em]">
+                <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em]">
                   TESTIMONIALS
                 </span>
                 <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
@@ -62,7 +62,7 @@ export const TestimonialsSection: React.FC = () => {
                 {[...Array(activeReview.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
-                <span className="text-[11px] text-slate-400 font-semibold ml-1.5">
+                <span className="text-[11px] text-slate-500 font-semibold ml-1.5">
                   5.0 on Google
                 </span>
               </div>
@@ -78,6 +78,10 @@ export const TestimonialsSection: React.FC = () => {
                   <img
                     src={activeReview.avatarUrl}
                     alt={activeReview.reviewerName}
+                    width={40}
+                    height={40}
+                    loading="lazy"
+                    decoding="async"
                     className="w-10 h-10 rounded-full object-cover border border-[#C5A059]/40 shadow-xs shrink-0 group-hover:scale-105 transition-transform"
                   />
                 ) : (
@@ -92,7 +96,7 @@ export const TestimonialsSection: React.FC = () => {
               </Link>
 
               <div className="flex items-center gap-1.5">
-                <span className="text-[10px] font-bold text-slate-400 mr-1">
+                <span className="text-[10px] font-bold text-slate-500 mr-1">
                   {currentReviewIdx + 1}/{GENUINE_REVIEWS.length}
                 </span>
                 <button
@@ -118,7 +122,7 @@ export const TestimonialsSection: React.FC = () => {
           {/* Column 2: FREQUENTLY ASKED QUESTIONS */}
           <div className="bg-[#FDFBF7] rounded-2xl p-6 sm:p-7 border border-slate-200 flex flex-col justify-between shadow-2xs h-full min-h-[380px]">
             <div>
-              <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-[0.2em] block mb-1">
+              <span className="text-[11px] font-bold text-[#92600E] uppercase tracking-[0.2em] block mb-1">
                 FAQ
               </span>
               <h3 className="text-xl sm:text-2xl font-display font-extrabold text-[#071228] tracking-tight mb-4">
@@ -142,9 +146,9 @@ export const TestimonialsSection: React.FC = () => {
                           {item.q}
                         </span>
                         {isOpen ? (
-                          <Minus className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
+                          <Minus className="w-3.5 h-3.5 text-amber-700 shrink-0" />
                         ) : (
-                          <Plus className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <Plus className="w-3.5 h-3.5 text-slate-500 shrink-0" />
                         )}
                       </button>
                       {isOpen && (
@@ -161,7 +165,7 @@ export const TestimonialsSection: React.FC = () => {
             <div className="mt-4 pt-3 border-t border-slate-200">
               <Link
                 to="/faq"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C5A059] hover:text-[#071228] transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#92600E] hover:text-[#071228] transition-colors"
               >
                 <span>View All FAQs</span>
                 <ArrowRight className="w-3 h-3" />

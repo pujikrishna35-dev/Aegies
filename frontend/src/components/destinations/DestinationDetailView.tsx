@@ -35,7 +35,6 @@ import {
 import { DESTINATIONS, DestinationData, RoutePhase, RouteStep } from '../../data/destinations';
 import { Modal } from '../ui/Modal';
 import { ConsultationForm } from '../forms/ConsultationForm';
-import { generateCountryGuidePdf } from '../../utils/pdfGenerator';
 import { UniversityDirectoryModal } from '../universities/UniversityDirectoryModal';
 import { getUniversityWebsite } from '../../data/universityWebsites';
 
@@ -1188,7 +1187,8 @@ export const DestinationDetailView: React.FC<Props> = ({ slug }) => {
           <div className="pt-4 border-t border-neutral-200 flex items-center justify-between">
             <span className="text-[11px] text-neutral-500">Document version: 2026/2027 Academic Intake</span>
             <button
-              onClick={() => {
+              onClick={async () => {
+                const { generateCountryGuidePdf } = await import('../../utils/pdfGenerator');
                 generateCountryGuidePdf(dest);
               }}
               className="px-5 py-2.5 rounded-xl bg-[#071228] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#071228] transition-colors flex items-center gap-2 shadow-md cursor-pointer"
