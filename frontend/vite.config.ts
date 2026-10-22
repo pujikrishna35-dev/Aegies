@@ -10,12 +10,18 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  esbuild: {
+    legalComments: 'none',
+    drop: ['debugger'],
+  },
   build: {
+    target: 'es2020',
+    cssMinify: true,
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-icons': ['lucide-react'],
         },
       },
     },

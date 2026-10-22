@@ -167,6 +167,7 @@ export const About: React.FC = () => {
       bio: '25 Years of Experience | Global University Partnerships | Leadership & Mentorship. MS-qualified in the United Kingdom; guides university collaborations, mentors the team and supports student counselling.',
       image: '/images/team/gopal-reddy.png',
       highlights: [
+        
         { icon: Briefcase, val: '25 Years', label: 'of Experience' },
         { icon: GraduationCap, val: 'MS Qualified', label: 'United Kingdom' },
         { icon: Users, val: 'Leadership', label: '& Mentorship' }

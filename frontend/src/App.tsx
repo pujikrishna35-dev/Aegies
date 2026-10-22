@@ -66,9 +66,9 @@ const PrivacyPolicy = React.lazy(() => import('./pages/legal/PrivacyPolicy'));
 const Terms = React.lazy(() => import('./pages/legal/Terms'));
 const CookiePolicy = React.lazy(() => import('./pages/legal/CookiePolicy'));
 
-// Admin Components & Pages
-import { AdminAuthGuard } from './components/admin/AdminAuthGuard';
-import { AdminLayout } from './components/admin/AdminLayout';
+// Admin Components & Pages (Lazy loaded so public visitors do not download admin code/icons)
+const AdminAuthGuard = React.lazy(() => import('./components/admin/AdminAuthGuard').then(m => ({ default: m.AdminAuthGuard })));
+const AdminLayout = React.lazy(() => import('./components/admin/AdminLayout').then(m => ({ default: m.AdminLayout })));
 const AdminLogin = React.lazy(() => import('./pages/admin/AdminLogin'));
 const AdminDashboard = React.lazy(() => import('./pages/admin/AdminDashboard'));
 const AdminLeads = React.lazy(() => import('./pages/admin/AdminLeads'));

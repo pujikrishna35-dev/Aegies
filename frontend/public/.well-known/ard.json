@@ -1,0 +1,77 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/schemas/v1/ai-catalog.schema.json",
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Aegis Overseas Education Services"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:aegisoverseas.com:consultation:advisory",
+      "displayName": "Overseas Education Profile Evaluation & Advisory",
+      "type": "text/html",
+      "url": "https://aegisoverseas.com/services/counselling",
+      "capabilities": [
+        "ProfileEvaluation",
+        "CountrySelection",
+        "UniversityShortlisting"
+      ],
+      "description": "Comprehensive academic counselling, country comparison, and university selection assistance for Indian students studying abroad.",
+      "representativeQueries": [
+        "Which universities should I apply to in the UK or USA with my profile?",
+        "How can I get study abroad counselling for Germany or Canada?",
+        "What are the eligibility requirements for masters programs in Australia?"
+      ]
+    },
+    {
+      "identifier": "urn:air:aegisoverseas.com:visa:guidance",
+      "displayName": "Student Visa Application & Interview Guidance",
+      "type": "text/html",
+      "url": "https://aegisoverseas.com/services/visa-assistance",
+      "capabilities": [
+        "VisaFiling",
+        "DocumentationChecklist",
+        "MockInterviews"
+      ],
+      "description": "Expert assistance with financial documentation, statement of purpose, interview preparation, and student visa filing for major study abroad destinations.",
+      "representativeQueries": [
+        "What financial documents are required for a UK student visa?",
+        "How do I prepare for a US F-1 visa interview?",
+        "What are the student visa requirements for Germany and Ireland?"
+      ]
+    },
+    {
+      "identifier": "urn:air:aegisoverseas.com:scholarships:database",
+      "displayName": "International Scholarships & Financial Guidance",
+      "type": "text/html",
+      "url": "https://aegisoverseas.com/scholarships",
+      "capabilities": [
+        "ScholarshipEligibility",
+        "FinancialAidGuidance",
+        "EducationLoanSupport"
+      ],
+      "description": "Directory and guidance on merit-based, need-based, and governmental scholarships for international students.",
+      "representativeQueries": [
+        "Are scholarships available for Indian students in the UK and USA?",
+        "How can I apply for merit-based scholarships in Canada or Australia?",
+        "What education loan options support studies in Europe?"
+      ]
+    },
+    {
+      "identifier": "urn:air:aegisoverseas.com:destinations:catalog",
+      "displayName": "Global Study Destinations Directory",
+      "type": "text/html",
+      "url": "https://aegisoverseas.com/destinations",
+      "capabilities": [
+        "CountryComparison",
+        "IntakeGuidance",
+        "PostStudyWorkRights"
+      ],
+      "description": "Guides covering universities, tuition fees, cost of living, intakes, and post-study work visa policies across 8+ global destinations.",
+      "representativeQueries": [
+        "What is the average cost of studying in Ireland or Germany?",
+        "What are post study work visa rules in the UK and Canada?",
+        "When are the major intakes for USA and Australian universities?"
+      ]
+    }
+  ]
+}

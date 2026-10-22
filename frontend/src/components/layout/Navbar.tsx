@@ -145,7 +145,7 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation Links - Centered */}
-          <nav className="hidden lg:flex items-center justify-center space-x-2.5 xl:space-x-3.5 2xl:space-x-4 flex-1">
+          <nav aria-label="Main navigation" className="hidden lg:flex items-center justify-center space-x-2.5 xl:space-x-3.5 2xl:space-x-4 flex-1">
             {navItems.map((item) => {
               const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
               const hasDropdown = Boolean(item.dropdown && item.dropdown.length > 0);
