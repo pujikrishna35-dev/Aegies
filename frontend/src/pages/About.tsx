@@ -101,35 +101,116 @@ export const About: React.FC = () => {
         { icon: Users, val: 'Leadership', label: '& Strategy' }
       ],
       focusAreas: [
-        'Strategic vision',
-        'Organisational development',
-        'Student-centred services',
-        'International education opportunities'
+        'Strategic leadership and organisational growth',
+        'Leadership and operations of the UK office',
+        'University collaborations and institutional partnerships',
+        'Meetings and engagement with university officials',
+        'International student recruitment and admissions guidance',
+        'Professional career guidance and employability support',
+        'Education fairs, seminars and university interaction sessions',
+        'Student counselling and service quality'
       ],
       sections: [
         {
           icon: User,
           title: 'About',
           content: [
-            'Haswanth Reddy Battepati is the Founder, Chairman and Director of Aegis Overseas Education Services Pvt Ltd. Inspired by his own international education journey and postgraduate studies in the United Kingdom, he established Aegis with a vision of helping students explore global education opportunities with greater confidence, clarity and direction.'
+            'Haswanth Reddy Battepati is the Founder, Chairman and Director of Aegis Overseas Education Services Pvt. Ltd. With over 12 years of experience and postgraduate study in the United Kingdom, he brings international perspective, entrepreneurial leadership and a strong commitment to helping students pursue global education.',
+            'Drawing on his own overseas education journey, he guides Aegis with a clear purpose: to help students and families make informed decisions through personalised counselling, transparent guidance and meaningful engagement with educational institutions.'
           ]
         },
         {
-          icon: Compass,
-          title: 'Strategic Vision & Guidance',
+          icon: TrendingUp,
+          title: 'Strategic Leadership & Business Development',
           content: [
-            "As Chairman and Director, he provides strategic leadership and guides the company's long-term vision, development and business direction. His international study experience informs his understanding of the challenges students face when choosing institutions, preparing applications and planning for education abroad."
+            'Haswanth leads the company’s strategic direction, organisational development and long-term growth. His focus includes strengthening counselling services, developing institutional relationships and building a team that understands students’ academic ambitions and practical needs.',
+            'He combines business development with a student-centred approach, ensuring that growth supports the quality and consistency of the guidance Aegis provides.'
+          ]
+        },
+        {
+          icon: Globe2,
+          title: 'UK Office Leadership & Career Support',
+          content: [
+            'Haswanth leads the UK office, overseeing its operations, student support services and engagement with universities, employers and professional networks. He helps students adapt to life and study in the United Kingdom while providing guidance on professional development, career planning, employability and opportunities aligned with their academic backgrounds and long-term goals.',
+            'Through practical advice and continued support, he assists students in building confidence, developing professional skills and preparing for successful careers after graduation.'
+          ]
+        },
+        {
+          icon: Building2,
+          title: 'University Collaborations & Institutional Engagement',
+          content: [
+            'Haswanth actively develops university collaborations and engages with university officials, international admissions teams and institutional representatives to explore partnership opportunities and strengthen existing relationships.',
+            'Through meetings and discussions, he works to improve understanding of university programmes, entry requirements, scholarship opportunities and student support services. These engagements help Aegis provide relevant guidance while creating opportunities for university presentations, admissions sessions and direct interaction between students and university representatives.'
+          ]
+        },
+        {
+          icon: Users,
+          title: 'Student Engagement & Education Events',
+          content: [
+            'He supports education fairs, university interaction sessions, seminars and outreach events that connect students with international education opportunities. His approach encourages students to ask questions, understand their options and choose pathways aligned with their qualifications, interests and career goals.'
           ]
         },
         {
           icon: HeartHandshake,
           title: 'Student-Centred Leadership',
           content: [
-            'Under his leadership, Aegis strives to build meaningful relationships with students, families and educational institutions while maintaining a student-focused approach to counselling and overseas education services.'
+            'At the heart of his leadership is a commitment to trust, accessibility and responsible guidance. He promotes lasting relationships with students, families and institutional partners, with an emphasis on clear communication and support throughout the overseas education journey.'
           ]
         }
       ],
       quote: '“Guiding students to explore global education opportunities with greater confidence, clarity and direction.”'
+    },
+    {
+      id: 'gopal',
+      name: 'Gopal Reddy Somala',
+      role: 'Co-Founder & Head of Aegis',
+      bio: '25 Years of Experience | Global University Partnerships | Leadership & Mentorship. MS-qualified in the United Kingdom; guides university collaborations, mentors the team and supports student counselling.',
+      image: '/images/team/gopal-reddy.png',
+      highlights: [
+        { icon: Briefcase, val: '25 Years', label: 'of Experience' },
+        { icon: GraduationCap, val: 'MS Qualified', label: 'United Kingdom' },
+        { icon: Users, val: 'Leadership', label: '& Mentorship' }
+      ],
+      focusAreas: [
+        'Global university visits',
+        'Strategic partnerships',
+        'University collaboration management',
+        'Leadership and mentorship',
+        'Organisational development',
+        'Student counselling'
+      ],
+      sections: [
+        {
+          icon: User,
+          title: 'About',
+          content: [
+            'Gopal Reddy Somala is the co-founder and Head of Aegis Overseas Edu Services. With an MS qualification from the United Kingdom and 25 years of experience, he brings extensive professional knowledge, international perspective and strategic direction to the organisation.'
+          ]
+        },
+        {
+          icon: Building2,
+          title: 'University Relations & Global Engagement',
+          content: [
+            'He plays a central role in developing and managing Aegis’s university collaborations. Through visits to universities across the globe and direct engagement with university representatives, he builds relationships, explores partnership opportunities and strengthens existing collaborations. His oversight supports ongoing communication and coordination between Aegis and its university partners.',
+            'These international engagements deepen his understanding of academic programmes, admission expectations and campus environments, bringing practical insight to student counselling and course selection. He helps connect the organisation’s university relationships with its commitment to informed, responsible guidance for students pursuing education abroad.'
+          ]
+        },
+        {
+          icon: Users,
+          title: 'Leadership & Team Development',
+          content: [
+            'As a senior leader, he mentors directors and staff, guides operational development and promotes a collaborative, accountable working environment. His approach combines strategic leadership with practical support, helping the team strengthen its capabilities and maintain a consistent focus on student needs.'
+          ]
+        },
+        {
+          icon: TrendingUp,
+          title: 'Impact & Vision',
+          content: [
+            'His leadership supports Aegis’s growth through strong university partnerships, team development and student-focused services.'
+          ]
+        }
+      ],
+      quote: '“Building global opportunities for students through strong university relationships and a supportive team.”'
     },
     {
       id: 'bhavana',
@@ -179,58 +260,6 @@ export const About: React.FC = () => {
         }
       ],
       quote: '“Connecting outreach and institutional engagement to make global education accessible and transparent for every student.”'
-    },
-    {
-      id: 'gopal',
-      name: 'Gopal Reddy Somala',
-      role: 'Founder & Head of Aegis',
-      bio: '25 Years of Experience | Global University Partnerships | Leadership & Mentorship. MS-qualified in the United Kingdom; guides university collaborations, mentors the team and supports student counselling.',
-      image: '/images/team/gopal-reddy.png',
-      highlights: [
-        { icon: Briefcase, val: '25 Years', label: 'of Experience' },
-        { icon: GraduationCap, val: 'MS Qualified', label: 'United Kingdom' },
-        { icon: Users, val: 'Leadership', label: '& Mentorship' }
-      ],
-      focusAreas: [
-        'Global university visits',
-        'Strategic partnerships',
-        'University collaboration management',
-        'Leadership and mentorship',
-        'Organisational development',
-        'Student counselling'
-      ],
-      sections: [
-        {
-          icon: User,
-          title: 'About',
-          content: [
-            'Gopal Reddy Somala is the founder and Head of Aegis Overseas Edu Services. With an MS qualification from the United Kingdom and 25 years of experience, he brings extensive professional knowledge, international perspective and strategic direction to the organisation.'
-          ]
-        },
-        {
-          icon: Building2,
-          title: 'University Relations & Global Engagement',
-          content: [
-            'He plays a central role in developing and managing Aegis’s university collaborations. Through visits to universities across the globe and direct engagement with university representatives, he builds relationships, explores partnership opportunities and strengthens existing collaborations. His oversight supports ongoing communication and coordination between Aegis and its university partners.',
-            'These international engagements deepen his understanding of academic programmes, admission expectations and campus environments, bringing practical insight to student counselling and course selection. He helps connect the organisation’s university relationships with its commitment to informed, responsible guidance for students pursuing education abroad.'
-          ]
-        },
-        {
-          icon: Users,
-          title: 'Leadership & Team Development',
-          content: [
-            'As a senior leader, he mentors directors and staff, guides operational development and promotes a collaborative, accountable working environment. His approach combines strategic leadership with practical support, helping the team strengthen its capabilities and maintain a consistent focus on student needs.'
-          ]
-        },
-        {
-          icon: TrendingUp,
-          title: 'Impact & Vision',
-          content: [
-            'His leadership supports Aegis’s growth through strong university partnerships, team development and student-focused services.'
-          ]
-        }
-      ],
-      quote: '“Building global opportunities for students through strong university relationships and a supportive team.”'
     },
     {
       id: 'syamalamma',

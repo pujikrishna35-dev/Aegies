@@ -62,7 +62,7 @@ export default {
       },
       fontFamily: {
         serif: ['var(--font-serif)', 'Playfair Display', 'DM Serif Display', 'Georgia', 'serif'],
-        sans: ['var(--font-sans)', 'Inter', 'Manrope', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'luxury': '0 20px 40px -15px rgba(7, 18, 40, 0.12), 0 0 15px rgba(197, 160, 89, 0.08)',

@@ -43,6 +43,10 @@ export const FinalCTA: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=600&auto=format&fit=crop"
                 alt="Student overlooking world horizon"
+                width={384}
+                height={224}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#071228]/80 via-transparent to-transparent flex items-end p-4">

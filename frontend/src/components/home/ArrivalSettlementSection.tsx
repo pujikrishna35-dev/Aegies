@@ -124,6 +124,7 @@ export const ArrivalSettlementSection: React.FC = () => {
             <div className="lg:w-[32%] xl:w-[30%] shrink-0 flex flex-col justify-between p-5 sm:p-7 pb-4">
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4] max-h-[380px] shadow-sm border border-amber-100/80 bg-slate-100 group">
                 <picture>
+                  <source media="(max-width: 640px)" srcSet="/images/settlement/student-airport-sm.webp" type="image/webp" />
                   <source srcSet="/images/settlement/student-airport.webp" type="image/webp" />
                   <img
                     src="/images/settlement/student-airport.jpg"
