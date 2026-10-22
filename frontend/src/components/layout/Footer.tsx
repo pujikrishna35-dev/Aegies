@@ -31,7 +31,13 @@ export const Footer: React.FC = () => {
 
             {/* Social Icons */}
             <div className="flex items-center gap-2.5 pt-2">
-              <a href="#" aria-label="Aegis Overseas on Instagram" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
+              <a
+                href="https://www.instagram.com/aegis.overseas?psln=c2NsbWk5aW9pbm4x"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Aegis Overseas on Instagram"
+                className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors"
+              >
                 <Instagram className="w-3.5 h-3.5" />
               </a>
               <a href="#" aria-label="Aegis Overseas on Facebook" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">

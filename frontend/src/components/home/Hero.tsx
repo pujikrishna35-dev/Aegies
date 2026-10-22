@@ -82,11 +82,12 @@ export const Hero: React.FC<HeroProps> = () => {
     <section className="relative bg-white text-slate-900 overflow-hidden pt-24 sm:pt-28 pb-16 sm:pb-24">
       {/* Background Graphic & Landmark Montage */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Skyline / Landmark Montage (Optimized WebP with PNG fallback) */}
+        {/* Skyline / Landmark Montage (Optimized WebP with responsive mobile variant) */}
         <picture>
+          <source media="(max-width: 640px)" srcSet="/images/hero/hero-panorama-sm.webp" type="image/webp" />
           <source srcSet="/images/hero/hero-panorama.webp" type="image/webp" />
           <img
-            src="/images/hero/hero-panorama.png"
+            src="/images/hero/hero-panorama.webp"
             alt="Aegis Overseas World Education"
             width={1024}
             height={546}

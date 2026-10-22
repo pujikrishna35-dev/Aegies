@@ -28,7 +28,7 @@ export const AdminSettings: React.FC = () => {
     headOfficeAddress: '#2nd floor, Lenin complex, Bhagyanagar Colony, KPHB, Near Saibaba Temple, Kukatpally, Hyderabad',
     branchOffices: 'Vijayawada, Bengaluru, Pune, Dallas (USA)',
     workingHours: 'Monday - Saturday: 9:30 AM - 6:30 PM IST',
-    instagramUrl: 'https://instagram.com/aegisoverseas',
+    instagramUrl: 'https://www.instagram.com/aegis.overseas?psln=c2NsbWk5aW9pbm4x',
     linkedinUrl: 'https://linkedin.com/company/aegisoverseas',
     youtubeUrl: 'https://youtube.com/@aegisoverseas',
     facebookUrl: 'https://facebook.com/aegisoverseas',

@@ -24,17 +24,27 @@
     <meta name="twitter:description" content="Aegis Overseas is a premier global education consultancy guiding students to top universities in the UK, USA, Canada, Australia, Germany, Ireland, and New Zealand." />
     <meta name="twitter:image" content="https://aegisoverseas.com/logos/aegis-logo.svg" />
 
-    <!-- Preload LCP hero image for immediate discovery and instant render -->
-    <link rel="preload" as="image" href="/images/hero/hero-panorama.webp" type="image/webp" fetchpriority="high" />
+    <!-- Preload LCP hero image responsively for immediate discovery and instant render -->
+    <link rel="preload" as="image" href="/images/hero/hero-panorama-sm.webp" type="image/webp" media="(max-width: 640px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero/hero-panorama.webp" type="image/webp" media="(min-width: 641px)" fetchpriority="high" />
 
-    <!-- Google Fonts: Inter, Playfair Display & Caveat for signature accents (asynchronous load) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    </noscript>
+    <!-- Preload critical primary font -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Critical CSS for instant FCP with zero layout shift -->
+    <style>
+      :root {
+        --font-serif: 'Playfair Display', Georgia, serif;
+        --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        --font-script: 'Caveat', cursive;
+      }
+      body {
+        font-family: var(--font-sans);
+        color: #071228;
+        background-color: #FDFBF7;
+        margin: 0;
+      }
+    </style>
   </head>
   <body class="bg-[#FAF9F6] text-slate-900 antialiased selection:bg-amber-100 selection:text-amber-900">
     <div id="root"></div>
