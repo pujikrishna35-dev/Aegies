@@ -31,7 +31,7 @@ export const AdminSettings: React.FC = () => {
     instagramUrl: 'https://www.instagram.com/aegis.overseas?psln=c2NsbWk5aW9pbm4x',
     linkedinUrl: 'https://linkedin.com/company/aegisoverseas',
     youtubeUrl: 'https://youtube.com/@aegisoverseas',
-    facebookUrl: 'https://facebook.com/aegisoverseas',
+    facebookUrl: 'https://www.facebook.com/profile.php?id=61593900064865',
     metaTitle: 'Study Abroad Consultants | Aegis Overseas Admissions',
     metaDescription: 'Leading overseas education consultants offering guidance for USA, UK, Canada, Australia, Germany, and Ireland.',
     heroHeadline: 'Shape Your Global Career With Top Ranked Universities Worldwide',

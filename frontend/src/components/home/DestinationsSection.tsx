@@ -74,7 +74,7 @@ export const DestinationsSection: React.FC = () => {
             <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-[#071228] tracking-tight">
               EXPLORE YOUR DREAM DESTINATION
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 font-normal">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 font-normal">
               World-class education. Global opportunities. A brighter you.
             </p>
           </div>
@@ -118,7 +118,7 @@ export const DestinationsSection: React.FC = () => {
                   <h3 className="font-bold text-xs sm:text-sm text-[#071228] group-hover:text-[#C5A059] transition-colors leading-tight">
                     {dest.country}
                   </h3>
-                  <p className="text-[10px] text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">
+                  <p className="text-[10px] text-slate-600 mt-1.5 line-clamp-2 leading-relaxed">
                     {dest.desc}
                   </p>
                 </div>

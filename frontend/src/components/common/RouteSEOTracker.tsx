@@ -237,9 +237,7 @@ export const RouteSEOTracker: React.FC = () => {
           priceRange: '₹₹',
           sameAs: [
             'https://www.instagram.com/aegis.overseas?psln=c2NsbWk5aW9pbm4x',
-            'https://linkedin.com/company/aegisoverseas',
-            'https://facebook.com/aegisoverseas',
-            'https://youtube.com/@aegisoverseas'
+            'https://www.facebook.com/profile.php?id=61593900064865'
           ],
           founder: [
             {

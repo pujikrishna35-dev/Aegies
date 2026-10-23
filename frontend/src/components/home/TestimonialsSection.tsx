@@ -62,7 +62,7 @@ export const TestimonialsSection: React.FC = () => {
                 {[...Array(activeReview.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
-                <span className="text-[11px] text-slate-500 font-semibold ml-1.5">
+                <span className="text-[11px] text-slate-600 font-semibold ml-1.5">
                   5.0 on Google
                 </span>
               </div>
@@ -91,12 +91,12 @@ export const TestimonialsSection: React.FC = () => {
                 )}
                 <div>
                   <h4 className="font-bold text-xs text-[#071228] group-hover:text-amber-700 transition-colors">{activeReview.reviewerName}</h4>
-                  <p className="text-[10px] text-slate-500">{activeReview.tagline}</p>
+                  <p className="text-[10px] text-slate-600 font-medium">{activeReview.tagline}</p>
                 </div>
               </Link>
 
               <div className="flex items-center gap-1.5">
-                <span className="text-[10px] font-bold text-slate-500 mr-1">
+                <span className="text-[10px] font-bold text-slate-600 mr-1">
                   {currentReviewIdx + 1}/{GENUINE_REVIEWS.length}
                 </span>
                 <button

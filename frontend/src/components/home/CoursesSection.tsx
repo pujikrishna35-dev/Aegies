@@ -31,7 +31,7 @@ export const CoursesSection: React.FC = () => {
     { name: 'GRE', color: 'bg-indigo-50 text-indigo-700 border-indigo-200' },
     { name: 'GMAT', color: 'bg-slate-100 text-slate-800 border-slate-300' },
     { name: 'SAT', color: 'bg-blue-50 text-blue-700 border-blue-200' },
-    { name: 'OET', color: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
+    { name: 'OET', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
     { name: 'Duolingo', color: 'bg-lime-50 text-lime-800 border-lime-300' }
   ];
 
@@ -110,7 +110,7 @@ export const CoursesSection: React.FC = () => {
                     const Icon = s.icon;
                     return (
                       <div key={i} className="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
-                        <div className="w-6 h-6 rounded-full bg-amber-100 text-[#C5A059] flex items-center justify-center flex-shrink-0">
+                        <div className="w-6 h-6 rounded-full bg-amber-100 text-[#92600E] flex items-center justify-center flex-shrink-0">
                           <Icon className="w-3.5 h-3.5" />
                         </div>
                         <span>{s.title}</span>

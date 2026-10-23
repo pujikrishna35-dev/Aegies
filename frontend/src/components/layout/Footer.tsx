@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -40,14 +40,14 @@ export const Footer: React.FC = () => {
               >
                 <Instagram className="w-3.5 h-3.5" />
               </a>
-              <a href="#" aria-label="Aegis Overseas on Facebook" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
+              <a
+                href="https://www.facebook.com/profile.php?id=61593900064865"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Aegis Overseas on Facebook"
+                className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors"
+              >
                 <Facebook className="w-3.5 h-3.5" />
-              </a>
-              <a href="#" aria-label="Aegis Overseas on LinkedIn" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
-                <Linkedin className="w-3.5 h-3.5" />
-              </a>
-              <a href="#" aria-label="Aegis Overseas on YouTube" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#071228] hover:border-[#071228] transition-colors">
-                <Youtube className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
@@ -124,7 +124,7 @@ export const Footer: React.FC = () => {
                   href="https://wa.me/447892934567"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-bold hover:bg-emerald-100 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-bold hover:bg-emerald-100 transition-colors"
                 >
                   <span>Chat on WhatsApp</span>
                 </a>
@@ -135,16 +135,16 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Subfooter */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-600 gap-3">
           <div>© 2026 Aegis Overseas. All Rights Reserved.</div>
           <div className="flex items-center gap-3">
-            <span className="text-slate-500">
+            <span className="text-slate-600">
               Designed & Developed by{' '}
               <a
                 href="https://anaravtech.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-slate-700 hover:text-[#C5A059] transition-colors"
+                className="font-semibold text-slate-800 hover:text-[#C5A059] transition-colors"
               >
                 Anarav Technologies
               </a>

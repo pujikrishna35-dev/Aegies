@@ -71,7 +71,7 @@ export const JourneySection: React.FC = () => {
                     {m.title}
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <p className="text-[11px] text-slate-600 leading-relaxed">
                   {m.desc}
                 </p>
               </div>
