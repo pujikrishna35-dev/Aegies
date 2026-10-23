@@ -36,7 +36,7 @@ export const StudentSuccessSection: React.FC = () => {
               <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#071228] tracking-tight">
                 REAL STUDENTS. REAL JOURNEYS. REAL IMPACT.
               </h2>
-              <p className="text-xs text-slate-500 mt-1">
+              <p className="text-xs text-slate-600 mt-1">
                 Genuine feedback from students guided to global universities.
               </p>
 
@@ -66,8 +66,8 @@ export const StudentSuccessSection: React.FC = () => {
                         </div>
                       )}
                       <h3 className="font-bold text-xs text-[#071228] group-hover:text-amber-700 transition-colors leading-snug line-clamp-2 h-8 flex items-center">{s.reviewerName}</h3>
-                      <p className="text-[10px] text-amber-700 font-medium">{s.location}</p>
-                      <p className="text-[10px] text-slate-500 font-medium line-clamp-1 h-3.5">{s.tagline}</p>
+                      <p className="text-[10px] text-amber-800 font-semibold">{s.location}</p>
+                      <p className="text-[10px] text-slate-600 font-medium line-clamp-1 h-3.5">{s.tagline}</p>
                       
                       <div className="flex items-center gap-0.5 text-amber-500 mt-2">
                         {[...Array(s.rating)].map((_, i) => (
@@ -81,7 +81,7 @@ export const StudentSuccessSection: React.FC = () => {
                     </div>
 
                     <div className="mt-auto pt-2 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[9px] text-slate-500 group-hover:text-amber-700 transition-colors font-medium">Google Verified</span>
+                      <span className="text-[9px] text-slate-600 group-hover:text-amber-700 transition-colors font-medium">Google Verified</span>
                       <div className="w-5 h-5 rounded-full bg-[#FDF2D9] text-[#071228] flex items-center justify-center border border-[#C5A059]/40 text-[10px] font-bold group-hover:bg-[#C5A059] group-hover:text-white transition-colors">
                         ★
                       </div>

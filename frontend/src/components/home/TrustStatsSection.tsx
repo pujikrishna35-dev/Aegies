@@ -64,7 +64,7 @@ export const TrustStatsSection: React.FC = () => {
                   <div className="text-[11px] font-bold text-slate-800 leading-snug mt-1 min-h-[30px] flex items-start">
                     {s.label}
                   </div>
-                  <div className="text-[10px] text-slate-500 leading-snug mt-0.5 min-h-[26px]">
+                  <div className="text-[10px] text-slate-600 font-medium leading-snug mt-0.5 min-h-[26px]">
                     {s.sub}
                   </div>
                 </div>

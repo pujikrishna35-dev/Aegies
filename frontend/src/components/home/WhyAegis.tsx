@@ -32,7 +32,7 @@ export const WhyAegis: React.FC = () => {
               WE BUILD GLOBAL FUTURES.
             </h2>
             <div className="hidden md:block w-[1.5px] h-11 bg-[#C5A059] self-center shrink-0" />
-            <p className="text-xs sm:text-sm text-neutral-500 font-medium leading-snug">
+            <p className="text-xs sm:text-sm text-slate-600 font-medium leading-snug">
               Comprehensive support<br className="hidden sm:inline" /> at every step.
             </p>
           </div>
@@ -48,7 +48,7 @@ export const WhyAegis: React.FC = () => {
                 to={item.link}
                 className="group flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-2xl border border-neutral-200/80 bg-white hover:border-[#C5A059] hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 min-h-[114px] sm:min-h-[122px]"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl border border-amber-300/80 bg-white flex items-center justify-center text-[#C5A059] group-hover:scale-105 group-hover:bg-[#C5A059] group-hover:text-white transition-all shadow-2xs mb-2.5 shrink-0">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl border border-amber-300/80 bg-white flex items-center justify-center text-[#92600E] group-hover:scale-105 group-hover:bg-[#C5A059] group-hover:text-white transition-all shadow-2xs mb-2.5 shrink-0">
                   <Icon className="w-5 h-5 stroke-[1.75]" />
                 </div>
                 <span className="text-[11px] sm:text-xs font-bold text-[#071228] leading-tight">

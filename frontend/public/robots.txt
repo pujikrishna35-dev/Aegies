@@ -3,7 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /admin
 
-# Host, Sitemap, and Agentic Resource Catalog
-Host: https://aegisoverseas.com
 Sitemap: https://aegisoverseas.com/sitemap.xml
-Agentmap: https://aegisoverseas.com/.well-known/ai-catalog.json

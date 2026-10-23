@@ -13,7 +13,7 @@ export const TestimonialCard: React.FC<{ name: string; text: string; uni: string
       </div>
       <div className="mt-4 pt-3 border-t border-slate-100">
         <h4 className="font-bold text-sm text-slate-900 group-hover:text-amber-700 transition-colors">{name}</h4>
-        <p className="text-[11px] text-slate-400">{uni}</p>
+        <p className="text-[11px] text-slate-600 font-medium">{uni}</p>
       </div>
     </div>
   );

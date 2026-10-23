@@ -136,7 +136,7 @@ export const UniversitiesSection: React.FC = () => {
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#071228] tracking-tight">
               YOUR FUTURE STARTS AT THE RIGHT UNIVERSITY
             </h2>
-            <p className="text-xs text-slate-500 mt-1">
+            <p className="text-xs text-slate-600 mt-1">
               Explore leading global universities and find the right fit for your goals.
             </p>
           </div>

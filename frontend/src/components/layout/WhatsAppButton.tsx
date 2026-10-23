@@ -51,7 +51,7 @@ export const WhatsAppButton: React.FC = () => {
         <span className="text-xs font-bold text-[#071228] whitespace-nowrap">
           Chat on WhatsApp
         </span>
-        <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full">
+        <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200/70">
           Online
         </span>
       </div>

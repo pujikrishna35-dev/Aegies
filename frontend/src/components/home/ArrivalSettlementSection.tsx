@@ -193,7 +193,7 @@ export const ArrivalSettlementSection: React.FC = () => {
 
                     {/* Middle Row: Description + Bedroom Thumbnail */}
                     <div className="flex items-start gap-3 my-2">
-                      <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed flex-1">
+                      <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed flex-1">
                         Find and book verified student accommodation near your university. Choose from university
                         housing, shared apartments, or private stays.
                       </p>
@@ -235,7 +235,7 @@ export const ArrivalSettlementSection: React.FC = () => {
                     <div className="mt-3 pt-2.5 flex items-center justify-between">
                       <Link
                         to="/services/accommodation"
-                        className="text-xs font-bold text-slate-500 hover:text-[#C5A059] transition-colors"
+                        className="text-xs font-bold text-slate-700 hover:text-[#C5A059] transition-colors"
                       >
                         View Details →
                       </Link>
@@ -276,7 +276,7 @@ export const ArrivalSettlementSection: React.FC = () => {
 
                     {/* Middle Row: Description + Car Pickup Thumbnail */}
                     <div className="flex items-start gap-3 my-2">
-                      <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed flex-1">
+                      <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed flex-1">
                         Pre-arranged airport pickup to help you reach your accommodation safely. 24/7 support
                         for a smooth arrival experience.
                       </p>
@@ -318,7 +318,7 @@ export const ArrivalSettlementSection: React.FC = () => {
                     <div className="mt-3 pt-2.5 flex items-center justify-between">
                       <Link
                         to="/services/airport-pickup"
-                        className="text-xs font-bold text-slate-500 hover:text-[#C5A059] transition-colors"
+                        className="text-xs font-bold text-slate-700 hover:text-[#C5A059] transition-colors"
                       >
                         View Details →
                       </Link>
